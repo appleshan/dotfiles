@@ -1,0 +1,15 @@
+# This file lists locales that you wish to have built. You can find a list
+# of valid supported locales at /usr/share/i18n/SUPPORTED, and you can add
+# user defined locales to /usr/local/share/i18n/SUPPORTED. If you change
+# this file, you need to rerun locale-gen.
+
+en_US.UTF-8 UTF-8
+zh_CN.UTF-8 UTF-8
+# zh_HK BIG5-HKSCS
+# zh_HK.UTF-8 UTF-8
+# zh_SG GB2312
+# zh_SG.GBK GBK
+# zh_SG.UTF-8 UTF-8
+# zh_TW BIG5
+# zh_TW.EUC-TW EUC-TW
+zh_TW.UTF-8 UTF-8

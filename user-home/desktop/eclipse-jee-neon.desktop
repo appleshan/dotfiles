@@ -1,0 +1,10 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=eclipse-jee-neon
+Comment=Eclipse Integrated Development Environment
+Exec=/opt/java-ide/eclipse-jee-neon/eclipse/eclipse
+Icon=~/persist/pictures/desktop-icons/eclipse_ide_icon_by_necromod.png
+Terminal=false
+StartupNotify=true
+Type=Application
+Categories=Application;Development;IDE;Java;

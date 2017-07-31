@@ -1,0 +1,35 @@
+# SYNTAX: COMMAND <item address without profile folder address>
+# COMMAND:
+#     l: item to be linked
+#     c: item to be copied
+# NOTE: - ITEM address should without spaces on name
+#       - comments should be on their own lines
+#       - some items are still not on the repo yet
+
+#l .bashrc
+#l .xinputrc
+#l .xprofile
+#l .tmux.conf
+#l .conkyrc
+#l .conky
+#c .config/common-lisp/asdf-output-translations.conf
+#c .config/common-lisp/source-registry.conf
+#c .config/flake8
+#c .config/terminator/config
+#c .config/terminator/plugins/logger.py
+#c .config/terminator/plugins/searchplugin.py
+#l .sift.conf
+
+# net
+#l .proxychains
+#c .arm/torrc
+#l .ssh
+#l .dropbox_uploader
+
+# email
+#l .mutt
+
+# git
+l .gitconfig
+l .git-credentials
+l .repo_.gitconfig.json

@@ -1,0 +1,40 @@
+[global_config]
+  enabled_plugins = InactivityWatch, SearchPlugin, ActivityWatch, TerminalShot, LaunchpadCodeURLHandler, APTURLHandler, LaunchpadBugURLHandler
+  focus = mouse
+  handle_size = 5
+  scroll_tabbar = True
+  tab_position = bottom
+  title_font = Source Code Pro 10
+  title_hide_sizetext = True
+  title_use_system_font = False
+  window_state = maximise
+[keybindings]
+  hide_window = <Primary>F12
+[layouts]
+  [[default]]
+    [[[child1]]]
+      parent = window0
+      profile = default
+      type = Terminal
+    [[[window0]]]
+      parent = ""
+      type = Window
+[plugins]
+[profiles]
+  [[default]]
+    allow_bold = False
+    audible_bell = True
+    background_darkness = 0.87
+    background_image = /home/appleshan/图片/myWallpapers/nsa.jpg
+    background_type = transparent
+    copy_on_selection = True
+    font = Source Code Pro 12
+    foreground_color = "#00ff00"
+    login_shell = True
+    palette = "#000000:#aa0000:#00aa00:#aa5500:#0000aa:#aa00aa:#00aaaa:#aaaaaa:#555555:#ff5555:#55ff55:#ffff55:#5555ff:#ff55ff:#55ffff:#ffffff"
+    scroll_background = False
+    scrollback_infinite = True
+    scrollbar_position = left
+    urgent_bell = True
+    use_system_font = False
+    visible_bell = True

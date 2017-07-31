@@ -1,0 +1,146 @@
+## Description: ~/.procmailrc of procmail
+##              处理邮件
+## Author: Apple Shan
+## Setting: chmod 600 .procmailrc
+## LastUpdate: 01-03-2017
+
+PATH=/bin:/sbin:/usr/bin:/usr/sbin:/usr/local/bin:/usr/local/sbin
+SHELL=/bin/bash
+
+#邮件存放目录
+MAILDIR=$HOME/Dropbox/mail/
+DEFAULT=$MAILDIR/inbox/
+# DEFAULT=/var/spool/mail/$USER
+# ORGMAIL=/var/mail/$USER
+
+#日志文件
+LOGFILE=$MAILDIR/logs/procmail.log
+LOCKFILE=$MAILDIR/.lockmail
+VERBOSE=yes
+#VERBOSE=no
+
+#:0 B #后面的B是对邮件正文过滤
+
+#其他全部放到指定目录下
+:0
+*
+inbox/
+
+################ Virus scanner ##################################
+############# 1. KLEZ.G Virus ###################################
+:0b
+* ^Subject:.*(Let's be friends)
+/dev/null
+
+:0b
+* ^Subject:.*A funny game
+/dev/null
+
+:0b
+* ^Subject:.*Hello\,.*\,how are you.*
+/dev/null
+
+:0 B
+* ^Content-Type:.*audio/x-wav.*
+* ^.*name=.*\.(scr|SCR)
+/dev/null
+
+:0 B
+* ^Content-Type:.*audio/x-midi.*
+* ^.*name=.*\.(scr|SCR)
+/dev/null
+
+:0 B
+* ^Content-Type:.*application/octet-stream.*
+* ^.*name=.*\.(scr|SCR)
+/dev/null
+
+:0 Bb
+* ^This game is my first work.*
+* ^You\'re the first player.*
+* I.*you would .* it.*
+/dev/null
+
+:0 Bb
+* Hello,This is a.*
+* I.*you would.*it.*
+/dev/null
+
+:0 Bb
+* ^This is a.*
+* ^I.*you would.*it.*
+/dev/null
+
+:0 Bb
+* .*This is a.*patch.*
+* ^I .* you would.*it.*
+/dev/null
+
+:0 B
+* ^Content-Type:.*multipart/mixed.*
+* name="ANTI_CIH.EXE"
+/dev/null
+
+:0b
+* ^Subject:.*W32.*removal tools$
+/dev/null
+
+:0b
+* ^Subject:.*Worm Klez.*immunity.*
+/dev/null
+
+############# 2. Nimda Virus ####################################
+:0 Bh
+* ^Content-Type:.*audio/x-wav.*
+* name="readme.exe"
+/dev/null
+
+:0 Bh
+* ^Content-Type:.*audio/x-wav.*
+* name="sample.exe"
+/dev/null
+
+:0 B
+* ^Content-Type:.*multipart/mixed.*
+* name="readme.exe"
+/dev/null
+
+:0 B
+* ^Content-Type:.*multipart/mixed.*
+* name="sample.exe"
+/dev/null
+
+:0 B
+* ^Content-Type:.*application.*
+* name="readme.exe"
+/dev/null
+
+:0 B
+* ^Content-Type:.*application.*
+* name="sample.exe"
+/dev/null
+
+:0 Bh
+* charset="iso-8859-1"
+* name=.*bat
+/dev/null
+
+:0 Bh
+* charset="iso-8859-1"
+* name=1.*zip
+/dev/null
+
+############# 3. SirCam Virus ###################################
+:0 Bh
+* I send you this file in order to have your advice
+/dev/null
+
+############# 4. MMail  Virus ###################################
+:0 Bh
+* name=.*message.zip
+/dev/null
+
+############# 5. Sobig  Virus ###################################
+:0 Bh
+* name=.*pif
+/dev/null

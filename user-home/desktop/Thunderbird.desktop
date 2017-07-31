@@ -1,0 +1,9 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=1.0
+Type=Application
+NoDisplay=true
+Exec=/usr/bin/thunderbird %u
+Name=Thunderbird
+Comment=Thunderbird 的自定义定义
+Name[zh_CN]=Thunderbird.desktop
