@@ -1,0 +1,7 @@
+alias google-alerts Google Alerts <googlealerts-noreply@google.com>
+alias 交通银行信用卡中心 <pccc@bocomcc.com>
+alias 实验楼在线教育 <postmaster@shiyanlouadmin.sendcloud.org>
+alias Inoreader <no-reply@inoreader.com>
+alias 交通银行太平洋信用卡中心 <PCCC@bocomcc.com>
+alias 码农周刊 <noreply@batch.manong.io>
+alias amazon-services Amazon Web Services <aws-china-marketing@amazon.com>

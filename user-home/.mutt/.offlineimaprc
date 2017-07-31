@@ -1,0 +1,70 @@
+## Description: ~/.offlineimaprc of offlineimap
+## Author: Apple Shan
+## Settings: chmod 600 .offlineimaprc
+## LastUpdate: 01-10-2017
+
+# In the general section
+[general]
+ui = ttyui
+# List of accounts to be synced, separated by a comma.
+accounts = GMail
+# Controls how many accounts may be synced simultaneously
+maxsyncaccounts = 1
+pythonfile = ~/.mutt/bin/offlineimap.py
+
+# In the account identifier
+[Account GMail]
+# Identifier for the local repository; e.g. the maildir to be synced via IMAP.
+# Profile-Name for the local Mails for a given Account
+localrepository = Gmail-Local
+# Identifier for the remote repository; i.e. the actual IMAP, usually non-local.
+# Profile-Name for the remote Mails for a given Account
+remoterepository = Gmail-Remote
+# Status cache. Default is plain, which eventually becomes huge and slow.
+status_backend = sqlite
+#使用proxy選項，得確保安裝Python 2的PySocks包，不然代理設置會被忽略。
+#proxy = HTTP:127.0.0.1:18080
+proxy = SOCKS5:127.0.0.1:18080
+
+[Repository Gmail-Local]
+# Currently, offlineimap only supports maildir and IMAP for local repositories.
+type = Maildir
+# Place where the synced Mails should be
+localfolders = ~/Dropbox/mails/gmail
+#nametrans = lambda foldername: re.sub ('^Gmail', '[Gmail]',
+#                               re.sub ('_', ' ', foldername))
+
+# In the remote repository identifier
+[Repository Gmail-Remote]
+# Remote repos can be IMAP or Gmail, the latter being a preconfigured IMAP.
+type = IMAP
+#type = Gmail
+realdelete = no
+keepalive = 60
+holdconnectionopen = yes
+remotehost = imap.gmail.com
+remoteport = 993
+# Login-Name
+remoteuser = apple.shan@gmail.com
+# Login-Password.
+# -- ACHTUNG! Of course, this is not too safe. Make sure that the file is readable only by you.
+# Decrypt and read the encrypted password
+remotepasseval = get_pass()
+
+#"[Gmail]/Some Folder" --> some_folder
+#nametrans = lambda folder: re.sub('^inbox$', 'INBOX',
+#                           re.sub(' +', '_',
+#                           re.sub(r'.*/(.*)$', r'\1', folder).lower()))
+
+#nametrans = lambda foldername: re.sub ('^\[Gmail\]', 'Gmail',
+#                               re.sub (' ', '_', foldername))
+
+nametrans = lambda foldername: foldername.decode('imap4-utf-7').encode('utf-8')
+
+folderfilter = lambda foldername: foldername in ["INBOX"]
+
+# Whether to use SSL or not
+ssl = yes
+# Necessary as of OfflineIMAP 6.5.4
+sslcacertfile = /etc/ssl/certs/ca-certificates.crt
+

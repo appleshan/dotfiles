@@ -1,0 +1,6 @@
+*/.rclone.conf
+/opt/net/shadowsocks/config.json
+/opt/net/shadowsocks/other-config.json
+*/.ssh/id_*
+*/.ssh/known_hosts
+*/.dropbox*

@@ -1,0 +1,66 @@
+# This is a tor configuration made by arm. To change the configuration by hand
+# edit this file then either...
+# - tell arm to reset tor by pressing 'x'
+# - run 'pkill -sighup tor'
+# - or restart tor
+#
+# Descriptions of all of these configuration attributes (and many more) are
+# available in the tor man page.
+
+# The following flag tells arm to shut down tor when it quits.
+# ARM_SHUTDOWN
+
+## The directory for keeping all the keys/etc. By default, we store
+## things in $HOME/.tor on Unix, and in Application Data\tor on Windows.
+DataDirectory /home/appleshan/.arm/tor_data # location to store runtime data
+
+## Logs go to stdout at level "notice" unless redirected by something
+## else, like one of the below lines. You can have as many log lines as
+## you want.
+##
+## Send all messages of level 'notice' or higher to /var/log/tor/notices.log
+Log notice file /home/appleshan/.arm/tor_log # location to log notices, warnings, and errors
+## Send only debug and info messages to /var/log/tor/debug.log
+#Log debug-info file /var/log/tor/debug.log
+## Send ONLY debug messages to /var/log/tor/debug.log
+#Log debug-debug file /var/log/tor/debug.log
+## To use the system log instead of Tor's logfiles, uncomment these lines:
+#Log notice syslog
+## To send all messages to stderr:
+#Log debug stderr
+
+## Uncomment this to start the process in the background... or use
+## --runasdaemon 1 on the command line.
+RunAsDaemon 1
+User appleshan
+Group appleshan
+
+## Replace this with "SocksPort 0" if you plan to run Tor only as a
+## server, and not make any local application connections yourself.
+#SocksPort 9050 # what port to open for local application connections
+#SocksBindAddress 127.0.0.1 # accept connections only from localhost
+#SocksBindAddress 192.168.0.1:9100 # listen on a chosen IP/port too
+
+## The port on which Tor will listen for local connections from Tor controller
+## applications, as documented in control-spec.txt.  NB: this feature is
+## currently experimental.
+ControlPort 9052              # port controllers can connect to
+CookieAuthentication 1        # method for controller authentication
+
+ClientOnly 1                  # prevents us from ever being used as a relay
+
+# 前置的网络代理
+Socks5Proxy 127.0.0.1:18080
+
+# 禁用以下国家的中继节点
+ExcludeNodes {cn},{hk},{mo},{sg},{th},{pk},{by},{ru},{ir},{vn},{ph},{my},{cu},{br},{kz},{kw},{lk},{ci},{tk},{tw},{kp},{sy}
+ExcludeExitNodes {cn},{hk},{mo},{sg},{th},{pk},{by},{ru},{ir},{vn},{ph},{my},{cu},{br},{kz},{kw},{lk},{ci},{tk},{tw},{kp},{sy}
+
+# 按国家指定出口中继节点
+ExitNodes {us}
+
+# 严格按 ExitNodes 设定选用出口中继，即便没有可用中继导致创建地下网络路径失败也要严格选用
+StrictNodes 1
+
+# 完整国家代码参见
+# https://zh.wikipedia.org/wiki/%E5%9C%8B%E5%AE%B6%E5%9C%B0%E5%8D%80%E4%BB%A3%E7%A2%BC

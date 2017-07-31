@@ -1,0 +1,37 @@
+# SYNTAX: COMMAND <item address without profile folder address>
+# COMMAND:
+#     l: item to be linked
+#     c: item to be copied
+# NOTE: - ITEM address should without spaces on name
+#       - comments should be on their own lines
+#       - some items are still not on the repo yet
+
+# system
+# c locale.gen
+# c hostname
+# c resolv.conf
+# c hosts
+# c ssh/ssh_config
+l profile.d/path.sh
+l profile.d/functions.sh
+l profile.d/shell-prompt.sh
+l profile.d/bash-aliases.sh
+l profile.d/maven-bash-completion.sh
+
+# network
+l dnsmasq.d
+l dnsmasq.conf
+
+# database client
+l odbc.ini
+l odbcinst.ini
+l freetds/freetds.conf
+
+# app
+l docker/daemon.json
+l supervisor/conf.d/shadowsocks.conf
+l supervisor/conf.d/dnsmasq.conf
+l youtube-dl.conf
+
+# ubuntu
+#l apt/sources.list

@@ -1,0 +1,2 @@
+text/html; w3m -dump -I $(echo %{charset} | sed s/gb2312/gbk/I) %s; nametemplate=%s.html; copiousoutput
+image/*; ~/.mutt/bin/view_attachment.sh %s

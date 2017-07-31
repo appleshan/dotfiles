@@ -1,0 +1,26 @@
+#+TITLE: 使用 Git 管理自己的 dotfiles
+
+@see https://dotfiles.github.io/
+#+begin_src :tangle no
+
+          888          888     .d888 d8b 888
+          888          888    d88P"  Y8P 888
+          888          888    888        888
+      .d88888  .d88b.  888888 888888 888 888  .d88b.  .d8888b
+     d88" 888 d88""88b 888    888    888 888 d8P  Y8b 88K
+     888  888 888  888 888    888    888 888 88888888 "Y8888b.
+     Y88b 888 Y88..88P Y88b.  888    888 888 Y8b.          X88
+      "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
+#+end_src
+
+什麼是 dotfile 呢？dotfile 就是你的那些 dot 開頭的檔案，譬如說 .vim .vimrc .emacs.d .bashrc
+其實作法很簡單，先建立一個資料夾，初始化 Git repository，建立一個 bash script 來自
+動產生 link。
+
+* 为什么用 symlink 而不是 cp
+
+如果把 $HOME/dotfiles 下的文件 cp 到 $HOME 下的话，我必须自己去同步这两个目录。
+改了前者，需要同步到后者；改了后者，需要同步到前者。忘了同步的话，我会奇怪自己
+的改动怎么不起作用；搞错同步的方向的话，我会哭鼻子。
+
+用 symlink 的话，基本上没有这个问题。

@@ -1,0 +1,198 @@
+# -*- muttrc -*-
+## Description: ~/.muttrc of mutt
+##              管理邮件
+## Author: Apple Shan
+## Setting: chmod 600 .muttrc
+## LastUpdate: 01-03-2017
+
+## 必需的全局设置
+set hostname="localhost"                # Name of our local host.
+set hidden_host                         # Hide host details.
+
+#======================================================#
+# Mail box
+set mbox_type=Maildir
+set mbox=+INBOX                         # Default mailbox. (~/Dropbox/mails/gmail/INBOX)
+set folder=$HOME/Dropbox/mails/gmail    # 邮件的本地存储目录
+set spoolfile=+INBOX                    # 收件箱
+set postponed=+drafts
+set record="+sent-`date +%Y-%m`"        # 已发邮件目录 ($folder/sent-2016-03)
+set trash=+trash                        # 放已删除邮件
+
+set move=no
+#set move=yes                           # 邮件移至 mbox
+#set mbox = "+archive"                  # 如果上面 move 设为yes，则将已读邮件放在这里
+
+set abort_unmodified=no                 # 邮件内容不改没关系，照样能发送。申请ML时有用
+#set postpone=ask-no                    # Ask about postponing.
+set postpone=yes                        # 已编辑但最后关头取消的邮件直接放草稿
+set print=ask-yes                       # Ask before printing.
+set delete=ask-yes                      # Ask before doing a delete.
+
+# cache，可以快速打开 mailboxes
+set header_cache=$HOME/Dropbox/mails/cache/headers
+set message_cachedir=$HOME/Dropbox/mails/cache/bodies
+
+#======================================================#
+# Sidebar Setup
+# set up the sidebar, default not visible
+#set sidebar_width=25
+#set sidebar_visible=yes
+#set sidebar_delim_chars='|'
+#set sidebar_sort=yes
+
+#======================================================#
+# which mailboxes to list in the sidebar
+mailboxes +INBOX +archive +sent +drafts +spam +trash
+set sort_browser=alpha    # Sort mailboxes by alpha(bet)
+
+#======================================================#
+# 收信设置
+macro index G "!syncmail.sh\r"
+macro pager G "!syncmail.sh\r"
+set check_new=yes                   # 检查新邮件
+set mail_check=60                   # Check mail every 60 seconds
+set timeout=30                      # Notify about new mail every 10 seconds
+
+#======================================================#
+# 发信设置
+set realname="Apple Shan"
+set from="Apple Shan<apple.shan@gmail.com>"              # 缺省从此账号发信
+set use_from=yes                                         # 让 msmtp 知道用哪个账号
+set envelope_from=yes                                    # 让 mutt 使用 msmtp 的 -f 选项
+set sendmail="/usr/bin/msmtp --file=~/.mutt/.msmtprc"    # 用 msmtp 发信
+set include                                              # Include the message in replies.
+set indent_str="> "                                      # 回信的引文插入的符号
+set ispell="/usr/bin/aspell"                             # 英文拼写检查
+set reverse_name=yes                                     # 哪个邮箱收的就以那个邮箱的名字填 From 字段
+set reverse_realname=yes
+
+#======================================================#
+# 邮件格式
+my_hdr From: apple.shan@gmail.com                        # 缺省发件地址
+my_hdr Reply-To: apple.shan@gmail.com                    # 缺省回件地址
+set index_format="| %4C | %Z | %{ %b %d } | %-15.15L | %s"
+set folder_format="| %2C | %t %N | %8s | %d | %f"
+
+#======================================================#
+## 多个账户切换
+# macro generic "<esc>1" ":set from=apple.shan@gmail.com"
+# macro generic "<esc>2" ":set from=xxxxx@outlook.com"
+# macro generic "<esc>3" ":set from=xxxxx@yahoo.com"
+
+#======================================================#
+# 邮件打分
+set sort = reverse-threads
+set sort_aux = last-date-received
+#set sort=threads
+# set sort=reverse-date-received  # 按日期由近及远排列
+#set sort_aux=score              # 按评分排序
+score "~N" +4                   # 新信件 +4
+score "~s 会议" +2              # 主题包含“会议” +2
+score "~s 通知" +2              # 主题包含“通知” +2
+score "~s meeting" +2           # 主题包含“meeting” +2
+score "~D" -5                   # 已经标记删除的 -5
+score "~O" +1                   # 上次没读的 +1
+
+#======================================================#
+# Aliases
+# filters new messages through a shell script that automatically generates a mutt alias for new senders
+set display_filter=$HOME/.mutt/bin/add_alias_filter.sh
+set alias_file=$HOME/.mutt/aliases
+source $alias_file                   # Load in my aliases.
+set sort_alias=alias                 # Sort alphabetically
+#set query_command="abook --mutt-query '%s'"
+#macro editor ";" \Ct
+
+#======================================================#
+# 个人使用习惯
+set copy                           # 保留已发邮件的备份
+set beep_new=yes                   # 来新邮件时，蜂鸣
+set mime_forward                   # 转发的邮件 MIME 附件
+set sendmail_wait=-1               # Don't wait around for sendmail
+set fcc_clear                      # Keep fcc's clear of signatues and encryption
+set tilde                          # 过滤带 ~ 的邮件
+set read_inc=100                   # Read counter ticks every 100 msgs
+set write_inc=100                  # Write counter ticks every 100 msgs
+set pager_stop                     # Don't skip msgs on next page
+set fast_reply                     # 按 "r" 回信时，直接进入编辑模式
+set resolve=yes                    # 按 "t" 或 "D" 时，自动移动光标到下封
+set wait_key=no                    # 外部程序退出时，要求用户按键返回
+set quit=yes                       # 退出时，直接退出
+set auto_tag = yes
+
+set nobeep                         # We don't need no beeping software.
+set nomarkers                      # Don't want any wrap markers.
+set nomark_old                     # Don't mark unread new msgs as old.
+set nosmart_wrap                   # Don't want smart wrapping.
+set nopipe_decode                  # Don't decode messages when piping
+set noconfirmappend                # Just append, don't hassle me
+set nostrict_threads               # Lets have some fuzzy threading.
+
+#======================================================#
+# Stuff for viewing html e-mails
+#set mailcap_path=~/.mutt/mailcap
+
+#======================================================#
+# What to show and order of headers
+ignore *
+unignore Date: From: User-Agent: X-Mailer X-Operating-System To: \
+         Cc: Reply-To: Subject: Mail-Followup-To:
+# 邮件头的显示顺序
+hdr_order Date: From: User-Agent: X-Mailer X-Operating-System To: \
+        Cc: Reply-To: Subject: Mail-Followup-To:
+
+#======================================================#
+# 用这个编辑器来写邮件
+#set editor="emacs -geometry 90x73+298+0"
+#set editor="emacs -nw --no-init-file +7:0"
+#set editor="vim +':set textwidth=0' +':set wrapmargin=0' +':set wrap' +/^$ ++1"
+#set editor="vim -c 'set tw=70 et' '+/^$' 'set formatoptions+=mM' "
+set edit_headers=yes      # See the headers when editing
+
+#======================================================#
+# Odds and ends
+set pager_index_lines=5            # 看信时在 index 留出多少行显示邮件列表
+set pager_context=3                # Display 3 lines of context in pager
+set status_on_top                  # Status bar on top.
+
+#======================================================#
+# 编码及中文设置
+set locale="zh_CN.UTF-8"            # 使用中文
+set ascii_chars=yes                 # ascii 表示树状列表
+set charset="utf-8"                 # 编码及发件编码
+set send_charset="us-ascii:iso-8859-1:utf-8:gb2312" #一般发邮件时按这个顺序选编码
+charset-hook ^us-ascii$ gb2312      # 把 us-ascii 编码映射到 gb2312
+charset-hook ^iso-8859-1$ gb2312    # 把 iso-8859-1 编码映射到 gb2312
+charset-hook !utf-8 gb2312          # 把非 utf-8 编码映射到 gb2312
+# 解决中文附件名为乱码的问题
+set rfc2047_parameters=yes
+
+#======================================================#
+# Colours: Use the Solarized color scheme
+# uncomment the colorscheme you want to use, and comment out the others
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-16.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-16.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-dark-256.muttrc
+#source ~/.mutt/mutt-colors-solarized/mutt-colors-solarized-light-256.muttrc
+
+#======================================================#
+source ~/.mutt/auto_views                 # Define auto_views.
+# source ~/.mutt/subscriptions              # Define the list of subscribed mailing lists.
+source ~/.mutt/mailboxes                  # Define the list of folders that receive mail.
+source ~/.mutt/headers                    # Configure header display.
+# source ~/.mutt/folder-hooks               # Define folder-hooks.
+# source ~/.mutt/save-hooks                 # Define save-hooks.
+# source ~/.mutt/fcc-hooks                  # Define fcc-hooks.
+# source ~/.mutt/message-hooks              # Define message hooks.
+source ~/.mutt/bindings                   # Define key bindings.
+source ~/.mutt/macros                     # Define macros.
+source ~/.mutt/colours                    # Define colours.
+source ~/.mutt/non-standard               # Support for mutt patches.
+
+# HTML is the last option.
+alternative_order text/enriched text/plain text/html
+
+#======================================================#
+# Last, but not least, get mutt to display its version on startup.
+# push <show-version>

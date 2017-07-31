@@ -1,0 +1,7 @@
+# -*- muttrc -*-
+#
+# Commands and settings for non-core-mutt patches.
+#
+
+# Support for compressed folders (read-only in this case)
+open-hook \\.gz$ "gzip -cd %f > %t"
