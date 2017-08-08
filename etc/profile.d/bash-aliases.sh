@@ -5,14 +5,14 @@
 #-------------------
 
 # apt-get
-alias aptu="sudo apt update"
-alias aptua="sudo apt upgrade"
-alias apts="sudo apt-cache search"
-alias apti="sudo apt install"
-alias aptr="sudo apt remove"
-alias aptac="sudo apt autoclean"
-alias aptar="sudo apt autoremove"
-alias apti-proxy='sudo apt -o "Acquire::http::Proxy=http://127.0.0.1:18080" install'
+#alias aptu="sudo apt update"
+#alias aptua="sudo apt upgrade"
+#alias apts="sudo apt-cache search"
+#alias apti="sudo apt install"
+#alias aptr="sudo apt remove"
+#alias aptac="sudo apt autoclean"
+#alias aptar="sudo apt autoremove"
+#alias apti-proxy='sudo apt -o "Acquire::http::Proxy=http://127.0.0.1:18080" install'
 
 # modified commands
 alias cat='pygmentize -O style=monokai -f console256 -g'
@@ -31,20 +31,20 @@ alias grep='grep --color=auto \
 --exclude=\*.iml \
 --exclude=\*.iws \
 --exclude=\*.jar'
-#alias more='less'
+# alias more='less'
 alias df='df -kTh'
 alias dfxfs='df -Th --total -t xfs'
 alias du='du -kh -c'
-alias md='mkdir -p -v'
+# alias md='mkdir -p -v'
 alias nano='nano -w'
 alias ping='ping -c 5'
 alias tree='tree -C'		# nice alternative to 'ls'
 alias cd..="cd .."
 alias ..='cd ..'
-alias ...='cd ../..'
-alias ....='cd ../../..'
-alias .....='cd ../../../..'
-alias ......='cd ../../../../..'
+#alias ...='cd ../..'
+#alias ....='cd ../../..'
+#alias .....='cd ../../../..'
+#alias ......='cd ../../../../..'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
@@ -57,9 +57,9 @@ alias pg='ps aux | head -n1; ps aux | grep -i'
 
 # The 'ls' family (this assumes you use the GNU ls)
 alias ls='ls --show-control-chars --color=auto -hF'
-alias l='ls -CF'
-alias ll='ls -alFh'
-alias la='ls -Al'          # show hidden files
+#alias l='ls -CF'
+#alias ll='ls -alFh'
+#alias la='ls -Al'          # show hidden files
 alias lx='ls -lXB'         # sort by extension
 alias lk='ls -lSr'         # sort by size
 alias lc='ls -lcr'		     # sort by change time
@@ -72,7 +72,7 @@ alias lm='ls -al |more'    # pipe through 'more'
 alias cp='cp -i'
 alias mv='mv -i'
 alias rm='rm -I'                    # 'rm -i' prompts for every file
-alias ln='ln -i'
+#alias ln='ln -i'
 alias chown='chown --preserve-root'
 alias chmod='chmod --preserve-root'
 alias chgrp='chgrp --preserve-root'
@@ -86,7 +86,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-alias pcs='proxychains4'
+alias pc='proxychains4'
 
 alias magit='ec -e "(magit-status \"$(pwd)\")"'
 

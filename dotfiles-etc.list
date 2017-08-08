@@ -14,24 +14,24 @@
 # c ssh/ssh_config
 l profile.d/path.sh
 l profile.d/functions.sh
-l profile.d/shell-prompt.sh
+#l profile.d/shell-prompt.sh
 l profile.d/bash-aliases.sh
-l profile.d/maven-bash-completion.sh
+#l profile.d/maven-bash-completion.sh
 
 # network
-l dnsmasq.d
-l dnsmasq.conf
+#l dnsmasq.d
+#l dnsmasq.conf
 
 # database client
-l odbc.ini
-l odbcinst.ini
-l freetds/freetds.conf
+#l odbc.ini
+#l odbcinst.ini
+#l freetds/freetds.conf
 
 # app
-l docker/daemon.json
-l supervisor/conf.d/shadowsocks.conf
-l supervisor/conf.d/dnsmasq.conf
-l youtube-dl.conf
+#l docker/daemon.json
+#l supervisor/conf.d/shadowsocks.conf
+#l supervisor/conf.d/dnsmasq.conf
+#l youtube-dl.conf
 
 # ubuntu
 #l apt/sources.list

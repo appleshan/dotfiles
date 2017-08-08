@@ -32,11 +32,11 @@ fi
 # Oracle JDK 7
 # export JAVA_7_HOME=/opt/jdk/jdk1.7.0_60
 # Oracle JDK 8
-export JAVA_8_HOME=/opt/jdk/jdk1.8.0_102
+#export JAVA_8_HOME=/opt/jdk/jdk1.8.0_102
 # default JDK is 8
-export JAVA_HOME=$JAVA_8_HOME
+#export JAVA_HOME=$JAVA_8_HOME
 
-export PATH=$JAVA_HOME/bin:$PATH
+#export PATH=$JAVA_HOME/bin:$PATH
 #export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
 # SWITCHING #
@@ -55,9 +55,9 @@ export PATH=$JAVA_HOME/bin:$PATH
 ###############
 
 # VERSIONS #
-export MAVEN_HOME=/opt/jdk/apache-maven-3.3.9
-export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
-export PATH=$MAVEN_HOME/bin:$PATH
+#export MAVEN_HOME=/opt/jdk/apache-maven-3.3.9
+#export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
+#export PATH=$MAVEN_HOME/bin:$PATH
 
 #################
 # Eclipse Setup #
@@ -75,28 +75,28 @@ export PATH=$MAVEN_HOME/bin:$PATH
 #################
 # golang        #
 #################
-export GOARCH=amd64
-export GOOS=linux
+#export GOARCH=amd64
+#export GOOS=linux
 
 # GOROOT is the location where Go package is installed on your system.
-export GOROOT=/opt/golang/go-1.7.5
+#export GOROOT=/opt/golang/go-1.7.5
 
 # GOPATH is the location of your work directory.
-export GOPATH=~/developer/projects/golang
+#export GOPATH=~/developer/projects/golang
 
 # 安装目录的 bin 文件夹，须要加入 PATH 变量
-export GOBIN=$GOPATH/bin
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+#export GOBIN=$GOPATH/bin
+#export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
 #################
 # Oracle Client #
 #################
 
 # Oracle Client
-export ORACLE_HOME=/opt/oracle
-export LD_LIBRARY_PATH=/opt/oracle/lib
-export NLS_LANG="SIMPLIFIED CHINESE_CHINA.AL32UTF8"
-export PATH=$ORACLE_HOME/bin:$PATH
+#export ORACLE_HOME=/opt/oracle
+#export LD_LIBRARY_PATH=/opt/oracle/lib
+#export NLS_LANG="SIMPLIFIED CHINESE_CHINA.AL32UTF8"
+#export PATH=$ORACLE_HOME/bin:$PATH
 
 #################
 # Python        #
