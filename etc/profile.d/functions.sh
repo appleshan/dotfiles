@@ -7,6 +7,9 @@ export LC_ALL="zh_CN.UTF-8"
 export LC_TIME="zh_CN.UTF-8"
 export LESSCHARSET=utf-8
 
+# 控制 ls 显示的时间格式
+export TIME_STYLE='+%Y/%m/%d %H:%M:%S'
+
 # hh
 export HH_CONFIG=hicolor         # get more colors
 shopt -s histappend              # append new history items to .bash_history
