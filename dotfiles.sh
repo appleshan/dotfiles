@@ -55,7 +55,7 @@ sync () {
 status () {
     if [[ ! -e $TARGET_DIR/$ITEM_TO_SYNC ]]; then
         echo "NOSYNC: $ITEM_TO_SYNC" >&2
-        return
+        continue
     fi
     case $1 in
         l)

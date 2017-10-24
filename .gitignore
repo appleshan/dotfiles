@@ -4,3 +4,4 @@
 */.ssh/id_*
 */.ssh/known_hosts
 */.dropbox*
+*/.git-credentials
