@@ -1,4 +1,6 @@
-# PATH="/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/games:/usr/local/games"
+#!zsh
+
+# PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/bin" ] ; then
@@ -103,7 +105,7 @@ fi
 #################
 
 # 禁用字节码(.pyc)文件
-# export PYTHONDONTWRITEBYTECODE=1
+export PYTHONDONTWRITEBYTECODE=1
 
 #if [ `id -u` != '0' ]; then
 ##     export VIRTUALENV_USE_DISTRIBUTE=1        # <-- Always use pip/distribute

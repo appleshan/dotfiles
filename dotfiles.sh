@@ -36,10 +36,10 @@ sync () {
         if [[ $(stat -L -c '%i' "$TARGET_DIR/$ITEM_TO_SYNC") == \
             $(stat -L -c '%i' "$SYNC_DIR/$ITEM_TO_SYNC") ]]; then
             echo "DID: $ITEM_TO_SYNC"
-            continue
+            return
         fi
         echo "WARN: different item '$TARGET_DIR/$ITEM_TO_SYNC' exists" >&2
-        continue
+        return
     fi
     mkdir -p $(dirname "$TARGET_DIR/$ITEM_TO_SYNC")
     case $1 in
@@ -55,7 +55,7 @@ sync () {
 status () {
     if [[ ! -e $TARGET_DIR/$ITEM_TO_SYNC ]]; then
         echo "NOSYNC: $ITEM_TO_SYNC" >&2
-        continue
+        return
     fi
     case $1 in
         l)
@@ -101,7 +101,8 @@ case $2 in
         ;;
     home)
         SYNC_DIR="$CWD/user-home"
-        TARGET_DIR="$HOME"
+        # TARGET_DIR="$HOME"
+        TARGET_DIR="/home/appleshan"
         ;;
     opt)
         SYNC_DIR="$CWD/opt"

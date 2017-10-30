@@ -1,3 +1,4 @@
+#!zsh
 # bash_aliases
 
 #-------------------
@@ -18,6 +19,7 @@
 alias cat='pygmentize -O style=monokai -f console256 -g'
 alias diff='colordiff'              # requires colordiff package
 alias grep='grep --color=auto \
+--exclude-dir=.bzr \
 --exclude-dir=.cvs \
 --exclude-dir=.git \
 --exclude-dir=.hg \
@@ -40,11 +42,6 @@ alias nano='nano -w'
 alias ping='ping -c 5'
 alias tree='tree -C'		# nice alternative to 'ls'
 alias cd..="cd .."
-alias ..='cd ..'
-#alias ...='cd ../..'
-#alias ....='cd ../../..'
-#alias .....='cd ../../../..'
-#alias ......='cd ../../../../..'
 
 # new commands
 alias da='date "+%A, %B %d, %Y [%T]"'
@@ -57,9 +54,9 @@ alias pg='ps aux | head -n1; ps aux | grep -i'
 
 # The 'ls' family (this assumes you use the GNU ls)
 alias ls='ls --show-control-chars --color=auto -hF'
-#alias l='ls -CF'
-#alias ll='ls -alFh'
-#alias la='ls -Al'          # show hidden files
+#alias l='ls -lah'
+#alias ll='ls -lh'
+#alias la='ls -lAh'          # show hidden files
 alias lx='ls -lXB'         # sort by extension
 alias lk='ls -lSr'         # sort by size
 alias lc='ls -lcr'		     # sort by change time
@@ -93,7 +90,7 @@ alias magit='ec -e "(magit-status \"$(pwd)\")"'
 #alias cd='source $HOME/.dacecd/dcd.sh'
 #alias cdl='$HOME/.dacecd/dcd;source $HOME/.dacecd/command.sh'
 
-#alias htop='xtitle Processes on $HOST && htop'
+alias htop='xtitle Processes on $HOST && htop'
 
 alias wa='which -a'
 alias ta='type -a'

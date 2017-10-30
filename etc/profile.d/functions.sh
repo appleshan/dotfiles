@@ -1,27 +1,22 @@
-#!/bin/bash
+#!zsh
 
 # source me in your script or .bashrc/.zshrc if wanna use cecho
 # source '/path/to/functions.sh'
 
-export LC_ALL="zh_CN.UTF-8"
-export LC_TIME="zh_CN.UTF-8"
+# export LC_ALL="zh_CN.UTF-8"
+# export LC_TIME="zh_CN.UTF-8"
+export LC_ALL="en_HK.UTF-8"
+export LC_TIME="en_HK.UTF-8"
 export LESSCHARSET=utf-8
 
 # 控制 ls 显示的时间格式
 export TIME_STYLE='+%Y/%m/%d %H:%M:%S'
 
-# hh
-export HH_CONFIG=hicolor         # get more colors
-shopt -s histappend              # append new history items to .bash_history
 # export HISTCONTROL=ignorespace   # leading space hides commands from history
 export HISTFILESIZE=10000        # increase history file size (default is 500)
 export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
-# if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
-if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh \C-j"'; fi
 
-# ntfy
-#eval "$(ntfy shell-integration)"
 
 # {{ extract & compress
 
@@ -55,6 +50,11 @@ function extract {
         echo "'$1' - file does not exist"
     fi
 fi
+}
+
+function extract_and_remove {
+  extract $1
+  rm -f $1
 }
 
 # easy compress - archive wrapper
@@ -131,27 +131,6 @@ datauri() {
     printf "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')" | pbcopy | printf "=> data URI copied to pasteboard.\n"
 }
 
-# percol
-# ps aux | percol | awk '{ print $2 }' | xargs kill
-function ppgrep() {
-    if [[ $1 == "" ]]; then
-        PERCOL=percol
-    else
-        PERCOL="percol --query $1"
-    fi
-    ps aux | eval $PERCOL | awk '{ print $2 }'
-}
-
-function ppkill() {
-    if [[ $1 =~ "^-" ]]; then
-        QUERY=""            # options only
-    else
-        QUERY=$1            # with a query
-        [[ $# > 0 ]] && shift
-    fi
-    ppgrep $QUERY | xargs kill $*
-}
-
 function myip() # get IP adresses
 {
     myip=`w3m http://ipecho.net/plain`
@@ -219,15 +198,6 @@ function pclip() {
     fi
 }
 
-function h () {
-    # reverse history, pick up one line, remove new line characters and put it into clipboard
-    if [ -z "$1" ]; then
-        history | sed '1!G;h;$!d' | ~/bin/cli/percol | sed -n 's/^ *[0-9][0-9]* *\(.*\)$/\1/p'| tr -d '\n' | pclip
-    else
-        history | grep "$1" | sed '1!G;h;$!d' | ~/bin/cli/percol | sed -n 's/^ *[0-9][0-9]* *\(.*\)$/\1/p'| tr -d '\n' | pclip
-    fi
-}
-
 function history_top_10 ()
 {
     history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' \
@@ -270,6 +240,31 @@ pps_man() {
     emacsclient -t -e "(woman \"$1\")"
 }
 alias m=pps_man
+
+# {{ percol
+# @see https://github.com/mooz/percol
+if exists percol; then
+    function percol_select_history() {
+        local tac
+        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+        CURSOR=$#BUFFER         # move cursor
+        zle -R -c               # refresh
+    }
+
+    zle -N percol_select_history
+    bindkey '^R' percol_select_history
+fi
+# }}
+
+# hh
+#export HH_CONFIG=hicolor         # get more colors
+#shopt -s histappend              # append new history items to .bash_history
+# if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
+#if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh \C-j"'; fi
+
+# ntfy
+#eval "$(ntfy shell-integration)"
 
 ###############################################################################
 # Java
