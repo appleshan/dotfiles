@@ -18,7 +18,7 @@
 #c .config/terminator/config
 #c .config/terminator/plugins/logger.py
 #c .config/terminator/plugins/searchplugin.py
-#l .sift.conf
+l .sift.conf
 
 # net
 #l .proxychains

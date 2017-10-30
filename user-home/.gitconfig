@@ -3,6 +3,9 @@
 	email = apple.shan@gmail.com
 [color]
 	ui = auto
+[core]
+	editor = emacs
+	autocrlf = false
 [alias]
 	lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
 [credential]
