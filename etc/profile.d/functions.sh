@@ -243,6 +243,11 @@ alias m=pps_man
 
 # {{ percol
 # @see https://github.com/mooz/percol
+
+function exists() {
+  which $1 &> /dev/null
+}
+
 if exists percol; then
     function percol_select_history() {
         local tac
