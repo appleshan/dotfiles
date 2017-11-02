@@ -5,7 +5,7 @@
 #TODO: error whene sync /etc without root permission
 
 dotfile () {
-    if [ ! -f dotfiles-${2}.list ]; then
+    if [ ! -f "dotfiles-${2}.list" ]; then
         echo "ERROR: configuration file 'dotfiles-${2}.list' not found" >&2
         exit 1
     fi
@@ -13,10 +13,11 @@ dotfile () {
         echo "ERROR: ${SYNC_DIR} dir to sync not found on $(pwd)" >&2
         exit 1
     fi
-    echo $1 $2:
-    grep "^\w*[lc] \+[^[:space:]]\+\w*$" dotfiles-${2}.list | \
-        while read line; do
+    echo "$1" "$2":
+    grep "^\w*[lc] \+[^[:space:]]\+\w*$" dotfiles-"${2}".list | \
+        while read -r line; do
             ITEM_TO_SYNC=$(awk '{print $2}' <<< "$line")
+
             if [ ! -e "$SYNC_DIR/$ITEM_TO_SYNC" ]; then
                 echo "ERROR: item not found @ $SYNC_DIR/$ITEM_TO_SYNC'" >&2
                 continue
@@ -27,10 +28,10 @@ dotfile () {
 
 sync () {
     if [[ "$1" == "c"  && -e $TARGET_DIR/$ITEM_TO_SYNC ]]; then
-        diff {$SYNC_DIR,$TARGET_DIR}/$ITEM_TO_SYNC > /dev/null \
+        diff {"$SYNC_DIR","$TARGET_DIR"}/"$ITEM_TO_SYNC" > /dev/null \
             && echo "DID: $ITEM_TO_SYNC" \
             || echo "WARN: different item '$TARGET_DIR/$ITEM_TO_SYNC' exists" >&2
-        continue
+        return
     fi
     if [[ "$1" == "l" && -e $TARGET_DIR/$ITEM_TO_SYNC ]];then
         if [[ $(stat -L -c '%i' "$TARGET_DIR/$ITEM_TO_SYNC") == \
@@ -67,7 +68,7 @@ status () {
             fi
             ;;
         c)
-            diff {$SYNC_DIR,$TARGET_DIR}/$ITEM_TO_SYNC > /dev/null \
+            diff {"$SYNC_DIR","$TARGET_DIR"}/"$ITEM_TO_SYNC" > /dev/null \
                 && echo "MATCH : $ITEM_TO_SYNC" \
                 || echo "DIFFER: $ITEM_TO_SYNC" >&2
             ;;
@@ -76,8 +77,8 @@ status () {
 
 help () {
     cat << EOF
-$(basename $0): sync dotfiles
-USAGE: $(basename $0) COMMAND PROFILE
+$(basename "$0"): sync dotfiles
+USAGE: $(basename "$0") COMMAND PROFILE
 command:
         sync: sync dotfiles of profile
         status: check diff/status of profile's dotfiles
@@ -88,12 +89,14 @@ profile:
 EOF
 }
 
-CWD=$(readlink -f $(dirname $0))
+CWD=$(readlink -f "$(dirname "$0")")
+
 if [ $# -ne 2 ]; then
     # echo "ERROR: unvalid numbber of args" >&2
     help >&2
     exit 1
 fi
+
 case $2 in
     etc)
         SYNC_DIR="$CWD/etc"
@@ -114,9 +117,10 @@ case $2 in
         exit 1
         ;;
 esac
+
 case $1 in
     sync|status)
-        dotfile $1 $2;;
+        dotfile "$1" "$2";;
     *)
         echo "ERROR: unsupported command" >&2
         help >&2
