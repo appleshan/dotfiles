@@ -33,3 +33,6 @@ l .sift.conf
 l .gitconfig
 l .git-credentials
 l .repo_.gitconfig.json
+
+# python
+l .pip/pip.conf
