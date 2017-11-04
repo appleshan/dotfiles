@@ -21,7 +21,7 @@ l .tmux.conf
 l .sift.conf
 
 # net
-#l .proxychains
+l .proxychains/proxychains.conf
 #c .arm/torrc
 #l .ssh
 #l .dropbox_uploader
