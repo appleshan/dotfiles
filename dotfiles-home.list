@@ -9,7 +9,7 @@
 #l .bashrc
 #l .xinputrc
 #l .xprofile
-#l .tmux.conf
+l .tmux.conf
 #l .conkyrc
 #l .conky
 #c .config/common-lisp/asdf-output-translations.conf
