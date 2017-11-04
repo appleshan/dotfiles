@@ -120,4 +120,6 @@ alias ipy='ipython'
 alias ipy2='ipython2'
 alias ipy3='ipython3'
 
+alias prp="pipenv run python"
+
 alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
