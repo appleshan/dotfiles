@@ -24,6 +24,7 @@ l profile.d/functions.sh
 # network
 #l dnsmasq.d
 #l dnsmasq.conf
+l proxychains.conf
 
 # database client
 #l odbc.ini
