@@ -245,14 +245,106 @@ alias m=pps_man
 # Define useful commands
 # ------------------------------------------------------------
 
-# {{ percol
-# @see https://github.com/mooz/percol
+# hh
+#export HH_CONFIG=hicolor         # get more colors
+#shopt -s histappend              # append new history items to .bash_history
+# if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
+#if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh \C-j"'; fi
 
-function exists() {
-  which $1 &> /dev/null
+# ntfy
+#eval "$(ntfy shell-integration)"
+
+# {{ @see http://samray.xyz/%E5%A6%82%E4%BD%95%E5%9C%A8-Linux%20%E4%B8%8B%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87
+# SSH 免密码代理
+function config_ssh_login_key(){
+    if [ $# -lt 3 ];then
+    echo "Usage: $(basename $0) -u user -h hostname -p port"
+    kill -INT $$
+    fi
+    #if public/private key doesn't exist ,generate public/private key 
+    if [ -f ~/.ssh/id_rsa ];then
+    echo "public/private key exists"
+    else
+    ssh-keygen -t rsa
+    fi
+    while getopts :u:h:p: option
+    do
+    case "$option" in
+            u) user=$OPTARG;;
+            h) hostname=$OPTARG;;
+            p) port=$OPTARG;;
+            *) echo "Unknown option:$option";;
+    esac
+    done
+
+    if [ -z "$port" ];then
+    port=22
+    fi
+    #check whether it is the first time to run this script and whether authorized_keys exists
+    # ssh_host_and_user="$1@$2"
+    authorized_keys="$HOME/.ssh/authorized_keys"
+    printf "$user@$hostname's password:";read -r -s password
+    if sshpass -pv $password ssh -p "$port" "$user@$hostname" test -e "$authorized_keys";then
+    echo "authorized key exists"
+    kill -INT $$
+    else
+    sshpass -p $password ssh  $user@$hostname -p $port "mkdir -p ~/.ssh;chmod 0700 .ssh"
+    sshpass -p $password scp -P $port  ~/.ssh/id_rsa.pub $user@$hostname:~/.ssh/authorized_keys
+    # ssh-copy-id "$user@$hostname -p $port"
+    fi
 }
+# 脚本用法
+# config_ssh_login_key -u samray -h 192.168.199.127 -p 666
 
+# 生成若干位的密钥
+# generate key
+function gkey(){
+    if [ -n "$1" ];then
+     local length="$1"
+    else
+     local length=32
+    fi
+    OS_NAME=$(uname)
+    if [ $OS_NAME = "Darwin" ]; then
+     LC_CTYPE=C cat /dev/urandom |tr -cd "[:alnum:]"|head -c "$length";echo
+    else
+     cat /dev/urandom |tr -cd "[:alnum:]"|head -c "$length";echo
+    fi
+}
+# 脚本用法
+# gkey
+# or
+# gkey 64
+
+# 复制命令行输出
+# 需要安装 xsel 或者是 xclip 命令
+OS_NAME=$(uname)
+function pclip() {
+    if [ $OS_NAME = "CYGWIN" ]; then
+    putclip "$@";
+    elif [ $OS_NAME = "Darwin" ]; then
+    pbcopy "$@";
+    else
+    if [ -x /usr/bin/xsel ]; then
+        xsel -ib "$@";
+    else
+        if [ -x /usr/bin/xclip ]; then
+        xclip -selection c "$@";
+        else
+        echo "Neither xsel or xclip is installed!"
+        fi
+    fi
+    fi
+}
+# 脚本用法：
+# gkey|pclip
+
+function exists() { which $1 &> /dev/null }
+
+# percol
+# @see https://github.com/mooz/percol
 if exists percol; then
+    # 交互选取历史命令
     function percol_select_history() {
         local tac
         exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
@@ -283,16 +375,23 @@ function ppkill() {
     fi
     ppgrep $QUERY | xargs kill $*
 }
+
+# 复制当前文件路径或者是目录路径
+
+# 复制当前目录下的某个文件路径：
+function pwdf()
+{
+    local current_dir=`pwd`
+    local copied_file=`find $current_dir -type f -print |percol`
+    echo -n $copied_file |pclip;
+}
+
+# 复制当前目录的路径：
+function pwdp(){
+    pwd|pclip;
+}
+
 # }}
-
-# hh
-#export HH_CONFIG=hicolor         # get more colors
-#shopt -s histappend              # append new history items to .bash_history
-# if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
-#if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh \C-j"'; fi
-
-# ntfy
-#eval "$(ntfy shell-integration)"
 
 ###############################################################################
 # Java
