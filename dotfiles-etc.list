@@ -21,21 +21,25 @@ l profile.d/functions.sh
 #l profile.d/shell-prompt.sh
 #l profile.d/maven-bash-completion.sh
 
-# network
+## network
+c dnscrypt-proxy.conf
+c unbound/unbound.conf
+c unbound/root.hints
+c unbound/accelerated-domains.china.unbound.conf
 #l dnsmasq.d
 #l dnsmasq.conf
 l proxychains.conf
 
-# database client
+## database client
 #l odbc.ini
 #l odbcinst.ini
 #l freetds/freetds.conf
 
-# app
+## app
 #l docker/daemon.json
 #l supervisor/conf.d/shadowsocks.conf
 #l supervisor/conf.d/dnsmasq.conf
 #l youtube-dl.conf
 
-# ubuntu
+## ubuntu
 #l apt/sources.list
