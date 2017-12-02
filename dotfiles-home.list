@@ -9,6 +9,7 @@
 #l .bashrc
 #l .xinputrc
 #l .xprofile
+l .zshrc
 l .tmux.conf
 #l .conkyrc
 #l .conky
