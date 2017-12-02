@@ -16,66 +16,17 @@
 #alias apti-proxy='sudo apt -o "Acquire::http::Proxy=http://127.0.0.1:18080" install'
 
 # modified commands
-alias cat='pygmentize -O style=monokai -f console256 -g'
-alias diff='colordiff'              # requires colordiff package
-alias grep='grep --color=auto \
---exclude-dir=.bzr \
---exclude-dir=.cvs \
---exclude-dir=.git \
---exclude-dir=.hg \
---exclude-dir=.svn \
---exclude-dir=target \
---exclude-dir=build \
---exclude-dir=_site \
---exclude-dir=.idea \
---exclude-dir=taobao-tomcat \
---exclude=\*.ipr \
---exclude=\*.iml \
---exclude=\*.iws \
---exclude=\*.jar'
+
 # alias more='less'
 alias df='df -kTh'
 alias dfxfs='df -Th --total -t xfs'
-alias du='du -kh -c'
-# alias md='mkdir -p -v'
-alias nano='nano -w'
-alias ping='ping -c 5'
+
 alias tree='tree -C'		# nice alternative to 'ls'
-alias cd..="cd .."
 
 # new commands
-alias da='date "+%A, %B %d, %Y [%T]"'
-alias du1='du --max-depth=1'
-alias hist='history | grep $1'      # requires an argument
 alias internet-ip="curl ipinfo.io/ip"
 alias local-ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias openports='netstat --all --numeric --programs --inet --inet6'
-alias pg='ps aux | head -n1; ps aux | grep -i'
-
-# The 'ls' family (this assumes you use the GNU ls)
-alias ls='ls --show-control-chars --color=auto -hF'
-#alias l='ls -lah'
-#alias ll='ls -lh'
-#alias la='ls -lAh'          # show hidden files
-alias lx='ls -lXB'         # sort by extension
-alias lk='ls -lSr'         # sort by size
-alias lc='ls -lcr'		     # sort by change time
-alias lu='ls -lur'		     # sort by access time
-alias lr='ls -lR'          # recursive ls
-alias lt='ls -ltr'         # sort by date
-alias lm='ls -al |more'    # pipe through 'more'
-
-# safety features
-alias cp='cp -i'
-alias mv='mv -i'
-alias rm='rm -I'                    # 'rm -i' prompts for every file
-#alias ln='ln -i'
-alias chown='chown --preserve-root'
-alias chmod='chmod --preserve-root'
-alias chgrp='chgrp --preserve-root'
-
-alias unrar='unrar x'
-alias wget='wget -c'
 
 # Pipe my public key to my clipboard.
 alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
@@ -87,14 +38,8 @@ alias pc='proxychains4'
 
 alias magit='ec -e "(magit-status \"$(pwd)\")"'
 
-#alias cd='source $HOME/.dacecd/dcd.sh'
-#alias cdl='$HOME/.dacecd/dcd;source $HOME/.dacecd/command.sh'
-
-alias htop='xtitle Processes on $HOST && htop'
-
 alias wa='which -a'
 alias ta='type -a'
-alias tailf='tail -f'
 
 # speed up download
 alias axel='axel -a -n 10'
