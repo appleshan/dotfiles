@@ -13,7 +13,7 @@
 	autocrlf = false
 	editor = emacs
 [credential]
-	helper = store
+	helper = store --file /home/appleshan/.git-credentials
 [alias]
     s = status
     ss = status -s
