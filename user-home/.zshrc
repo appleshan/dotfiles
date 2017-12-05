@@ -7,8 +7,6 @@ export ZSH=/home/appleshan/.oh-my-zsh
 # Set name of the theme to load. Optionally, if you set this to "random"
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
-#ZSH_THEME="robbyrussell"
-# random bira blinks fino gnzh rkj-repos tjkirch xiong-chiamiov-plus ys
 # See https://github.com/denysdovhan/spaceship-zsh-theme
 ZSH_THEME="spaceship"
 
