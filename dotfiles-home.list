@@ -21,6 +21,9 @@ l .tmux.conf
 #c .config/terminator/plugins/searchplugin.py
 l .sift.conf
 
+# oh-my-zsh
+l .oh-my-zsh/custom/functions.zsh
+
 # net
 #c .arm/torrc
 #l .ssh

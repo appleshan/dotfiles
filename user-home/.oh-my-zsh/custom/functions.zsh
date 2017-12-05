@@ -9,6 +9,8 @@ export LC_ALL="en_HK.UTF-8"
 export LC_TIME="en_HK.UTF-8"
 export LESSCHARSET=utf-8
 
+export HIST_STAMPS="yyyy-mm-dd"
+
 # 控制 ls 显示的时间格式
 export TIME_STYLE='+%Y/%m/%d %H:%M:%S'
 
@@ -16,64 +18,6 @@ export TIME_STYLE='+%Y/%m/%d %H:%M:%S'
 export HISTFILESIZE=10000        # increase history file size (default is 500)
 export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
-
-
-# {{ extract & compress
-
-# function Extract for common file formats
-function extract {
- if [ -z "$1" ]; then
-    # display usage if no parameters given
-    echo "Usage: extract <path/file_name>.<zip|rar|bz2|gz|tar|tbz2|tgz|Z|7z|xz|ex|tar.bz2|tar.gz|tar.xz>"
- else
-    if [ -f "$1" ] ; then
-        local nameInLowerCase=`echo "$1" | awk '{print tolower($0)}'`
-        case "$nameInLowerCase" in
-          *.tar.bz2)   tar xvjf ./"$1"    ;;
-          *.tar.gz)    tar xvzf ./"$1"    ;;
-          *.tar.xz)    tar xvJf ./"$1"    ;;
-          *.lzma)      unlzma ./"$1"      ;;
-          *.bz2)       bunzip2 ./"$1"     ;;
-          *.rar)       unrar x -ad ./"$1" ;;
-          *.gz)        gunzip ./"$1"      ;;
-          *.tar)       tar xvf ./"$1"     ;;
-          *.tbz2)      tar xvjf ./"$1"    ;;
-          *.tgz)       tar xvzf ./"$1"    ;;
-          *.zip)       unzip ./"$1"       ;;
-          *.Z)         uncompress ./"$1"  ;;
-          *.7z)        7z x ./"$1"        ;;
-          *.xz)        unxz ./"$1"        ;;
-          *.exe)       cabextract ./"$1"  ;;
-          *)           echo "extract: '$1' - unknown archive method" ;;
-        esac
-    else
-        echo "'$1' - file does not exist"
-    fi
-fi
-}
-
-function extract_and_remove {
-  extract $1
-  rm -f $1
-}
-
-# easy compress - archive wrapper
-function compress () {
-    if [ -n "$1" ] ; then
-        FILE=$1
-        case $FILE in
-            *.tar) shift && tar cf $FILE $* ;;
-            *.tar.bz2) shift && tar cjf $FILE $* ;;
-            *.tar.gz) shift && tar czf $FILE $* ;;
-            *.tgz) shift && tar czf $FILE $* ;;
-            *.zip) shift && zip $FILE $* ;;
-            *.rar) shift && rar $FILE $* ;;
-        esac
-    else
-        echo "usage: compress <foo.tar.gz> ./foo ./bar"
-    fi
-}
-# }}
 
 # Speed up SSH X11 Forwarding
 function sshx()
@@ -198,12 +142,6 @@ function pclip() {
     fi
 }
 
-function history_top_10 ()
-{
-    history | awk '{CMD[$2]++;count++;}END { for (a in CMD)print CMD[a] " " CMD[a]/count*100 "% " a;}' \
-        | grep -v "./" | column -c3 -s " " -t | sort -nr | nl | head -n10
-}
-
 function xtitle ()
 {
     case "$TERM" in
@@ -244,15 +182,6 @@ alias m=pps_man
 # ------------------------------------------------------------
 # Define useful commands
 # ------------------------------------------------------------
-
-# hh
-#export HH_CONFIG=hicolor         # get more colors
-#shopt -s histappend              # append new history items to .bash_history
-# if this is interactive shell, then bind hh to Ctrl-r (for Vi mode check doc)
-#if [[ $- =~ .*i.* ]]; then bind '"\C-r": "\C-a hh \C-j"'; fi
-
-# ntfy
-#eval "$(ntfy shell-integration)"
 
 # {{ @see http://samray.xyz/%E5%A6%82%E4%BD%95%E5%9C%A8-Linux%20%E4%B8%8B%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87
 # SSH 免密码代理
@@ -339,23 +268,23 @@ function pclip() {
 # 脚本用法：
 # gkey|pclip
 
-function exists() { which $1 &> /dev/null }
+#function exists() { which $1 &> /dev/null }
 
 # percol
 # @see https://github.com/mooz/percol
-if exists percol; then
-    # 交互选取历史命令
-    function percol_select_history() {
-        local tac
-        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-        CURSOR=$#BUFFER         # move cursor
-        zle -R -c               # refresh
-    }
+#if exists percol; then
+#    # 交互选取历史命令
+#    function percol_select_history() {
+#        local tac
+#        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
+#        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
+#        CURSOR=$#BUFFER         # move cursor
+#        zle -R -c               # refresh
+#    }
 
-    zle -N percol_select_history
-    bindkey '^R' percol_select_history
-fi
+#    zle -N percol_select_history
+#    bindkey '^R' percol_select_history
+#fi
 
 function ppgrep() {
     if [[ $1 == "" ]]; then
@@ -379,19 +308,23 @@ function ppkill() {
 # 复制当前文件路径或者是目录路径
 
 # 复制当前目录下的某个文件路径：
-function pwdf()
-{
+function pwdf() {
     local current_dir=`pwd`
     local copied_file=`find $current_dir -type f -print |percol`
     echo -n $copied_file |pclip;
 }
 
 # 复制当前目录的路径：
-function pwdp(){
+function pwdp() {
     pwd|pclip;
 }
 
 # }}
+
+# directory LS
+dls () {
+    ls -l | grep "^d" | awk '{ print $8 }' | tr -d "/"
+}
 
 ###############################################################################
 # Java
