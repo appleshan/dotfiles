@@ -94,6 +94,3 @@ export LANG=en_US.UTF-8
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
-
-source ~/.oh-my-zsh/custom/plugins/percol/percol.zsh
-source ~/projects/dotfiles/etc/profile.d/functions.sh
