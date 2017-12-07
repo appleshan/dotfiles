@@ -23,6 +23,7 @@ l .sift.conf
 
 # oh-my-zsh
 l .oh-my-zsh/custom/functions.zsh
+l .oh-my-zsh/custom/path.zsh
 
 # net
 #c .arm/torrc
