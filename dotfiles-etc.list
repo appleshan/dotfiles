@@ -13,14 +13,6 @@ c resolv.conf
 c hosts
 # c ssh/ssh_config
 
-## global for many shells
-l profile.d/path.sh
-l profile.d/shell-aliases.sh
-l profile.d/functions.sh
-# zsh 自带 shell 提示符
-#l profile.d/shell-prompt.sh
-#l profile.d/maven-bash-completion.sh
-
 ## network
 c dnscrypt-proxy.conf
 c unbound/unbound.conf
