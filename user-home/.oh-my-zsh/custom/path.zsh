@@ -60,9 +60,9 @@ fi
 ###############
 
 # VERSIONS #
-#export MAVEN_HOME=/opt/jdk/apache-maven-3.3.9
-#export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
-#export PATH=$MAVEN_HOME/bin:$PATH
+export MAVEN_HOME=/opt/java/apache-maven-3.5.2
+export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
+export PATH=$MAVEN_HOME/bin:$PATH
 
 #################
 # Eclipse Setup #
