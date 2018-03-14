@@ -1,9 +1,15 @@
 ##
-## Manjaro Linux mirrorlist
-## Generated on 2017-10-11 14:29
+## Manjaro Linux default mirrorlist
+## Generated on 2018-03-08 14:37
 ##
-## Use pacman-mirrors to modify
+## Please use 'pacman-mirrors -f [NUMBER] NUMBER' to modify mirrorlist
+## (Use 0 for all mirrors)
 ##
+
+## 浙江大学 (浙江杭州) (ipv4, ipv6, http, https)
+## Added: 2017-06-05
+#Server = https://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
+Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
 
 ## 清华大学 (ipv4, ipv6, http, https)
 #Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
@@ -17,9 +23,12 @@ Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
 #Server = https://cdn.repo.archlinuxcn.org/$arch
 
 ## xTom (Hong Kong) (ipv4, ipv6, http, https)
+## Added: 2017-09-18
+## xTom Hong Kong Mirror
 #Server = https://mirror.xtom.com.hk/archlinuxcn/$arch
 
 ## 上海科技大学 (上海) (ipv4, http, https)
+## Added: 2016-04-07
 #Server = https://mirrors-wan.geekpie.org/archlinuxcn/$arch
 
 ## 网易 (ipv4, http)
@@ -27,9 +36,6 @@ Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
 
 ## Country : Taiwan
 Server = https://free.nchc.org.tw/manjaro/stable/$repo/$arch
-
-## Country : China
-Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
 
 ## Country : China
 Server = http://ftp.cuhk.edu.hk/pub/linux/manjaro/stable/$repo/$arch

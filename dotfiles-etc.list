@@ -13,6 +13,8 @@ c resolv.conf
 c hosts
 # c ssh/ssh_config
 
+c pacman.d/mirrorlist
+
 ## network
 c dnscrypt-proxy.conf
 c unbound/unbound.conf
