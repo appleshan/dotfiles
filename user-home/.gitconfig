@@ -12,8 +12,6 @@
 [core]
 	autocrlf = false
 	editor = emacs
-[credential]
-	helper = store --file /home/appleshan/.git-credentials
 [alias]
     s = status
     ss = status -s
@@ -87,8 +85,3 @@
     # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
     algorithm = patience
-[github]
-	user = appleshan
-[user]
-	name = appleshan
-	email = apple.shan@gmail.com
