@@ -33,11 +33,11 @@ fi
 
 # VERSIONS #
 # Oracle JDK 6
-# export JAVA_6_HOME=/opt/jdk/jdk1.6.0_43
+# export JAVA_6_HOME=/opt/java/jdk1.6.0_43
 # Oracle JDK 7
-# export JAVA_7_HOME=/opt/jdk/jdk1.7.0_60
+# export JAVA_7_HOME=/opt/java/jdk1.7.0_60
 # Oracle JDK 8
-#export JAVA_8_HOME=/opt/jdk/jdk1.8.0_102
+#export JAVA_8_HOME=/opt/java/jdk1.8.0_102
 # default JDK is 8
 #export JAVA_HOME=$JAVA_8_HOME
 
