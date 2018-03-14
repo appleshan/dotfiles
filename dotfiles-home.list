@@ -35,7 +35,6 @@ l .oh-my-zsh/custom/path.zsh
 
 # git
 l .gitconfig
-l .git-credentials
 l .repo_.gitconfig.json
 
 # python
