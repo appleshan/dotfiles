@@ -28,7 +28,7 @@ l proxychains.conf
 #l freetds/freetds.conf
 
 ## app
-#l docker/daemon.json
+l docker/daemon.json
 #l supervisor/conf.d/shadowsocks.conf
 #l supervisor/conf.d/dnsmasq.conf
 #l youtube-dl.conf

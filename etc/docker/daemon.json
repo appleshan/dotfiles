@@ -1,6 +1,7 @@
 {
     "dns": ["223.6.6.6", "223.5.5.5"],
     "registry-mirrors": [
+        "https://registry.docker-cn.com",
         "http://f8542300.m.daocloud.io",
         "https://mirrors.ustc.edu.cn/dockerhub/"
     ]
