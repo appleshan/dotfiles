@@ -16,10 +16,10 @@ c hosts
 c pacman.d/mirrorlist
 
 ## network
-l dnscrypt-proxy.conf
-c unbound/unbound.conf
-c unbound/root.hints
-c unbound/accelerated-domains.china.unbound.conf
+c dnscrypt-proxy/dnscrypt-proxy.toml
+#c unbound/unbound.conf
+#c unbound/root.hints
+#c unbound/accelerated-domains.china.unbound.conf
 #l dnsmasq.d
 #l dnsmasq.conf
 l proxychains.conf
