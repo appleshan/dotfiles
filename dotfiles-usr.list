@@ -1,0 +1,10 @@
+# SYNTAX: COMMAND <item address without profile folder address>
+# COMMAND:
+#     l: item to be linked
+#     c: item to be copied
+# NOTE: - ITEM address should without spaces on name
+#       - comments should be on their own lines
+#       - some items are still not on the repo yet
+
+## network
+c lib/systemd/system/dnscrypt-proxy.socket
