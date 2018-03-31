@@ -57,6 +57,15 @@ export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 # export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
 ###############
+# Gradle Setup #
+###############
+
+# VERSIONS #
+export GRADLE_HOME=/opt/java/gradle-4.6
+export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
+export PATH=$GRADLE_HOME/bin:$PATH
+
+###############
 # Maven Setup #
 ###############
 
