@@ -1,0 +1,8 @@
+---
+name: luna_pinyin.extended
+version: "2015.05.27"
+sort: by_weight
+use_preset_vocabulary: true
+import_tables:
+  - luna_pinyin
+  - luna_pinyin.sogou
