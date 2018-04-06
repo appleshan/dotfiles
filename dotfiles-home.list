@@ -38,6 +38,7 @@ l .gitconfig
 l .repo_.gitconfig.json
 
 # python
+l .condarc
 l .pip/pip.conf
 
 # fcitx-rime
