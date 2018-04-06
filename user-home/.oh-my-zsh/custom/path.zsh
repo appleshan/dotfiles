@@ -127,3 +127,9 @@ export PYTHONDONTWRITEBYTECODE=1
 #    export PIP_VIRTUALENV_BASE=$WORKON_HOME
 #    export PIP_RESPECT_VIRTUALENV=true
 #fi
+
+#################
+# Miniconda     #
+#################
+export MINICONDA_HOME=/opt/python/miniconda3
+export PATH=$MINICONDA_HOME/bin:$PATH
