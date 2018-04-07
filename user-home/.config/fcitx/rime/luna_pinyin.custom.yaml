@@ -1,10 +1,10 @@
 # luna_pinyin.custom.yaml
 #
 # 【朙月拼音】模糊音定製模板
-#   佛振配製 :-)
+#   佛振配製 : https://gist.github.com/lotem/2320943
 #
 # 位置：
-# ~/.config/ibus/rime  (Linux)
+# ~/.config/fcitx/rime  (Linux)
 # ~/Library/Rime  (Mac OS)
 # %APPDATA%\Rime  (Windows)
 #
