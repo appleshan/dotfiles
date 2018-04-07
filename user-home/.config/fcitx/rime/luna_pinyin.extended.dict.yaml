@@ -5,7 +5,7 @@
 #
 #
 # 部署位置：
-# ~/.config/ibus/rime  (Linux)
+# ~/.config/fcitx/rime  (Linux)
 # ~/Library/Rime  (Mac OS)
 # %APPDATA%\Rime  (Windows)
 #

@@ -3,9 +3,20 @@ patch:
   us_keyboard_layout: true                               # 美式键盘布局
   show_notifications_when: appropriate                   # 状态通知，适当，也可设为全开（always）全关（never）
 
-
   style:
     color_scheme: light                                  # 配色方案名称
+    # 註：預設的配色方案及代碼（指定爲 style/color_scheme ）
+    #   系統默認色系 - native
+    #   碧水 - aqua
+    #   青天 - azure
+    #   明月 - luna
+    #   墨池 - ink
+    #   孤寺 - lost_temple
+    #   暗堂 - dark_temple
+    #   星際我爭霸 - starcraft
+    #   谷歌 - google
+    #   曬經石 - solarized_rock
+    #   简约白 - clean_white
 
   preset_color_schemes:
     light:

@@ -1,3 +1,16 @@
+# default.custom.yaml
+#
+# 【朙月拼音】模糊音定製模板
+#   佛振配製 : https://gist.github.com/lotem/2309739
+#
+# 位置：
+# ~/.config/fcitx/rime  (Linux)
+# ~/Library/Rime  (Mac OS)
+# %APPDATA%\Rime  (Windows)
+#
+# 於重新部署後生效
+#
+
 patch:
   switcher:
     abbreviate_options: true
