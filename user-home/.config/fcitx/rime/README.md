@@ -1,6 +1,21 @@
 # Rime 個人輸入方案集。
 
-已公佈：
+一套不报错的配置，堪堪能用的词库。
+
+## 使用方法
+
+### Arch Linux
+
+这样：
+
+    sudo pacman -S fcitx-rime
+    git clone https://github.com/appleshan/dotfiles.git ~/dotfiles
+    cd ~/.config/fcitx
+    cp ~/dotfiles/user-home/.config/fcitx/rime rime
+
+然后注销，登入，在输入法里选上 Rime，点部署/Deploy，过一会儿（搞不好会）提示成功，就能用了。
+
+## 已公佈
 
 *   朙月拼音（luna-pinyin）
 
