@@ -12,7 +12,7 @@ patch:
       - simplification
       - extended_charset
   menu:
-    page_size: 6                                         # 候选词数量
+    page_size: 9                                         # 候选词数量
 
   schema_list:                                           # 激活的输入方案选单
     - schema: luna_pinyin_simp                           # 朙月拼音・简化字
