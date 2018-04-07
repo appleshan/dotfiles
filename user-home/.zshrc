@@ -56,7 +56,7 @@ plugins=(archlinux battery colored-man-pages colorize common-aliases cp dircycle
          docker docker-compose dotenv emacs extract fancy-ctrl-z \
          gitfast gitignore gradle jsontools man mvn \
          pip pylint python \
-         rsync sudo supervisor systemadmin tmux web-search \
+         rsync sublime sudo supervisor systemadmin tmux web-search \
          zsh-navigation-tools zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
