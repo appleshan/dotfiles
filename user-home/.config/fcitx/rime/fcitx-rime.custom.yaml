@@ -33,11 +33,15 @@ patch:
       hilited_candidate_back_color: 0xFFFFFF             # 第一候选项背景背景色
       hilited_comment_text_color: 0xFF6941               # 注解文字高亮
 
+  # 關閉中文輸入
+  # @see [http://code.google.com/p/rimeime/wiki/CustomizationGuide#在特定程序裏關閉中文輸入]
+  #
+  # Bundle Identifier 查找方法：
+  # 右键『应用.app』-> 显示包内容
+  # Contents/Info.plist -> BundleIdentifier
+  #           Bundle Identifier
   app_options:
-    com.blacktree.Quicksilver: &a
-      ascii_mode: false
-    com.googlecode.iterm2: *a
-    com.alfredapp.Alfred: *a
-    com.runningwithcrayons.Alfred-2: *a
-    org.vim.MacVim: *a
-    com.apple.Terminal: *a
+    com.google.Chrome:
+      ascii_mode: true
+    org.mozilla.firefox:
+      ascii_mode: true
