@@ -14,8 +14,8 @@ patch:
   menu:
     page_size: 6                                         # 候选词数量
 
-  schema_list:                                           # 激活的输入方案选单，这里只保留朙月拼音・简化字
-    - schema: luna_pinyin_simp
+  schema_list:                                           # 激活的输入方案选单
+    - schema: luna_pinyin_simp                           # 朙月拼音・简化字
     - schema: symbols
 
   ascii_composer:
