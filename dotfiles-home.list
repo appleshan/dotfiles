@@ -47,3 +47,5 @@ l .config/fcitx/rime/fcitx-rime.custom.yaml
 l .config/fcitx/rime/luna_pinyin_simp.custom.yaml
 l .config/fcitx/rime/luna_pinyin.extended.dict.yaml
 l .config/fcitx/rime/luna_pinyin.sogou.dict.yaml
+l .config/fcitx/rime/symbols.dict.yaml
+l .config/fcitx/rime/symbols.schema.yaml
