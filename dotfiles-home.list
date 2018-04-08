@@ -8,6 +8,7 @@
 
 #l .bashrc
 #l .xinputrc
+l .Xresources
 l .xprofile
 l .zshrc
 l .tmux.conf
