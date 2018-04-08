@@ -1,0 +1,84 @@
+!!字体设置
+Xft.dpi: 96
+Xft.antialias: true
+Xft.hinting: true
+Xft.rgba: rgb
+Xft.autohint: false
+Xft.hintstyle: hintslight
+Xft.lcdfilter: lcddefault
+
+!!URxvt
+
+!透明
+URxvt*transparent:true
+!URxvt.shading: 0 to 99 darkens, 101 to 200 lightens
+URxvt*shading:30
+
+!select url
+URxvt.perl-ext-common: default,clipboard,url-select,keyboard-select,tabbed
+URxvt.url-select.launcher: /usr/bin/firefox
+URxvt.url-select.underline: true
+URxvt.keysym.M-u: perl:url-select:select_next
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-s: perl:keyboard-select:search
+URxvt.colorUL: #4682B4
+
+!general
+Rxvt.geometry:100x40
+Rxvt.fullScreen:false
+
+!colors trans
+URxvt.depth: 32
+URxvt.background: rgba:1111/1111/1111/FFFF
+URxvt.title:urxvrt
+Rxvt.background:black
+Rxvt.foreground:green
+Rxvt.colorBD:white
+Rxvt.colorIT:magenta
+Rxvt.colorUL:yellow
+Rxvt.underlineColor:cyan
+Rxvt.tintColor:gray
+Rxvt.cursorColor:wite
+
+!!$HOME/.Xdefaults
+URxvt.preeditType:Root
+
+!!!input method
+URxvt.inputMethod:ibus
+
+!!!scrollbar
+URxvt.scrollBar:True
+URxvt.scrollBar_right:True
+URxvt.scrollBar_floating:False
+URxvt.scrollstyle:plain
+
+!!!滚屏设置
+URxvt.mouseWheelScrollPage:True
+URxvt.scrollTtyOutput:False
+URxvt.scrollWithBuffer:True
+URxvt.scrollTtyKeypress:True
+
+!!!光标闪烁
+URxvt.cursorBlink:True
+URxvt.saveLines:10000
+
+!!!边框
+URxvt.borderLess:False
+
+!!!字体设置
+URxvt.font:xft:Hack:size=13:style=Regular:antialias=true,xft:WenQuanYi Bitmap Song:size=13:style=Regular:antialias=true
+URxvt.boldfont:xft:Monospace:size=14:style=Bold:antialias=true,xft:WenQuanYi Bitmap Song:size=14:style=Bold:antialias=true
+
+!icons
+URxvt.iconFile: /home/appleshan/persist/pictures/icons/terminal.png
+
+!login shell
+URxvt.loginShell: false
+!tabs
+URxvt.tabbed.tabbar-fg: 5
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 6
+URxvt.tabbed.tab-bg: 0
+
+!bell
+URxvt.urgentOnBell: True
