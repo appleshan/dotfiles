@@ -132,12 +132,19 @@ export PYTHONDONTWRITEBYTECODE=1
 # Pyenv         #
 #################
 
-#export PATH="$HOME/.pyenv/bin:$PATH"
-#eval "$(pyenv init -)"
-#eval "$(pyenv virtualenv-init -)"
+export PATH="$HOME/.pyenv/bin:$PATH"
+eval "$(pyenv init -)"
+eval "$(pyenv virtualenv-init -)"
 
 #################
 # Miniconda     #
 #################
 #export MINICONDA_HOME=/opt/python/miniconda3
 #export PATH=$MINICONDA_HOME/bin:$PATH
+
+#################
+# Pipenv         #
+#################
+# 使用 git 方式安装了 zsh-autoenv
+# @see https://github.com/Tarrasch/zsh-autoenv
+source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
