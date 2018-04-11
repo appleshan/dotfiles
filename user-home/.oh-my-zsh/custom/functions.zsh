@@ -21,7 +21,7 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file s
 
 export TERMINAL=urxvt
 
-source ~/bin/ssh-connect/ssh-connect.sh
+source ~/.local/bin/ssh-connect/ssh-connect.sh
 
 # Speed up SSH X11 Forwarding
 function sshx()
