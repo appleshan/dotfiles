@@ -270,24 +270,6 @@ function pclip() {
 # 脚本用法：
 # gkey|pclip
 
-#function exists() { which $1 &> /dev/null }
-
-# percol
-# @see https://github.com/mooz/percol
-#if exists percol; then
-#    # 交互选取历史命令
-#    function percol_select_history() {
-#        local tac
-#        exists gtac && tac="gtac" || { exists tac && tac="tac" || { tac="tail -r" } }
-#        BUFFER=$(fc -l -n 1 | eval $tac | percol --query "$LBUFFER")
-#        CURSOR=$#BUFFER         # move cursor
-#        zle -R -c               # refresh
-#    }
-
-#    zle -N percol_select_history
-#    bindkey '^R' percol_select_history
-#fi
-
 function ppgrep() {
     if [[ $1 == "" ]]; then
         PERCOL=percol

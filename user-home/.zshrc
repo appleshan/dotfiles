@@ -52,12 +52,21 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(archlinux battery colored-man-pages colorize common-aliases cp dircycle \
-         docker docker-compose dotenv emacs extract fancy-ctrl-z \
-         gitfast gitignore gradle jsontools man mvn \
+plugins=(alias-tips appup archlinux \
+         battery \
+         calc colored-man-pages colorize common-aliases cp dircycle \
+         docker docker-aliases docker-compose dotenv \
+         emacs extract \
+         fancy-ctrl-z \
+         gitfast gitignore gradle \
+         jsontools \
+         man mvn \
          pip pylint python \
-         rsync sublime sudo supervisor systemadmin tmux web-search \
-         zsh-navigation-tools zsh_reload)
+         rsync \
+         sublime sudo supervisor systemadmin \
+         tmux \
+         wakatime web-search \
+         zsh-dropbox zsh-navigation-tools zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
