@@ -8,7 +8,7 @@ export ZSH=/home/appleshan/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # See https://github.com/denysdovhan/spaceship-zsh-theme
-ZSH_THEME="spaceship"
+ZSH_THEME="spaceship-prompt/spaceship"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
