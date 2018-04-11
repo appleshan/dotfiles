@@ -49,3 +49,6 @@ l .config/fcitx/rime/luna_pinyin.extended.dict.yaml
 l .config/fcitx/rime/symbols.dict.yaml
 l .config/fcitx/rime/symbols.schema.yaml
 c .config/fcitx/rime/luna_pinyin.extended
+
+# wakatime
+l .wakatime.cfg
