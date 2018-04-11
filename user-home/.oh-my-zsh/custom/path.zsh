@@ -56,23 +56,13 @@ export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 # export ANDROID_HOME="/opt/android-sdk-linux"
 # export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
-###############
-# Gradle Setup #
-###############
-
-# VERSIONS #
-export GRADLE_HOME=/opt/java/gradle-4.6
+# Gradle Setup
 export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
-export PATH=$GRADLE_HOME/bin:$PATH
+# 不添加HOME环境变量，软链接到 /usr/local/bin
 
-###############
-# Maven Setup #
-###############
-
-# VERSIONS #
-export MAVEN_HOME=/opt/java/apache-maven-3.5.2
+# Maven Setup
 export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
-export PATH=$MAVEN_HOME/bin:$PATH
+# 不添加HOME环境变量，软链接到 /usr/local/bin
 
 #################
 # Eclipse Setup #
