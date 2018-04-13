@@ -52,12 +52,13 @@ c .config/fcitx/rime/luna_pinyin.extended
 l .wakatime.cfg
 
 # i3wm
-c .i3/config
-c .config/neofetch/archlinux.png
-c .config/neofetch/config.conf
-c .config/rofi/powermenu.sh
-l .config/i3-scrot.conf
-c .Xresources.d/rofi
-c .xinitrc
+l .i3/config
+l .compton
+l .Xresources.d/rofi
+l .xinitrc
 l .Xresources
 l .xprofile
+l .config/i3-scrot.conf
+l .config/rofi/powermenu.sh
+l .config/neofetch/config.conf
+c .config/neofetch/archlinux.png
