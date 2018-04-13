@@ -56,6 +56,7 @@ c .i3/config
 c .config/neofetch/archlinux.png
 c .config/neofetch/config.conf
 c .config/rofi/powermenu.sh
+l .config/i3-scrot.conf
 c .Xresources.d/rofi
 c .xinitrc
 l .Xresources
