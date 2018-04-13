@@ -449,6 +449,14 @@ mode "$mode_gaps_outer" {
 }
 # i3 gap and border ends
 
+#---wallpaper---
+
+# static mode
+exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/macOS-Wallpapers/High_Sierra.jpg"
+
+# random mode
+# exec ~/.i3/wallpaper.sh &
+
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
