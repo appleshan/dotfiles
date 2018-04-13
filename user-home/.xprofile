@@ -11,3 +11,6 @@ export QT_IM_MODULE=fcitx
 export XMODIFIERS="@im=fcitx"
 export XIM="fcitx"
 export XIM_PROGRAM="fcitx"
+
+### {mark} DOTFILES compton ###
+compton --backend glx --vsync opengl-swc -GCb --config ~/.compton &
