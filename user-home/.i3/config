@@ -340,10 +340,6 @@ exec --no-startup-id clipit
 exec_always --no-startup-id ff-theme-util
 exec_always --no-startup-id fix_xcursor
 
-# Lock screen
-bindsym $mod+Ctrl+l exec "i3lock-fancy -gpf Monaco"
-exec --no-startup-id xautolock -time 10 -locker i3lock-fancy
-
 # Start i3bar to display a workspace bar (plus the system information i3status if available)
 bar {
     i3bar_command i3bar
@@ -456,6 +452,17 @@ exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/
 
 # random mode
 # exec ~/.i3/wallpaper.sh &
+
+
+# Lock screen
+# i3lock -I 600 -i ~/Pictures/lock.jpg
+mode "i3lock: Return to lock/Escape to Cancel" {
+    bindsym Return mode "default" exec i3lock -i "/home/appleshan/persist/pictures/wallpager/grille-xfce-FHD-1920x1080.png"
+    bindsym Escape mode "default"
+}
+
+bindsym Ctrl+mod1+l mode "i3lock: Return to lock/Escape to Cancel"
+
 
 # Screen brightness controls
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
