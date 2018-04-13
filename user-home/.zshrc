@@ -8,13 +8,13 @@ export ZSH=/home/appleshan/.oh-my-zsh
 # it'll load a random theme each time that oh-my-zsh is loaded.
 # See https://github.com/robbyrussell/oh-my-zsh/wiki/Themes
 # See https://github.com/denysdovhan/spaceship-zsh-theme
-# ZSH_THEME="spaceship-prompt/spaceship"
+ZSH_THEME="spaceship-prompt/spaceship"
 
 POWERLEVEL9K_MODE='awesome-fontconfig'
 POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir newline vcs)
 POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
-ZSH_THEME="powerlevel9k/powerlevel9k"
+# ZSH_THEME="powerlevel9k/powerlevel9k"
 
 # Uncomment the following line to use case-sensitive completion.
 # CASE_SENSITIVE="true"
