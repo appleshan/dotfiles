@@ -53,6 +53,7 @@ l .wakatime.cfg
 
 # i3wm
 l .i3/config
+l .i3/wallpaper.sh
 l .compton
 l .Xresources.d/rofi
 l .xinitrc
