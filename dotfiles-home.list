@@ -8,8 +8,6 @@
 
 #l .bashrc
 #l .xinputrc
-l .Xresources
-l .xprofile
 l .zshrc
 l .tmux.conf
 #l .conkyrc
@@ -52,3 +50,13 @@ c .config/fcitx/rime/luna_pinyin.extended
 
 # wakatime
 l .wakatime.cfg
+
+# i3wm
+c .i3/config
+c .config/neofetch/archlinux.png
+c .config/neofetch/config.conf
+c .config/rofi/powermenu.sh
+c .Xresources.d/rofi
+c .xinitrc
+l .Xresources
+l .xprofile
