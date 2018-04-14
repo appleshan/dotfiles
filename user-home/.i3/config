@@ -148,14 +148,14 @@ bindsym $mod+Ctrl+Left workspace prev
 
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
-set $ws1   "1: Terminal"
-set $ws2   "2: Coding | 💻 Hack"
-set $ws3   "3: Chrome |  Chat |  Email"
-set $ws4   "4: System Admin |   File"
-set $ws5   "5:VM"
-set $ws6   "6: Cloud"
-set $ws7   "7: Video |  Music|  Game"
-set $ws8   "8:Misc"
+set $ws1   "1:  "
+set $ws2   "2: 💻 "
+set $ws3   "3:  |  |  "
+set $ws4   "4:  | "
+set $ws5   "5: VM "
+set $ws6   "6:  "
+set $ws7   "7:  |  |  "
+set $ws8   "8: Misc "
 
 # 把属于各自类别的程序绑定到对应的工作区，打开这些程序的时候他们就能自动出现在合适的工作区：
 #assign [class="google-chrome-stable"] $ws3   # Browser
