@@ -1,4 +1,4 @@
-#+TITLE: 使用 Git 管理自己的 dotfiles
+#+TITLE: Custom *nix config files, for mac and ubuntu
 
 @see https://dotfiles.github.io/
 #+begin_src :tangle no
@@ -13,9 +13,49 @@
       "Y88888  "Y88P"   "Y888 888    888 888  "Y8888   88888P'
 #+end_src
 
-什麼是 dotfile 呢？dotfile 就是你的那些 dot 開頭的檔案，譬如說 .vim .vimrc .emacs.d .bashrc
-其實作法很簡單，先建立一個資料夾，初始化 Git repository，建立一個 bash script 來自
-動產生 link。
+* 什麼是 dotfile 呢？
+dotfile 就是你的那些 dot 開頭的配置文件，譬如說 .vim .vimrc .emacs.d .bashrc 。
+
+命令行工具们有一个约定俗成的习惯：把配置文件写到用户的Home目录下面的隐藏文件里。系统用的时间一长，这样的文件就有一堆，有些你编辑过了，有些没有，并且你都不知道里面有些什么。先来看一下你有多少个这样的文件吧：
+
+#+BEGIN_SRC sh
+ls -ald ~/.* | grep -v ^l | tee >(wc -l)
+#+END_SRC
+
+也许你已经想到了一千种方法来折腾它们。在用户目录下面 =git init= 一下？这可不是什么好主意。把它们手工复制到某个地方然后手工 =ln -s= 回来？这也太麻烦了。然而我们现在有个叫stow的工具可以自动化处理这一切。
+
+=GNU stow= 本来是为了用于管理软件包安装以及多版本共存的一个程序。它做的主要工作就是根据目录来自动建立软链接。这样就正好满足了我们的需求。首先把所有的配置文件复制到某个文件夹去，然后运行一下 =stow= ，它们就自动链接好了。
+
+这样还是有些太烦了。所以 [[https://gist.github.com/Jamesits][James Swineson]] 写了个Bash函数来自动处理这一切。
+
+#+BEGIN_SRC sh
+export DOTFILES=~/dotfiles
+
+dotfiles-count() {
+        pushd >/dev/null 2>&1
+        cd $HOME
+        ls -ald .* | grep -v ^l | tee >(wc -l)
+        popd >/dev/null 2>&1
+}
+
+dotfiles-init() {
+        pushd >/dev/null 2>&1
+        cd $HOME
+        ls -ald .$1*;
+        mkdir -p $DOTFILES/$1;
+        mv .$1* $DOTFILES/$1;
+        stow --dir=$DOTFILES --target=$HOME -vv $1
+        popd >/dev/null 2>&1
+}
+
+dotfiles-rebuild() {
+        stow --dir=$DOTFILES --target=$HOME -vv $@
+}
+#+END_SRC
+
+比如我们要处理来自vim的配置文件，只需要运行 =dotfiles-init vim= ，一切就自动完成。想用Git管理配置文件？没问题，去 =$DOTFILES= 下面 =git init= 一下。想用网盘同步？没问题，把 =$DOTFILES= 设置到你的网盘目录下面。想移动你的存放目录，或者在另一台机器上恢复配置？没问题，改下 =$DOTFILES= 然后运行 =dotfiles-rebuild *= 就好（如果你关掉了 Shell 并且没链接配置文件，那么祝贺你作死成功……）。
+
+这样是不是干净多了呢？
 
 * 为什么用 symlink 而不是 cp
 
@@ -24,3 +64,69 @@
 的改动怎么不起作用；搞错同步的方向的话，我会哭鼻子。
 
 用 symlink 的话，基本上没有这个问题。
+
+* structure
+store configuration files in ~/.dotfiles folder and symlink them to ~
+#+BEGIN_EXAMPLE
+$ cd ~/.dotfiles
+$ tree -a -L 2
+.
+├── dotfiles.sh
+├── i3wm
+│   ├── .config
+│   ├── .conky
+│   ├── .conkyrc
+│   └── .i3
+├── shell
+│   ├── .oh-my-zsh
+│   ├── .zshrc
+│   ├── ...
+...
+#+END_EXAMPLE
+
+* installing
+i manage symlinks with [[http://www.gnu.org/software/stow/][gnu stow]]
+
+stow is available for all linux and most other unix like distributions via your package manager.
+- for archlinux =sudo pacman -S stow=
+- for ubuntu =sudo apt-get install stow=
+- for mac =brew install stow=
+
+#+BEGIN_EXAMPLE
+# navigate to your home directory
+cd ~
+# clone the repo:
+git clone https://github.com/appleshan/dotfiles.git .dotfiles
+# enter the `.dotfiles` directory
+cd .dotfiles
+git submodule init --recursive
+# install the zsh settings
+stow shell
+stow vim
+stow tmux
+# etc, etc, etc...
+# (`stow --help` get more usage)
+#+END_EXAMPLE
+
+* how it works
+
+how it works
+by default the stow command will create symlinks for files in the parent directory of where you execute the command. so my dotfiles setup assumes this repo is located in the root of your home directory ~/.dotfiles. and all stow commands should be executed in that directory. otherwise you'll need to use the -d flag with the repo directory location.
+
+to install most of my configs you execute the stow command with the folder name as the only argument.
+
+to install my shell configs use the command:
+#+BEGIN_EXAMPLE
+~/.dotfiles$ stow shell
+#+END_EXAMPLE
+
+this will symlink files to ~ and various other places.
+
+note: stow can only create a symlink if a config file does not already exist. if a default file was created upon program installation you must delete it first before you can install a new one with stow. this does not apply to directories, only files.
+
+
+* reference
+
+- [[https://github.com/xieyunzi/dotfiles][xieyunzi/dotfiles - Github Repo]]
+- [[https://gist.github.com/Jamesits/9bc4adfb1f299380c79e][Jamesits/dotfiles-utility.sh – Github Gist]]
+- [[https://blog.swineson.me/use-gnu-stow-to-manage-dot-started-config-files-in-your-home-directory/][使用GNU stow统一管理用户目录下那些隐藏的配置文件]]
