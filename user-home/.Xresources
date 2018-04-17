@@ -8,4 +8,3 @@ Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
 #include ".Xresources.d/rofi"
-#include ".Xresources.d/urxvt"

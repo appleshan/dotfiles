@@ -347,8 +347,8 @@ bar {
     position bottom
 
 ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
-#   tray_output primary
-#   tray_output eDP1
+    tray_output primary
+    tray_output DP1
 
     bindsym button4 nop
     bindsym button5 nop
@@ -370,6 +370,10 @@ bar {
 
 # hide/unhide i3status bar
 bindsym $mod+m bar mode toggle
+
+# bar上某些要显示托盘图标（tray icon），须执行xrandr--output：
+# exec --no-startup-id xrandr --output DP1 --primary
+
 
 # Theme colors
 # class                   border  backgr. text    indic.   child_border
