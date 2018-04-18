@@ -20,7 +20,6 @@ export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 export HISTCONTROL=ignoreboth:erasedups   # no duplicate entries
-shopt -s histappend                       # append history file
 
 # The FIGNORE environment variable is nice when you want TAB completion
 # to ignore files or folders with certain suffixes, e.g.:
@@ -36,7 +35,6 @@ export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
 
 # Disable options:
-shopt -u mailwarn
 unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 
 # export TERMINAL=urxvt
