@@ -130,8 +130,12 @@ eval "$(pyenv virtualenv-init -)"
 #export PATH=$MINICONDA_HOME/bin:$PATH
 
 #################
-# Pipenv         #
+# Pipenv        #
 #################
-# 使用 git 方式安装了 zsh-autoenv
-# @see https://github.com/Tarrasch/zsh-autoenv
+
+# 使用 git 方式安装了 kennethreitz/autoenv
+# source ~/.autoenv/activate.sh
+# export AUTOENV_ENABLE_LEAVE=true
+
+# 使用 git 方式安装了 Tarrasch/zsh-autoenv
 source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
