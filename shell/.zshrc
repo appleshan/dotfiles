@@ -60,16 +60,16 @@ POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(alias-tips appup archlinux \
          battery \
-         calc colored-man-pages colorize common-aliases cp dircycle \
+         calc colored-man-pages colorize common-aliases copydir copyfile cp dircycle \
          docker docker-aliases docker-compose dotenv \
-         emacs extract \
+         emacs emoji extract \
          fancy-ctrl-z \
-         gitfast gitignore gradle \
-         jsontools \
-         man mvn \
-         pip pylint python \
+         gitfast gitignore globalias gradle \
+         httpie jsontools last-working-dir \
+         man mvn nmap nvm \
+         pip pylint python pipenv \
          rsync \
-         sublime sudo supervisor systemadmin \
+         safe-paste spring sublime sudo svn-fast-info systemadmin \
          tmux \
          wakatime web-search \
          zsh-dropbox zsh-navigation-tools zsh_reload)
