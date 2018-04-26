@@ -59,12 +59,11 @@ POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(alias-tips appup archlinux \
-         battery \
          calc colored-man-pages colorize common-aliases copydir copyfile cp dircycle \
          docker docker-aliases docker-compose dotenv \
          emacs emoji extract \
          fancy-ctrl-z \
-         gitfast gitignore globalias gradle \
+         gitfast gitignore gradle \
          httpie jsontools last-working-dir \
          man mvn nmap nvm \
          pip pylint python pipenv \
