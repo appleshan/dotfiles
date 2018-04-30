@@ -34,18 +34,13 @@ fi
 # Oracle JDK 7
 # export JAVA_7_HOME=/opt/java/jdk1.7.0_60
 # Oracle JDK 8
-# export JAVA_8_HOME=/opt/java/jdk1.8.0_162
+export JAVA_8_HOME=/opt/java/jdk1.8.0_162
 # default JDK is 8
-# export JAVA_HOME=$JAVA_8_HOME
-# export JRE_HOME=$JAVA_8_HOME/jre
+export JAVA_HOME=$JAVA_8_HOME
+export JRE_HOME=$JAVA_8_HOME/jre
 
-# export PATH=$JAVA_HOME/bin:$PATH
-# export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
-
-# SWITCHING #
-# alias java6="export JAVA_HOME=$JAVA_6_HOME;export PATH=$JAVA_HOME/bin:$PATH"
-# alias java7="export JAVA_HOME=$JAVA_7_HOME;export PATH=$JAVA_HOME/bin:$PATH"
-# alias java8="export JAVA_HOME=$JAVA_8_HOME;export PATH=$JAVA_HOME/bin:$PATH"
+export PATH=$JAVA_HOME/bin:$PATH
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
 #################
 # Android Setup #
