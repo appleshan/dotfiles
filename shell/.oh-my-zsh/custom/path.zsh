@@ -130,7 +130,7 @@ eval "$(pyenv virtualenv-init -)"
 #export PATH=$MINICONDA_HOME/bin:$PATH
 
 #################
-# Pipenv        #
+# autoenv       #
 #################
 
 # 使用 git 方式安装了 kennethreitz/autoenv
