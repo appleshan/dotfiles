@@ -42,6 +42,11 @@ dotfiles-rebuild() {
         stow --dir=$DOTFILES --target=$HOME -vv $@
 }
 
+# delete
+dotfiles-delete() {
+    stow --dir=$DOTFILES --target=$HOME -vv -D $@
+}
+
 # dotfiles-rebuild() :
 # $ stow -d $HOME/projects/private/dotfiles -t $HOME -vv shell
 
