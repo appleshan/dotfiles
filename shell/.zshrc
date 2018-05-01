@@ -102,6 +102,7 @@ plugins=(alias-tips appup archlinux \
          safe-paste spring sublime sudo svn-fast-info systemadmin \
          tmux \
          wakatime web-search \
+         zsh-proxychains-ng \
          zsh-dropbox zsh-navigation-tools zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
