@@ -77,3 +77,23 @@ alias ipy3='ipython3'
 alias prp="pipenv run python"
 
 alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
+
+###############################################################################
+# Docker
+###############################################################################
+
+docker-kill-all() {
+    docker kill $(docker ps -a -q);
+}
+
+docker-stop-all() {
+    docker stop $(docker ps -a -q);
+}
+
+docker-rm-all() {
+    docker rm $(docker ps -a -q);
+}
+
+docker-rmi-all() {
+    docker rmi $(docker images -a -q);
+}
