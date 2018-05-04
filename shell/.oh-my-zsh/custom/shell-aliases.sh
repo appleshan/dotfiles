@@ -21,7 +21,7 @@
 alias df='df -kTh'
 alias dfxfs='df -Th --total -t xfs'
 
-alias tree='tree -C'		# nice alternative to 'ls'
+alias tree='tree -CAFa -I "CVS|*.*.package|.svn|.git|.hg|node_modules|bower_components" --dirsfirst'
 
 # new commands
 alias internet-ip="curl ipinfo.io/ip"
@@ -58,6 +58,9 @@ alias p='parallel'
 alias pp='parallel --pipe -k'
 
 alias show-fonts="fc-list | cut -d ' ' -f2 | sort -u"
+
+alias disks='echo "╓───── m o u n t . p o i n t s"; echo "╙────────────────────────────────────── ─ ─ "; lsblk -a; echo ""; echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ "; df -h;'
+
 
 ###############################################################################
 # Git
