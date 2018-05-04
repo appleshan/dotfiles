@@ -6,33 +6,30 @@
 ## (Use 0 for all mirrors)
 ##
 
-## Country : China
-Server = http://ftp.cuhk.edu.hk/pub/linux/manjaro/stable/$repo/$arch
+## Country : China - Hong_Kong
+Server = http://ftp.cuhk.edu.hk/pub/Linux/manjaro/stable/$repo/$arch
 
 ## 浙江大学 (浙江杭州) (ipv4, ipv6, http, https)
 ## Added: 2017-06-05
-#Server = https://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
 Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
 
 ## 清华大学 (ipv4, ipv6, http, https)
-#Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
 Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
 
+## Country : China
+Server = https://mirrors.shuosc.org/manjaro/stable/$repo/$arch
+
+## Country : China
+Server = https://mirrors.shu.edu.cn/manjaro/stable/$repo/$arch
+
 ## 中国科学技术大学 (ipv4, ipv6, http, https)
-#Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
 
-## CDN (ipv4, http, https)
-#Server = https://cdn.repo.archlinuxcn.org/$arch
+## Country : Japan
+Server = http://ftp.riken.jp/Linux/manjaro/stable/$repo/$arch
 
-## xTom (Hong Kong) (ipv4, ipv6, http, https)
-## Added: 2017-09-18
-## xTom Hong Kong Mirror
-#Server = https://mirror.xtom.com.hk/archlinuxcn/$arch
+## Country : Japan
+Server = http://ftp.tsukuba.wide.ad.jp/Linux/manjaro/stable/$repo/$arch
 
-## 上海科技大学 (上海) (ipv4, http, https)
-## Added: 2016-04-07
-#Server = https://mirrors-wan.geekpie.org/archlinuxcn/$arch
-
-## 网易 (ipv4, http)
-#Server = http://mirrors.163.com/archlinux-cn/$arch
+## Country : Singapore
+Server = https://download.nus.edu.sg/mirror/manjaro/stable/$repo/$arch
