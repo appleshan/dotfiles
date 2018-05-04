@@ -1,0 +1,85 @@
+!  ██     ██      ██           ████                    ██   ██          
+! ░░██   ██      ░██          ░██░                    ░██  ░██          
+!  ░░██ ██       ░██  █████  ██████  ██████   ██   ██ ░██ ██████  ██████
+!   ░░███     ██████ ██░░░██░░░██░  ░░░░░░██ ░██  ░██ ░██░░░██░  ██░░░░ 
+!    ██░██   ██░░░██░███████  ░██    ███████ ░██  ░██ ░██  ░██  ░░█████ 
+!   ██ ░░██ ░██  ░██░██░░░░   ░██   ██░░░░██ ░██  ░██ ░██  ░██   ░░░░░██
+!  ██   ░░██░░██████░░██████  ░██  ░░████████░░██████ ███  ░░██  ██████ 
+! ░░     ░░  ░░░░░░  ░░░░░░   ░░    ░░░░░░░░  ░░░░░░ ░░░    ░░  ░░░░░░  
+!
+!  ▓▓▓▓▓▓▓▓▓▓
+! ░▓ author ▓ xero <x@xero.nu>
+! ░▓ code   ▓ http://code.xero.nu/dotfiles
+! ░▓ mirror ▓ http://git.io/.files
+! ░▓▓▓▓▓▓▓▓▓▓
+! ░░░░░░░░░░
+!
+
+! @See https://wiki.archlinux.org/index.php/rxvt-unicode
+
+
+! █▓▒░ color scheme
+#include <~/.Xresources.d/miasma.Xcolors>
+
+! █▓▒░ fonts
+urxvt.font:xft:Hack:antialias=True:pixelsize=18,xft:WenQuanYi Zen Hei:pixelsize=18
+urxvt.boldfont:xft:Hack:antialias=True:pixelsize=18,xft:WenQuanYi Zen Hei:pixelsize=18
+
+urxvt*boldFont: 
+urxvt*italicFont: 
+urxvt*bolditalicFont: 
+
+urxvt*letterSpace: -1
+urxvt*lineSpace: 0
+
+! █▓▒░ interface
+urxvt*scrollBar: false
+urxvt*transparent: false
+urxvt*internalBorder: 10
+urxvt*borderColor: #1c1c1c
+urxvt*borderLess:false
+
+! █▓▒░ extensions
+urxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,tabbed,fullscreen,resize-font
+urxvt.keysym.M-Escape: perl:keyboard-select:activate
+urxvt.keysym.M-c:   perl:clipboard:copy
+urxvt.keysym.C-v:   perl:clipboard:paste
+urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+urxvt.clipboard.copycmd:  xsel -ib
+urxvt.clipboard.pastecmd: xsel -ob
+
+! █▓▒░ Clickable URLs
+URxvt.colorUL: #4682B4
+URxvt.keysym.C-Delete: perl:matcher:last
+URxvt.keysym.M-Delete: perl:matcher:list
+
+! █▓▒░ Yankable URLs (no mouse)
+urxvt.keysum.M-u: perl:url-select:select_next
+urxvt.url-select.autocopy: true
+urxvt.url-select.launcher: chromium
+URxvt.url-select.underline: true
+
+! █▓▒░ Simple tabs
+! Key	        Description
+! Shift+Down	New tab
+! Shift+Left	Go to left tab
+! Shift+Right	Go to right tab
+! Ctrl+Left	    Move tab to the left
+! Ctrl+Right	Move tab to the right
+! Ctrl+d	    Close tab
+URxvt.tabbed.tabbar-fg: 2
+URxvt.tabbed.tabbar-bg: 0
+URxvt.tabbed.tab-fg: 3
+URxvt.tabbed.tab-bg: 0
+
+! █▓▒░ Fullscreen
+URxvt.keysym.F11: perl:fullscreen:switch
+
+! █▓▒░ Changing font size on the fly
+URxvt.keysym.C-Down:  resize-font:smaller
+URxvt.keysym.C-Up:    resize-font:bigger
+
+! █▓▒░ misc
+urxvt.saveLines: 9999
+urxvt.iso14755: false
+!URxvt*altSendsEscape: true
