@@ -93,7 +93,7 @@ plugins=(alias-tips appup archlinux \
          calc colored-man-pages colorize common-aliases copydir copyfile cp dircycle \
          docker docker-aliases docker-compose \
          emacs emoji extract \
-         fancy-ctrl-z \
+         fancy-ctrl-z fzf-zsh \
          gitfast gitignore gradle \
          httpie jsontools last-working-dir \
          man mvn nmap nvm \
@@ -103,7 +103,7 @@ plugins=(alias-tips appup archlinux \
          tmux \
          wakatime web-search \
          zsh-proxychains-ng \
-         zsh-dropbox zsh-navigation-tools zsh_reload)
+         zsh-dropbox zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
