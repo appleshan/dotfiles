@@ -61,28 +61,6 @@ alias show-fonts="fc-list | cut -d ' ' -f2 | sort -u"
 
 alias disks='echo "╓───── m o u n t . p o i n t s"; echo "╙────────────────────────────────────── ─ ─ "; lsblk -a; echo ""; echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ "; df -h;'
 
-
-###############################################################################
-# Git
-###############################################################################
-
-# Commit the current changes and push to the current branch
-function pushme {
-  br=`git branch | grep "*"`
-  git add --all
-  if (($# > 1)); then
-    params=''
-    for i in $*;
-    do
-        params=" $params $i"
-    done
-    git commit -m "$params"
-  else
-    git commit -m "$1"
-  fi
-  git push origin ${br/* /}
-}
-
 ###############################################################################
 # Emacs
 ###############################################################################
@@ -103,23 +81,3 @@ alias ipy3='ipython3'
 alias prp="pipenv run python"
 
 alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
-
-###############################################################################
-# Docker
-###############################################################################
-
-docker-kill-all() {
-    docker kill $(docker ps -a -q);
-}
-
-docker-stop-all() {
-    docker stop $(docker ps -a -q);
-}
-
-docker-rm-all() {
-    docker rm $(docker ps -a -q);
-}
-
-docker-rmi-all() {
-    docker rmi $(docker images -a -q);
-}
