@@ -37,6 +37,15 @@ unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 
 source ~/.local/bin/ssh-connect/ssh-connect.sh
 
+function twa() {
+    echo "type -a:\n"
+    # type buildin command can output which file the function is definded. COOL!
+    type -a "$@"
+    echo "\nwhich -a:\n"
+    # which buildin command can output the function implementation. COOL!
+    which -a "$@"
+}
+
 # Speed up SSH X11 Forwarding
 function sshx()
 {
