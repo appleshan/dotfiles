@@ -341,3 +341,44 @@ switchJavaNetProxy() {
         echo "turn off java net proxy!"
     }
 }
+
+###############################################################################
+# Docker
+###############################################################################
+
+docker-kill-all() {
+    docker kill $(docker ps -a -q);
+}
+
+docker-stop-all() {
+    docker stop $(docker ps -a -q);
+}
+
+docker-rm-all() {
+    docker rm $(docker ps -a -q);
+}
+
+docker-rmi-all() {
+    docker rmi $(docker images -a -q);
+}
+
+###############################################################################
+# Git
+###############################################################################
+
+# Commit the current changes and push to the current branch
+function pushme {
+  br=`git branch | grep "*"`
+  git add --all
+  if (($# > 1)); then
+    params=''
+    for i in $*;
+    do
+        params=" $params $i"
+    done
+    git commit -m "$params"
+  else
+    git commit -m "$1"
+  fi
+  git push origin ${br/* /}
+}
