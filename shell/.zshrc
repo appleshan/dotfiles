@@ -55,7 +55,7 @@ plugins=(alias-tips appup archlinux \
          calc colored-man-pages colorize common-aliases copydir copyfile cp dircycle \
          docker docker-aliases docker-compose \
          emacs emoji extract \
-         fancy-ctrl-z fzf-zsh \
+         fancy-ctrl-z \
          gitfast gitignore gradle \
          httpie jsontools last-working-dir \
          man mvn nmap nvm \
@@ -64,7 +64,7 @@ plugins=(alias-tips appup archlinux \
          safe-paste spring sublime sudo svn-fast-info systemadmin \
          tmux \
          wakatime web-search \
-         zsh-proxychains-ng \
+         zsh-peco-history zsh-proxychains-ng \
          zsh-dropbox zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
