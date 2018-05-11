@@ -52,7 +52,7 @@ bindsym $mod+Shift+q kill
 ###########################################################
 
 # start a terminal
-bindsym $mod+Return exec urxvt # i3-sensible-terminal
+bindsym $mod+Return exec i3-sensible-terminal
 
 # start program launcher
 bindsym $mod+Tab exec --no-startup-id rofi -show window
@@ -152,9 +152,9 @@ bindsym $mod+a focus parent
 # Workspace names
 # to display names or symbols instead of plain workspace numbers you can use
 set $ws1   "1:  "
-set $ws2   "2: 💻 "
+set $ws2   "2:  "
 set $ws3   "3:  |  |  "
-set $ws4   "4:  | "
+set $ws4   "4:  "
 set $ws5   "5: VM "
 set $ws6   "6:  "
 set $ws7   "7:  |  |  "
@@ -244,17 +244,16 @@ bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcu
 
 # Set shut down, restart and locking features
 bindsym $mod+0 mode "$mode_system"
-set $mode_system [l]ock, [e]xit, switch_[u]ser, [s]uspend, [h]ibernate, [r]eboot, [Shift+s]hutdown
+set $mode_system System (l) lock, (e) logout, (s) suspend, (h) hibernate, (r) reboot, (Shift+s) shutdown
 mode "$mode_system" {
     bindsym l exec --no-startup-id i3exit lock, mode "default"
-    bindsym s exec --no-startup-id i3exit suspend, mode "default"
-    bindsym u exec --no-startup-id i3exit switch_user, mode "default"
     bindsym e exec --no-startup-id i3exit logout, mode "default"
+    bindsym s exec --no-startup-id i3exit suspend, mode "default"
     bindsym h exec --no-startup-id i3exit hibernate, mode "default"
     bindsym r exec --no-startup-id i3exit reboot, mode "default"
-    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"
+    bindsym Shift+s exec --no-startup-id i3exit shutdown, mode "default"  
 
-    # exit system mode: "Enter" or "Escape"
+    # back to normal: Enter or Escape
     bindsym Return mode "default"
     bindsym Escape mode "default"
 }
@@ -287,11 +286,15 @@ mode "resize" {
 # Start i3bar to display a workspace bar (plus the system information i3status
 # finds out, if available)
 bar {
-    i3bar_command i3bar
+    output         DP1
+    i3bar_command  i3bar
     status_command i3status
-    position bottom
+    #status_command exec ~/.config/i3status/net-speed.sh
+    position       bottom
+    # mode           hide
+    workspace_buttons yes
 
-## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
+    ## please set your primary output first. Example: 'xrandr --output eDP1 --primary'
     tray_output primary
     tray_output DP1
 
@@ -299,6 +302,7 @@ bar {
     bindsym button5 nop
     # strip_workspace_numbers yes
 
+    font pango:Hack, Icons 12
 }
 
 # hide/unhide i3status bar
