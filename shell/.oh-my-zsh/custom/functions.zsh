@@ -33,7 +33,7 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file s
 # Disable options:
 unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 
-# export TERMINAL=urxvt
+export TERMINAL=urxvt
 
 source ~/.local/bin/ssh-connect/ssh-connect.sh
 
