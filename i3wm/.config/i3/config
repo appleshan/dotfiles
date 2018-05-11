@@ -443,6 +443,15 @@ bindsym Ctrl+mod1+l mode "i3lock: Return to lock/Escape to Cancel"
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
+# -------------------- fcitx ------------------------------
+
+exec --no-startup-id export GTK_IM_MODULE=fcitx
+exec --no-startup-id export XMODIFIERS=@im=fcitx
+exec --no-startup-id export QT_IM_MODULE=fcitx
+exec --no-startup-id export export XIM="fcitx"
+exec --no-startup-id export export XIM_PROGRAM="fcitx"
+exec --no-startup-id fcitx -d -r
+
 ###############################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
 ###############################################################################
