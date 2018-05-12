@@ -61,6 +61,9 @@ alias show-fonts="fc-list | cut -d ' ' -f2 | sort -u"
 
 alias disks='echo "╓───── m o u n t . p o i n t s"; echo "╙────────────────────────────────────── ─ ─ "; lsblk -a; echo ""; echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ "; df -h;'
 
+alias grep='grep --color=auto --exclude-dir={.git,.hg,.svn,.cvs,bzr,CVS,target,build,_site,.idea,Pods,taobao-tomcat} --exclude=\*.{ipr,iml,iws,jar,war,zip}'
+export GREP_COLOR='07;31'
+
 ###############################################################################
 # Emacs
 ###############################################################################
