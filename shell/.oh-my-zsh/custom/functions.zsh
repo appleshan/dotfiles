@@ -297,9 +297,9 @@ function pclip() {
 
 function ppgrep() {
     if [[ $1 == "" ]]; then
-        PERCOL=percol
+        PERCOL=peco
     else
-        PERCOL="percol --query $1"
+        PERCOL="peco --query $1"
     fi
     ps aux | eval $PERCOL | awk '{ print $2 }'
 }
@@ -319,7 +319,7 @@ function ppkill() {
 # 复制当前目录下的某个文件路径：
 function pwdf() {
     local current_dir=`pwd`
-    local copied_file=`find $current_dir -type f -print |percol`
+    local copied_file=`find $current_dir -type f -print |peco`
     echo -n $copied_file |pclip;
 }
 
