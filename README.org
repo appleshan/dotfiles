@@ -1,4 +1,4 @@
-#+TITLE: Custom *nix config files, for mac and ubuntu
+#+TITLE: custom linux config files managed with gnu stow
 
 @see https://dotfiles.github.io/
 #+begin_src :tangle no
