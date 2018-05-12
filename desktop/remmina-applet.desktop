@@ -1,9 +1,0 @@
-[Desktop Entry]
-Version=1.0
-Name=Remmina面板小程序
-Comment=通过小程序菜单快速连接到远程桌面
-Icon=remmina
-Exec=remmina -i
-Terminal=false
-Type=Application
-Hidden=false
