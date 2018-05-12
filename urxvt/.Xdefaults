@@ -15,32 +15,35 @@
 ! ░░░░░░░░░░
 !
 
-! @See https://wiki.archlinux.org/index.php/rxvt-unicode
+!! $HOME/.Xdefaults
+!! @See https://wiki.archlinux.org/index.php/rxvt-unicode
 
+! █▓▒░ General
+URxvt.title:urxvrt
+URxvt.termNmae: rxvt-unicode-256color
+URxvt.saveLines:65536
 
-! █▓▒░ color scheme
-#include <~/.Xresources.d/miasma.Xcolors>
+! █▓▒░ scrollbar
+URxvt.scrollBar:True
+URxvt.scrollBar_right:True
+URxvt.scrollBar_floating:False
+URxvt.scrollstyle:plain
+URxvt.scrollTtyOutput:False
+URxvt.scrollWithBuffer:True
+URxvt.scrollTtyKeypress:True
+URxvt.mouseWheelScrollPage:True
 
-! █▓▒░ fonts
-urxvt.font:xft:Hack:antialias=True:pixelsize=18,xft:WenQuanYi Zen Hei:pixelsize=18
-urxvt.boldfont:xft:Hack:antialias=True:pixelsize=18,xft:WenQuanYi Zen Hei:pixelsize=18
+! █▓▒░ 光标闪烁
+URxvt.cursorBlink:True
 
-urxvt*boldFont: 
-urxvt*italicFont: 
-urxvt*bolditalicFont: 
+! █▓▒░ Fullscreen
+URxvt.keysym.F11: perl:fullscreen:switch
 
-urxvt*letterSpace: -1
-urxvt*lineSpace: 0
-
-! █▓▒░ interface
-urxvt*scrollBar: false
-urxvt*transparent: false
-urxvt*internalBorder: 10
-urxvt*borderColor: #1c1c1c
-urxvt*borderLess:false
-
-! █▓▒░ extensions
-urxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,tabbed,fullscreen,resize-font
+! █▓▒░ Extensions
+!!!!No white space between extension names
+URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,tabbed,fullscreen,resize-font
+URxvt.urlLauncher: google-chrome
+URxvt.matcher.button: 1
 urxvt.keysym.M-Escape: perl:keyboard-select:activate
 urxvt.keysym.M-c:   perl:clipboard:copy
 urxvt.keysym.C-v:   perl:clipboard:paste
@@ -48,15 +51,64 @@ urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
 urxvt.clipboard.copycmd:  xsel -ib
 urxvt.clipboard.pastecmd: xsel -ob
 
+! █▓▒░ Input Method
+!URxvt.preeditType:Root
+URxvt.preeditType:OffTheSpot
+URxvt.inputMethod:fcitx
+
+! █▓▒░ Fonts
+Xft.dpi:96
+URxvt.font:xft:Hack:size=12:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:size=12:style=Regular:antialias=true
+URxvt.boldfont:xft:Hack:size=12:style=Bold:antialias=true,xft:WenQuanYi Micro Hei Mono:size=12:style=Bold:antialias=true
+
+! █▓▒░ icons
+URxvt.iconFile: /usr/share/icons/Vibrancy-Colors/apps/16/terminal.png
+
+! █▓▒░ color scheme: Solarized light
+URxvt.depth:32
+urxvt.internalBorder: 10
+urxvt.borderColor: #1c1c1c
+URxvt.borderLess: False
+URxvt.fading:                40
+URxvt.fadeColor:             #fdf6e3
+URxvt.pointerColorBackground:#93a1a1
+URxvt.pointerColorForeground:#586e75
+URxvt.transparent: true
+URxvt.shading: 65
+URxvt.background: black
+URxvt.foreground: White
+URxvt.geometry: 90x25+180+200
+URxvt.cursorColor:red3
+URxvt.color0:black
+URxvt.color1:red2
+URxvt.color2:springgreen
+URxvt.color3:wheat3
+URxvt.color4:RoyalBlue
+URxvt.color5:Magenta2
+URxvt.color6:steelblue1
+URxvt.color7:gray85
+URxvt.color8:Gray50
+URxvt.color9:orangered2
+URxvt.color10:Green2
+URxvt.color11:lightgoldenrod2
+URxvt.color12:skyblue1
+URxvt.color13:pink1
+URxvt.color14:Cyan2
+URxvt.color15:Gray95
+
 ! █▓▒░ Clickable URLs
-URxvt.colorUL: #4682B4
+URxvt.underlineColor:cyan
+URxvt.tintColor:gray
+URxvt.colorBD:white
+URxvt.colorIT:magenta
+URxvt.colorUL:yellow
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
 
 ! █▓▒░ Yankable URLs (no mouse)
 urxvt.keysum.M-u: perl:url-select:select_next
 urxvt.url-select.autocopy: true
-urxvt.url-select.launcher: chromium
+urxvt.url-select.launcher: google-chrome
 URxvt.url-select.underline: true
 
 ! █▓▒░ Simple tabs
@@ -72,14 +124,12 @@ URxvt.tabbed.tabbar-bg: 0
 URxvt.tabbed.tab-fg: 3
 URxvt.tabbed.tab-bg: 0
 
-! █▓▒░ Fullscreen
-URxvt.keysym.F11: perl:fullscreen:switch
-
 ! █▓▒░ Changing font size on the fly
 URxvt.keysym.C-Down:  resize-font:smaller
 URxvt.keysym.C-Up:    resize-font:bigger
 
-! █▓▒░ misc
-urxvt.saveLines: 9999
-urxvt.iso14755: false
-!URxvt*altSendsEscape: true
+! █▓▒░ login shell
+URxvt.loginShell: false
+
+! █▓▒░ bell
+URxvt.urgentOnBell: True
