@@ -13,4 +13,4 @@ export XIM="fcitx"
 export XIM_PROGRAM="fcitx"
 
 ### {mark} DOTFILES compton ###
-# compton --backend glx --vsync opengl-swc -GCb --config ~/.compton &
+compton --backend glx --vsync opengl-swc -GCb --config ~/.config/compton.conf &
