@@ -305,6 +305,8 @@ bar {
     bindsym button5 nop
     # strip_workspace_numbers yes
 
+    # height of the bar in pixels
+    height 30
     font pango:Hack, Icons 12
 }
 
@@ -458,6 +460,9 @@ exec --no-startup-id export QT_IM_MODULE=fcitx
 exec --no-startup-id export export XIM="fcitx"
 exec --no-startup-id export export XIM_PROGRAM="fcitx"
 exec --no-startup-id fcitx -d -r
+
+#　无线网管理图标
+exec --no-startup-id nm-applet
 
 ###############################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
