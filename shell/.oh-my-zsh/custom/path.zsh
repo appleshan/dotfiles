@@ -42,6 +42,8 @@ export JRE_HOME=$JAVA_8_HOME/jre
 export PATH=$JAVA_HOME/bin:$PATH
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
+export IDEA_JDK=/opt/java/jdk1.8.0_162
+
 #################
 # Android Setup #
 #################
