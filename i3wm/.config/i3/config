@@ -307,7 +307,7 @@ bar {
     # strip_workspace_numbers yes
 
     # height of the bar in pixels
-    height 30
+    height 32
     font pango:Hack, Icons 12
 }
 
