@@ -78,11 +78,13 @@ bindsym $mod+F5 exec urxvt -e 'mocp'
 
 bindsym $mod+t exec --no-startup-id pkill compton
 bindsym $mod+Ctrl+t exec --no-startup-id compton -b
-bindsym Print exec --no-startup-id i3-scrot
-bindsym $mod+Print --release exec --no-startup-id i3-scrot -w
-bindsym $mod+Shift+Print --release exec --no-startup-id i3-scrot -s
 # bindsym $mod+F1 exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
+
+bindsym Print exec --no-startup-id flameshot gui --delay 200
+bindsym $mod+Shift+Print exec flameshot config
+
+# -------------------- focus ----------------------------
 
 # change focus
 bindsym $mod+h focus left
