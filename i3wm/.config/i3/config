@@ -55,11 +55,10 @@ bindsym $mod+Shift+q kill
 bindsym $mod+Return exec i3-sensible-terminal
 
 # start program launcher
-bindsym $mod+Tab exec --no-startup-id rofi -show window
-bindsym $mod+Shift+d exec --no-startup-id rofi -show run
-bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Ctrl+d --release exec "killall rofi; exec notify-send 'Restart rofi'"
-# rofi_power menu
+bindsym $mod+Tab     exec --no-startup-id rofi -show window
+bindsym $mod+d       exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 bindsym $mod+Shift+p exec ~/.config/rofi/powermenu.sh
 
 # launch categorized menu
