@@ -444,7 +444,7 @@ exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/
 # Lock screen
 # i3lock -I 600 -i ~/Pictures/lock.jpg
 mode "i3lock: Return to lock/Escape to Cancel" {
-    bindsym Return mode "default" exec i3lock -i "/home/appleshan/persist/pictures/wallpager/Qsbbfie.png"
+    bindsym Return mode "default" exec ~/.config/i3lock-fancy-multimonitor/lock
     bindsym Escape mode "default"
 }
 

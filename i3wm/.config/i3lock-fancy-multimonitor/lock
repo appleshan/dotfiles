@@ -9,7 +9,8 @@ FOLDER="$(dirname "$(readlink -f "$0")")"
 LOCK="$FOLDER/lock.png"
 TEXT="$FOLDER/text.png"
 PARAMS=""
-OUTPUT_IMAGE="/tmp/i3lock.png"
+# OUTPUT_IMAGE="/tmp/i3lock.png"
+OUTPUT_IMAGE="$FOLDER/i3lock-wallpager.png"
 DISPLAY_TEXT=true
 PIXELATE=false
 BLURTYPE="1x1"
@@ -49,7 +50,7 @@ done
 set -- "${POSITIONAL[@]}" # restore positional parameters
 
 #Take screenshot:
-scrot -z $OUTPUT_IMAGE
+# scrot -z $OUTPUT_IMAGE
 
 #Get dimensions of the lock image:
 LOCK_IMAGE_INFO=`identify $LOCK`
@@ -101,4 +102,4 @@ eval convert $PARAMS
 i3lock -i $OUTPUT_IMAGE -t
 
 #Remove the generated image:
-rm $OUTPUT_IMAGE
+# rm $OUTPUT_IMAGE
