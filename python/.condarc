@@ -1,13 +1,13 @@
 show_channel_urls: true
 channels:
-  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
   - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
   - defaults
 
 # TUNA 仓库镜像：
-#  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 #  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/free/
+#  - https://mirrors.tuna.tsinghua.edu.cn/anaconda/pkgs/main/
 
 # USTC 仓库镜像：
-#  - https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
 #  - https://mirrors.ustc.edu.cn/anaconda/pkgs/free/
+#  - https://mirrors.ustc.edu.cn/anaconda/pkgs/main/
