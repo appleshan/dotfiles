@@ -115,16 +115,16 @@ export PYTHONDONTWRITEBYTECODE=1
 #################
 # Pyenv         #
 #################
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
+#export PYENV_ROOT="$HOME/.pyenv"
+#export PATH="$PYENV_ROOT/bin:$PATH"
+#eval "$(pyenv init -)"
+#eval "$(pyenv virtualenv-init -)"
 
 #################
 # Miniconda     #
 #################
-#export MINICONDA_HOME=/opt/python/miniconda3
-#export PATH=$MINICONDA_HOME/bin:$PATH
+export MINICONDA_HOME=/opt/python/miniconda3
+export PATH=$MINICONDA_HOME/bin:$PATH
 
 #################
 # autoenv       #
