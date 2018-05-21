@@ -425,15 +425,16 @@ exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/
 # exec ~/.i3/wallpaper.sh &
 
 # -------------------- i3lock ------------------------------
+# lock screen
+bindsym Ctrl+mod1+l exec i3lock-fancy
+# bindsym Ctrl+mod1+l exec ~/.config/i3lock-fancy-multimonitor/lock
 
-# Lock screen
-# i3lock -I 600 -i ~/Pictures/lock.jpg
-mode "i3lock: Return to lock/Escape to Cancel" {
-    bindsym Return mode "default" exec ~/.config/i3lock-fancy-multimonitor/lock
-    bindsym Escape mode "default"
-}
-
-bindsym Ctrl+mod1+l mode "i3lock: Return to lock/Escape to Cancel"
+# i3lock mode
+# bindsym Ctrl+mod1+l mode "i3lock: Return to lock/Escape to Cancel"
+# mode "i3lock: Return to lock/Escape to Cancel" {
+#     bindsym Return mode "default" exec ~/.config/i3lock-fancy-multimonitor/lock
+#     bindsym Escape mode "default"
+# }
 
 # ------------ Screen brightness controls -------------------
 
