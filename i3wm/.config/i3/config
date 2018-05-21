@@ -78,7 +78,7 @@ bindsym $mod+Shift+F3 exec gksu pcmanfm # thunar
 bindsym $mod+F5 exec urxvt -e 'mocp'
 
 bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b
+bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.conf
 # bindsym $mod+F1 exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
