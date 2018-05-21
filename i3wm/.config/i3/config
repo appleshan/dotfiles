@@ -54,7 +54,7 @@ bindsym $mod+Shift+q kill
 # start a terminal
 bindsym $mod+Return exec i3-sensible-terminal
 
-# start program launcher
+# start rofi (a program launcher)
 bindsym $mod+Ctrl+d --release exec "killall rofi; exec notify-send 'Restart rofi'"
 bindsym $mod+Tab     exec --no-startup-id rofi -show window
 bindsym $mod+d       exec --no-startup-id rofi -show drun
@@ -66,8 +66,10 @@ bindsym $mod+z exec --no-startup-id morc_menu
 
 bindsym $mod+Ctrl+b exec urxvt -e 'bmenu'
 
+# start browser
 bindsym $mod+F2 exec google-chrome
 
+# start file manager
 bindsym $mod+F3 exec pcmanfm # thunar
 # bindsym $mod+F3 exec ranger
 bindsym $mod+Shift+F3 exec gksu pcmanfm # thunar
@@ -80,6 +82,7 @@ bindsym $mod+Ctrl+t exec --no-startup-id compton -b
 # bindsym $mod+F1 exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
+# 截图应用
 bindsym Print exec --no-startup-id flameshot gui --delay 200
 bindsym $mod+Shift+Print exec flameshot config
 
@@ -446,7 +449,7 @@ exec --no-startup-id export export XIM="fcitx"
 exec --no-startup-id export export XIM_PROGRAM="fcitx"
 exec --no-startup-id fcitx -d -r
 
-# -------------------- 无线网管理图标 ------------------------------
+# -------------------- 网络连接管理 ------------------------------
 exec --no-startup-id nm-applet
 
 ###############################################################################
