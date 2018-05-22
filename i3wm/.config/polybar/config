@@ -375,12 +375,13 @@ format-connected-prefix-foreground = #5b
 type = internal/date
 interval = 1
 
-date = "%d%{F#92}%m%{F-}%{F#49}%y%{F-}"
-date-alt = " %d"
+date = %Y-%m-%d%
+time = %H:%M
 
-time = "%H%{F#92}%M%{F-}%{F#49}%S%{F-}"
-time-alt =  %H:%M
+date-alt = %A, %d %B %Y
+time-alt = %H:%M:%S
 
+format = 🕓 <label>
 ;format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
