@@ -370,7 +370,7 @@ format-connected-prefix-foreground = #5b
 
 [module/date]
 type = internal/date
-interval = 1
+interval = 5
 
 date = %Y-%m-%d%
 time = %H:%M
@@ -378,8 +378,8 @@ time = %H:%M
 date-alt = %A, %d %B %Y
 time-alt = %H:%M:%S
 
-format = 🕓 <label>
-;format-prefix = 
+;format = 🕓 <label>
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
