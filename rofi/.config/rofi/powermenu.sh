@@ -5,7 +5,8 @@ action=$(echo -e "lock\nlogout\nshutdown\nreboot" | rofi -dmenu -p "power:")
 
 if [[ "$action" == "lock" ]]
 then
-    ~/.config/i3lock-fancy-multimonitor/lock
+    # $HOME/.config/i3lock-fancy-multimonitor/lock
+    i3lock-fancy
 fi
 
 if [[ "$action" == "logout" ]]
