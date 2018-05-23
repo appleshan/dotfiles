@@ -66,14 +66,15 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = hack:pixelsize=12;2
-font-1 = unifont:size=10;2
-font-2 = siji:pixelsize=10;3
+font-0 = hack:pixelsize=14;2
+font-1 = unifont:size=12;2
+font-2 = siji:pixelsize=12;3
 font-3 = FontAwesome:pixelsize=14;2
+font-4 = Weather Icons:size=12;1
 
 modules-left = i3
 modules-center = xtitle
-modules-right = volume pkg wired-network wireless-network date
+modules-right = xkeyboard updates-arch-combined volume date powermenu
 
 tray-position = right
 tray-padding = 4
@@ -119,32 +120,31 @@ padding-right = 2
 module-margin-left = 1
 module-margin-right = 2
 
-font-0 = hack:pixelsize=12;2
-font-1 = unifont:size=10;2
-font-2 = siji:pixelsize=10;3
+font-0 = hack:pixelsize=14;2
+font-1 = unifont:size=12;2
+font-2 = siji:pixelsize=12;3
 font-3 = FontAwesome:pixelsize=14;2
+font-4 = Weather Icons:size=12;1
 
-modules-left =
-modules-center = wired-network-speedup wired-network-speeddown wireless-network-speedup wireless-network-speeddown
-modules-right = temperature filesystem-slash filesystem-home cpu memory
+modules-left = system-uptime-pretty system-fan-speed system-usb-udev info-redshift-temp info-trash
+modules-center = wired-network wired-network-speedup wired-network-speeddown wireless-network wireless-network-speedup wireless-network-speeddown
+modules-right = system-cpu-temppercore filesystem-slash filesystem-home cpu memory
 
 tray-position = right
 tray-padding = 2
 
-[module/xwindow]
-type = internal/xwindow
-label = "   %{F#5b5b5b}%{F-} %title:0:60:...%"
-
 [module/xkeyboard]
 type = internal/xkeyboard
-blacklist-0 = num lock
+
+; List of indicators to ignore
+;blacklist-0 = num lock
+blacklist-1 = scroll lock
 
 format-underline = ${colors.secondary}
 format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 
 label-layout = %layout%
-
 label-indicator-padding = 2
 label-indicator-background = ${colors.secondary}
 label-indicator-underline = ${colors.secondary}
@@ -305,7 +305,7 @@ interface = eno1
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+format-connected-prefix = "LAN: "
 format-connected-foreground-foreground = ${colors.foreground-alt}
 label-connected = %local_ip%
 
@@ -319,7 +319,7 @@ interface = wlp3s0
 interval = 3.0
 
 format-connected = <label-connected>
-format-connected-prefix = " "
+format-connected-prefix = "WLAN: "
 format-connected-prefix-foreground = #5b
 
 format-connected-underline = #9f78e1
@@ -342,7 +342,7 @@ interface = ${module/wired-network.interface}
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = #5b
+#format-connected-prefix-foreground = #5b
 
 [module/wired-network-speeddown]
 type = internal/network
@@ -350,7 +350,7 @@ interface = ${module/wired-network.interface}
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = #5b
+#format-connected-prefix-foreground = #5b
 
 [module/wireless-network-speedup]
 type = internal/network
@@ -358,7 +358,7 @@ interface = ${module/wireless-network.interface}
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = #5b
+#format-connected-prefix-foreground = #5b
 
 [module/wireless-network-speeddown]
 type = internal/network
@@ -366,7 +366,7 @@ interface = ${module/wireless-network.interface}
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
-format-connected-prefix-foreground = #5b
+#format-connected-prefix-foreground = #5b
 
 [module/date]
 type = internal/date
@@ -467,15 +467,10 @@ ramp-1 = 
 ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
-[module/pkg]
+[module/system-cpu-temppercore]
 type = custom/script
-;tail = true
-interval = 1200
-format = <label>
-format-underline = #ff5c57
-label = "%output:0:50%"
-exec = ~/.config/polybar/scripts/pkg.sh
-exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
+exec = ~/.config/polybar/scripts/system-cpu-temppercore.sh
+interval = 60
 
 [module/vpncheck]
 type = custom/script
@@ -556,9 +551,60 @@ label = %title%
 label-maxlen = 60 label = %{A1:skippy-xd --toggle-window-picker:}
 exec = echo "$(xtitle)"
 format = <label>
-format-backround = #ooffffff
+;format-background = #ooffffff
+;format-foreground = #000
 format-prefix = " >|   "
 format-prefix-foreground = ${colors.foreground}
 format-padding = 1
+
+[module/updates-arch-combined]
+type = custom/script
+;tail = true
+interval = 1200
+format = <label>
+format-underline = #ff5c57
+label = "%output:0:50%"
+exec = ~/.config/polybar/scripts/updates-arch-combined.sh
+
+[module/info-redshift-temp]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-redshift-temp.sh
+interval = 5
+
+[module/info-trash]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-trash.sh
+interval = 60
+click-left = ~/.config/polybar/scripts/info-trash.sh --clean
+
+[module/system-uptime-pretty]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-uptime-pretty.sh
+interval = 30
+
+[module/system-usb-udev]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-usb-udev.sh
+tail = true
+click-left = ~/.config/polybar/scripts/system-usb-udev.sh --mount
+click-right = ~/.config/polybar/scripts/system-usb-udev.sh --unmount
+
+[module/system-usb-mount]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-usb-mount.sh
+interval = 5
+click-left = ~/.config/polybar/scripts/system-usb-mount.sh --mount
+click-right = ~/.config/polybar/scripts/system-usb-mount.sh --unmount
+
+[module/system-fan-speed]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-fan-speed.sh
+interval = 10
+
+[module/openweathermap-fullfeatured]
+type = custom/script
+exec = ~/.config/polybar/scripts/openweathermap-fullfeatured.sh
+interval = 600
+label-font = 3
 
 ; vim:ft=dosini
