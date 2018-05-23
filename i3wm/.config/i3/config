@@ -66,7 +66,7 @@ bindsym $mod+Ctrl+d --release exec "killall rofi; exec notify-send 'Restart rofi
 bindsym $mod+Tab     exec --no-startup-id rofi -show window
 bindsym $mod+d       exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run
-bindsym $mod+Shift+p exec ~/.config/rofi/powermenu.sh
+bindsym $mod+Shift+p exec $HOME/.config/rofi/powermenu.sh
 
 # launch categorized menu
 bindsym $mod+z exec --no-startup-id morc_menu
@@ -85,7 +85,7 @@ bindsym $mod+Shift+F3 exec gksu pcmanfm # thunar
 bindsym $mod+F5 exec urxvt -e 'mocp'
 
 bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config ~/.config/compton.conf
+bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config $HOME/.config/compton.conf
 # bindsym $mod+F1 exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -407,17 +407,17 @@ mode "$mode_gaps_outer" {
 exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/MVAU_ZH-CN9430011383_1920x1080.jpg"
 
 # random mode
-# exec ~/.i3/wallpaper.sh &
+# exec $HOME/.i3/wallpaper.sh &
 
 # -------------------- i3lock ------------------------------
 # lock screen
 bindsym Ctrl+mod1+l exec i3lock-fancy
-# bindsym Ctrl+mod1+l exec ~/.config/i3lock-fancy-multimonitor/lock
+# bindsym Ctrl+mod1+l exec $HOME/.config/i3lock-fancy-multimonitor/lock
 
 # i3lock mode
 # bindsym Ctrl+mod1+l mode "i3lock: Return to lock/Escape to Cancel"
 # mode "i3lock: Return to lock/Escape to Cancel" {
-#     bindsym Return mode "default" exec ~/.config/i3lock-fancy-multimonitor/lock
+#     bindsym Return mode "default" exec $HOME/.config/i3lock-fancy-multimonitor/lock
 #     bindsym Escape mode "default"
 # }
 
