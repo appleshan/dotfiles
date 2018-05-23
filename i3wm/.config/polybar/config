@@ -72,7 +72,7 @@ font-2 = siji:pixelsize=10;3
 font-3 = FontAwesome:pixelsize=14;2
 
 modules-left =  i3 xwindow
-modules-center =
+modules-center = xtitle
 modules-right = backlight volume pkg wlan vpncheck battery date
 
 tray-position = right
@@ -551,5 +551,17 @@ format-prefix = " neon:dev/sdb "
 format-prefix-foreground = #5b5b5b
 exec = ssh root@neon df -h | grep /mnt/sdb | awk '{ print $5 }'
 exec-if = ssh-add -L
+
+[module/xtitle]
+type = internal/xwindow
+interval = 1
+label = %title%
+label-maxlen = 60 label = %{A1:skippy-xd --toggle-window-picker:}
+exec = echo "$(xtitle)"
+format = <label>
+format-backround = #ooffffff
+format-prefix = " >|   "
+format-prefix-foreground = ${colors.foreground}
+format-padding = 1
 
 ; vim:ft=dosini
