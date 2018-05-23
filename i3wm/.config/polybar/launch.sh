@@ -1,17 +1,19 @@
 #!/usr/bin/env sh
 
+# Basic script to kill all old bars and launch new.
+
 # Terminate already running bar instances
 killall -q polybar
 
 # Wait until the processes have been shut down
-while pgrep -x polybar >/dev/null; do sleep 1; done
+# while pgrep -x polybar >/dev/null; do sleep 1; done
+while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 
 # Launch top and bottom
-polybar top &
-polybar bottom &
+# polybar top &
+# polybar bottom &
 
-#MONITOR=HDMI-1 polybar top &
-#MONITOR=HDMI-2 polybar top &
-#MONITOR=HDMI-2 polybar bottom &
+MONITOR=DP1 polybar top &
+MONITOR=DP1 polybar bottom &
 
 echo "Bars launched..."
