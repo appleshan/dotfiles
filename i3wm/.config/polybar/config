@@ -474,7 +474,7 @@ interval = 1200
 format = <label>
 format-underline = #ff5c57
 label = "%output:0:50%"
-exec = ~/.config/polybar/pkg.sh
+exec = ~/.config/polybar/scripts/pkg.sh
 exec-if = "ping -q -w 2 -c 1 176.34.135.167 > /dev/null"
 
 [module/vpncheck]
