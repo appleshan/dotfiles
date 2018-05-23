@@ -71,9 +71,9 @@ font-1 = unifont:size=10;2
 font-2 = siji:pixelsize=10;3
 font-3 = FontAwesome:pixelsize=14;2
 
-modules-left =  i3 xwindow
+modules-left = i3
 modules-center = xtitle
-modules-right = backlight volume pkg wlan vpncheck battery date
+modules-right = volume pkg wired-network wireless-network date
 
 tray-position = right
 tray-padding = 4
@@ -261,25 +261,6 @@ bar-progress-width = 10
 bar-progress-indicator = |
 bar-progress-fill = ─
 bar-progress-empty = ─
-
-[module/backlight]
-type = internal/backlight
-card = intel_backlight
-click-left = connman-gtk
-
-format = <label> <bar>
-label = ""
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #ff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = ${colors.foreground-alt}
 
 [module/cpu]
 type = internal/cpu
