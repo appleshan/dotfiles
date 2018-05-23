@@ -125,7 +125,7 @@ font-2 = siji:pixelsize=10;3
 font-3 = FontAwesome:pixelsize=14;2
 
 modules-left =
-modules-center = networkspeedup networkspeeddown
+modules-center = wired-network-speedup wired-network-speeddown wireless-network-speedup wireless-network-speeddown
 modules-right = temperature filesystem-slash filesystem-home cpu memory
 
 tray-position = right
@@ -318,9 +318,23 @@ bar-used-empty = 
 bar-used-empty-foreground = #444444
 bar-used-indicator =
 
-[module/wlan]
+[module/wired-network]
 type = internal/network
-interface = wlp2s0
+interface = eno1
+interval = 3.0
+
+format-connected-underline = #55aa55
+format-connected-prefix = " "
+format-connected-foreground-foreground = ${colors.foreground-alt}
+label-connected = %local_ip%
+
+format-disconnected-underline = ${self.format-connected-underline}
+label-disconnected = %ifname%
+label-disconnected-foreground = ${colors.foreground-alt}
+
+[module/wireless-network]
+type = internal/network
+interface = wlp3s0
 interval = 3.0
 
 format-connected = <label-connected>
@@ -341,31 +355,33 @@ ramp-signal-3 = 
 ramp-signal-4 = 
 ramp-signal-foreground = ${colors.foreground-alt}
 
-[module/eth]
+[module/wired-network-speedup]
 type = internal/network
-;interface = br0
-interval = 3.0
-
-format-connected-underline = #55aa55
-format-connected-prefix = " "
-format-connected-foreground-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
-
-format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname%
-label-disconnected-foreground = ${colors.foreground-alt}
-
-[module/networkspeedup]
-type = internal/network
-interface = wlp2s0
+interface = ${module/wired-network.interface}
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
 format-connected-prefix-foreground = #5b
 
-[module/networkspeeddown]
+[module/wired-network-speeddown]
 type = internal/network
-interface = wlp2s0
+interface = ${module/wired-network.interface}
+label-connected = "%downspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #5b
+
+[module/wireless-network-speedup]
+type = internal/network
+interface = ${module/wireless-network.interface}
+label-connected = "%upspeed:7%"
+format-connected = <label-connected>
+format-connected-prefix = " "
+format-connected-prefix-foreground = #5b
+
+[module/wireless-network-speeddown]
+type = internal/network
+interface = ${module/wireless-network.interface}
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
 format-connected-prefix = " "
