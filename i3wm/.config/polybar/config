@@ -75,7 +75,7 @@ font-4 = NotoSans-Regular:size=12;-1
 
 modules-left = mpd
 modules-center = xtitle
-modules-right = updates-arch-combined volume system-uptime-pretty date
+modules-right = volume system-uptime-pretty date
 
 ;Bottom Bar
 [bar/bottom]
@@ -116,9 +116,9 @@ modules-right = memory cpu system-cpu-temppercore system-fan-speed
 
 tray-position = right
 tray-padding = 2
-tray-maxsize = 26
+;tray-maxsize = 24
 tray-transparent = true
-tray-background = #0063ff
+;tray-background = #0063ff
 
 ;Modules
 
@@ -214,7 +214,7 @@ label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 label-unfocused-font = 4
 
 ;label-urgent = %name%!
-label-urgent = %index%
+label-urgent = %index% %icon%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 label-urgent-font = 4
@@ -238,6 +238,12 @@ ws-icon-4 = 5;
 ws-icon-default = 
 
 ;;---------------------------------------------------------------------
+
+[module/memory]
+type = internal/memory
+interval = 3
+format = <label>
+label = RAM %gb_used%/%gb_free%
 
 [module/cpu]
 type = internal/cpu
@@ -270,11 +276,15 @@ ramp-coreload-7 = █
 ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = #ff5555
 
-[module/memory]
-type = internal/memory
-interval = 3
-format = <label>
-label = RAM %gb_used%/%gb_free%
+[module/system-cpu-temppercore]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-cpu-temppercore.sh
+interval = 60
+
+[module/system-fan-speed]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-fan-speed.sh
+interval = 10
 
 [module/mpd]
 type = internal/mpd
@@ -312,7 +322,7 @@ exec = echo "$(xtitle)"
 format = <label>
 ;format-background = #ooffffff
 ;format-foreground = #000
-format-prefix = " >|   "
+format-prefix = ">|   "
 format-prefix-foreground = ${colors.foreground}
 format-padding = 1
 
@@ -327,7 +337,7 @@ label-muted =   Muted
 label-muted-foreground = #66
 
 ramp-volume-0 = 
-ramp-volume-1 = 
+ramp-volume-1 = 
 ramp-volume-2 = 
 ramp-volume-3 = 
 
@@ -366,70 +376,70 @@ label-indicator-underline = ${colors.secondary}
 type = internal/network
 interface = eno1
 interval = 3.0
+ping-interval = 30
 
-format-connected-underline = #55aa55
 format-connected-prefix = "LAN: "
-format-connected-foreground-foreground = ${colors.foreground-alt}
+format-connected-prefix-foreground = ${colors.foreground-alt}
+format-connected-underline = #55aa55
 label-connected = %local_ip%
 
 format-disconnected-underline = ${self.format-connected-underline}
-label-disconnected = %ifname%
-label-disconnected-foreground = ${colors.foreground-alt}
+;label-disconnected = %ifname%
+;label-disconnected-foreground = ${colors.foreground-alt}
 
 [module/wireless-network]
 type = internal/network
 interface = wlp3s0
 interval = 3.0
+ping-interval = 30
 
-format-connected = <label-connected>
-format-connected-prefix = "WLAN: "
+format-connected-prefix = "WLAN: "
 format-connected-prefix-foreground = #5b
-
 format-connected-underline = #9f78e1
-;format-disconnected-underline = ${self.format-connected-underline}
+label-connected = %essid%
 
-label-connected = "%{A1:connman-gtk &:}%essid%%{A}"
-label-disconnected = "%{A1:connman-gtk &:}%{A}"
-label-disconnected-foreground = #5b
-
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
-ramp-signal-foreground = ${colors.foreground-alt}
+format-disconnected-underline = ${self.format-connected-underline}
+;label-disconnected =  Not Connected
+;label-disconnected-foreground = #66
 
 [module/wired-network-speedup]
 type = internal/network
 interface = ${module/wired-network.interface}
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = " "
-#format-connected-prefix-foreground = #5b
+format-connected-prefix = "⬆ "
+format-connected-prefix-foreground = #5b
 
 [module/wired-network-speeddown]
 type = internal/network
 interface = ${module/wired-network.interface}
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = " "
-#format-connected-prefix-foreground = #5b
+format-connected-prefix = "⬇ "
+format-connected-prefix-foreground = #5b
 
 [module/wireless-network-speedup]
 type = internal/network
 interface = ${module/wireless-network.interface}
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = " "
-#format-connected-prefix-foreground = #5b
+format-connected-prefix = "⬆ "
+format-connected-prefix-foreground = #5b
 
 [module/wireless-network-speeddown]
 type = internal/network
 interface = ${module/wireless-network.interface}
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = " "
-#format-connected-prefix-foreground = #5b
+format-connected-prefix = "⬇ "
+format-connected-prefix-foreground = #5b
+
+[module/system-uptime-pretty]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-uptime-pretty.sh
+interval = 30
+format-prefix = " "
+format-underline = #0a6cf5
 
 [module/updates-arch-combined]
 type = custom/script
@@ -440,21 +450,5 @@ format-underline = #ff5c57
 label = "%output:0:50%"
 label-font = 3
 exec = ~/.config/polybar/scripts/updates-arch-combined.sh
-
-[module/system-uptime-pretty]
-type = custom/script
-exec = ~/.config/polybar/scripts/system-uptime-pretty.sh
-interval = 30
-format-underline = #0a6cf5
-
-[module/system-cpu-temppercore]
-type = custom/script
-exec = ~/.config/polybar/scripts/system-cpu-temppercore.sh
-interval = 60
-
-[module/system-fan-speed]
-type = custom/script
-exec = ~/.config/polybar/scripts/system-fan-speed.sh
-interval = 10
 
 ; vim:ft=dosini
