@@ -389,7 +389,7 @@ interface = eno1
 interval = 3.0
 ping-interval = 30
 
-format-connected-prefix = "LAN: "
+format-connected-prefix = ": "
 format-connected-prefix-foreground = ${colors.foreground-alt}
 format-connected-underline = #55aa55
 label-connected = %local_ip%
