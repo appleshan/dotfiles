@@ -75,7 +75,7 @@ font-3 = FontAwesome:pixelsize=14;2
 
 modules-left = bspwm i3
 modules-center = xtitle
-modules-right = system-uptime-pretty date
+modules-right = updates-arch-combined date
 
 ;Bottom Bar
 [bar/bottom]
@@ -494,27 +494,33 @@ exec = ~/.config/polybar/scripts/updates-arch-combined.sh
 
 [module/mpd]
 type = internal/mpd
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
 
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-icon-random = 
-icon-repeat = 
+format = <label>
+format-prefix = " "
+format-prefix-foreground = ${colors.foreground-alt}
 
-toggle-on-foreground =
-toggle-off-foreground = #55
+format-online = " <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random> <label-song> <bar-progress>"
 
-bar-progress-width = 45
-bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+label-song-maxlen = 59
+label-song-ellipsis = true
+label-offline = offline
+
+icon-prev = %{F#5b}%{F-}
+icon-seekb = %{F#5b}%{F-}
+icon-stop = %{F#5b}%{F-}
+icon-play = %{F#5b}%{F-}
+icon-pause = %{F#5b}%{F-}
+icon-next = %{F#5b}%{F-}
+icon-seekf = %{F#5b}%{F-}
+
+icon-random = 
+icon-repeat = 
+
+; toggle-on-foreground = ${colors.primary}
+toggle-on-foreground = #fffff
+toggle-off-foreground = #66
+
+bar-progress-width = 10
 bar-progress-indicator = |
-bar-progress-indicator-foreground = #ff
-bar-progress-indicator-font = 3
 bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
 bar-progress-empty = ─
-bar-progress-empty-font = 3
-bar-progress-empty-foreground = #44
