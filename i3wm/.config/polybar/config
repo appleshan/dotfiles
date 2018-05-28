@@ -67,11 +67,10 @@ spacing = 2
 padding-right = 5
 module-margin = 4
 
-font-0 = siji:size=10;-1
-font-1 = unifont:fontformat=truetype:size=14:antialias=false;0
-font-2 = MaterialIcons:size=12;0
-font-3 = FontAwesome:size=12;0
-font-4 = NotoSans-Regular:size=12;-1
+font-0 = hack:pixelsize=12;2
+font-1 = unifont:size=10;2
+font-2 = siji:pixelsize=10;3
+font-3 = FontAwesome:pixelsize=14;2
 
 modules-left = mpd
 modules-center = xtitle
@@ -102,15 +101,14 @@ padding-right = 4
 module-margin-left = 0
 module-margin-right = 6
 
-font-0 = siji:size=10;-1
-font-1 = unifont:fontformat=truetype:size=14:antialias=false;0
-font-2 = MaterialIcons:size=12;0
-font-3 = FontAwesome:size=12;0
-font-4 = NotoSans-Regular:size=12;-1
+font-0 = 文泉驿正黑:pixelsize=12;2
+font-1 = unifont:size=10;2
+font-2 = siji:pixelsize=10;3
+font-3 = FontAwesome:pixelsize=14;2
 
 modules-left = bspwm i3 xkeyboard
 modules-center = wired-network wired-network-speedup wired-network-speeddown wireless-network wireless-network-speedup wireless-network-speeddown
-modules-right = memory cpu system-cpu-temppercore system-fan-speed
+modules-right = cpu system-cpu-temppercore system-fan-speed
 
 ;modules-left = system-usb-udev info-redshift-temp info-trash filesystem-slash filesystem-home
 
@@ -133,8 +131,7 @@ label-active = %icon%
 label-active-foreground = #fff
 label-active-background = #773f3f3f
 label-active-underline = #c9665e
-label-active-font = 4
-label-active-padding = 4
+label-active-padding = 2
 
 label-focused = %index%
 label-focused-background = ${colors.background-alt}
@@ -145,19 +142,19 @@ label-occupied = %icon%
 label-occupied-foreground = #dd
 label-occupied-underline = #666
 label-occupied-font = 4
-label-occupied-padding = 4
+label-occupied-padding = 2
 
 label-urgent = %icon%
 label-urgent-foreground = #000000
 label-urgent-background = #bd2c40
 label-urgent-underline = #9b0a20
 label-urgent-font = 4
-label-urgent-padding = 4
+label-urgent-padding = 2
 
 label-empty = %icon%
 label-empty-foreground = #55
 label-empty-font = 4
-label-empty-padding = 4
+label-empty-padding = 2
 
 label-monocle = 
 label-monocle-underline = ${module/bspwm.label-active-underline}
@@ -200,7 +197,6 @@ enable-scroll = false
 
 format = <label-state> <label-mode>
 
-;label-focused = %name%
 label-focused = %index% %icon%
 label-focused-foreground = #ffffff
 label-focused-background = ${module/bspwm.label-focused-background}
@@ -208,18 +204,15 @@ label-focused-underline = ${module/bspwm.label-focused-underline}
 label-focused-padding = ${module/bspwm.label-focused-padding}
 label-focused-font = 4
 
-;label-unfocused = %name%
 label-unfocused = %index% %icon%
 label-unfocused-padding = ${module/bspwm.label-occupied-padding}
 label-unfocused-font = 4
 
-;label-urgent = %name%!
 label-urgent = %index% %icon%
 label-urgent-background = ${module/bspwm.label-urgent-background}
 label-urgent-padding = ${module/bspwm.label-urgent-padding}
 label-urgent-font = 4
 
-;label-visible = %name%
 label-visible = %index% %icon%
 label-visible-background = ${self.label-focused-background}
 label-visible-underline = ${self.label-focused-underline}
@@ -230,12 +223,14 @@ label-mode-padding = ${self.label-focused-padding}
 label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
-ws-icon-0 = 1;
-ws-icon-1 = 2;
-ws-icon-2 = 3;
-ws-icon-3 = 4;
-ws-icon-4 = 5;
-ws-icon-default = 
+ws-icon-0 = 1; | 
+ws-icon-1 = 2; |  | 
+ws-icon-2 = 3;
+ws-icon-3 = 4;
+ws-icon-4 = 5; |  | 
+ws-icon-5 = 6;
+ws-icon-6 = 7;VM
+ws-icon-7 = 8;
 
 ;;---------------------------------------------------------------------
 
@@ -279,12 +274,14 @@ ramp-coreload-7-foreground = #ff5555
 [module/system-cpu-temppercore]
 type = custom/script
 exec = ~/.config/polybar/scripts/system-cpu-temppercore.sh
-interval = 60
+interval = 4
+format-underline = ${colors.primary}
 
 [module/system-fan-speed]
 type = custom/script
 exec = ~/.config/polybar/scripts/system-fan-speed.sh
 interval = 10
+format-underline = ${colors.primary}
 
 [module/mpd]
 type = internal/mpd
@@ -407,7 +404,7 @@ type = internal/network
 interface = ${module/wired-network.interface}
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = "⬆ "
+format-connected-prefix = " "
 format-connected-prefix-foreground = #5b
 
 [module/wired-network-speeddown]
@@ -415,7 +412,7 @@ type = internal/network
 interface = ${module/wired-network.interface}
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = "⬇ "
+format-connected-prefix = " "
 format-connected-prefix-foreground = #5b
 
 [module/wireless-network-speedup]
@@ -423,7 +420,7 @@ type = internal/network
 interface = ${module/wireless-network.interface}
 label-connected = "%upspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = "⬆ "
+format-connected-prefix = " "
 format-connected-prefix-foreground = #5b
 
 [module/wireless-network-speeddown]
@@ -431,7 +428,7 @@ type = internal/network
 interface = ${module/wireless-network.interface}
 label-connected = "%downspeed:7%"
 format-connected = <label-connected>
-format-connected-prefix = "⬇ "
+format-connected-prefix = " "
 format-connected-prefix-foreground = #5b
 
 [module/system-uptime-pretty]
