@@ -73,9 +73,9 @@ font-1 = unifont:size=10;2
 font-2 = siji:pixelsize=10;3
 font-3 = FontAwesome:pixelsize=14;2
 
-modules-left = mpd
+modules-left = bspwm i3
 modules-center = xtitle
-modules-right = volume system-uptime-pretty date
+modules-right = system-uptime-pretty date
 
 ;Bottom Bar
 [bar/bottom]
@@ -107,11 +107,9 @@ font-1 = unifont:size=10;2
 font-2 = siji:pixelsize=10;3
 font-3 = FontAwesome:pixelsize=14;2
 
-modules-left = bspwm i3 xkeyboard
+modules-left = memory cpu system-usb-udev info-trash github mpd xkeyboard
 modules-center = wired-network wired-network-speedup wired-network-speeddown wireless-network wireless-network-speedup wireless-network-speeddown
-modules-right = cpu system-cpu-temppercore system-fan-speed
-
-;modules-left = system-usb-udev info-redshift-temp info-trash filesystem-slash filesystem-home
+modules-right = system-cpu-temppercore system-fan-speed volume
 
 tray-position = right
 tray-padding = 2
@@ -225,27 +223,94 @@ label-mode-foreground = #000
 label-mode-background = ${colors.primary}
 
 ws-icon-0 = 1; | 
-ws-icon-1 = 2; |  | 
-ws-icon-2 = 3;
+ws-icon-1 = 2; | 
+ws-icon-2 = 3; | 
 ws-icon-3 = 4;
 ws-icon-4 = 5; |  | 
 ws-icon-5 = 6;
-ws-icon-6 = 7;VM
-ws-icon-7 = 8;
+ws-icon-6 = 7;
+ws-icon-7 = 8; | 
 
 ;;---------------------------------------------------------------------
 
+[module/xtitle]
+type = internal/xwindow
+interval = 1
+label = %title%
+label-maxlen = 60 label = %{A1:skippy-xd --toggle-window-picker:}
+exec = echo "$(xtitle)"
+format = <label>
+;format-background = #ooffffff
+;format-foreground = #000
+format-prefix = ">|   "
+format-prefix-foreground = ${colors.foreground}
+format-padding = 1
+
+[module/volume]
+type = internal/volume
+
+master-soundcard = default
+speaker-soundcard = default
+headphone-soundcard = default
+
+master-mixer = Master
+speaker-mixer = Speaker
+headphone-mixer = Headphone
+
+headphone-id = 9
+
+mapped = true
+
+format-volume = <ramp-volume> <label-volume>
+
+label-muted =  muted
+label-muted-foreground = #66
+
+ramp-volume-0 = 🔈
+ramp-volume-1 = 🔉
+ramp-volume-2 = 🔊
+
+ramp-headphones-0 = 
+ramp-headphones-1 = 
+
+[module/date]
+type = internal/date
+interval = 5
+
+date =  %Y-%m-%d%
+time =  %H:%M
+
+date-alt =  %A, %d %B %Y
+time-alt =  %H:%M:%S
+
+format = <label>
+format-underline = #0a6cf5
+
+label = %date% %time%
+
 [module/memory]
 type = internal/memory
-interval = 3
-format = <label>
-label = RAM %gb_used%/%gb_free%
+interval = 2
+format = RAM <label> <bar-used>
+;format-prefix-foreground = ${colors.foreground-alt}
+;format-underline = #4bffdc
+
+bar-used-width = 26
+bar-used-foreground-0 = #5af78e
+bar-used-foreground-1 = #5af78e
+bar-used-foreground-2 = #f3f99d
+bar-used-foreground-3 = #ff5c57
+;bar-used-fill = ▐
+bar-used-fill = 
+bar-used-empty = 
+bar-used-empty-foreground = #444444
+bar-used-indicator =
 
 [module/cpu]
 type = internal/cpu
 interval = 2
-format = <label> <ramp-coreload>
-label = CPU
+format = CPU <label> <ramp-coreload>
+;format-underline = #4bffdc
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 2
@@ -272,87 +337,35 @@ ramp-coreload-7 = █
 ramp-coreload-7-font = 2
 ramp-coreload-7-foreground = #ff5555
 
-[module/system-cpu-temppercore]
+[module/system-usb-udev]
 type = custom/script
-exec = ~/.config/polybar/scripts/system-cpu-temppercore.sh
-interval = 4
-format-underline = ${colors.primary}
+exec = ~/.config/polybar/scripts/system-usb-udev.sh
+tail = true
+click-left = ~/.config/polybar/scripts/system-usb-udev.sh --mount
+click-right = ~/.config/polybar/scripts/system-usb-udev.sh --unmount
 
-[module/system-fan-speed]
+[module/system-usb-mount]
 type = custom/script
-exec = ~/.config/polybar/scripts/system-fan-speed.sh
-interval = 10
-format-underline = ${colors.primary}
-
-[module/mpd]
-type = internal/mpd
-format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
-
-icon-play = 
-icon-pause = 
-icon-stop = 
-icon-prev = 
-icon-next = 
-icon-random = 
-icon-repeat = 
-
-toggle-on-foreground =
-toggle-off-foreground = #55
-
-bar-progress-width = 45
-bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
-bar-progress-indicator = |
-bar-progress-indicator-foreground = #ff
-bar-progress-indicator-font = 3
-bar-progress-fill = ─
-bar-progress-fill-foreground = #bb
-bar-progress-fill-font = 3
-bar-progress-empty = ─
-bar-progress-empty-font = 3
-bar-progress-empty-foreground = #44
-
-[module/xtitle]
-type = internal/xwindow
-interval = 1
-label = %title%
-label-maxlen = 60 label = %{A1:skippy-xd --toggle-window-picker:}
-exec = echo "$(xtitle)"
-format = <label>
-;format-background = #ooffffff
-;format-foreground = #000
-format-prefix = ">|   "
-format-prefix-foreground = ${colors.foreground}
-format-padding = 1
-
-[module/volume]
-type = internal/volume
-;speaker-mixer = Master
-;headphone-mixer = Master
-;headphone-id = 9
-
-format-volume = <ramp-volume> <label-volume>
-label-muted =   Muted
-label-muted-foreground = #66
-
-ramp-volume-0 = 
-ramp-volume-1 = 
-ramp-volume-2 = 
-ramp-volume-3 = 
-
-[module/date]
-type = internal/date
+exec = ~/.config/polybar/scripts/system-usb-mount.sh
 interval = 5
+click-left = ~/.config/polybar/scripts/system-usb-mount.sh --mount
+click-right = ~/.config/polybar/scripts/system-usb-mount.sh --unmount
 
-date = %Y-%m-%d%
-time = %H:%M
+[module/info-trash]
+type = custom/script
+exec = ~/.config/polybar/scripts/info-trash.sh
+interval = 60
+format =  <label>
+click-left = ~/.config/polybar/scripts/info-trash.sh --clean
 
-date-alt = %A, %d %B %Y
-time-alt = %H:%M:%S
+[module/github]
+type = internal/github
+token = ${env:GITHUB_TOKEN}
 
-format =  <label>
-format-underline = #0a6cf5
-
-label = %date% %time%
+label = "%notifications%"
+format-underline = #2aa198
+format-prefix = " "
+format-prefix-foreground = #5b
 
 [module/xkeyboard]
 type = internal/xkeyboard
@@ -362,7 +375,7 @@ type = internal/xkeyboard
 blacklist-1 = scroll lock
 
 format-underline = ${colors.secondary}
-format-prefix = " "
+;format-prefix = " " ;error 
 format-prefix-foreground = ${colors.foreground-alt}
 
 label-layout = %layout%
@@ -391,8 +404,8 @@ interface = wlp3s0
 interval = 3.0
 ping-interval = 30
 
-format-connected-prefix = "WLAN: "
-format-connected-prefix-foreground = #5b
+format-connected-prefix = " "
+;format-connected-prefix-foreground = #5b
 format-connected-underline = #9f78e1
 label-connected = %essid%
 
@@ -432,11 +445,41 @@ format-connected = <label-connected>
 format-connected-prefix = " "
 format-connected-prefix-foreground = #5b
 
+[module/system-cpu-temppercore]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-cpu-temppercore.sh
+interval = 4
+format =  <label>
+format-underline = ${colors.primary}
+
+[module/system-fan-speed]
+type = custom/script
+exec = ~/.config/polybar/scripts/system-fan-speed.sh
+interval = 10
+;format-underline = ${colors.primary}
+
+[module/filesystem-home]
+type = internal/fs
+interval = 25
+
+mount-0 = /home
+label-mounted = "%{F#5b5b5b}%{F-} %percentage_used%%"
+
+[module/filesystem-slash]
+type = internal/fs
+interval = 25
+
+mount-0 = /
+label-mounted = "%{F#5b5b5b}%{F-} %percentage_used%%"
+
+;label-unmounted = %mountpoint%: not mounted
+;label-unmounted-foreground = ${colors.foreground-alt}
+
 [module/system-uptime-pretty]
 type = custom/script
 exec = ~/.config/polybar/scripts/system-uptime-pretty.sh
 interval = 30
-format-prefix = " "
+format-prefix = " "
 format-underline = #0a6cf5
 
 [module/updates-arch-combined]
@@ -449,4 +492,29 @@ label = "%output:0:50%"
 label-font = 3
 exec = ~/.config/polybar/scripts/updates-arch-combined.sh
 
-; vim:ft=dosini
+[module/mpd]
+type = internal/mpd
+format-online = <icon-prev> <icon-stop> <toggle> <icon-next>  <icon-repeat> <icon-random>  <bar-progress> <label-time>  <label-song>
+
+icon-play = 
+icon-pause = 
+icon-stop = 
+icon-prev = 
+icon-next = 
+icon-random = 
+icon-repeat = 
+
+toggle-on-foreground =
+toggle-off-foreground = #55
+
+bar-progress-width = 45
+bar-progress-format = %{A4:mpdseek+2: A5:mpdseek-2:}%fill%%indicator%%empty%%{A A}
+bar-progress-indicator = |
+bar-progress-indicator-foreground = #ff
+bar-progress-indicator-font = 3
+bar-progress-fill = ─
+bar-progress-fill-foreground = #bb
+bar-progress-fill-font = 3
+bar-progress-empty = ─
+bar-progress-empty-font = 3
+bar-progress-empty-foreground = #44
