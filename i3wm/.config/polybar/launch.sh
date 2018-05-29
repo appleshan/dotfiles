@@ -13,7 +13,7 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # polybar top &
 # polybar bottom &
 
-MONITOR=DP1 polybar top &
-MONITOR=DP1 polybar bottom &
+MONITOR=DP1 polybar -l=error -c ~/.config/polybar/config.ini top &
+MONITOR=DP1 polybar -l=error -c ~/.config/polybar/config.ini bottom &
 
 echo "Bars launched..."
