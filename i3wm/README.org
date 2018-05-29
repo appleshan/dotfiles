@@ -1,0 +1,34 @@
+#+TITLE: dotfiles - my lovely i3 and polybar.
+
+* About my setup (copypasted from neofetch =D)
+- OS: Manjaro Linux x86_64
+- Kernel: 4.14.44-1-MANJARO
+- Packages: 1015
+- Shell: zsh 5.5.1
+- Resolution: 1920x1080
+- WM: i3
+- Theme: Arc-Dark [GTK2/3]
+- Icons: Adwaita [GTK2/3]
+- Terminal: urxvt
+- CPU: Intel i7-6770HQ (8) @ 3.500GHz
+- GPU: Intel Iris Pro Graphics 580
+- Memory: 32GB
+
+* Installation
+
+** Archlinux / Manjaro
+
+#+BEGIN_SRC sh
+yaourt -S aur/polybar \
+          aur/i3-gaps \
+          extra/noto-fonts \
+          aur/ttf-material-icons \
+          aur/termsyn-font \
+          aur/otf-fontawesome \
+          aur/ttf-unifont \
+          aur/i3lock-fancy-git \
+	  community/ttf-fira-mono
+	  extra/feh
+#+END_SRC
+
+then move the .config file in your home reload i3 it should works :)
