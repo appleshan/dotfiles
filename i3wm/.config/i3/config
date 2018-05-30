@@ -84,8 +84,6 @@ bindsym $mod+Shift+F3 exec gksu pcmanfm # thunar
 # Music On Console
 bindsym $mod+F5 exec urxvt -e 'mocp'
 
-bindsym $mod+t exec --no-startup-id pkill compton
-bindsym $mod+Ctrl+t exec --no-startup-id compton -b --config $HOME/.config/compton.conf
 # bindsym $mod+F1 exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
 bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
@@ -282,12 +280,6 @@ mode "resize" {
         bindsym Escape mode "default"
 }
 
-# polybar exec
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# bar上某些要显示托盘图标（tray icon），须执行xrandr--output:
-exec --no-startup-id xrandr --output DP1 --primary --mode 1920x1080
-
 # --------------------color begins----------------------------
 
 #magenta colors(for window~)
@@ -400,7 +392,13 @@ mode "$mode_gaps_outer" {
 }
 # i3 gap and border ends
 
-# -------------------- wallpaper --------------------------
+# polybar
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# Start compton for Rofi and window border transparency -----------------------
+exec --no-startup-id compton -b --config $HOME/.config/compton.conf
+
+# Load wallpaper --------------------------------------------------------------
 
 # static mode
 exec --no-startup-id feh --bg-fill "/home/appleshan/persist/pictures/wallpager/MVAU_ZH-CN9430011383_1920x1080.jpg"
@@ -408,7 +406,7 @@ exec --no-startup-id feh --bg-fill "/home/appleshan/persist/pictures/wallpager/M
 # random mode
 # exec $HOME/.i3/wallpaper.sh &
 
-# -------------------- i3lock ------------------------------
+# i3lock ----------------------------------------------------------------------
 # lock screen
 bindsym Ctrl+mod1+l exec i3lock-fancy
 # bindsym Ctrl+mod1+l exec $HOME/.config/i3lock-fancy-multimonitor/lock
@@ -420,22 +418,30 @@ bindsym Ctrl+mod1+l exec i3lock-fancy
 #     bindsym Escape mode "default"
 # }
 
-# ------------ Screen brightness controls -------------------
+# Screen brightness controls --------------------------------------------------
 
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-# -------------------- fcitx ------------------------------
+# fcitx -----------------------------------------------------------------------
 
 exec --no-startup-id export GTK_IM_MODULE=fcitx
-exec --no-startup-id export XMODIFIERS=@im=fcitx
+exec --no-startup-id export XMODIFIERS="@im=fcitx"
 exec --no-startup-id export QT_IM_MODULE=fcitx
 exec --no-startup-id export export XIM="fcitx"
 exec --no-startup-id export export XIM_PROGRAM="fcitx"
 exec --no-startup-id fcitx -d -r
 
-# -------------------- 网络连接管理 ------------------------------
+# Start Network Manager -------------------------------------------------------
 exec --no-startup-id nm-applet
+
+# 屏幕管理 ------------------------------------------------------------------------
+# bar上某些要显示托盘图标（tray icon），须执行 xrandr --output:
+# exec --no-startup-id xrandr --output DP1 --primary --mode 1920x1080
+exec xrandr --output DP1 --primary --mode 1920x1080 --pos 0x0 --output DP2 --auto --pos 1920x0
+
+# 多屏切换
+bindsym $mod+p exec --no-startup-id ~/.config/i3/multiple-screen.sh
 
 ###############################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
