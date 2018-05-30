@@ -57,7 +57,7 @@ plugins=(alias-tips appup archlinux \
          emacs emoji extract \
          fancy-ctrl-z \
          gitfast gitignore gradle \
-         httpie jsontools last-working-dir \
+         httpie jsontools \
          man mvn nmap nvm \
          pip pylint python pipenv \
          rsync \
