@@ -403,7 +403,7 @@ mode "$mode_gaps_outer" {
 # -------------------- wallpaper --------------------------
 
 # static mode
-exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/MVAU_ZH-CN9430011383_1920x1080.jpg"
+exec --no-startup-id feh --bg-fill "/home/appleshan/persist/pictures/wallpager/MVAU_ZH-CN9430011383_1920x1080.jpg"
 
 # random mode
 # exec $HOME/.i3/wallpaper.sh &
