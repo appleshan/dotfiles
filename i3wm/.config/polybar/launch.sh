@@ -13,7 +13,16 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # polybar top &
 # polybar bottom &
 
-MONITOR=DP1 polybar -l=error -c ~/.config/polybar/config.ini top &
-MONITOR=DP1 polybar -l=error -c ~/.config/polybar/config.ini bottom &
+# Stolen from: https://github.com/jaagr/polybar/issues/763
+if type "xrandr"; then
+    for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
+    	echo $m
+        MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini top &
+        MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
+    done
+else
+    polybar -l=error -c ~/.config/polybar/config.ini top &
+    polybar -l=error -c ~/.config/polybar/config.ini bottom &
+fi
 
 echo "Bars launched..."
