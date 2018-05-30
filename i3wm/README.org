@@ -6,10 +6,15 @@
 - Packages: 1015
 - Shell: zsh 5.5.1
 - Resolution: 1920x1080
-- WM: i3
+- WM: i3-gaps
+- Bar: polybar
+- Launcher: rofi
+- Terminal: urxvt
+- File Manager: Ranger
+- Editor: emacs
+- Browser: google-chrome
 - Theme: Arc-Dark [GTK2/3]
 - Icons: Adwaita [GTK2/3]
-- Terminal: urxvt
 - CPU: Intel i7-6770HQ (8) @ 3.500GHz
 - GPU: Intel Iris Pro Graphics 580
 - Memory: 32GB
