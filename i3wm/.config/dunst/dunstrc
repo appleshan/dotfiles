@@ -25,12 +25,12 @@
 # ---------------------------------------------------------------------
 
     # General
-    font = "Font Awesome" 25
+    font = "Font Awesome" 14
     alignment = left
     icon_position = left
     word_wrap = yes
     line_height = 0
-    horizontal_padding = 20
+    horizontal_padding = 8
     transparency = 0
 
     # Markup Options
@@ -48,7 +48,7 @@
     # Separator
     separator_height = 2
     separator_color = frame
-    padding = 20
+    padding = 8
 
     # Border
 [frame]
