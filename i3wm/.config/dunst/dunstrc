@@ -10,7 +10,7 @@
     idle_threshold = 120
 
     # Browser for opening urls in context menu.
-    browser = chromium
+    browser = google-chrome
 
     # History
     sticky_history = yes
