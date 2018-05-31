@@ -440,6 +440,17 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id xrandr --output DP1 --primary --mode 1920x1080
 exec xrandr --output DP1 --primary --mode 1920x1080 --pos 0x0 --output DP2 --auto --pos 1920x0
 
+# 多屏切换 ------------------------------------------------------------------------
+# New mode for switching monitor modes
+set $monitorMode "monitor s=single, d=dual-screen"
+bindsym $mod+Shift+m mode $monitorMode
+mode $monitorMode {
+  bindsym s exec "~/.config/i3/screenlayout/single"
+  bindsym d exec "~/.config/i3/screenlayout/dual-screen"
+  # back to normal: Enter or Escape
+  bindsym Return mode "default"
+  bindsym Escape mode "default"
+}
 
 ###############################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
