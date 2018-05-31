@@ -1,0 +1,11 @@
+git-lfs
+google-chrome
+grub-customizer
+i3-gaps-next-git
+i3blocks
+i3lock
+neofetch
+polybar
+slack-desktop
+spotify
+ttf-font-awesome
