@@ -1,7 +1,7 @@
 #!/bin/bash
 # rofi_power menu
 
-action=$(echo -e "lock\nlogout\nshutdown\nreboot" | rofi -dmenu -p "power:")
+action=$(rofi -dmenu -i -lines 5 -width -9 -hide-scrollbar < ~/.config/rofi/rofi-exit)
 
 if [[ "$action" == "lock" ]]
 then
