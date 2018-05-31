@@ -440,8 +440,6 @@ exec --no-startup-id nm-applet
 # exec --no-startup-id xrandr --output DP1 --primary --mode 1920x1080
 exec xrandr --output DP1 --primary --mode 1920x1080 --pos 0x0 --output DP2 --auto --pos 1920x0
 
-# 多屏切换
-bindsym $mod+p exec --no-startup-id ~/.config/i3/multiple-screen.sh
 
 ###############################################################################
 ## sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later! ##
