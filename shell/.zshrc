@@ -1,3 +1,15 @@
+#
+#     ███████╗███████╗██╗  ██╗██████╗  ██████╗
+#     ╚══███╔╝██╔════╝██║  ██║██╔══██╗██╔════╝
+#       ███╔╝ ███████╗███████║██████╔╝██║
+#      ███╔╝  ╚════██║██╔══██║██╔══██╗██║
+#  ██╗███████╗███████║██║  ██║██║  ██║╚██████╗
+#  ╚═╝╚══════╝╚══════╝╚═╝  ╚═╝╚═╝  ╚═╝ ╚═════╝
+#
+#  Appleshan's ZSH config
+#  https://github.com/appleshan/dotfiles
+#
+
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:$PATH
 
