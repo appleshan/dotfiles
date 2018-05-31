@@ -1,0 +1,6 @@
+#!/bin/sh
+
+xrandr --output DP1 --primary --mode 1920x1080 --pos 0x0 --rotate normal \
+       --output DP2 --auto --pos 1920x0
+
+i3-msg restart
