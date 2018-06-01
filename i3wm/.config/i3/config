@@ -316,6 +316,81 @@ workspace_auto_back_and_forth yes
 bindsym $mod+b workspace back_and_forth
 bindsym $mod+Shift+b move container to workspace back_and_forth; workspace back_and_forth
 
+# assign apps to specific workspaces and focus when launching:
+
+# workspace 1 - terminals
+assign [class="Urxvt"] $ws1
+for_window [class="Urxvt"] focus
+
+# workspace 1 - file browsers & utilities
+assign [class="Pcmanfm"] $ws1
+for_window [class="Pcmanfm"] focus
+assign [class="Sunflower"] $ws1
+for_window [class="Sunflower"] focus
+assign [class="Thunar"] $ws1
+for_window [class="Thunar"] focus
+assign [class="Mediainfo-gui"] $ws1
+for_window [class="Mediainfo-gui"] focus
+
+# workspace 2 - web browsers
+assign [class="google-chrome"] $ws2
+for_window [class="google-chrome"] focus
+assign [class="Firefox"] $ws2
+for_window [class="Firefox"] focus
+assign [class="palemoon"] $ws2
+for_window [class="palemoon"] focus
+for_window [title="About Pale Moon"] floating enable
+
+# workspace 3 - chat & messaging
+assign [class="Franz"] $ws3
+for_window [class="Franz"] focus
+assign [class="Thunderbird"] $ws3
+for_window [class="Thunderbird"] focus
+
+# workspace 5 - gaming
+assign [class="Steam"] $ws5
+for_window [class="Steam"] focus
+assign [class="dosbox"] $ws5
+for_window [class="dosbox"] focus
+
+# workspace 6 - text editors
+assign [class="Emacs"] $ws6
+for_window [class="Emacs"] focus
+assign [class="Sublime_text"] $ws10
+for_window [class="Sublime_text"] focus
+
+# workspace 7 - downloading
+assign [class="Deluge"] $ws7
+for_window [class="Deluge"] focus
+assign [class="Uget-gtk"] $ws7
+for_window [class="Uget-gtk"] focus
+assign [class="Filezilla"] $ws7
+for_window [class="Filezilla"] focus
+assign [class="Youtube-dl-gui"] $ws7
+for_window [class="Youtube-dl-gui"] focus
+
+# workspace 9 - office
+assign [class="Virtualbox"] $ws9
+# 解决 i3 下 VirtualBox 显示不正常
+for_window [class="(?i)Virtualbox"] fullscreen enable
+
+# workspace 10 - misc
+assign [class="Pamac-manager"] $ws10
+for_window [class="Pamac-manager"] focus
+assign [class="Pamac-updater"] $ws10
+for_window [class="Pamac-updater"] focus
+
+# floating windows and other window options
+for_window [title="Steam - Update News"] kill
+for_window [title="File Transfer*"] floating enable
+for_window [title="alsamixer"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Nm-applet"] floating enable
+for_window [class="Viewnior"] floating enable
+for_window [class="Xarchiver"] floating enable
+for_window [class="GParted"] floating enable
+for_window [class="Lxappearance"] floating enable
+
 ##############################
 ###### STARTUP SETTINGS ######
 ##############################
