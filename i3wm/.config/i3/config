@@ -20,7 +20,7 @@ set $mod Mod4
 font pango: Hack, Awesome 12
 
 # Configure border style <normal|1pixel|pixel xx|none|pixel>
-new_window pixel 5
+new_window pixel 0
 new_float normal
 
 # Use Mouse+$mod to drag floating windows to their wanted position
