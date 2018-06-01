@@ -1,0 +1,19 @@
+# {{ ssh密钥登录
+#RSA认证
+RSAAuthentication yes
+
+#开启公钥验证
+PubkeyAuthentication yes
+
+#验证文件路径
+AuthorizedKeysFile .ssh/authorized_keys
+
+#禁止密码认证
+PasswordAuthentication no
+
+#禁止空密码
+PermitEmptyPasswords no
+
+# 重启SSH服务
+# systemctl restart sshd
+# }}
