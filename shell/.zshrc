@@ -71,7 +71,7 @@ plugins=(alias-tips appup archlinux \
          gitfast gitignore gradle \
          httpie jsontools \
          man mvn nmap nvm \
-         pip pylint python pipenv \
+         pip pylint python pipenv anaconda conda-env-autodetect \
          rsync \
          safe-paste spring sublime sudo svn-fast-info systemadmin \
          tmux \
