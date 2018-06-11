@@ -20,7 +20,7 @@
 
 ! █▓▒░ General
 URxvt.title:urxvrt
-URxvt.termNmae: rxvt-unicode-256color
+URxvt.termName: rxvt-unicode
 URxvt.saveLines:65536
 
 ! █▓▒░ scrollbar
@@ -41,15 +41,22 @@ URxvt.keysym.F11: perl:fullscreen:switch
 
 ! █▓▒░ Extensions
 !!!!No white space between extension names
-URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,tabbed,fullscreen,resize-font
+URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,tabbed,fullscreen,resize-font,config-reload
 URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
+
+! █▓▒░ keyboard-select
 urxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+! █▓▒░ copy paste
+URxvt.clipboard.autocopy:   true
+URxvt.clipboard.copycmd:    xclip -i -selection clipboard
+URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
+!urxvt.clipboard.copycmd:  xsel -ib
+!urxvt.clipboard.pastecmd: xsel -ob
 urxvt.keysym.M-c:   perl:clipboard:copy
 urxvt.keysym.C-v:   perl:clipboard:paste
 urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
-urxvt.clipboard.copycmd:  xsel -ib
-urxvt.clipboard.pastecmd: xsel -ob
 
 ! █▓▒░ Input Method
 !URxvt.preeditType:Root
@@ -58,8 +65,13 @@ URxvt.inputMethod:fcitx
 
 ! █▓▒░ Fonts
 Xft.dpi:96
-URxvt.font:xft:Hack:size=12:style=Regular:antialias=true,xft:WenQuanYi Micro Hei Mono:size=12:style=Regular:antialias=true
-URxvt.boldfont:xft:Hack:size=12:style=Bold:antialias=true,xft:WenQuanYi Micro Hei Mono:size=12:style=Bold:antialias=true
+URxvt.font:\
+xft:Hack:size=12:style=Regular:antialias=true,\
+xft:DejaVu Sans Mono for Powerline:size=10:style=Medium:antialias=true,\
+xft:WenQuanYi Micro Hei Mono:size=12:style=Regular:antialias=true
+URxvt.boldfont:\
+xft:Hack:size=12:style=Bold:antialias=true,\
+xft:WenQuanYi Micro Hei Mono:size=12:style=Bold:antialias=true
 
 ! █▓▒░ icons
 URxvt.iconFile: /usr/share/icons/Vibrancy-Colors/apps/16/terminal.png
