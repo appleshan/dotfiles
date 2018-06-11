@@ -36,8 +36,6 @@ unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 export TERM=rxvt-unicode
 export TERMINAL=rxvt-unicode
 
-source ~/.local/bin/ssh-connect/ssh-connect.sh
-
 function twa() {
     echo "type -a:\n"
     # type buildin command can output which file the function is definded. COOL!
