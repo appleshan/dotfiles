@@ -19,7 +19,7 @@
 NAME=shadowsocks-local
 
 BIN=/usr/bin/ss-local
-CONFIG_FILE=~/persist/Dropbox/net/shadowsocks-local/ss-config.json
+CONFIG_FILE=~/Dropbox/net/shadowsocks-local/ss-config.json
 PID_DIR=/tmp
 PID_FILE=$PID_DIR/ss-local.pid
 RET_VAL=0
