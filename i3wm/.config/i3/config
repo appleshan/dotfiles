@@ -354,10 +354,6 @@ assign [class="dosbox"] $ws5
 for_window [class="dosbox"] focus
 
 # workspace 6 - text editors
-assign [class="Emacs"] $ws6
-for_window [class="Emacs"] focus
-assign [class="Sublime_text"] $ws10
-for_window [class="Sublime_text"] focus
 
 # workspace 7 - downloading
 assign [class="Deluge"] $ws7
@@ -369,12 +365,18 @@ for_window [class="Filezilla"] focus
 assign [class="Youtube-dl-gui"] $ws7
 for_window [class="Youtube-dl-gui"] focus
 
+# workspace 8 - Hacker
+assign [class="Emacs"] $ws8
+for_window [class="Emacs"] focus
+
 # workspace 9 - office
 assign [class="Virtualbox"] $ws9
 # 解决 i3 下 VirtualBox 显示不正常
 for_window [class="(?i)Virtualbox"] fullscreen enable
 
 # workspace 10 - misc
+assign [class="Sublime_text"] $ws10
+for_window [class="Sublime_text"] focus
 assign [class="Pamac-manager"] $ws10
 for_window [class="Pamac-manager"] focus
 assign [class="Pamac-updater"] $ws10
