@@ -44,12 +44,6 @@ export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
 export IDEA_JDK=/opt/java/jdk1.8.0_162
 
-#################
-# Android Setup #
-#################
-# export ANDROID_HOME="/opt/android-sdk-linux"
-# export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
-
 # Gradle Setup
 export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
@@ -59,17 +53,10 @@ export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
 
 #################
-# Eclipse Setup #
+# Android Setup #
 #################
-# export ECLIPSE_HOME=/opt/eclipse-jee-neon/eclipse
-# export PATH=$ECLIPSE_HOME:$PATH
-
-###############
-# Ajoke Setup #
-###############
-# export AJOKE_DIR=~/git/java/ajoke
-# export export PATH=$AJOKE_DIR/bin:$PATH
-# export PERL5LIB="$AJOKE_DIR/etc/perl:$PERL5LIB";
+# export ANDROID_HOME="/opt/android-sdk-linux"
+# export PATH="$ANDROID_HOME/tools:$ANDROID_HOME/platform-tools:$PATH"
 
 #################
 # golang        #
@@ -129,10 +116,5 @@ export PATH=$MINICONDA_HOME/bin:$PATH
 #################
 # autoenv       #
 #################
-
-# 使用 git 方式安装了 kennethreitz/autoenv
-# source ~/.autoenv/activate.sh
-# export AUTOENV_ENABLE_LEAVE=true
-
 # 使用 git 方式安装了 Tarrasch/zsh-autoenv
 source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
