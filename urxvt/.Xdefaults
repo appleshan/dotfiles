@@ -20,7 +20,7 @@
 
 ! █▓▒░ General
 URxvt.title:urxvrt
-URxvt.termName: rxvt-unicode
+URxvt.termName: rxvt-unicode-256color
 URxvt.saveLines:65536
 
 ! █▓▒░ scrollbar
