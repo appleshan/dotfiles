@@ -157,19 +157,20 @@ ttf-font-awesome            -> fontawesome字体(AUR)
 
 *桌面
 lightdm(lightdm-gtk-greeter)-> 启动管理器
-i3-wm                       -> WM桌面
+i3-gaps                     -> WM桌面
 xrander                     -> 分辨率调整
 xcompmgr                    -> 窗口透明(可解决fcitx输入法皮肤黑框问题)
 lxappearance                -> 主题管理
 polybar                     -> 状态栏  (AUR)polybar-git
 arc-theme                   -> Gtk主题(AUR)
 numix-icon-theme-git        -> Numix图标(AUR)
-dunst                       -> 系统通知
+dunst                       -> manages my notifications
 
 *生产工具
 rxvt-unicode(urxvt)         -> 终端管理器
 visual-studio-code          -> IDE编辑器(AUR)
 gvim                        -> 编辑器
+oh-my-zsh                   -> my shell
 
 *日常软件
 rofi                        -> 程序启动器
