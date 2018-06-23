@@ -110,7 +110,7 @@ export PYTHONDONTWRITEBYTECODE=1
 #################
 # Miniconda     #
 #################
-export MINICONDA_HOME=/opt/python/miniconda3
+export MINICONDA_HOME=~/miniconda3
 export PATH=$MINICONDA_HOME/bin:$PATH
 
 #################
