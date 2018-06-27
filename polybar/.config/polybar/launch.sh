@@ -16,9 +16,12 @@ while pgrep -u $UID -x polybar >/dev/null; do sleep 1; done
 # Stolen from: https://github.com/jaagr/polybar/issues/763
 if type "xrandr"; then
     for m in $(xrandr --query | grep " connected" | cut -d" " -f1); do
-    	echo $m
-        MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini top &
-        MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
+        if [ "$m" = "DP1" ]; then
+            MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini top &
+            MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
+        else
+            MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini top &
+        fi
     done
 else
     polybar -l=error -c ~/.config/polybar/config.ini top &
