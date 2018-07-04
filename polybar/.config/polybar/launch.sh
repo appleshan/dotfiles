@@ -20,7 +20,7 @@ if type "xrandr"; then
             MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini top &
             MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
         else
-            MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini top &
+            MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
         fi
     done
 else
