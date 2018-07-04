@@ -409,9 +409,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Load wallpaper --------------------------------------------------------------
 # static mode
-exec --no-startup-id feh --bg-fill "/home/appleshan/persist/pictures/wallpager/MVAU_ZH-CN9430011383_1920x1080.jpg"
+exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/macOS-Wallpapers/High_Sierra.jpg"
 # random mode
-# exec $HOME/.i3/wallpaper.sh &
+# exec $HOME/.config/i3/wallpaper.sh &
 
 # fcitx -----------------------------------------------------------------------
 
