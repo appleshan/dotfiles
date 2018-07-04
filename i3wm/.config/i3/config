@@ -439,8 +439,7 @@ bindsym Ctrl+mod1+l exec i3lock-fancy
 
 # 屏幕管理 ------------------------------------------------------------------------
 # bar上某些要显示托盘图标（tray icon），须执行 xrandr --output:
-# exec xrandr --output DP1 --primary --mode 1920x1080
-exec xrandr --output DP1 --primary --mode 1920x1080 --pos 0x0 --output DP2 --auto --pos 1920x0
+exec xrandr --output DP1 --primary --mode 1920x1080 --pos 1920x0 --output DP2 --auto --pos 0x0
 
 # 多屏切换 ------------------------------------------------------------------------
 # New mode for switching monitor modes
