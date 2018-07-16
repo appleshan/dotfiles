@@ -70,7 +70,7 @@ plugins=(alias-tips appup archlinux \
          fancy-ctrl-z \
          gitfast gitignore gradle \
          httpie jsontools \
-         man mvn nmap nvm \
+         man mvn nmap \
          pip pylint python pipenv anaconda conda-env-autodetect \
          rsync \
          safe-paste spring sublime sudo svn-fast-info systemadmin \
