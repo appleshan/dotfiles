@@ -323,12 +323,12 @@ assign [class="Urxvt"] $ws1
 for_window [class="Urxvt"] focus
 
 # workspace 1 - file browsers & utilities
-assign [class="Pcmanfm"] $ws1
-for_window [class="Pcmanfm"] focus
-assign [class="Sunflower"] $ws1
-for_window [class="Sunflower"] focus
-assign [class="Thunar"] $ws1
-for_window [class="Thunar"] focus
+# assign [class="Pcmanfm"] $ws1
+# for_window [class="Pcmanfm"] focus
+# assign [class="Sunflower"] $ws1
+# for_window [class="Sunflower"] focus
+# assign [class="Thunar"] $ws1
+# for_window [class="Thunar"] focus
 assign [class="Mediainfo-gui"] $ws1
 for_window [class="Mediainfo-gui"] focus
 
