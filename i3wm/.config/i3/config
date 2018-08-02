@@ -375,8 +375,6 @@ assign [class="Virtualbox"] $ws9
 for_window [class="(?i)Virtualbox"] fullscreen enable
 
 # workspace 10 - misc
-assign [class="Sublime_text"] $ws10
-for_window [class="Sublime_text"] focus
 assign [class="Pamac-manager"] $ws10
 for_window [class="Pamac-manager"] focus
 assign [class="Pamac-updater"] $ws10
