@@ -354,6 +354,10 @@ assign [class="dosbox"] $ws5
 for_window [class="dosbox"] focus
 
 # workspace 6 - text editors
+assign [class="Emacs"] $ws6
+for_window [class="Emacs"] focus
+assign [class="Sublime_text"] $ws6
+for_window [class="Sublime_text"] focus
 
 # workspace 7 - downloading
 assign [class="Deluge"] $ws7
@@ -366,8 +370,6 @@ assign [class="Youtube-dl-gui"] $ws7
 for_window [class="Youtube-dl-gui"] focus
 
 # workspace 8 - Hacker
-assign [class="Emacs"] $ws8
-for_window [class="Emacs"] focus
 
 # workspace 9 - office
 assign [class="Virtualbox"] $ws9
