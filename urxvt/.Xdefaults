@@ -41,7 +41,7 @@ URxvt.keysym.F11: perl:fullscreen:switch
 
 ! █▓▒░ Extensions
 !!!!No white space between extension names
-URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,tabbed,fullscreen,resize-font,config-reload
+URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,fullscreen,resize-font,config-reload
 URxvt.urlLauncher: google-chrome
 URxvt.matcher.button: 1
 
