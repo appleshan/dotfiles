@@ -91,30 +91,24 @@ export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 禁用字节码(.pyc)文件
 export PYTHONDONTWRITEBYTECODE=1
 
-#if [ `id -u` != '0' ]; then
-##     export VIRTUALENV_USE_DISTRIBUTE=1        # <-- Always use pip/distribute
-#    export WORKON_HOME=$HOME/.virtualenvs       # <-- Where all virtualenvs will be stored
-#    source /usr/local/bin/virtualenvwrapper.sh
-#    export PIP_VIRTUALENV_BASE=$WORKON_HOME
-#    export PIP_RESPECT_VIRTUALENV=true
-#fi
+if [ `id -u` != '0' ]; then
+    # Pipenv 自动在项目目录的 .venv 目录创建虚拟环境
+    export PIPENV_VENV_IN_PROJECT=true
 
-#################
-# Pyenv         #
-#################
+    # virtualenvwrapper
+    # source ~/.local/bin/virtualenvwrapper.sh
+fi
+
+# Pyenv
 #export PYENV_ROOT="$HOME/.pyenv"
 #export PATH="$PYENV_ROOT/bin:$PATH"
 #eval "$(pyenv init -)"
 #eval "$(pyenv virtualenv-init -)"
 
-#################
-# Miniconda     #
-#################
-export MINICONDA_HOME=~/miniconda3
-export PATH=$MINICONDA_HOME/bin:$PATH
+# Miniconda
+#export MINICONDA_HOME=~/miniconda3
+#export PATH=$MINICONDA_HOME/bin:$PATH
 
-#################
-# autoenv       #
-#################
+# autoenv
 # 使用 git 方式安装了 Tarrasch/zsh-autoenv
 source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
