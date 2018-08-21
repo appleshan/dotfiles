@@ -116,3 +116,7 @@ fi
 # autoenv
 # 使用 git 方式安装了 Tarrasch/zsh-autoenv
 source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
+
+# pipsi
+export PIPSI_HOME=~/.local/venvs/pipsi
+export PATH=$PIPSI_HOME/bin:$PATH
