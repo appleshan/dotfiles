@@ -36,6 +36,9 @@ unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 export TERM=rxvt-unicode-256color
 export TERMINAL=rxvt-unicode-256color
 
+# Automatically start tmux
+export ZSH_TMUX_AUTOSTART=true
+
 function twa() {
     echo "type -a:\n"
     # type buildin command can output which file the function is definded. COOL!
