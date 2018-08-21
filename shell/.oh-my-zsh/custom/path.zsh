@@ -112,3 +112,7 @@ fi
 # autoenv
 # 使用 git 方式安装了 Tarrasch/zsh-autoenv
 source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
+
+# z - jump around
+# @see https://github.com/rupa/z
+source ~/.local/bin/z.sh
