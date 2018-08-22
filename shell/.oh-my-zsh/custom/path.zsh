@@ -1,10 +1,18 @@
 #!zsh
 
-# PATH="/usr/local/sbin:/usr/local/bin:/usr/bin:/usr/lib/jvm/default/bin:/usr/bin/site_perl:/usr/bin/vendor_perl:/usr/bin/core_perl"
+# Append our default paths
+appendpath () {
+    case ":$PATH:" in
+        *:"$1":*)
+            ;;
+        *)
+            PATH="${PATH:+$PATH:}$1"
+    esac
+}
 
 # set PATH so it includes user's private bin if it exists
 if [ -d "$HOME/.local/bin" ] ; then
-    PATH="$HOME/.local/bin:$PATH"
+    appendpath "$HOME/.local/bin"
 fi
 
 # z - jump around
@@ -43,7 +51,8 @@ export JAVA_8_HOME=/opt/java/jdk1.8.0_162
 export JAVA_HOME=$JAVA_8_HOME
 export JRE_HOME=$JAVA_8_HOME/jre
 
-export PATH=$JAVA_HOME/bin:$PATH
+appendpath "$JAVA_HOME/bin"
+
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
 export IDEA_JDK=/opt/java/jdk1.8.0_162
@@ -119,4 +128,4 @@ source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
 
 # pipsi
 export PIPSI_HOME=~/.local/venvs/pipsi
-export PATH=$PIPSI_HOME/bin:$PATH
+appendpath "$PIPSI_HOME/bin"
