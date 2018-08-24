@@ -1,0 +1,4 @@
+# @see https://wiki.archlinux.org/index.php/Mutt#Viewing_URLs_in_a_web_browser
+
+REGEXP (((http|https|ftp|gopher)|mailto)[.:][^ >"\t]*|www\.[-a-z0-9.]+)[^ .,;\t>">\):]
+COMMAND google-chrome %s
