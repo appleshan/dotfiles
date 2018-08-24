@@ -65,13 +65,16 @@ URxvt.inputMethod:fcitx
 
 ! █▓▒░ Fonts
 Xft.dpi:96
+
 URxvt.font:\
-xft:Hack:size=12:style=Regular:antialias=true,\
-xft:DejaVu Sans Mono for Powerline:size=10:style=Medium:antialias=true,\
-xft:WenQuanYi Micro Hei Mono:size=12:style=Regular:antialias=true
+xft:Hack:style=Regular:antialias=true:size=12,\
+xft:WenQuanYi Micro Hei:style=Regular:antialias=true:size=12,\
+xft:Unifont:style=Medium:antialias=false:size=12,\
+xft:FontAwesome:style=Medium:antialias=false:size=12
+
 URxvt.boldfont:\
 xft:Hack:size=12:style=Bold:antialias=true,\
-xft:WenQuanYi Micro Hei Mono:size=12:style=Bold:antialias=true
+xft:WenQuanYi Zen Hei Mono:size=12:style=Bold:antialias=true
 
 ! █▓▒░ icons
 URxvt.iconFile: /usr/share/icons/Vibrancy-Colors/apps/16/terminal.png
