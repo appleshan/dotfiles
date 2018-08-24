@@ -40,12 +40,15 @@ export TERMINAL=rxvt-unicode-256color
 export ZSH_TMUX_AUTOSTART=true
 
 function twa() {
+    echo "================================================================================"
     echo "type -a:\n"
     # type buildin command can output which file the function is definded. COOL!
     type -a "$@"
-    echo "\nwhich -a:\n"
+    echo "--------------------------------------------------------------------------------"
+    echo "which -a:\n"
     # which buildin command can output the function implementation. COOL!
     which -a "$@"
+    echo "================================================================================"
 }
 
 # Speed up SSH X11 Forwarding
