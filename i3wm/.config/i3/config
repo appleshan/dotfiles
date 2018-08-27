@@ -409,7 +409,7 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # Load wallpaper --------------------------------------------------------------
 # static mode
-exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/LetchworthSP_ZH-CN14963443838_1920x1080.jpg"
+exec --no-startup-id feh --bg-scale "/home/appleshan/persist/pictures/wallpager/JeanLafitte_ZH-CN11969195990_1920x1080.jpg"
 # random mode
 # exec $HOME/.config/i3/wallpaper.sh &
 
