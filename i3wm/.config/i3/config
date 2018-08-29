@@ -392,6 +392,7 @@ for_window [class="Viewnior"] floating enable
 for_window [class="Xarchiver"] floating enable
 for_window [class="GParted"] floating enable
 for_window [class="Lxappearance"] floating enable
+for_window [class="Yad"] floating enable
 
 ##############################
 ###### STARTUP SETTINGS ######
