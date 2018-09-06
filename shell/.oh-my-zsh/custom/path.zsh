@@ -19,6 +19,9 @@ fi
 # @see https://github.com/rupa/z
 source ~/.local/bin/z.sh
 
+# ripgrep
+export RIPGREP_CONFIG_PATH=~/.config/ripgrep/.ripgreprc
+
 ###############
 # Emacs Setup #
 ###############
