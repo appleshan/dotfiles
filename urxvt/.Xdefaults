@@ -68,13 +68,13 @@ Xft.dpi:96
 
 URxvt.font:\
 xft:Hack:style=Regular:antialias=true:size=12,\
-xft:WenQuanYi Micro Hei:style=Regular:antialias=true:size=12,\
+xft:DejaVu Sans Mono:style=Regular:antialias=true:size=12,\
 xft:Unifont:style=Medium:antialias=false:size=12,\
 xft:FontAwesome:style=Medium:antialias=false:size=12
 
 URxvt.boldfont:\
 xft:Hack:size=12:style=Bold:antialias=true,\
-xft:WenQuanYi Zen Hei Mono:size=12:style=Bold:antialias=true
+xft:DejaVu Sans Mono:size=12:style=Bold:antialias=true
 
 ! █▓▒░ icons
 URxvt.iconFile: /usr/share/icons/Vibrancy-Colors/apps/16/terminal.png
