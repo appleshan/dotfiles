@@ -9,8 +9,8 @@ FOLDER="$(dirname "$(readlink -f "$0")")"
 LOCK="$FOLDER/lock.png"
 TEXT="$FOLDER/text.png"
 PARAMS=""
-# OUTPUT_IMAGE="/tmp/i3lock.png"
-OUTPUT_IMAGE="$FOLDER/i3lock-wallpager.png"
+INPUT_IMAGE="$FOLDER/i3-lock-screen.png"
+OUTPUT_IMAGE="/tmp/i3lock.png"
 DISPLAY_TEXT=true
 PIXELATE=false
 BLURTYPE="1x1"
@@ -91,9 +91,9 @@ done <<<"`xrandr`"
 
 #Execute ImageMagick:
 if $PIXELATE ; then
-  PARAMS="'$OUTPUT_IMAGE' '-scale' '10%' '-scale' '1000%' $PARAMS '$OUTPUT_IMAGE'"
+  PARAMS="'$INPUT_IMAGE' '-scale' '10%' '-scale' '1000%' $PARAMS '$OUTPUT_IMAGE'"
 else
-  PARAMS="'$OUTPUT_IMAGE' '-level' '0%,100%,0.6' '-blur' '$BLURTYPE' $PARAMS '$OUTPUT_IMAGE'"
+  PARAMS="'$INPUT_IMAGE' '-level' '0%,100%,0.6' '-blur' '$BLURTYPE' $PARAMS '$OUTPUT_IMAGE'"
 fi
 
 eval convert $PARAMS
@@ -102,4 +102,4 @@ eval convert $PARAMS
 i3lock -i $OUTPUT_IMAGE -t
 
 #Remove the generated image:
-# rm $OUTPUT_IMAGE
+rm $OUTPUT_IMAGE

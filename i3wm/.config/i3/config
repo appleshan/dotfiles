@@ -428,8 +428,8 @@ exec --no-startup-id nm-applet
 
 # i3lock ----------------------------------------------------------------------
 # lock screen
-bindsym Ctrl+mod1+l exec i3lock-fancy
-# bindsym Ctrl+mod1+l exec $HOME/.config/i3lock-fancy-multimonitor/lock
+# bindsym Ctrl+mod1+l exec i3lock-fancy
+bindsym Ctrl+mod1+l exec $HOME/.config/i3lock-fancy-multimonitor/lock
 
 # i3lock mode
 # bindsym Ctrl+mod1+l mode "i3lock: Return to lock/Escape to Cancel"
