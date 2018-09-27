@@ -85,3 +85,7 @@
     # instead of a/b/c/d as prefixes for patches
     mnemonicprefix = true
     algorithm = patience
+[http "https://github.com"]
+  proxy = socks5://127.0.0.1:18080
+[https "https://github.com"]
+  proxy = socks5://127.0.0.1:18080
