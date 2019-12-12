@@ -69,6 +69,7 @@ export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # Maven Setup
 export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
+# ln -s /opt/java/apache-maven-3.5.2/bin/mvn /usr/local/bin
 
 #################
 # Android Setup #
