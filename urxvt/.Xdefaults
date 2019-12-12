@@ -18,50 +18,55 @@
 !! $HOME/.Xdefaults
 !! @See https://wiki.archlinux.org/index.php/rxvt-unicode
 
-! █▓▒░ General
-URxvt.title:urxvrt
-URxvt.termName: rxvt-unicode-256color
-URxvt.saveLines:65536
+!! Colorscheme
 
-! █▓▒░ scrollbar
-URxvt.scrollBar:True
-URxvt.scrollBar_right:True
-URxvt.scrollBar_floating:False
-URxvt.scrollstyle:plain
-URxvt.scrollTtyOutput:False
-URxvt.scrollWithBuffer:True
-URxvt.scrollTtyKeypress:True
-URxvt.mouseWheelScrollPage:True
+! special
+*.foreground: #93a1a1
+*.background: #141c21
+*.cursorColor: #afbfbf
 
-! █▓▒░ 光标闪烁
-URxvt.cursorBlink:True
+! black
+*.color0: #263640
+*.color8: #4a697d
 
-! █▓▒░ Fullscreen
-URxvt.keysym.F11: perl:fullscreen:switch
+! red
+*.color1: #d12f2c
+*.color9: #fa3935
 
-! █▓▒░ Extensions
-!!!!No white space between extension names
-URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,fullscreen,resize-font,config-reload
-URxvt.urlLauncher: google-chrome
-URxvt.matcher.button: 1
+! green
+*.color2: #819400
+*.color10: #a4bd00
 
-! █▓▒░ keyboard-select
-urxvt.keysym.M-Escape: perl:keyboard-select:activate
+! yellow
+*.color3: #b08500
+*.color11: #d9a400
 
-! █▓▒░ copy paste
-URxvt.clipboard.autocopy:   true
-URxvt.clipboard.copycmd:    xclip -i -selection clipboard
-URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
-!urxvt.clipboard.copycmd:  xsel -ib
-!urxvt.clipboard.pastecmd: xsel -ob
-urxvt.keysym.M-c:   perl:clipboard:copy
-urxvt.keysym.C-v:   perl:clipboard:paste
-urxvt.keysym.M-C-v: perl:clipboard:paste_escaped
+! blue
+*.color4: #2587cc
+*.color12: #2ca2f5
 
-! █▓▒░ Input Method
-!URxvt.preeditType:Root
-URxvt.preeditType:OffTheSpot
-URxvt.inputMethod:fcitx
+! magenta
+*.color5: #696ebf
+*.color13: #8086e8
+
+! cyan
+*.color6: #289c93
+*.color14: #33c5ba
+
+! white
+*.color7: #bfbaac
+*.color15: #fdf6e3
+
+!! URxvt Appearance
+URxvt.letterSpace: 0
+URxvt.lineSpace: 0
+URxvt.geometry: 90x25+180+200
+! URxvt.geometry: 92x24
+URxvt.internalBorder: 24
+URxvt.cursorUnderline: false
+URxvt.depth: 32
+! URxvt.depth: 24
+URxvt.iso14755: false
 
 ! █▓▒░ Fonts
 Xft.dpi:96
@@ -79,44 +84,96 @@ xft:DejaVu Sans Mono:size=12:style=Bold:antialias=true
 ! █▓▒░ icons
 URxvt.iconFile: /usr/share/icons/Vibrancy-Colors/apps/16/terminal.png
 
-! █▓▒░ color scheme: Solarized light
-URxvt.depth:32
-urxvt.internalBorder: 10
+! █▓▒░ 边框设置
+urxvt.internalBorder: 5
 urxvt.borderColor: #1c1c1c
 URxvt.borderLess: False
+
+! █▓▒░ color scheme: Solarized light
 URxvt.fading:                40
 URxvt.fadeColor:             #fdf6e3
 URxvt.pointerColorBackground:#93a1a1
 URxvt.pointerColorForeground:#586e75
+URxvt.cursorColor:red3
+URxvt.underlineColor:cyan
+!URxvt.colorBD:white
+URxvt.colorIT:magenta
+!URxvt.colorUL:yellow
+!URxvt.depth:32
+!URxvt.background: black
+!URxvt.foreground: White
+
+!!颜色设置
+!!中括号内数表示透明度
+URxvt.background:[75]#000000
+!URxvt.background: #2C2C2C
+URxvt.foreground:#ffffff
+URxvt.colorBD:Gray95
+URxvt.colorUL:Green
+
+!!透明度设置
 URxvt.transparent: true
 URxvt.shading: 65
-URxvt.background: black
-URxvt.foreground: White
-URxvt.geometry: 90x25+180+200
-URxvt.cursorColor:red3
-URxvt.color0:black
-URxvt.color1:red2
-URxvt.color2:springgreen
-URxvt.color3:wheat3
-URxvt.color4:RoyalBlue
-URxvt.color5:Magenta2
-URxvt.color6:steelblue1
-URxvt.color7:gray85
-URxvt.color8:Gray50
-URxvt.color9:orangered2
-URxvt.color10:Green2
-URxvt.color11:lightgoldenrod2
-URxvt.color12:skyblue1
-URxvt.color13:pink1
-URxvt.color14:Cyan2
-URxvt.color15:Gray95
+! URxvt.shading: 110
+URxvt.tintColor: gray
+URxvt.inheritPixmap: false
+
+! █▓▒░ 光标闪烁
+URxvt.cursorBlink:True
+
+! █▓▒░ 滚动条设置
+URxvt.scrollBar:True
+URxvt.scrollBar_right:True
+URxvt.scrollBar_floating:False
+URxvt.scrollstyle:plain
+
+!! Common Keybinds for Navigations
+URxvt.keysym.Shift-Up: command:\033]720;1\007
+URxvt.keysym.Shift-Down: command:\033]721;1\007
+URxvt.keysym.Control-Up: \033[1;5A
+URxvt.keysym.Control-Down: \033[1;5B
+URxvt.keysym.Control-Right: \033[1;5C
+URxvt.keysym.Control-Left: \033[1;5D
+
+! █▓▒░ General
+URxvt.title: alec-rxvt
+URxvt.termName: rxvt-unicode-256color
+!!缓存行数
+URxvt.saveLines:65536
+
+! █▓▒░ Extensions
+!!!!No white space between extension names
+URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,fullscreen,resize-font,tabbed
+
+! █▓▒░ Copy Paste
+URxvt.clipboard.autocopy:   true
+URxvt.clipboard.copycmd:    xclip -i -selection clipboard
+URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
+urxvt.keysym.M-c:      perl:clipboard:copy
+urxvt.keysym.C-v:      perl:clipboard:paste
+urxvt.keysym.M-C-v:    perl:clipboard:paste_escaped
+
+! █▓▒░ 滚屏设置
+URxvt.mouseWheelScrollPage:True
+URxvt.scrollTtyOutput:False
+URxvt.scrollWithBuffer:True
+URxvt.scrollTtyKeypress:True
+
+! █▓▒░ Fullscreen
+URxvt.keysym.F11: perl:fullscreen:switch
+
+! █▓▒░ keyboard-select
+URxvt.keysym.M-s:      perl:keyboard-select:search
+urxvt.keysym.M-Escape: perl:keyboard-select:activate
+
+! █▓▒░ Input Method
+!URxvt.preeditType:Root
+URxvt.preeditType:OffTheSpot
+URxvt.inputMethod:fcitx
 
 ! █▓▒░ Clickable URLs
-URxvt.underlineColor:cyan
-URxvt.tintColor:gray
-URxvt.colorBD:white
-URxvt.colorIT:magenta
-URxvt.colorUL:yellow
+URxvt.urlLauncher: google-chrome
+URxvt.matcher.button: 1
 URxvt.keysym.C-Delete: perl:matcher:last
 URxvt.keysym.M-Delete: perl:matcher:list
 
@@ -127,17 +184,24 @@ urxvt.url-select.launcher: google-chrome
 URxvt.url-select.underline: true
 
 ! █▓▒░ Simple tabs
-! Key	        Description
-! Shift+Down	New tab
-! Shift+Left	Go to left tab
-! Shift+Right	Go to right tab
-! Ctrl+Left	    Move tab to the left
-! Ctrl+Right	Move tab to the right
-! Ctrl+d	    Close tab
-URxvt.tabbed.tabbar-fg: 2
-URxvt.tabbed.tabbar-bg: 0
-URxvt.tabbed.tab-fg: 3
+! 默认支持鼠标点击使用，快捷键如下：
+! Key       Description
+! Shift+ ↓  New tab
+! Shift+ ←  Go to left tab
+! Shift+ →  Go to right tab
+! Ctrl+ ←   Move tab to the left
+! Ctrl+ →   Move tab to the right
+! Ctrl+ d   Close tab
+URxvt.tabbed.tabbar-fg: 15
+URxvt.tabbed.tabbar-bg: 8
+URxvt.tabbed.tab-fg: 8
 URxvt.tabbed.tab-bg: 0
+URxvt.tabbed.active-fg: 1
+URxvt.tabbed.actives-fg: 5
+URxvt.tabbed.actived-fg: 4
+URxvt.tabbed.new-button: false
+URxvt.tabbed.autohide: true
+URXvt.tabbed.reopen-on-close: no
 
 ! █▓▒░ Changing font size on the fly
 URxvt.keysym.C-Down:  resize-font:smaller
