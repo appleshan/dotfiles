@@ -1,0 +1,21 @@
+#!/bin/dash
+if [ ! $# -eq 1 ]
+then
+    echo "Need 1 argument, got $#"
+    exit
+fi
+
+
+name="`rofi -dmenu -p "Option Name" -l 0`"
+if [ `echo "$name" | wc -m` -eq 1 ]
+then
+    exit
+fi
+
+action="`rofi -dmenu -p "Enter Command" -l 0`"
+if [ `echo "$action" | wc -m` -eq 1 ]
+then
+    exit
+fi
+
+echo "$name || $action" >> "$1"

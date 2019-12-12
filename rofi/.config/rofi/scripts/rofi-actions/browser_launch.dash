@@ -1,0 +1,35 @@
+#!/bin/dash
+options="`sed ~/dwm/scripts/browser.txt -Ee 's/\|.+//g' -e 's/^ *//g'`"
+string="`echo "$options" | rofi -dmenu -p Search -i`"
+
+if [ "$1" = "true" ]
+then
+    command="firefox --new-window"
+else
+    command="firefox"
+fi
+
+if [ -z "$string" ]
+then
+    exit
+fi
+
+    
+line="`rg ~/dwm/scripts/browser.txt --line-number -i -e "$string" | rg -e '[0-9]+:' -o`"
+
+if [ -z "$line" ]
+then
+    if echo "$string" | rg -e "^([a-zA-z]+\.)+[a-z]{2,4}(/[a-zA-z]*)*$" --multiline -q
+    then
+         eval "$command" "\"$string\""
+    else
+         eval "$command" 'https://duckduckgo.com/?q='"\"$string\""
+    fi
+    exit
+fi
+
+outputs="`sed ~/dwm/scripts/browser.txt -Ee 's/.+\|//g' -e 's/^ *//g'`"
+linenum="${line%?}"
+action="`echo "$outputs" | sed -e "$linenum!d"`"
+
+eval "$command $action"

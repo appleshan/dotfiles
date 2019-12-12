@@ -1,0 +1,20 @@
+#!/bin/dash
+options="`sed ~/dwm/scripts/actions.txt -Ee 's/\|\|.+//g' -e 's/^ *//g'`"
+outputs="`sed ~/dwm/scripts/actions.txt -Ee 's/.+\|\|//g' -e 's/^ *//g'`"
+string="`echo "$options" | rofi -dmenu -p Quick Launch -i`"
+
+if [ `echo "$string" | wc -m` -eq 1 ]
+then
+    exit
+fi
+
+line="`rg ~/dwm/scripts/actions.txt --line-number -i -e "$string" | rg -e '[0-9]+:' -o`"
+linenum="${line%?}"
+
+action="`echo "$outputs" | sed -e "$linenum!d"`"
+# echo $options
+# echo "$outputs"
+# echo $string
+# echo $linenum
+echo $action
+eval $action
