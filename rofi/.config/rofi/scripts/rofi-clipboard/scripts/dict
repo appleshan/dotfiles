@@ -1,0 +1,3 @@
+#!/usr/bin/env bash
+
+dict "$(cat -)" | zenity --text-info --title Dictionary --width 512 --height 512
