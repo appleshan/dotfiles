@@ -77,7 +77,7 @@ plugins=(alias-tips appup archlinux \
          tmux \
          wakatime web-search \
          zsh-peco-history zsh-proxychains-ng \
-         zsh-dropbox zsh_reload)
+         zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
