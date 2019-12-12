@@ -1,29 +1,20 @@
 ##
-## Manjaro Linux default mirrorlist
-## Generated on 2018-03-08 14:37
+## Manjaro Linux custom mirrorlist
+## Generated on 2019-10-14 17:57
 ##
-## Please use 'pacman-mirrors -f [NUMBER] NUMBER' to modify mirrorlist
-## (Use 0 for all mirrors)
+## Please use 'pacman-mirrors -id' To reset custom mirrorlist
+## Please use 'pacman-mirrors -c all' To reset custom mirrorlist
+## To remove custom config run  'pacman-mirrors -c all'
 ##
 
-## Country : China - Hong_Kong
-Server = http://ftp.cuhk.edu.hk/pub/Linux/manjaro/stable/$repo/$arch
+## Country : China
+Server = https://mirrors.huaweicloud.com/manjaro/stable/$repo/$arch
 
-## 浙江大学 (浙江杭州) (ipv4, ipv6, http, https)
-## Added: 2017-06-05
+## Country : China
 Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
 
-## 清华大学 (ipv4, ipv6, http, https)
-Server = https://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
-
 ## Country : China
-Server = https://mirrors.shuosc.org/manjaro/stable/$repo/$arch
-
-## Country : China
-Server = https://mirrors.shu.edu.cn/manjaro/stable/$repo/$arch
-
-## 中国科学技术大学 (ipv4, ipv6, http, https)
-Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
+Server = http://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
 
 ## Country : Japan
 Server = http://ftp.riken.jp/Linux/manjaro/stable/$repo/$arch
@@ -31,5 +22,9 @@ Server = http://ftp.riken.jp/Linux/manjaro/stable/$repo/$arch
 ## Country : Japan
 Server = http://ftp.tsukuba.wide.ad.jp/Linux/manjaro/stable/$repo/$arch
 
-## Country : Singapore
-Server = https://download.nus.edu.sg/mirror/manjaro/stable/$repo/$arch
+## Country : China
+Server = https://mirrors.sjtug.sjtu.edu.cn/manjaro/stable/$repo/$arch
+
+## Country : China
+Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
+
