@@ -86,6 +86,6 @@
     mnemonicprefix = true
     algorithm = patience
 [http "https://github.com"]
-  proxy = socks5://127.0.0.1:18080
+#    proxy = socks5://127.0.0.1:18080
 [https "https://github.com"]
-  proxy = socks5://127.0.0.1:18080
+#    proxy = socks5://127.0.0.1:18080
