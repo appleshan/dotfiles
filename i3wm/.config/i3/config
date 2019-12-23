@@ -380,10 +380,9 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 # bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
 # bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
 
-# => sound-section - DO NOT EDIT if you wish to automatically upgrade Alsa -> Pulseaudio later!
-#exec --no-startup-id volumeicon
+# => sound-section
 bindsym $mod+Ctrl+m exec urxvt -e 'alsamixer'
-
+exec_always --no-startup-id volumeicon
 
 # enable syntax highlighting in vim/neovim. must have the i3 plugin!
 # get it at https://github.com/PotatoesMaster/i3-vim-syntax
