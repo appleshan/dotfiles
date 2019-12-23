@@ -3,6 +3,7 @@
 # source me in your script or .bashrc/.zshrc if wanna use cecho
 # source '/path/to/functions.sh'
 
+export LC_ALL=zh_CN.UTF-8
 export LESSCHARSET=utf-8
 
 export HIST_STAMPS="yyyy-mm-dd"
