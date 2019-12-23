@@ -120,7 +120,7 @@ function ii()   # get current host related info
     echo -e "\nUsers logged on:$NC " ; w -h
     echo -e "\nCurrent date :$NC " ; date
     echo -e "\nMachine stats :$NC " ; uptime
-    echo -e "\nMemory stats :$NC " ; free
+    echo -e "\nMemory stats :$NC " ; free -h
     # my_ip 2>&- ;
     echo -e "\nLocal IP Address :$NC" ; myip
     echo
