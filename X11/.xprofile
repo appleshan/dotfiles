@@ -12,5 +12,30 @@ export XMODIFIERS="@im=fcitx"
 export XIM="fcitx"
 export XIM_PROGRAM="fcitx"
 
-### {mark} DOTFILES compton ###
-compton --backend glx --vsync opengl-swc -GCb --config ~/.config/compton.conf &
+# => 开机自启（根据需要取消相应的注释#）
+
+# Start compton for Rofi and window border transparency
+compton --backend glx --vsync -GCb --config $HOME/.config/compton.conf
+
+# => 屏幕管理
+# polybar上某些要显示托盘图标（tray icon），须执行 xrandr --output:
+xrandr --auto --output DP1 --primary --mode 1920x1080 --rate 75.00
+
+# 壁纸须先安装feh，并在此指定路径
+feh --bg-scale "$HOME/.config/i3/wallpaper.jpg" &
+
+# => Start Fcitx
+fcitx -d -r &
+
+# => Start Network Manager
+nm-applet &
+
+# => Start Bluetooth Manager
+blueman-applet &
+
+# => Start Volume control
+volumeicon &
+
+# => Start Clipboard Manager
+copyq &
+
