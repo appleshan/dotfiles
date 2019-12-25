@@ -287,44 +287,10 @@ bindsym $mod+Shift+g mode "$mode_gaps"
 #   • --no-startup-id 有些脚本或者程序不支持启动通知，不加命令，鼠标会长时间空转，60秒左右
 #   • exec_always 每次重启i3，使用该命令启动的程序都会重新执行一次，不然只在开机时执行一次。
 
-# => 开机自启（根据需要取消相应的注释#）
-# 壁纸须先安装feh，并在此指定路径
-exec_always --no-startup-id feh --bg-scale "$HOME/.config/i3/wallpaper.jpg"
-# 设置透明须先安装 compton
-# Start compton for Rofi and window border transparency
-exec_always --no-startup-id compton -b --config $HOME/.config/compton.conf &
-# 建议另外指定一个脚本来启动通用的开机自启项目
-# exec --no-startup-id $HOME/bin/RC
-# 总有一些奇葩无法正常用脚本启动
-# exec --no-startup-id kuaipan4uk &
-
 # `polybar` replaces `i3bar`
 # more info at https://github.com/jaagr/polybar
 # configuration in ~/.config/polybar/config.ini
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# => Start Fcitx
-exec --no-startup-id export GTK_IM_MODULE=fcitx
-exec --no-startup-id export XMODIFIERS="@im=fcitx"
-exec --no-startup-id export QT_IM_MODULE=fcitx
-exec --no-startup-id export export XIM="fcitx"
-exec --no-startup-id export export XIM_PROGRAM="fcitx"
-exec --no-startup-id fcitx -d -r
-
-# => Start Network Manager
-exec_always --no-startup-id nm-applet
-
-# => Start Bluetooth Manager
-exec --no-startup-id blueman-applet
-
-# => Start Clipboard Manager
-exec --no-startup-id copyq
-
-# => 屏幕管理
-# bar上某些要显示托盘图标（tray icon），须执行 xrandr --output:
-exec xrandr --output DP1 --primary --mode 1920x1080 --rate 75.00 --pos 1920x0
-#exec xrandr --output DP1 --primary --mode 1920x1080 --rate 75.00 --pos 1920x0 --output DP2 --auto --pos 0x0
-#exec xrandr --output DP1 --primary --mode 1600x900 --rate 75.00 --pos 1600x0 --output DP2 --auto --pos 0x0
 
 # => 重新载入(reload the configuration file)
 #（更改配置文件后只须重载即可生效，不包含自启部分）
@@ -382,7 +348,6 @@ bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
 
 # => sound-section
 bindsym $mod+Ctrl+m exec urxvt -e 'alsamixer'
-exec_always --no-startup-id volumeicon
 
 # enable syntax highlighting in vim/neovim. must have the i3 plugin!
 # get it at https://github.com/PotatoesMaster/i3-vim-syntax
