@@ -73,7 +73,7 @@ Xft.dpi:96
 
 URxvt.font:\
 xft:Hack:style=Regular:antialias=true:size=12,\
-xft:DejaVu Sans Mono:style=Regular:antialias=true:size=12,\
+xft:Microsoft YaHei Mono:style=Regular:antialias=true:size=12,\
 xft:Unifont:style=Medium:antialias=false:size=12,\
 xft:FontAwesome:style=Medium:antialias=false:size=12
 
