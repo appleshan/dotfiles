@@ -1,5 +1,5 @@
 #!/bin/bash
-while inotifywait -e close_write ~/projects-private/dotfiles/i3wm/.config/dunst/dunstrc; do
+while inotifywait -e close_write ~/projects-private/dotfiles/dunst/.config/dunst/dunstrc; do
     pkill -f /usr/bin/dunst
     notify-send -u critical "Test message: critical test 1"
     notify-send -u normal "Test message: normal test 2"
