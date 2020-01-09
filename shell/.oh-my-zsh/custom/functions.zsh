@@ -18,6 +18,14 @@ export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 # See bash(1) for more options
 export HISTCONTROL=ignoreboth:erasedups   # no duplicate entries
 
+# @See https://blog.lilydjwg.me/2013/7/3/manually-save-read-zsh-history-entries.39852.html
+# 不保留重复的历史记录项
+setopt hist_ignore_all_dups
+# 在命令前添加空格，不将此命令添加到记录文件中
+setopt hist_ignore_space
+# 在多个 zsh 中及时共享历史记录
+setopt SHARE_HISTORY
+
 # The FIGNORE environment variable is nice when you want TAB completion
 # to ignore files or folders with certain suffixes, e.g.:
 export FIGNORE=~:.o:.svn:.git:.bak:.swp:.elc:.swa:.pyc:.a:.class:.la:.mo:.obj:.pyo
