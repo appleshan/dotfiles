@@ -110,14 +110,6 @@ export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 禁用字节码(.pyc)文件
 export PYTHONDONTWRITEBYTECODE=1
 
-if [ `id -u` != '0' ]; then
-    # Pipenv 自动在项目目录的 .venv 目录创建虚拟环境
-    export PIPENV_VENV_IN_PROJECT=true
-
-    # virtualenvwrapper
-    # source ~/.local/bin/virtualenvwrapper.sh
-fi
-
 # Pyenv
 export PYENV_ROOT="$HOME/.pyenv"
 export PATH="$PYENV_ROOT/bin:$PATH"
