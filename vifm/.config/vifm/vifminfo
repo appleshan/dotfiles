@@ -1,0 +1,325 @@
+# You can edit this file by hand, but it's recommended not to do that.
+
+# Marks:
+'H
+	/home/appleshan/
+	..
+1577259790
+'b
+	/home/appleshan/.local/bin/
+	..
+1579182355
+'c
+	/home/appleshan/.config
+	..
+1579182355
+'h
+	/home/appleshan/
+	..
+1577259790
+'v
+	/home/appleshan/.config/vifm
+	..
+1579182355
+
+# Bookmarks:
+
+# TUI:
+al
+q0
+v2
+ov
+m-1
+l2
+r2
+
+# Left window history (oldest to newest):
+d/home/appleshan
+	Downloads
+2
+d/home/appleshan/Downloads
+	linux-soft
+2
+d/home/appleshan
+	Downloads
+2
+d/home/appleshan/Downloads
+	linux-soft
+2
+d/home/appleshan/Downloads/linux-soft
+	..
+0
+d/home/appleshan/Downloads
+	linux-soft
+2
+d/home/appleshan/Downloads/linux-soft
+	my_dot_files
+1
+d/home/appleshan/Downloads/linux-soft/my_dot_files
+	i3
+1
+d/home/appleshan/Downloads/linux-soft/my_dot_files/i3
+	config
+1
+d/home/appleshan/Downloads/linux-soft/my_dot_files
+	i3
+1
+d/home/appleshan/Downloads/linux-soft
+	my_dot_files
+1
+d/home/appleshan/Downloads
+	Windows模版.zip
+28
+d/home/appleshan
+	Downloads
+2
+d/home/appleshan/Downloads
+	驾驶证业务
+6
+d/home/appleshan
+	Downloads
+2
+d/home/appleshan/Downloads
+	驾驶证业务
+6
+d/home/appleshan/Downloads/驾驶证业务
+	..
+0
+d/home/appleshan/Downloads
+	阿里技术之瞳-p260.pdf
+34
+d/home/appleshan
+	Downloads
+2
+d/home/appleshan/Downloads
+	lims-report
+2
+d/home/appleshan/Downloads/lims-report
+	..
+0
+d/home/appleshan/Downloads
+	lims-report
+2
+d/home/appleshan/Downloads/lims-report
+	..
+0
+d/home/appleshan/Downloads
+	lims-report
+2
+d/home/appleshan/Downloads/lims-report
+	..
+0
+d/home/appleshan/Downloads
+	windows-soft
+5
+d/home/appleshan/Downloads/windows-soft
+	..
+0
+d/home/appleshan/Downloads
+	spring-cloud
+4
+d/home/appleshan/Downloads/spring-cloud
+	..
+0
+d/home/appleshan/Downloads
+	linux-soft
+3
+d/home/appleshan/Downloads/linux-soft
+	my_dot_files
+1
+d/home/appleshan/Downloads/linux-soft/my_dot_files
+	i3
+1
+d/home/appleshan/Downloads/linux-soft
+	my_dot_files
+1
+d/home/appleshan/Downloads
+	lims-report
+2
+d/home/appleshan/Downloads/lims-report
+	..
+0
+d/home/appleshan/Downloads
+	Songs
+1
+d/home/appleshan/Downloads/Songs
+	..
+0
+d/home/appleshan/Downloads
+	lims-report
+2
+d/home/appleshan/Downloads/lims-report
+	..
+0
+d/home/appleshan/Downloads
+	linux-soft
+3
+d/home/appleshan/Downloads/linux-soft
+	rime_pro_0.84.zip
+10
+d/home/appleshan/Downloads
+	spring-cloud
+4
+d/home/appleshan/Downloads/spring-cloud
+	eureka-server.jpg
+2
+d/home/appleshan
+	Downloads
+2
+d/home/appleshan/Downloads
+	阿里技术之瞳-p260.pdf
+32
+d
+
+# Right window history (oldest to newest):
+D/home/appleshan
+	Downloads
+2
+D/home/appleshan/Downloads
+	..
+0
+D/home/appleshan
+	Desktop
+1
+D/home/appleshan/Desktop
+	..
+0
+D/home/appleshan
+	Dropbox
+3
+D/home/appleshan/Dropbox
+	..
+0
+D/home/appleshan
+	bin
+5
+D/home/appleshan/bin
+	..
+0
+D/home/appleshan
+	bin
+4
+D/home/appleshan/bin
+	AppImage
+1
+D/home/appleshan/bin/AppImage
+	..
+0
+D/home/appleshan/bin
+	dbeaver-ce-6.1.5
+2
+D/home/appleshan/bin/dbeaver-ce-6.1.5
+	..
+0
+D/home/appleshan/bin
+	ideaIU-2019.2.1
+3
+D/home/appleshan/bin/ideaIU-2019.2.1
+	..
+0
+D/home/appleshan/bin
+	AppImage
+1
+D/home/appleshan/bin/AppImage
+	..
+0
+D/home/appleshan/bin
+	dbeaver-ce-6.1.5
+2
+D/home/appleshan/bin/dbeaver-ce-6.1.5
+	plugins
+5
+D/home/appleshan/bin/dbeaver-ce-6.1.5/plugins
+	javax.annotation_1.2.0.v201602091430.jar
+10
+D/home/appleshan/bin/dbeaver-ce-6.1.5
+	plugins
+5
+D/home/appleshan/bin
+	ideaIU-2019.2.1
+3
+D/home/appleshan/bin/ideaIU-2019.2.1
+	bin
+1
+D/home/appleshan/bin/ideaIU-2019.2.1/bin
+	..
+0
+D/home/appleshan/bin/ideaIU-2019.2.1
+	bin
+1
+D/home/appleshan/bin
+	..
+0
+D/home/appleshan
+	projects-private
+8
+D/home/appleshan/projects-private
+	org-notes
+18
+D/home/appleshan/projects-private/org-notes
+	develop
+2
+D/home/appleshan/projects-private/org-notes/develop
+	test
+14
+D/home/appleshan/projects-private/org-notes
+	git
+6
+D/home/appleshan/projects-private/org-notes/git
+	fetch2.png
+10
+D
+
+# Command line history (oldest to newest):
+:x
+:6
+:10
+:30
+:31
+:32
+:33
+:34
+:45
+:36
+:0
+:1
+:$
+:cd
+:his
+:*.pdf
+:filter *.pdf
+:filter .pdf
+:invert
+:empty
+:move
+:sp
+:split
+:split!
+:h
+:view
+:q
+
+# Search history (oldest to newest):
+
+# Prompt history (oldest to newest):
+pzhao.png
+ppacman.png
+
+# Local filter history (oldest to newest):
+
+# Registers:
+
+# Directory stack (oldest to newest):
+
+# Trash content:
+
+# State:
+f
+i1
+[.0
+[F
+F
+I1
+].1
+]F
+s0
