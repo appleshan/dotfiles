@@ -7,10 +7,8 @@ Xft.autohint: false
 Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 
-#include ".Xresources.d/cursor"
-
 !!XTerm
-XTerm*faceName: Bitstream Vera Serif Mono
+XTerm*faceName: Hack
 xterm*faceSize: 12
 xterm*vt100*geometry: 100x30
 xterm*saveLines: 16384
