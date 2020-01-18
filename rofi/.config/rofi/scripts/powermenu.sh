@@ -7,7 +7,7 @@ option2=" suspend"
 option3=" scheduled suspend (10min)"
 option4=" scheduled suspend (20min)"
 option5=" scheduled suspend (30min)"
-option6=" reboot"
+option6=" reboot"
 option7=" shutdown"
 
 # options passed into variable
