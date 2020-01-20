@@ -42,8 +42,15 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file s
 # Disable options:
 unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 
-export TERM=rxvt-unicode-256color
-export TERMINAL=rxvt-unicode-256color
+#export TERM=rxvt-unicode-256color
+#export TERMINAL=rxvt-unicode-256color
+
+# Termite
+export TERM=xterm-termite
+if [[ $TERM == xterm-termite ]]; then
+  source /etc/profile.d/vte.sh
+  __vte_osc7
+fi
 
 # Automatically start tmux
 export ZSH_TMUX_AUTOSTART=true
