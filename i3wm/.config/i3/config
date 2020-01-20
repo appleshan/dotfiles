@@ -44,6 +44,8 @@ set $ws9 "9"
 set $ws0 "10"
 
 # => 工作区切换&智能启动（添加智能启动脚本~/bin/st 自动且不重复打开工作区相应程序）
+# Set default container layout for i3 (<default|stacking|tabbed>)
+workspace_layout tabbed
 # 自动切换到新打开的窗口(需4.12版本支持)
 #focus_on_window_activation focus
 # 重复切换到当前工作区时会返回上一个所在工作区，有可能造成工作区错位
