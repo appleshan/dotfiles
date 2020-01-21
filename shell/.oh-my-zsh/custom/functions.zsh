@@ -49,7 +49,6 @@ unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 export TERM=xterm-termite
 if [[ $TERM == xterm-termite ]]; then
   source /etc/profile.d/vte.sh
-  __vte_osc7
 fi
 
 # Automatically start tmux
