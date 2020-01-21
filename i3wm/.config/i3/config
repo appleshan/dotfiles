@@ -313,7 +313,8 @@ bindsym Ctrl+F9           exec $HOME/.config/rofi/scripts/rofi-wifi-menu-plus-pl
 
 # => 快捷启动
 # start a terminal
-bindsym $mod+Return exec i3-sensible-terminal
+# bindsym $mod+Return exec i3-sensible-terminal
+bindsym $mod+Return exec termite
 #bindsym $mod+r      exec --no-startup-id dmenu_run -b -fn 'Monaco-12' -nb '#333333' -nf '#FFFFFF' -sb '#111111' -sf '#3399FF'
 # start file manager
 bindsym $mod+F3 exec --no-startup-id pcmanfm # thunar
