@@ -64,20 +64,20 @@ source $ZSH/custom/zsh-theme.zsh
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(alias-tips appup archlinux \
-         calc colored-man-pages colorize common-aliases copydir copyfile cp dircycle \
-         docker docker-aliases docker-compose \
-         emacs emoji extract \
+         calc colored-man-pages colorize command-not-found common-aliases copybuffer copydir copyfile cp \
+         dircycle dirhistory dirpersist docker docker-aliases docker-compose \
+         emoji encode64 extract \
          fancy-ctrl-z \
          gitfast gitignore gradle \
-         httpie jsontools \
+         hitokoto httpie jsontools \
          man mvn nmap \
          pip pylint python pipenv anaconda conda-env-autodetect \
-         rsync \
-         safe-paste spring sublime sudo svn-fast-info systemadmin \
-         tmux \
+         ripgrep rsync \
+         safe-paste scd spring sudo svn-fast-info systemadmin systemd \
+         timer tmux \
+         urltools \
          wakatime web-search \
-         zsh-peco-history zsh-proxychains-ng \
-         zsh_reload)
+         zsh-interactive-cd zsh-peco-history zsh-proxychains-ng zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
