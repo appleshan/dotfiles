@@ -48,8 +48,6 @@ alias axel='axel -a -n 10'
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
-alias jm='cd $(emacsclient -e "(with-current-buffer (window-buffer (frame-selected-window)) default-directory)" | '"sed -E 's/(^\")|(\"$)//g')"
-
 alias mutt='mutt -F ~/.mutt/.muttrc'
 
 alias w3m='w3m -cookie '
@@ -65,12 +63,6 @@ alias grep='grep --color=auto --exclude-dir={.git,.hg,.svn,.cvs,bzr,CVS,target,b
 export GREP_COLOR='07;31'
 
 alias beep='aplay ~/projects-private/dotfiles/sounds/beep-07.wav'
-
-###############################################################################
-# Emacs
-###############################################################################
-
-alias emacs-test='emacs -q --debug-init --load "~/projects/emacs-test/init.el"'
 
 ###############################################################################
 # Python

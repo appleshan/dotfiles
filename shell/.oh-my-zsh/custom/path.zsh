@@ -128,3 +128,18 @@ source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
 # pipsi
 export PIPSI_HOME=~/.local/venvs/pipsi
 appendpath "$PIPSI_HOME/bin"
+
+#################
+# Node.js       #
+#################
+
+export NVM_DIR="$HOME/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh"  # This loads nvm
+[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+#################
+# dotnet-sdk    #
+#################
+
+export DOTNET_ROOT=/opt/dotnet
+
