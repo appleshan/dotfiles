@@ -22,8 +22,14 @@ indent_size = 4
 end_of_line = lf
 
 # 是否将行尾空格自动删除
-trim_trailing_whitespace = false
+trim_trailing_whitespace = true
 
 # 文件是否以一个空白行结尾 [true | false]
 insert_final_newline = true
+
+[*.md]
+trim_trailing_whitespace = false
+
+[*.java]
+trim_trailing_whitespace = false
 
