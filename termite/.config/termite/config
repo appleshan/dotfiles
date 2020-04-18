@@ -1,34 +1,57 @@
-[options]
-scroll_on_output = false
-scroll_on_keystroke = true
-audible_bell = false
-mouse_autohide = false
-allow_bold = true
-dynamic_title = true
-urgent_on_bell = true
-clickable_url = true
+###############################################################
+#                                                             #
+#  ▓▓▓▓▓▓▓▓▓▓                                                 #
+# ░▓ Author ▓ Appleshan <https://github.com/appleshan/>       #
+# ░▓▓▓▓▓▓▓▓▓▓                                                 #
+# ░░░░░░░░░░                                                  #
+#                                                             #
+# ░▀█▀░█▀▀░█▀▄░█▄█░▀█▀░▀█▀░█▀▀                                #
+# ░░█░░█▀▀░█▀▄░█░█░░█░░░█░░█▀▀                                #
+# ░░▀░░▀▀▀░▀░▀░▀░▀░▀▀▀░░▀░░▀▀▀                                #
+###############################################################
 
+[options]
 font = GoMono 8
 font = Monospace 10
 font = Terminus 12px
 font = Hack 16px
-scrollback_lines = 1000000
 
-cell_height_scale = 0.9
+boldfont = Hack 16px
+word_chars = " " '"'&()*,;<=>?@[]^{|}\"()*,<>[]{}|''"\
+allow_bold = true
+bold_is_bright = true
 
-search_wrap = true
-#icon_name = terminal
-#geometry = 640x480
+# $BROWSER is used by default if set, with xdg-open as a fallback
+#browser = xdg-open
+browser = /usr/bin/google-chrome-stable
+clickable_url = true
+
+cell_height_scale = 1.0
+cell_width_scale = 1.0
+
+hyperlinks = true
 
 # "system", "on" or "off"
 cursor_blink = on
 
 # "block", "underline" or "ibeam"
-cursor_shape = underline
-cursor_shape = block
+cursor_shape = ibeam
 
-# $BROWSER is used by default if set, with xdg-open as a fallback
-#browser = xdg-open
+audible_bell = false
+mouse_autohide = false
+allow_bold = true
+dynamic_title = true
+urgent_on_bell = true
+
+scrollback_lines = 1000000
+scrollbar = on
+
+scroll_on_keystroke = true
+scroll_on_output = false
+
+search_wrap = true
+icon_name = terminal
+geometry = 640x480
 
 # set size hints for the window
 #size_hints = false
@@ -37,7 +60,7 @@ cursor_shape = block
 filter_unmatched_urls = true
 
 # emit escape sequences for extra modified keys
-#modify_other_keys = false
+modify_other_keys = false
 
 [colors]
 #cursor = #dcdccc
@@ -124,16 +147,15 @@ color17 = #00bcd4
 color19 = #607d8b
 
 [hints]
-#font = Cousine 9
-#font = Cousine 12
-#font = Hack 12
-#foreground = #dcdccc
-#background = #3f3f3f
+font = Hack 12
+padding = 2
+foreground = #dcdccc
+background = #3f3f3f
 #active_foreground = #e68080
 #active_background = #3f3f3f
-#padding = 2
-#border = #3f3f3f
-#border_width = 0.5
-#roundness = 2.0
+border = #3f3f3f
+border_width = 0.5
+roundness = 2.0
+quick_url = true
 
 # vim: ft=dosini cms=#%s
