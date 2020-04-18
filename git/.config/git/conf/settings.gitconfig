@@ -1,0 +1,56 @@
+[core]
+	autocrlf = false
+	editor = emacs
+
+    # Use custom `.gitignore` and `.gitattributes`
+    excludesfile = ~/.gitignore
+    attributesfile = ~/.gitattributes
+
+    # Treat spaces before tabs and all kinds of trailing whitespace as an error
+    # [default] trailing-space: looks for spaces at the end of a line
+    # [default] space-before-tab: looks for spaces before tabs at the beginning of a line
+    whitespace = space-before-tab,-indent-with-non-tab,trailing-space
+
+    # Speed up commands involving untracked files such as `git status`.
+    # https://git-scm.com/docs/git-update-index#_untracked_cache
+    untrackedCache = true
+
+[diff]
+    # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
+    # instead of a/b/c/d as prefixes for patches
+    mnemonicprefix = true
+    algorithm = patience
+
+    # Detect copies as well as renames
+    renames = copies
+[diff "bin"]
+    # Use `hexdump` to diff binary files
+    textconv = hexdump -v -C
+
+[push]
+    # 'git push' will push the current branch to its tracking branch
+    # the usual default is to push all branches
+    default = upstream
+	# Make `git push` push relevant annotated tags when pushing branches out.
+	followTags = true
+
+[merge]
+    # Include summaries of merged commits in newly created merge commit messages
+    log = true
+
+[apply]
+    # Detect whitespace errors when applying a patch
+    whitespace = fix
+
+[format]
+    pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+
+[help]
+    # Automatically correct and execute mistyped commands
+    autocorrect = 1
+
+[http "https://github.com"]
+#    proxy = socks5://127.0.0.1:18080
+[https "https://github.com"]
+#    proxy = socks5://127.0.0.1:18080
+
