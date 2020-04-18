@@ -1,0 +1,10 @@
+!! Xft {{{
+Xft.dpi: 96
+Xft.rgba: rgb
+Xft.antialias: true
+Xft.hinting: true
+Xft.autohint: true
+Xft.hintstyle: hintfull
+Xft.lcdfilter: lcddefault
+!! }}}
+
