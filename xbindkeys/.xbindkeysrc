@@ -1,0 +1,67 @@
+# For the benefit of emacs users: -*- shell-script -*-
+###########################
+# xbindkeys configuration #
+###########################
+#
+# Version: 1.8.6
+#
+
+"xbindkeys_show"
+  control + shift + q
+
+# => Start rofi (a program launcher)
+#bindsym Ctrl+F7      exec $HOME/.config/rofi/scripts/xrandrmenu.sh
+#bindsym Ctrl+F8      exec $HOME/.config/rofi/scripts/i3layoutmenu.sh
+#bindsym Ctrl+F9      exec $HOME/.config/rofi/scripts/rofi-wifi-menu-plus-plus/rofi_wifi_menu.sh
+
+"killall rofi; exec notify-send 'Restart rofi'"
+    Mod4 + control + d
+"rofi -show window"
+    Mod4 + Tab
+"rofi -show drun"
+    Mod4 + d
+"rofi -show run"
+    Mod4 + shift + d
+"$HOME/.config/rofi/scripts/powermenu.sh"
+    Mod4 + shift + p
+
+# => 快捷启动
+# start a terminal
+# i3-sensible-terminal or termite
+"termite"
+    Mod4 + Return
+
+# start file manager
+# ranger、pcmanfm or thunar
+"pcmanfm"
+    Mod4 + F3
+
+# start browser
+"google-chrome-stable"
+    Mod4 + F2
+
+# flameshot
+"flameshot gui --delay 200"
+    Print
+"flameshot config"
+    Mod4 + shift + Print
+
+# => sound-section
+bindsym $mod+Ctrl+m exec urxvt -e 'alsamixer'
+"urxvt -e 'alsamixer'"
+    Mod4 + control + m
+
+#"xdg-open /usr/share/doc/manjaro/i3_help.pdf"
+#    Mod4 + F1
+
+"xkill"
+    Mod4 + control + x
+
+# launch categorized menu
+"morc_menu"
+    Mod4 + z
+"urxvt -e 'bmenu'"
+    Mod4 + control + b
+
+#
+# End of xbindkeys configuration

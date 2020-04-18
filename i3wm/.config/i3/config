@@ -300,32 +300,6 @@ bindsym $mod+Shift+c reload
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 bindsym $mod+Shift+r restart
 
-# => Start rofi (a program launcher)
-bindsym $mod+Ctrl+d --release exec "killall rofi; exec notify-send 'Restart rofi'"
-bindsym $mod+Tab     exec --no-startup-id rofi -show window
-bindsym $mod+d       exec --no-startup-id rofi -show drun
-bindsym $mod+Shift+d exec --no-startup-id rofi -show run
-bindsym $mod+Shift+b exec --no-startup-id rofi -show "clipboard:greenclip print" -lines 9
-bindsym $mod+Shift+p exec $HOME/.config/rofi/scripts/powermenu.sh
-bindsym Ctrl+F7           exec $HOME/.config/rofi/scripts/xrandrmenu.sh
-bindsym Ctrl+F8           exec $HOME/.config/rofi/scripts/i3layoutmenu.sh
-bindsym Ctrl+F9           exec $HOME/.config/rofi/scripts/rofi-wifi-menu-plus-plus/rofi_wifi_menu.sh
-
-# => 快捷启动
-# start a terminal
-# bindsym $mod+Return exec i3-sensible-terminal
-bindsym $mod+Return exec termite
-#bindsym $mod+r      exec --no-startup-id dmenu_run -b -fn 'Monaco-12' -nb '#333333' -nf '#FFFFFF' -sb '#111111' -sf '#3399FF'
-# start file manager
-bindsym $mod+F3 exec --no-startup-id pcmanfm # thunar
-# bindsym $mod+F3 exec --no-startup-id ranger
-bindsym $mod+Shift+F3 exec --no-startup-id gksu pcmanfm # thunar
-# start browser
-bindsym $mod+F2 exec google-chrome
-# 截图应用
-bindsym Print exec --no-startup-id flameshot gui --delay 200
-bindsym $mod+Shift+Print exec flameshot config
-
 # => 多屏切换
 # New mode for switching monitor modes
 set $monitorMode "monitor s=single, d=dual-screen"
@@ -337,20 +311,6 @@ mode $monitorMode {
   bindsym Return mode "default"
   bindsym Escape mode "default"
 }
-
-# launch categorized menu
-bindsym $mod+z exec --no-startup-id morc_menu
-bindsym $mod+Ctrl+b exec urxvt -e 'bmenu'
-
-# bindsym $mod+F1 exec xdg-open /usr/share/doc/manjaro/i3_help.pdf
-bindsym $mod+Ctrl+x --release exec --no-startup-id xkill
-
-# => Screen brightness controls
-# bindsym XF86MonBrightnessUp exec "xbacklight -inc 10; notify-send 'brightness up'"
-# bindsym XF86MonBrightnessDown exec "xbacklight -dec 10; notify-send 'brightness down'"
-
-# => sound-section
-bindsym $mod+Ctrl+m exec urxvt -e 'alsamixer'
 
 # enable syntax highlighting in vim/neovim. must have the i3 plugin!
 # get it at https://github.com/PotatoesMaster/i3-vim-syntax
