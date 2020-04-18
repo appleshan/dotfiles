@@ -39,3 +39,6 @@ volumeicon &
 # => Start Clipboard Manager
 copyq &
 
+# => Start Xbindkeys
+xbindkeys &
+
