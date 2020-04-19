@@ -42,3 +42,8 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs histor
 POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # }}
+
+# {{ dircolors
+eval `dircolors ~/.dircolors`
+# }}
+
