@@ -1,8 +1,12 @@
+##############################
+# Setup addition keybindings #
+##############################
+
 # Bind 'C-a C-a' to send 'C-a'.
 bind-key -T prefix C-a send-prefix
 
 # Reload configuration.
-bind-key -T prefix r \
+bind-key -T prefix R \
 	source-file ~/.tmux.conf \; \
 	display-message ' (!) ~/.tmux.conf reloaded.'
 
@@ -46,16 +50,22 @@ bind-key -T prefix t clock-mode
 bind-key -T prefix w choose-tree -Zw
 
 # Prefix alternates for root bindings.
+# pane navigation
 bind-key -T prefix h select-pane -L
 bind-key -T prefix j select-pane -D
 bind-key -T prefix k select-pane -U
 bind-key -T prefix l select-pane -R
+
+# easier and faster switching between next/prev window
 bind-key -T prefix p select-window -t :- # Previous window.
 bind-key -T prefix n select-window -t :+ # Next window.
+
+# Resizing panes
 bind-key -T prefix z resize-pane -Z
 bind-key -T prefix H resize-pane -L 2
 bind-key -T prefix J resize-pane -D 1
 bind-key -T prefix K resize-pane -U 1
 bind-key -T prefix L resize-pane -R 2
+
 bind-key -T prefix v copy-mode
 

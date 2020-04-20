@@ -1,3 +1,7 @@
+##################################
+#  Setup Colours and Status Bar  #
+##################################
+
 # Mode
 set-option -g mode-style bg=brightblack,fg=default
 
