@@ -8,6 +8,9 @@ case "$1" in
         mkdir ~/.local/share/Trash/info
         ;;
     *)
-        find ~/.local/share/Trash/files/ -maxdepth 1 | wc -l
+        find ~/.local/share/Trash/files -maxdepth 1 \
+            | grep -v "files$" \
+            | wc -l
         ;;
 esac
+
