@@ -25,7 +25,6 @@ alias tree='tree -CAFa -I "CVS|*.*.package|.svn|.git|.hg|node_modules|bower_comp
 
 # new commands
 alias internet-ip="curl ipinfo.io/ip"
-alias local-ips="ifconfig -a | perl -nle'/(\d+\.\d+\.\d+\.\d+)/ && print $1'"
 alias openports='netstat --all --numeric --programs --inet --inet6'
 
 # Pipe my public key to my clipboard.
@@ -58,6 +57,8 @@ alias pp='parallel --pipe -k'
 alias show-fonts="fc-list | cut -d ' ' -f2 | sort -u"
 
 alias disks='echo "╓───── m o u n t . p o i n t s"; echo "╙────────────────────────────────────── ─ ─ "; lsblk -a; echo ""; echo "╓───── d i s k . u s a g e"; echo "╙────────────────────────────────────── ─ ─ "; df -h;'
+
+alias lsdisk='lsblk -o+FSTYPE,FSSIZE,PARTLABEL,LABEL'
 
 alias grep='grep --color=auto --exclude-dir={.git,.hg,.svn,.cvs,bzr,CVS,target,build,_site,.idea,Pods,taobao-tomcat} --exclude=\*.{ipr,iml,iws,jar,war,zip}'
 export GREP_COLOR='07;31'
