@@ -50,17 +50,17 @@ export RIPGREP_CONFIG_PATH=~/.config/ripgrep/.ripgreprc
 # export JAVA_7_HOME=/opt/java/jdk1.7.0_60
 # Oracle JDK 8
 export JAVA_8_HOME=/opt/java/jdk1.8.0_162
-# Oracle JDK 12
-export JAVA_12_HOME=/opt/java/jdk-12.0.2
-# default JDK is 12
-export JAVA_HOME=$JAVA_12_HOME
-export JRE_HOME=$JAVA_12_HOME/jre
+# Oracle JDK 11
+export JAVA_11_HOME=/opt/java/jdk-11.0.7-full
+# default JDK is 11
+export JAVA_HOME=$JAVA_11_HOME
+export JRE_HOME=$JAVA_11_HOME/jre
 
 appendpath "$JAVA_HOME/bin"
 
 export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
-export IDEA_JDK=/opt/java/jdk-12.0.2
+export IDEA_JDK=$JAVA_11_HOME
 
 # Gradle Setup
 export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
