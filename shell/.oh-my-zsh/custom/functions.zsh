@@ -13,10 +13,12 @@ export TIME_STYLE='+%Y/%m/%d %H:%M:%S'
 
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 
-# export HISTCONTROL=ignorespace   # leading space hides commands from history
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
-export HISTCONTROL=ignoreboth:erasedups   # no duplicate entries
+# leading space hides commands from history
+export HISTCONTROL=$HISTCONTROL:ignorespace
+# no duplicate entries
+export HISTCONTROL=$HISTCONTROL:ignoredups
 
 # @See https://blog.lilydjwg.me/2013/7/3/manually-save-read-zsh-history-entries.39852.html
 # 不保留重复的历史记录项
