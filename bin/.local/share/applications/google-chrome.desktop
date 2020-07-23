@@ -1,0 +1,29 @@
+[Desktop Entry]
+Version=1.0
+Name=Google Chrome
+
+# Only KDE 4 seems to use GenericName, so we reuse the KDE strings.
+# From Ubuntu's language-pack-kde-XX-base packages, version 9.04-20090413.
+GenericName=Web Browser
+GenericName[en_GB]=Web Browser
+GenericName[zh_CN]=网页浏览器
+GenericName[zh_HK]=網頁瀏覽器
+GenericName[zh_TW]=網頁瀏覽器
+
+# Gnome and KDE 3 uses Comment.
+Comment=Access the Internet
+Comment[en_GB]=Access the Internet
+Comment[zh_CN]=访问互联网
+Comment[zh_HK]=連線到網際網路
+Comment[zh_TW]=連線到網際網路
+
+StartupWMClass=google-chrome
+#Exec=/usr/local/bin/google-chrome %U
+Exec=/usr/bin/google-chrome-stable %U
+Terminal=false
+#Icon=/home/appleshan/persist/pictures/icons/google-chrome-stable.png
+Icon=google-chrome
+Type=Application
+Categories=Network;WebBrowser;
+MimeType=text/html;text/xml;application/xhtml_xml;image/webp;x-scheme-handler/http;x-scheme-handler/https;x-scheme-handler/ftp;
+

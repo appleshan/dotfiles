@@ -1,0 +1,17 @@
+[Desktop Entry]
+Name=GNU Emacs 26.3
+GenericName=Text Editor
+GenericName[zh_CN]=神之编辑器
+Comment=Edit text files
+Comment[zh_CN]=神之编辑器
+Comment[zh_TW]=神之編輯器
+MimeType=text/english;text/plain;text/x-makefile;text/x-c++hdr;text/x-c++src;text/x-chdr;text/x-csrc;text/x-java;text/x-moc;text/x-pascal;text/x-tcl;text/x-tex;application/x-shellscript;text/x-c;text/x-c++;
+Exec=/home/appleshan/.local/bin/emacs.sh
+# Icon=/home/appleshan/persist/pictures/logo/emacs.png
+Icon=emacs
+Type=Application
+Terminal=false
+Categories=Development;TextEditor;
+StartupWMClass=Emacs
+Keywords=Text;Editor;
+

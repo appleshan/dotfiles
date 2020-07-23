@@ -1,0 +1,8 @@
+[Desktop Entry]
+Name=DataGrip
+Comment=DataGrip SQL IDE
+Exec=/opt/java/DataGrip-2018.1.2/bin/datagrip.sh %U
+Terminal=false
+Type=Application
+Icon=/opt/java/DataGrip-2018.1.2/bin/datagrip.png
+Categories=GNOME;GTK;Development;
