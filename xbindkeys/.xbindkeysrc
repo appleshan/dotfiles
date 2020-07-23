@@ -1,11 +1,27 @@
 # For the benefit of emacs users: -*- shell-script -*-
-###########################
-# xbindkeys configuration #
-###########################
 #
 # Version: 1.8.6
 #
+###########################
+# xbindkeys configuration #
+###########################
+# If you edit this file, do not forget to uncomment any lines
+# that you change.
+# The pound(#) symbol may be used anywhere for comments.
+#
+# The format of a command line is:
+#    "command to start"
+#       associated key
+#
+# List of modifier:
+#   Release, Control, Shift, Mod1 (Alt), Mod2 (NumLock),
+#   Mod3 (CapsLock), Mod4, Mod5 (Scroll).
+#
 
+# HOTKEYS
+
+# Show all commands
+# [Ctrl-Shift-q]
 "xbindkeys_show"
   control + shift + q
 
@@ -25,8 +41,8 @@
 "$HOME/.config/rofi/scripts/powermenu.sh"
     Mod4 + shift + p
 
-# => 快捷启动
-# start a terminal
+# Open terminal
+# [Super-Return]
 # i3-sensible-terminal or termite
 "termite"
     Mod4 + Return
@@ -36,17 +52,19 @@
 "pcmanfm"
     Mod4 + F3
 
-# start browser
+# Open web browser
+# [Super-F2]
 "google-chrome-stable"
     Mod4 + F2
 
-# flameshot
+## Screen shot
+## [Print Screen]
 "flameshot gui --delay 200"
     Print
 "flameshot config"
     Mod4 + shift + Print
 
-# => sound-section
+#sound
 bindsym $mod+Ctrl+m exec urxvt -e 'alsamixer'
 "urxvt -e 'alsamixer'"
     Mod4 + control + m
@@ -63,5 +81,7 @@ bindsym $mod+Ctrl+m exec urxvt -e 'alsamixer'
 "urxvt -e 'bmenu'"
     Mod4 + control + b
 
-#
-# End of xbindkeys configuration
+##################################
+# End of xbindkeys configuration #
+##################################
+
