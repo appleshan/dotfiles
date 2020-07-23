@@ -1,0 +1,20 @@
+[Desktop Entry]
+Name=ClipIt
+Icon=copyq
+GenericName=Clipboard Manager
+# The rest is taken from Klipper application.
+Type=Application
+Terminal=false
+
+Categories=Utility;
+GenericName[en_GB]=Clipboard Tool
+GenericName[zh_CN]=剪贴板工具
+GenericName[zh_TW]=剪貼簿工具
+Comment=A cut & paste history utility
+Comment[en_GB]=A cut & paste history utility
+Comment[zh_CN]=管理剪切和粘贴历史的工具
+Comment[zh_TW]=剪貼紀錄公用程式
+
+Exec="/usr/bin/clipit"
+Hidden=False
+
