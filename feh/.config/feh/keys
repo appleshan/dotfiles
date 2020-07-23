@@ -3,10 +3,25 @@ menu_child  l Right
 menu_up     j Up
 menu_down   k Down
 menu_select space Return
-prev_img j Left BackSpace
-next_img k Right space
-scroll_up    J C-Up
-scroll_down  K C-Down
-scroll_left  H C-Left
-scroll_right L C-Right
+
+jump_back        H      Prior
+jump_fwd         L      Next
+
+next_img         l      Right  space
+prev_img         h      Left   BackSpace
+
+remove           d      Delete
+
+scroll_down      C-j    C-Down
+scroll_left      C-h    C-Left
+scroll_right     C-l    C-Right
+scroll_up        C-k    C-Up
+
+toggle_actions   I
+toggle_filenames i
+
+zoom_default     0
+zoom_fit         S-0
+zoom_in          r
+zoom_out         t
 
