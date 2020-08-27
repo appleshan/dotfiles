@@ -40,9 +40,6 @@ set-option -g pane-base-index 1
 # window 0, 1, 2, remove 1, renumber to 0, 1
 set-option -g renumber-windows on
 
-# Allow programs to change title using a escape sequence.
-set-option -g allow-rename on
-
 # Don't show "Activity in window X" messages.
 # set-option -g visual-activity off
 # Notifying if other windows has activities
@@ -53,5 +50,7 @@ set-option -g visual-activity on
 set-option -g focus-events on
 
 # Turn on automatic window renaming.
-set-option -g automatic-rename on
+set-option -g automatic-rename off
+# Allow programs to change title using a escape sequence.
+set-option -g allow-rename off
 
