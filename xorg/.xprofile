@@ -26,7 +26,10 @@ xrandr --auto --output DP1 --primary --mode 1920x1080 --rate 75.00
 feh --bg-scale "$HOME/.config/i3/wallpaper.jpg" &
 
 # => Start Fcitx
-fcitx -d -r &
+#fcitx version: 4
+# fcitx -d -r &
+#fcitx version: 5
+fcitx5 &
 
 # => Start Network Manager
 nm-applet &
