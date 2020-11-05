@@ -17,10 +17,10 @@ fi
 
 # z - jump around
 # @see https://github.com/rupa/z
-source ~/.local/bin/z.sh
+source $HOME/.local/bin/z.sh
 
 # ripgrep
-export RIPGREP_CONFIG_PATH=~/.config/ripgrep/.ripgreprc
+export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/.ripgreprc
 
 ###############
 # Emacs Setup #
@@ -45,13 +45,13 @@ export RIPGREP_CONFIG_PATH=~/.config/ripgrep/.ripgreprc
 
 # VERSIONS #
 # Oracle JDK 6
-# export JAVA_6_HOME=/opt/java/jdk1.6.0_45
+# export JAVA_6_HOME=$HOME/bin/java/jdk1.6.0_45
 # Oracle JDK 7
-# export JAVA_7_HOME=/opt/java/jdk1.7.0_60
+# export JAVA_7_HOME=$HOME/bin/java/jdk1.7.0_60
 # Oracle JDK 8
-export JAVA_8_HOME=/opt/java/jdk1.8.0_162
+export JAVA_8_HOME=$HOME/bin/java/jdk1.8.0_162
 # Oracle JDK 11
-export JAVA_11_HOME=/opt/java/jdk-11.0.7-full
+export JAVA_11_HOME=$HOME/bin/java/jdk-11.0.7-full
 # default JDK is 11
 export JAVA_HOME=$JAVA_11_HOME
 export JRE_HOME=$JAVA_11_HOME/jre
@@ -65,11 +65,12 @@ export IDEA_JDK=$JAVA_11_HOME
 # Gradle Setup
 export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
+# ln -s $HOME/bin/java/gradle-6.7/bin/gradle /usr/local/bin
 
 # Maven Setup
 export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
-# ln -s /opt/java/apache-maven-3.5.2/bin/mvn /usr/local/bin
+# ln -s $HOME/bin/java/apache-maven-3.6.3/bin/mvn /usr/local/bin
 
 #################
 # Android Setup #
@@ -87,7 +88,7 @@ export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 #export GOROOT=/opt/golang/go-1.7.5
 
 # GOPATH is the location of your work directory.
-#export GOPATH=~/developer/projects/golang
+#export GOPATH=$HOME/developer/projects/golang
 
 # 安装目录的 bin 文件夹，须要加入 PATH 变量
 #export GOBIN=$GOPATH/bin
@@ -118,15 +119,15 @@ eval "$(pyenv init -)"
 eval "$(pyenv virtualenv-init -)"
 
 # Miniconda
-#export MINICONDA_HOME=~/miniconda3
+#export MINICONDA_HOME=$HOME/miniconda3
 #export PATH=$MINICONDA_HOME/bin:$PATH
 
 # autoenv
 # 使用 git 方式安装了 Tarrasch/zsh-autoenv
-source ~/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
+source $HOME/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
 
 # pipsi
-export PIPSI_HOME=~/.local/venvs/pipsi
+export PIPSI_HOME=$HOME/.local/venvs/pipsi
 appendpath "$PIPSI_HOME/bin"
 
 #################
@@ -141,5 +142,5 @@ export NVM_DIR="$HOME/.nvm"
 # dotnet-sdk    #
 #################
 
-export DOTNET_ROOT=/opt/dotnet
+export DOTNET_ROOT=$HOME/bin/dotnet
 
