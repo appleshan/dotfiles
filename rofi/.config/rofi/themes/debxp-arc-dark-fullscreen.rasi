@@ -8,20 +8,20 @@ configuration {
     lines:           10;
     
     show-icons:      true;
-    drun-icon-theme: "Numix-Circle";
-                     
+    drun-icon-theme: "Korla";
+
     modi:            "drun,window,run";
     display-drun:    "Run";
     display-window:  "Task";
     display-run:     "Command";
-                     
+
     sidebar-mode:    true;
     fullscreen:      true;
 }
 * {
-    font-generic: "Open Sans 13";
-    font-button:  "Open Sans 11";
-    font-prompt:  "Open Sans Semibold 14";
+    font-generic: "FontAwesome 28";
+    font-button:  "Hack 20";
+    font-prompt:  "Hack 28";
     
     font: @font-generic;
     
