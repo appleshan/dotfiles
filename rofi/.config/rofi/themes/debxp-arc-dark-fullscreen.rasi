@@ -9,12 +9,12 @@ configuration {
     
     show-icons:      true;
     drun-icon-theme: "Korla";
-
+    
     modi:            "drun,window,run";
     display-drun:    "Run";
     display-window:  "Task";
     display-run:     "Command";
-
+    
     sidebar-mode:    true;
     fullscreen:      true;
 }
