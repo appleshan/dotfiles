@@ -24,7 +24,7 @@
 
 
 # => 字体
-font pango: Hack, Awesome 12
+font pango: Hack, FontAwesome 12
 
 
 # => 设定mod键为“微软大旗键”
