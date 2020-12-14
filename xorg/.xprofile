@@ -23,7 +23,7 @@ compton --backend glx --vsync -GCb --config $HOME/.config/compton.conf
 xrandr --auto --output DP1 --primary --mode 1920x1080 --rate 75.00
 
 # 壁纸须先安装feh，并在此指定路径
-feh --bg-scale "$HOME/.config/i3/wallpaper.jpg" &
+$HOME/.fehbg &
 
 # => Start Fcitx
 #fcitx version: 4
