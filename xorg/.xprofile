@@ -6,11 +6,11 @@ export UNZIP="-O CP936"
 export ZIPINFO="-O CP936"
 
 # fcitx im
-export GTK_IM_MODULE=fcitx
-export QT_IM_MODULE=fcitx
-export XMODIFIERS="@im=fcitx"
-export XIM="fcitx"
-export XIM_PROGRAM="fcitx"
+#export GTK_IM_MODULE=fcitx
+#export QT_IM_MODULE=fcitx
+#export XMODIFIERS="@im=fcitx"
+#export XIM="fcitx"
+#export XIM_PROGRAM="fcitx"
 
 # => 开机自启（根据需要取消相应的注释#）
 
