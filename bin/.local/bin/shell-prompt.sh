@@ -28,7 +28,7 @@
   LIGHT_RED="\[\033[1;31m\]"
 LIGHT_GREEN="\[\033[1;32m\]"
       WHITE="\[\033[1;37m\]"
- LIGHT_GRAY="\[\033[0;37m\]"
+#LIGHT_GRAY="\[\033[0;37m\]"
     MAGENTA="\[\e[1;35m\]"
        CYAN="\[\e[1;36m\]"
 
@@ -39,7 +39,7 @@ LIGHT_GREEN="\[\033[1;32m\]"
       # ─
       minus="\342\224\200"
      # → 要正常显示这个符号，字体大小必须是12号.
-     arrows="→"
+   # arrows="→"
   #┌
 # quarter_1="\342\224\214"
   #└
@@ -91,18 +91,18 @@ function print_minus_chars() {
     pwd_show_text="(${PWD/#$HOME/\~}$git_branch)"
     pwd_length=${#pwd_show_text}
     user_status_length=${#user_status}
-echo $pwd_show_text
-# echo $pwd_length
-# echo $user_status_length
+# echo "$pwd_show_text"
+# echo "$pwd_length"
+# echo "$user_status_length"
 
 # 155 142
     line_length=155
-    let minus_char_num=line_length-pwd_length-user_status_length-3
-echo $minus_char_num
+    let minus_char_num=line_length - pwd_length - user_status_length - 3
+# echo "$minus_char_num"
 
     minus_chars=""
-    for i in $( seq 1 $minus_char_num ); do minus_chars+=$minus; done
-# echo $minus_chars
+    for i in $( seq 1 "$minus_char_num" ); do minus_chars+=$minus; done
+# echo "$minus_chars"
 }
 
 PROMPT_COMMAND="find_git_branch; $PROMPT_COMMAND"
