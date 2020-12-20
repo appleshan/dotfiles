@@ -49,6 +49,6 @@ xbindkeys &
 # enable the geoclue agent on startup.
 #/usr/lib/geoclue-2.0/demos/agent &
 
-xfce4-power-manager &
+#xfce4-power-manager &
 
 fix_xcursor &
