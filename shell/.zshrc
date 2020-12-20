@@ -69,7 +69,7 @@ plugins=(alias-tips appup archlinux \
          emoji encode64 extract \
          fancy-ctrl-z \
          gitfast gitignore gradle \
-         hitokoto httpie jsontools \
+         hitokoto httpie jsontools k \
          man mvn nmap \
          pip pylint python pipenv anaconda conda-env-autodetect \
          ripgrep rsync \
