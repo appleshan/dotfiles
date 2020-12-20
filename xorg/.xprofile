@@ -35,10 +35,10 @@ fcitx5 &
 nm-applet &
 
 # => Start Bluetooth Manager
-blueman-applet &
+#blueman-applet &
 
 # => Start Volume control
-volumeicon &
+#volumeicon &
 
 # => Start Clipboard Manager
 clipit &
