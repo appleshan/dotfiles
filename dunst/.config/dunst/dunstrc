@@ -20,7 +20,7 @@
     idle_threshold = 120
 
     # Browser for opening urls in context menu.
-    browser = google-chrome
+    browser = google-chrome-stable
 
     # History:
 
