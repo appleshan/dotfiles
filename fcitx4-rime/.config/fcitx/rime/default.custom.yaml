@@ -1,0 +1,41 @@
+# default.custom.yaml
+#
+# 【朙月拼音】模糊音定製模板
+#   佛振配製 : https://gist.github.com/lotem/2309739
+#
+# 位置：
+# ~/.config/fcitx/rime  (Linux)
+# ~/Library/Rime  (Mac OS)
+# %APPDATA%\Rime  (Windows)
+#
+# 於重新部署後生效
+#
+
+patch:
+  switcher:
+    abbreviate_options: true
+    caption: 〔切换〕
+    fold_options: true
+    hotkeys:
+      - "Control+grave"                                  # control + `
+      - "Control+s"                                      # 添加 Ctrl+s
+    save_options:
+      - full_shape
+      - ascii_punct
+      - simplification
+      - extended_charset
+  menu:
+    page_size: 9                                         # 候选词数量
+
+  schema_list:                                           # 激活的输入方案选单
+    - schema: luna_pinyin_simp                           # 朙月拼音・简化字
+    - schema: symbols
+
+  ascii_composer:
+    switch_key:
+      Caps_Lock: noop
+      Control_L: noop
+      Control_R: noop
+      Eisu_toggle: clear
+      Shift_L: commit_code
+      Shift_R: commit_code
