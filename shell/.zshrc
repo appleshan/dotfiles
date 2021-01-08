@@ -63,9 +63,9 @@ source $ZSH/custom/zsh-theme.zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(alias-tips appup archlinux \
-         calc colored-man-pages colorize command-not-found common-aliases copybuffer copydir copyfile cp \
-         dircycle dirhistory dirpersist docker docker-aliases docker-compose \
+plugins=(alias-tips archlinux autoupdate \
+         colored-man-pages colorize command-not-found common-aliases copybuffer copydir copyfile cp \
+         dircycle dirhistory dirpersist \
          emoji encode64 extract \
          fancy-ctrl-z \
          gitfast gitignore gradle \
