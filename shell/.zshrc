@@ -77,7 +77,7 @@ plugins=(alias-tips archlinux autoupdate \
          timer tmux \
          urltools \
          wakatime web-search \
-         zsh-interactive-cd zsh-peco-history zsh-proxychains-ng zsh_reload)
+         zsh-autosuggestions zsh-interactive-cd zsh-peco-history zsh-proxychains-ng zsh_reload)
 
 source $ZSH/oh-my-zsh.sh
 
