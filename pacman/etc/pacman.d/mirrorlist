@@ -11,6 +11,9 @@
 Server = https://mirrors.huaweicloud.com/manjaro/stable/$repo/$arch
 
 ## Country : China
+Server = https://mirrors.cloud.tencent.com/manjaro/stable/$repo/$arch
+
+## Country : China
 Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
 
 ## Country : China
