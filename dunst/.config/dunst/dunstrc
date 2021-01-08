@@ -70,13 +70,14 @@
     # Set to 0 to disable.
     bounce_freq = 0
 
+    # Icons:
     # Align icons left/right/off
     icon_position = left
 
     # Paths to default icons.
     icon_folders = /usr/share/icons/gnome/48x48/status/:/usr/share/icons/gnome/48x48/devices/:/usr/share/icons/Numix-Circle/48/apps
 
-    max_icon_size = 48
+    max_icon_size = 32
 
     # Split notifications into multiple lines if they don't fit into geometry.
     word_wrap = yes
@@ -89,7 +90,7 @@
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
-    transparency = 0
+    transparency = 20
 
     # Markup Options
     # Allow a small subset of html markup:
@@ -127,7 +128,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "1085x20-30-80"
+    geometry = "600x50-30+52"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -149,13 +150,13 @@
     #  * foreground: use the same color as the foreground;
     #  * frame: use the same color as the frame;
     #  * anything else will be interpreted as a X color.
-    separator_color = frame
+    separator_color = auto
 
     # Padding between text and separator.
-    padding = 8
+    padding = 20
 
     # Horizontal padding.
-    horizontal_padding = 8
+    horizontal_padding = 20
 
     # Border
 [frame]
@@ -192,20 +193,18 @@
 [urgency_low]
     # IMPORTANT: colors have to be defined in quotation marks.
     # Otherwise the "#" and following would be interpreted as a comment.
-    # background = "#222222"
-    # foreground = "#888888"
-    background = "#222222"
-    foreground = "#ffffff"
-    timeout = 10
+    background = "#282c34"
+    foreground = "#abb2bf"
+    timeout = 5
 
 [urgency_normal]
-    background = "#285577"
-    foreground = "#ffffff"
+    background = "#282c34"
+    foreground = "#abb2bf"
     timeout = 10
 
 [urgency_critical]
-    background = "#900000"
-    foreground = "#ffffff"
+    background = "#282c34"
+    foreground = "#e06c75"
     timeout = 0
 
 
