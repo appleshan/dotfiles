@@ -10,19 +10,19 @@ Server = https://mirrors.huaweicloud.com/archlinuxcn/$arch
 #Server = https://repo.archlinuxcn.org/$arch
 
 ## 中国科学技术大学 (ipv4, ipv6, http, https)
-Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
+#Server = https://mirrors.ustc.edu.cn/archlinuxcn/$arch
 
 ## 上海科技大学 (上海) (ipv4, http, https)
 #Server = https://mirrors-wan.geekpie.club/archlinuxcn/$arch
 
 ## 网易 (ipv4, http, https)
-Server = https://mirrors.163.com/archlinux-cn/$arch
+#Server = https://mirrors.163.com/archlinux-cn/$arch
 
 ## 腾讯云 (ipv4, https)
 Server = https://mirrors.cloud.tencent.com/archlinuxcn/$arch
 
 ## 重庆大学 (ipv4, http, https)
-Server = https://mirrors.cqu.edu.cn/archlinuxcn/$arch
+#Server = https://mirrors.cqu.edu.cn/archlinuxcn/$arch
 
 ## SJTUG 软件源镜像服务 (ipv4, https)
 #Server = https://mirrors.sjtug.sjtu.edu.cn/archlinux-cn/$arch
@@ -47,4 +47,3 @@ Server = https://mirrors.zju.edu.cn/archlinuxcn/$arch
 
 ## Open Computing Facility, UC Berkeley (Berkeley, CA, United States) (ipv4, ipv6, http, https)
 #Server = https://mirrors.ocf.berkeley.edu/archlinuxcn/$arch
-
