@@ -81,6 +81,31 @@ bindsym $mod+Ctrl+m exec urxvt -e 'alsamixer'
 "urxvt -e 'bmenu'"
     Mod4 + control + b
 
+#伪平铺特性
+#
+#                         q w e            LeftTop        Max        RightTop
+#      super + shift +:   a s d    ===>    Left          Center         Right
+#                         z x c            LeftBottom    unMax    RightBottom
+#
+"$HOME/.local/bin/window.sh LT"
+    control + shift + q
+"$HOME/.local/bin/window.sh M"
+    control + shift + w
+"$HOME/.local/bin/window.sh RT"
+    control + shift + e
+"$HOME/.local/bin/window.sh L"
+    control + shift + a
+"$HOME/.local/bin/window.sh C"
+    control + shift + s
+"$HOME/.local/bin/window.sh R"
+    control + shift + d
+"$HOME/.local/bin/window.sh LB"
+    control + shift + z
+"$HOME/.local/bin/window.sh U"
+    control + shift + x
+"$HOME/.local/bin/window.sh RB"
+    control + shift + c
+
 ##################################
 # End of xbindkeys configuration #
 ##################################
