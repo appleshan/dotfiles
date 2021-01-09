@@ -6,8 +6,6 @@
 export LC_ALL=zh_CN.UTF-8
 export LESSCHARSET=utf-8
 
-export HIST_STAMPS="yyyy-mm-dd"
-
 # 控制 ls 显示的时间格式
 export TIME_STYLE='+%Y/%m/%d %H:%M:%S'
 
