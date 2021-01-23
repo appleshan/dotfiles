@@ -50,3 +50,6 @@ xfce4-power-manager &
 fix_xcursor &
 
 workrave &
+
+# 在鼠标指针不活动时隐藏鼠标指针.
+unclutter -idle 5 &
