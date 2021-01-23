@@ -22,7 +22,7 @@ $HOME/.fehbg &
 #fcitx version: 4
 # fcitx -d -r &
 #fcitx version: 5
-fcitx5 &
+fcitx5 -d -r &
 
 # => Start Network Manager
 # nm-applet 是 NetworkManager 的托盘程序，用 NetworkManager 的原因就是其它网络管理程序没有什么好的 GUI。
