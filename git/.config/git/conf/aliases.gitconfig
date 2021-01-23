@@ -10,7 +10,7 @@
     recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
 
     # branch
-    b = branch                      # branch 
+    b = branch
     ba = branch -av # branch (verbose)
 
     # commit
@@ -19,7 +19,7 @@
     retry = commit -a --amend
 
     # checkout
-    ck = checkout                     # checkout
+    co = checkout
 
     # cherry-pick
     cp = cherry-pick -x               # grab a change from a branch
@@ -36,6 +36,9 @@
     short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
     simple = log --pretty=format:\" * %s\"
     shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+
+    # rebase
+    rb = rebase
 
     # remote
     r = remote -v                     # show remotes (verbose)
@@ -58,8 +61,8 @@
     # tag
     t = tag -n                        # show tags with <n> lines of each tag message
 
-    # svn helpers
-    svnr = svn rebase
-    svnd = svn dcommit
-    svnl = svn log --oneline --show-commit
-
+    # submodule
+    sbi = submodule init
+    sbu = submodule update
+    sbp = submodule foreach git pull
+    sbc = submodule foreach git co master
