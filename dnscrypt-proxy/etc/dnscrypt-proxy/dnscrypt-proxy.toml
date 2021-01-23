@@ -29,7 +29,7 @@
 ## Remove the leading # first to enable this; lines starting with # are ignored.
 
 # server_names = ['scaleway-fr', 'google', 'yandex', 'cloudflare']
-
+server_names = ['NextDNS-525f39']
 
 ## List of local addresses and ports to listen to. Can be IPv4 and/or IPv6.
 ## Example with both IPv4 and IPv6:
@@ -744,6 +744,5 @@ skip_incompatible = false
 ## Mostly useful for testing your own servers.
 
 [static]
-
-  # [static.'myserver']
-  # stamp = 'sdns:AQcAAAAAAAAAAAAQMi5kbnNjcnlwdC1jZXJ0Lg'
+  [static.'NextDNS-525f39']
+  stamp = 'sdns://AgEAAAAAAAAACjQ1LjkwLjI4LjAADmRucy5uZXh0ZG5zLmlvBy83ZDlhNjY'
