@@ -55,6 +55,10 @@ export GREP_COLOR='07;31'
 
 alias beep='aplay ~/projects-private/dotfiles/sounds/beep-07.wav'
 
+alias pavucontrol=pavucontrol-qt
+
+alias vim=nvim
+
 ###############################################################################
 # Python
 ###############################################################################
