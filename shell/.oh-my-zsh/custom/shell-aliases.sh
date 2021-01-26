@@ -5,16 +5,6 @@
 # Personnal Aliases
 #-------------------
 
-# apt-get
-#alias aptu="sudo apt update"
-#alias aptua="sudo apt upgrade"
-#alias apts="sudo apt-cache search"
-#alias apti="sudo apt install"
-#alias aptr="sudo apt remove"
-#alias aptac="sudo apt autoclean"
-#alias aptar="sudo apt autoremove"
-#alias apti-proxy='sudo apt -o "Acquire::http::Proxy=http://127.0.0.1:18080" install'
-
 # modified commands
 
 # alias more='less'
