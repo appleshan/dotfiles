@@ -31,7 +31,7 @@ SPACESHIP_CONDA_PREFIX="conda:("
 SPACESHIP_CONDA_SUFFIX=") "
 SPACESHIP_CONDA_SYMBOL=""
 
-ZSH_THEME="spaceship-prompt/spaceship"
+# ZSH_THEME="spaceship-prompt/spaceship"
 # }}
 
 # {{ powerlevel9k
@@ -42,6 +42,9 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs histor
 POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
 # ZSH_THEME="powerlevel9k/powerlevel9k"
 # }}
+
+# powerlevel10k
+ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # {{ dircolors
 eval `dircolors ~/.dircolors`
