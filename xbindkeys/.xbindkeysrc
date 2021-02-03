@@ -65,9 +65,18 @@
     Mod4 + shift + Print
 
 #sound
-bindsym $mod+Ctrl+m exec urxvt -e 'alsamixer'
 "urxvt -e 'alsamixer'"
     Mod4 + control + m
+
+# playerctl
+"playerctl previous"
+    Mod4 + Home
+"playerctl next"
+    Mod4 + End
+"playerctl play-pause"
+    Mod4 + Delete
+"playerctl stop"
+    Mod4 + Insert
 
 #"xdg-open /usr/share/doc/manjaro/i3_help.pdf"
 #    Mod4 + F1
