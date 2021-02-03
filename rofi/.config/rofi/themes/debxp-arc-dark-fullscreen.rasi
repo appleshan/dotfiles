@@ -12,7 +12,7 @@ configuration {
     
     modi:            "drun,window,run";
     display-drun:    "Run";
-    display-window:  "Task";
+    display-window:  "Window";
     display-run:     "Command";
     
     sidebar-mode:    true;
@@ -74,7 +74,7 @@ configuration {
 #window {
     anchor:   north;
     location: center;
-    padding:  12% 24%;
+    padding:  0% 0%;
     border:   0px;
     border-color: @lightbg; 
     background-color: @background-color;
