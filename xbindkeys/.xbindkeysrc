@@ -34,9 +34,9 @@
     Mod4 + control + d
 "rofi -show window"
     Mod4 + Tab
-"rofi -show drun"
+"rofi -show drun -columns 3"
     Mod4 + d
-"rofi -show run"
+"rofi -show run -columns 3"
     Mod4 + shift + d
 "$HOME/.config/rofi/scripts/powermenu.sh"
     Mod4 + shift + p
