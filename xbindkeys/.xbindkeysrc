@@ -49,6 +49,10 @@
 "i3wins -kb-row-down 'Down,Control+n,Alt+Tab' -kb-accept-entry '!Alt+Tab,!Alt_L,!Alt+Alt_L,Return'"
     Mod1+Tab
 
+# A simple Python script to to search the web with rofi
+"rofi -show search -modi search:$HOME/.config/rofi/scripts/rofi-web-search/rofi-web-search.py -i -p 'Search: '"
+    Mod4 + g
+
 # Open terminal
 # [Super-Return]
 # i3-sensible-terminal or termite
