@@ -41,6 +41,10 @@
 "$HOME/.config/rofi/scripts/shutdown-menu/shutdown-menu.sh"
     Mod4 + shift + p
 
+# Rofi menu for your i3wm keybinds
+"$HOME/.config/rofi/scripts/rofi-i3-keybinds/rofi-i3-keybinds.sh"
+    Mod1 + shift + k
+
 # Open terminal
 # [Super-Return]
 # i3-sensible-terminal or termite
