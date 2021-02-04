@@ -45,6 +45,10 @@
 "$HOME/.config/rofi/scripts/rofi-i3-keybinds/rofi-i3-keybinds.sh"
     Mod1 + shift + k
 
+# A better i3 windows switcher with rofi
+"i3wins -kb-row-down 'Down,Control+n,Alt+Tab' -kb-accept-entry '!Alt+Tab,!Alt_L,!Alt+Alt_L,Return'"
+    Mod1+Tab
+
 # Open terminal
 # [Super-Return]
 # i3-sensible-terminal or termite
