@@ -22,13 +22,17 @@
 #
 ######################################################################
 
-
 # => 字体
 font pango: Hack, FontAwesome 12
 
-
 # => 设定mod键为“微软大旗键”
 set $mod  Mod4
+
+# => 重新载入(reload the configuration file)
+#（更改配置文件后只须重载即可生效，不包含自启部分）
+bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
 
 # => 设定工作区名 (workspace names)
 # icons assigned by `polybar`
@@ -280,7 +284,6 @@ mode "$mode_gaps_outer" {
 
 bindsym $mod+Shift+g mode "$mode_gaps"
 
-
 # => startup apps and daemons
 
 # • exec命令
@@ -292,12 +295,6 @@ bindsym $mod+Shift+g mode "$mode_gaps"
 # more info at https://github.com/jaagr/polybar
 # configuration in ~/.config/polybar/config.ini
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# => 重新载入(reload the configuration file)
-#（更改配置文件后只须重载即可生效，不包含自启部分）
-bindsym $mod+Shift+c reload
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-bindsym $mod+Shift+r restart
 
 # => 多屏切换
 # New mode for switching monitor modes
