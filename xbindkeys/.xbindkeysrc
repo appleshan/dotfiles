@@ -38,7 +38,7 @@
     Mod4 + d
 "rofi -show run -columns 3"
     Mod4 + shift + d
-"$HOME/.config/rofi/scripts/powermenu.sh"
+"$HOME/.config/rofi/scripts/shutdown-menu/shutdown-menu.sh"
     Mod4 + shift + p
 
 # Open terminal
