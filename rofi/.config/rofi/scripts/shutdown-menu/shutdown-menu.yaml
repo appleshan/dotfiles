@@ -1,0 +1,37 @@
+---
+app:
+- name: shutdown-menu
+  items:
+    - name: " Lock"
+      command: /home/alecshan/.config/i3lock-fancy-multimonitor/lock
+    - name: " Logout"
+      command: i3-msg
+      args:
+        - exit
+    - name: " Suspend"
+      confirm: Sure you want to suspend?
+      command: systemctl
+      args:
+        - suspend
+    - name: " Reboot"
+      confirm: Sure you want to reboot?
+      command: systemctl
+      args:
+        - reboot
+#    - name: "Hibernate"
+#      confirm: Sure you want to hibernate?
+#      command: systemctl
+#      args:
+#        - hibernate
+    - name: " Shutdown"
+      confirm: Sure you want to shutdown?
+      command: systemctl
+      args:
+        - poweroff
+#    - name: "Halt"
+#      confirm: Sure you want to halt?
+#      command: systemctl
+#      args:
+#        - halt
+    - name: " Cancel"
+  prompt: 'Select'
