@@ -1,0 +1,74 @@
+{
+    "editor.fontFamily": "Hack, 'Microsoft YaHei', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontWeight": "normal",
+    "editor.fontSize": 18,
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "editor.rulers": [80,100],
+    "editor.suggestSelection": "first",
+
+    "files.autoSave": "afterDelay",
+    "files.trimTrailingWhitespace": true,
+    "files.exclude": {
+        "**/.git": true,
+        "**/.svn": true,
+        "**/.DS_Store": true,
+        "**/.idea": true
+    },
+
+    "java.home": "/home/alecshan/bin/java/jdk-11.0.7-full",
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/alecshan/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+    "java.configuration.checkProjectSettingsExclusions": false,
+    "java.configuration.runtimes": [
+        {
+            "name": "JavaSE-1.6",
+            "path": "/home/alecshan/bin/java/jdk1.6.0_45",
+            "sources" : "/home/alecshan/bin/java/jdk1.6.0_45/src.zip",
+            "javadoc" : "https://docs.oracle.com/en/java/javase/1.6/docs/api"
+        },
+        {
+            "name": "JavaSE-1.8",
+            "path": "/home/alecshan/bin/java/jdk1.8.0_162",
+            "sources" : "/home/alecshan/bin/java/jdk1.6.0_45/src.zip",
+            "javadoc" : "https://docs.oracle.com/en/java/javase/1.8/docs/api"
+        },
+        {
+            "name": "JavaSE-11",
+            "path": "/home/alecshan/bin/java/jdk-11.0.7-full",
+            "sources" : "/home/alecshan/bin/java/jdk-11.0.7-full/lib/src.zip",
+            "javadoc" : "https://docs.oracle.com/en/java/javase/11/docs/api",
+            "default":  true
+        },
+        {
+            "name": "JavaSE-13",
+            "path": "/home/alecshan/bin/java/jdk-13.0.2",
+            "sources" : "/home/alecshan/bin/java/jdk-13.0.2/lib/src.zip",
+            "javadoc" : "https://docs.oracle.com/en/java/javase/13/docs/api"
+        }
+    ],
+
+    "python.autoComplete.extraPaths": ["any/path"],
+    "python.linting.flake8Enabled": true,
+    "python.linting.flake8Path": "/home/appleshan/.pyenv/shims/flake8",
+    "python.linting.flake8Args": ["--max-line-length=248"],
+    "python.linting.pylintEnabled": false,
+    "python.formatting.autopep8Path": "/home/appleshan/.pyenv/shims/autopep8",
+
+    "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
+
+    "rsp-ui.enableStartServerOnActivation": [
+        {
+            "id": "redhat.vscode-community-server-connector",
+            "name": "Community Server Connector",
+            "startOnActivation": true
+        }
+    ],
+    "workbench.colorTheme": "Eva Dark",
+    "workbench.iconTheme": "vscode-icons",
+    "dashboard.projectData": null,
+    "kite.showWelcomeNotificationOnStartup": false,
+
+
+    "sync.gist": "026e2e9d874f984df5e9cad24215f13e"
+}
