@@ -11,9 +11,9 @@ configuration {
     drun-icon-theme: "Korla";
     
     modi:            "drun,window,run";
-    display-drun:    "Run";
-    display-window:  "Window";
-    display-run:     "Command";
+    display-drun:    " Run";
+    display-window:  " Window";
+    display-run:     " Command";
     
     sidebar-mode:    true;
     fullscreen:      true;
