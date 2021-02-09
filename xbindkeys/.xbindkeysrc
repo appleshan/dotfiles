@@ -23,7 +23,7 @@
 # Show all commands
 # [Ctrl-Shift-q]
 "xbindkeys_show"
-  control + shift + q
+    control + shift + q
 
 # => Start rofi (a program launcher)
 #bindsym Ctrl+F7      exec $HOME/.config/rofi/scripts/xrandrmenu.sh
