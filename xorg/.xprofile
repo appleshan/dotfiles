@@ -53,3 +53,6 @@ workrave &
 
 # 在鼠标指针不活动时隐藏鼠标指针.
 unclutter -idle 5 &
+
+# => manjaro i3 自動切換桌面壁纸
+~/.local/bin/wallpaper.sh &
