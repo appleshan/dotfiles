@@ -15,8 +15,15 @@ compton --backend glx --vsync -GCb --config $HOME/.config/compton.conf
 # polybar上某些要显示托盘图标（tray icon），须执行 xrandr --output:
 xrandr --auto --output DP1 --primary --mode 1920x1080 --rate 75.00
 
-# 壁纸须先安装feh，并在此指定路径
-$HOME/.fehbg &
+#{{ 桌面壁纸
+# .fehbg 与 wallpaper.sh 二选一。
+
+# => feh 设置桌面壁纸
+# $HOME/.fehbg
+
+# => manjaro i3 自動切換桌面壁纸
+$HOME/.local/bin/wallpaper.sh &
+#}}
 
 # => Start Fcitx
 #fcitx version: 4
@@ -57,6 +64,3 @@ workrave &
 
 # 在鼠标指针不活动时隐藏鼠标指针.
 unclutter -idle 5 &
-
-# => manjaro i3 自動切換桌面壁纸
-~/.local/bin/wallpaper.sh &
