@@ -41,6 +41,7 @@ nm-applet &
 
 # => Start Volume control
 #volumeicon &
+pasystray &
 
 # => Start Clipboard Manager
 clipit &
