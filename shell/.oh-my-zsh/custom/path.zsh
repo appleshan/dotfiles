@@ -58,7 +58,7 @@ export JRE_HOME=$JAVA_11_HOME/jre
 
 appendpath "$JAVA_HOME/bin"
 
-export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
+# export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
 export IDEA_JDK=$JAVA_11_HOME
 
