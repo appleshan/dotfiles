@@ -52,7 +52,7 @@ if [[ $TERM == xterm-termite ]]; then
 fi
 
 # Automatically start tmux
-export ZSH_TMUX_AUTOSTART=true
+# export ZSH_TMUX_AUTOSTART=true
 
 function twa() {
     echo "================================================================================"
