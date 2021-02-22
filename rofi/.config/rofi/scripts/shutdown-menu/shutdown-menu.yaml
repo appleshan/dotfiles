@@ -5,6 +5,7 @@ app:
     - name: " Lock"
       command: /home/alecshan/.config/i3lock-fancy-multimonitor/lock
     - name: " Logout"
+      confirm: Do you really want to exit i3? This will end your X session.
       command: i3-msg
       args:
         - exit
