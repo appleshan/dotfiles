@@ -53,7 +53,7 @@ xbindkeys &
 # enable the geoclue agent on startup.
 /usr/lib/geoclue-2.0/demos/agent &
 
-$HOME/.local/bin/redshift.sh &
+$HOME/.config/redshift/redshift.sh &
 #}}
 
 # xfce4-power-manager 是 XFCE 管理电源和屏幕亮度的托盘程序，可以脱离 XFCE 独立安装运行。
