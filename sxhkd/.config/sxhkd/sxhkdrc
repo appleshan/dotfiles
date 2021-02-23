@@ -8,7 +8,7 @@ super + Escape
 
 # description: Restart sxhkd
 control + alt + shift + Escape
-    killall sxhkd; sxhkd&
+    killall sxhkd; sxhkd&; exec notify-send 'Restart sxhkd'
 
 # description: display keybindings + descriptions for sxhkd
 super + shift + k
