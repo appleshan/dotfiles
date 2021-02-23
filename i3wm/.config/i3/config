@@ -93,10 +93,10 @@ bindsym $mod+Shift+Down move down
 bindsym $mod+Shift+Up move up
 bindsym $mod+Shift+Right move right
 # move focused window with vi keybindings
-bindsym $mod+Shift+h move left
-bindsym $mod+Shift+j move down
-bindsym $mod+Shift+k move up
-bindsym $mod+Shift+l move right
+# bindsym $mod+Shift+h move left
+# bindsym $mod+Shift+j move down
+# bindsym $mod+Shift+k move up
+# bindsym $mod+Shift+l move right
 
 # => 调整窗口大小 (resize window)
 mode "Resize" {
@@ -138,10 +138,10 @@ bindsym $mod+space focus mode_toggle
 
 # use these keys for focus, movement, and resize directions when reaching for
 # the arrows is not convenient
-set $up k
-set $down j
-set $left h
-set $right l
+# set $up k
+# set $down j
+# set $left h
+# set $right l
 
 # change focus with cursor keys
 bindsym $mod+Left focus left
@@ -149,10 +149,10 @@ bindsym $mod+Down focus down
 bindsym $mod+Up focus up
 bindsym $mod+Right focus right
 # change focus with vi keybindings
-bindsym $mod+$left focus left
-bindsym $mod+$down focus down
-bindsym $mod+$up focus up
-bindsym $mod+$right focus right
+# bindsym $mod+$left focus left
+# bindsym $mod+$down focus down
+# bindsym $mod+$up focus up
+# bindsym $mod+$right focus right
 
 # => 布局切换 (change container layout <stacked, tabbed, toggle split>)
 # 切换到堆叠布局
