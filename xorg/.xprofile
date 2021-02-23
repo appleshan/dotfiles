@@ -22,7 +22,7 @@ xrandr --auto --output DP1 --primary --mode 1920x1080 --rate 75.00
 # $HOME/.fehbg
 
 # => manjaro i3 自動切換桌面壁纸
-$HOME/.local/bin/wallpaper.sh &
+$HOME/.config/feh/wallpaper.sh &
 #}}
 
 # => Start Fcitx
