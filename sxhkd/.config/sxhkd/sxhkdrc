@@ -10,10 +10,6 @@ super + Escape
 control + alt + shift + Escape
     killall sxhkd; sxhkd&; exec notify-send 'Restart sxhkd'
 
-# description: display keybindings + descriptions for sxhkd
-super + shift + k
-    $HOME/.config/sxhkd/sxhkd-bindings d
-
 ## description: i3wm help doc
 # super + F1
 #     xdg-open /usr/share/doc/manjaro/i3_help.pdf
@@ -45,8 +41,12 @@ super + shift + p
     $HOME/.config/rofi/scripts/shutdown-menu/shutdown-menu.sh
 
 # description: Rofi menu for your i3wm keybinds
-alt + shift + k
+super + shift + k
     $HOME/.config/rofi/scripts/rofi-i3-keybinds/rofi-i3-keybinds.sh
+
+# description: display keybindings + descriptions for sxhkd
+alt + shift + k
+    $HOME/.config/sxhkd/sxhkd-bindings d
 
 # description: A better i3 windows switcher with rofi
 alt+Tab
