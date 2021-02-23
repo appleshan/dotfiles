@@ -46,8 +46,8 @@ pasystray &
 # => Start Clipboard Manager
 clipit &
 
-# => Start Xbindkeys
-xbindkeys &
+# => Start sxhkd
+sxhkd &
 
 #{{ redshift
 # enable the geoclue agent on startup.

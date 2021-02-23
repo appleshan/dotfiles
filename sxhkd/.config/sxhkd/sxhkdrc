@@ -1,0 +1,110 @@
+# sxhkd: Linux系统的全局快捷键设置工具
+
+# HOTKEYS
+
+# description: Open sxhkdrc
+super + Escape
+    xdg-open $XDG_CONFIG_HOME/sxhkd/sxhkdrc
+
+# description: Restart sxhkd
+control + alt + shift + Escape
+    killall sxhkd; sxhkd&
+
+# description: display keybindings + descriptions for sxhkd
+super + shift + k
+    $HOME/.config/sxhkd/sxhkd-bindings d
+
+## description: i3wm help doc
+# super + F1
+#     xdg-open /usr/share/doc/manjaro/i3_help.pdf
+
+# description: xkill
+super + control + x
+    xkill
+
+# => Start rofi (a program launcher)
+
+# description: Restart rofi
+super + control + d
+    killall rofi; exec notify-send 'Restart rofi'
+
+# description: Rofi show window
+super + Tab
+    rofi -show window
+
+# description: Rofi show applications
+super + d
+    rofi -show drun -columns 3
+
+# description: Rofi show command
+super + shift + d
+    rofi -show run -columns 3
+
+# description: Power Menu
+super + shift + p
+    $HOME/.config/rofi/scripts/shutdown-menu/shutdown-menu.sh
+
+# description: Rofi menu for your i3wm keybinds
+alt + shift + k
+    $HOME/.config/rofi/scripts/rofi-i3-keybinds/rofi-i3-keybinds.sh
+
+# description: A better i3 windows switcher with rofi
+alt+Tab
+    i3wins -kb-row-down 'Down,Control+n,Alt+Tab' -kb-accept-entry '!Alt+Tab,!Alt_L,!Alt+Alt_L,Return'
+
+# description: Use rofi to search documentation on Zeal and Man
+super + g
+    $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
+
+# description: Use rofi to search book on 'ebook' dir
+super + shift + b
+    $HOME/.config/rofi/scripts/rofi-book-selector/rofi-book-selector.sh
+
+# description: Open terminal (i3-sensible-terminal or termite)
+super + Return
+    termite
+
+# description: Start file manager (ranger、pcmanfm or thunar)
+super + F3
+    pcmanfm
+
+# description: Open web browser
+super + F2
+    google-chrome-stable
+
+# description: flameshot 屏幕截图
+Print
+    flameshot gui --delay 200
+
+# description: flameshot config
+super + shift + Print
+    flameshot config
+
+# description: mute
+super + control + m
+    urxvt -e 'alsamixer'
+
+# description: 多媒体播放上一首
+super + Home
+    playerctl previous
+
+# description: 多媒体播放下一首
+super + End
+    playerctl next
+
+# description: 多媒体播放暂停
+super + Delete
+   playerctl play-pause
+
+# description: 多媒体播放停止
+super + Insert
+    playerctl stop
+
+# description: 伪平铺特性
+#   
+#                         q w e            LeftTop        Max        RightTop
+#      super + shift +:   a s d    ===>    Left          Center         Right 
+#                         z x c            LeftBottom    unMax    RightBottom
+#
+super + shift + {q,w,e,a,s,d,z,x,c}
+    sh -c "$HOME/.config/sxhkd/window.sh {LT,M,RT,L,C,R,LB,U,RB}"
