@@ -81,24 +81,12 @@ super + shift + Print
     flameshot config
 
 # description: mute
-super + control + m
+super + shift + control + m
     urxvt -e 'alsamixer'
 
-# description: 多媒体播放上一首
-super + Home
-    playerctl previous
-
-# description: 多媒体播放下一首
-super + End
-    playerctl next
-
-# description: 多媒体播放暂停
-super + Delete
-   playerctl play-pause
-
-# description: 多媒体播放停止
-super + Insert
-    playerctl stop
+# description: 多媒体播放
+super + control + m
+    $HOME/.config/rofi/scripts/rofi-media/media.sh
 
 # description: 伪平铺特性
 #   
