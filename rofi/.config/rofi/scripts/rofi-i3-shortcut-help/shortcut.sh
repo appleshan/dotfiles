@@ -1,0 +1,48 @@
+#!/usr/bin/env bash
+
+set -eo pipefail
+
+: "${XDG_CACHE_HOME:="$HOME"/.cache}"
+: "${CACHE_FILE:="$XDG_CACHE_HOME/rofi-shortcut"}"
+: "${XDG_CONFIG_HOME:="$HOME"/.config}"
+: "${CONFIG:="$XDG_CONFIG_HOME/i3/config"}"
+
+
+function parse {
+    if [[ $CACHE_FILE -nt $CONFIG ]]
+    then
+        cat "$CACHE_FILE"
+    else
+        while read -r line
+        do
+            help=$(echo "$line" | xmlstarlet esc | \
+              sed -e 's!\(.*\)\/\/ *\(.*\)\/\/ *\(.*\)##.*!<b>\2</b><span foreground="grey">\1</span>\t<tt>\3</tt>!')
+            command=$(echo "$line" | sed -e 's/.*##.*bind[^ ]* *[^ ]* *\(.*\)/\1/')
+            meta=$(echo "$line" | sed -e 's/.*##.*bind[^ ]* \(.*\)/\1/' | xmlstarlet esc)
+            printf "%s\0info\x1f%s\x1fmeta\x1f%s\n" "$help" "$command" "$meta" 
+        done | tee "$CACHE_FILE"
+    fi
+}
+
+: "${_PARSE:=parse}"  # for integratin testing
+: "${_I3MSG:=i3-msg}"  # for integratin testing
+
+function main() {
+    echo -e "\0markup-rows\x1ftrue\n"
+    if [[ $ROFI_RETV == 0 ]]
+    then
+        # initial call
+        # 先用 sed 删除文件的前 24行.
+        sed '1,24d' "$CONFIG"  \
+      | grep -A1 '^ *##'  \
+      | grep -v '^--' | sed '$!N;s/\n/ /' | sed -e 's/^ *## *//' | "$_PARSE" \
+      | sort -k2 -t"	" \
+      | tr "\0" "\v" | column -t -s $'\t' | tr "\v" "\0"
+    elif  [[ -n  "$ROFI_INFO" ]]
+    then
+        # ROFI_INFO contains the i3 command
+        exec "$_I3MSG" "$ROFI_INFO" >/dev/null 2>&1
+    fi
+}
+
+main
