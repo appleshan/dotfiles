@@ -42,7 +42,7 @@ super + shift + p
 
 # description: Rofi menu for your i3wm keybinds
 super + shift + k
-    $HOME/.config/rofi/scripts/rofi-i3-keybinds/rofi-i3-keybinds.sh
+    rofi -modi shortcut:$HOME/.config/rofi/scripts/rofi-i3-shortcut-help/shortcut.sh -show shortcut
 
 # description: display keybindings + descriptions for sxhkd
 alt + shift + k
