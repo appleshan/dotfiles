@@ -48,10 +48,6 @@ super + shift + k
 alt + shift + k
     $HOME/.config/sxhkd/sxhkd-bindings d
 
-# description: A better i3 windows switcher with rofi
-alt+Tab
-    i3wins -kb-row-down 'Down,Control+n,Alt+Tab' -kb-accept-entry '!Alt+Tab,!Alt_L,!Alt+Alt_L,Return'
-
 # description: Use rofi to search documentation on Zeal and Man
 super + g
     $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
