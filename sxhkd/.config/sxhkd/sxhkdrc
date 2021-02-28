@@ -1,60 +1,8 @@
 # sxhkd: Linux系统的全局快捷键设置工具
 
-# HOTKEYS
-
-# description: Open sxhkdrc
-super + Escape
-    xdg-open $XDG_CONFIG_HOME/sxhkd/sxhkdrc
-
-# description: Restart sxhkd
-control + alt + shift + Escape
-    killall sxhkd; sxhkd&; exec notify-send 'Restart sxhkd'
-
-## description: i3wm help doc
-# super + F1
-#     xdg-open /usr/share/doc/manjaro/i3_help.pdf
-
-# description: xkill
-super + control + x
-    xkill
-
-# => Start rofi (a program launcher)
-
-# description: Restart rofi
-super + control + d
-    killall rofi; exec notify-send 'Restart rofi'
-
-# description: Rofi show window
-super + Tab
-    rofi -show window
-
-# description: Rofi show applications
-super + d
-    rofi -show drun -columns 3
-
-# description: Rofi show command
-super + shift + d
-    rofi -show run -columns 3
-
-# description: Power Menu
-super + shift + p
-    $HOME/.config/rofi/scripts/shutdown-menu/shutdown-menu.sh
-
-# description: Rofi menu for your i3wm keybinds
-super + shift + k
-    rofi -modi shortcut:$HOME/.config/rofi/scripts/rofi-i3-shortcut-help/shortcut.sh -show shortcut
-
-# description: display keybindings + descriptions for sxhkd
-alt + shift + k
-    $HOME/.config/sxhkd/sxhkd-bindings d
-
-# description: Use rofi to search documentation on Zeal and Man
-super + g
-    $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
-
-# description: Use rofi to search book on 'ebook' dir
-super + shift + b
-    $HOME/.config/rofi/scripts/rofi-book-selector/rofi-book-selector.sh
+###############################################################################
+#  Application openners  
+###############################################################################
 
 # description: Open terminal (i3-sensible-terminal or termite)
 super + Return
@@ -80,15 +28,191 @@ super + shift + Print
 super + shift + control + m
     urxvt -e 'alsamixer'
 
+
+###############################################################################
+#   Service Controls    
+###############################################################################
+
+# description: Rofi show window
+#super + Tab
+#    rofi -show window
+
+# description: Rofi show applications
+super + d
+    rofi -show drun -columns 3
+
+# description: Rofi show command
+super + shift + d
+    rofi -show run -columns 3
+
+# description: Power Menu
+super + shift + p
+    $HOME/.config/rofi/scripts/shutdown-menu/shutdown-menu.sh
+
+# description: display keybindings + descriptions for sxhkd
+super + shift + k
+    $HOME/.config/sxhkd/sxhkd-bindings d
+
+# description: Use rofi to search documentation on Zeal and Man
+super + g
+    $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
+
 # description: 多媒体播放
 super + control + m
     $HOME/.config/rofi/scripts/rofi-media/media.sh
 
-# description: 伪平铺特性
+
+###############################################################################
+#   Misc keys          
+###############################################################################
+
+# description: Open sxhkdrc
+super + Escape
+    xdg-open $XDG_CONFIG_HOME/sxhkd/sxhkdrc
+
+# description: Restart sxhkd
+control + alt + shift + Escape
+    killall sxhkd; sxhkd&; exec notify-send 'Restart sxhkd'
+
+# description: xkill
+super + control + x
+    xkill
+
+# description: Use rofi to search book on 'ebook' dir
+super + shift + b
+    $HOME/.config/rofi/scripts/rofi-book-selector/rofi-book-selector.sh
+
 #   
 #                         q w e            LeftTop        Max        RightTop
 #      super + shift +:   a s d    ===>    Left          Center         Right 
 #                         z x c            LeftBottom    unMax    RightBottom
 #
-super + shift + {q,w,e,a,s,d,z,x,c}
-    sh -c "$HOME/.config/sxhkd/window.sh {LT,M,RT,L,C,R,LB,U,RB}"
+# description: 伪平铺特性
+#super + shift + {q,w,e,a,s,d,z,x,c}
+#    sh -c "$HOME/.config/sxhkd/window.sh {LT,M,RT,L,C,R,LB,U,RB}"
+
+
+###############################################################################
+#   I3 conrols         
+###############################################################################
+
+# reload the configuration file（更改配置文件后只须重载即可生效，不包含自启部分）
+# description: Reload i3 configuration
+super + shift + c
+    i3 reload; exec notify-send 'Reload i3wm config'
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+# description: 重启 i3 窗口管理器
+super + shift + r
+    i3 restart; exec notify-send 'Restart i3wm'
+
+# description: Focus on the left/up/right/down/panel
+super + {Left,Right,Up,Down}
+   i3-msg focus {left,right,up,down}
+
+# description: Move panel to the left/up/right/down/panel
+super + shift + {Left,Right,Up,Down}
+   i3-msg move {left,right,up,down}
+
+# description: Move workspace to the output left/right
+#super + control + shift + {Next,Prior}
+#   i3-msg move workspace to output {left,right}
+
+# description: Move window/panel to the Scratchpad
+super + shift + minus
+   i3-msg move scratchpad
+
+# description: Toggle Scratchpad
+super + minus
+   i3-msg scratchpad show
+
+# description: Resize panel 10x10 pixel
+super + control + shift + {Left,Right,Up,Down}
+   i3-msg resize {shrink width,grow width,shrink height,grow height} 10 px or 10 ppt
+
+# description: Resize panel 100x100 pixel
+super + shift + {Next,Prior}
+   mode={grow,shrink}; \
+   size="100 px or 100 ppt"; \
+   i3-msg resize $mode height $size,resize $mode width $size
+
+# description: Go into i3 resize mode
+super + r
+   i3-msg mode ""
+
+# description: Switch to the next workspace
+super + Tab
+   i3-msg workspace next
+
+# description: Switch to the previous workspace
+super + shift + Tab
+   i3-msg workspace prev
+
+# description: Switch to the previous/next workspace
+super + control + {Right,Left}
+   i3-msg workspace {next,prev}
+
+# description: Change layout to stacking
+# description: Change layout to tabbed
+# description: Toggle horizontal/vertical splits
+super + {s,w,e}
+   i3-msg layout {stacking,tabbed,toggle split}
+
+# description: Split layout horizontaly
+super + control + h
+   i3-msg split h
+
+# description: Split layout verticaly
+super + control + v
+   i3-msg split v, mark "lastsplit"
+
+# description: Kill the current panel/window
+super + q
+   i3-msg kill
+
+# description: Toggle floating on a pannel or window
+super + space
+   i3-msg focus mode_toggle
+
+# description: Toggle stickyness on a window
+super + shift + {space,s}
+   i3-msg {floating,sticky} toggle
+
+# description: Toggle fullscreen
+super + f
+   i3-msg fullscreen toggle
+
+# description: Toggle border
+super + b
+   i3-msg border toggle
+
+# description: 转到工作区
+super + {1,2,3,4,5,6,7,8,9,0}
+    i3-msg workspace {1,2,3,4,5,6,7,8,9,10}
+
+# description: 将聚焦的容器移动到另一个工作区
+super + control + {1,2,3,4,5,6,7,8,9,0}
+    i3-msg move container to workspace {1,2,3,4,5,6,7,8,9,10}
+
+# description: 带上聚焦的容器移动到另一个工作区
+super + shift + 1
+    i3-msg move container to workspace 1; i3-msg workspace 1
+super + shift + 2
+    i3-msg move container to workspace 2; i3-msg workspace 2
+super + shift + 3
+    i3-msg move container to workspace 3; i3-msg workspace 3
+super + shift + 4
+    i3-msg move container to workspace 4; i3-msg workspace 4
+super + shift + 5
+    i3-msg move container to workspace 5; i3-msg workspace 5
+super + shift + 6
+    i3-msg move container to workspace 6; i3-msg workspace 6
+super + shift + 7
+    i3-msg move container to workspace 7; i3-msg workspace 7
+super + shift + 8
+    i3-msg move container to workspace 8; i3-msg workspace 8
+super + shift + 9
+    i3-msg move container to workspace 9; i3-msg workspace 9
+super + shift + 0
+    i3-msg move container to workspace 10; i3-msg workspace 10
+
