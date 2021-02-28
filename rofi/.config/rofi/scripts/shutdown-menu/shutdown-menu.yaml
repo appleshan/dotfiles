@@ -1,6 +1,7 @@
 ---
 app:
 - name: shutdown-menu
+  prompt: 'Select'
   items:
     - name: " Lock"
       command: /home/alecshan/.config/i3lock-fancy-multimonitor/lock
@@ -35,4 +36,3 @@ app:
 #      args:
 #        - halt
     - name: " Cancel"
-  prompt: 'Select'
