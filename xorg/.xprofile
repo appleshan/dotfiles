@@ -37,7 +37,7 @@ nm-applet &
 
 # => Start Bluetooth Manager
 # blueman-applet 配合 blueman-manager 可以很方便地管理蓝牙。
-#blueman-applet &
+blueman-applet &
 
 # => Start Volume control
 #volumeicon &
