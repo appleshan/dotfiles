@@ -1,0 +1,13 @@
+# vim: ft=zsh
+
+# system tools
+
+work_path=$(dirname $(readlink -f $0))
+echo ${work_path}
+
+NAME="  System"
+ITEMS=(
+  [" Tools Menu"]="${work_path}/show-tools-menu.sh"
+  [" Session Menu"]="${work_path}/show-session-menu.sh"
+  [" Power Menu"]="${work_path}/show-power-menu.sh"
+)
