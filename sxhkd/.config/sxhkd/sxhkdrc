@@ -24,7 +24,7 @@ Print
 super + shift + Print
     flameshot config
 
-# description: mute
+# description: soundcard mixer
 super + shift + control + m
     urxvt -e 'alsamixer'
 
