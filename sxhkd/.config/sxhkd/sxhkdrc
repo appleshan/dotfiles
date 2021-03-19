@@ -45,9 +45,9 @@ super + d
 super + shift + d
     rofi -show run -columns 3
 
-# description: Power Menu
+# description: System Menu
 super + shift + p
-    $HOME/.config/rofi/scripts/shutdown-menu/shutdown-menu.sh
+    $HOME/.config/rofi/scripts/menuz/show-system-menu.sh
 
 # description: display keybindings + descriptions for sxhkd
 super + shift + k

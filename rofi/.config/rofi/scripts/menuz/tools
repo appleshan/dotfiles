@@ -1,0 +1,21 @@
+# vim: ft=zsh
+
+# misc tools
+
+NAME="  Tools"
+ITEMS=(
+  [" Open terminal"]="termite"
+  [" Start file manager"]="pcmanfm"
+  [" Open web browser"]="google-chrome-stable"
+  [" soundcard mixer"]="urxvt -e 'alsamixer'"
+  [" flameshot 屏幕截图"]="flameshot gui --delay 200"
+  [" flameshot config"]="flameshot config"
+  [" Rofi show window"]="rofi -show window"
+  [" Rofi show applications"]="rofi -show drun -columns 3"
+  [" Rofi show command"]="rofi -show run -columns 3"
+  [" Search document on Zeal and Man"]="$HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh"
+  [" Display keybindings"]="$HOME/.config/sxhkd/sxhkd-bindings d"
+  [" Appearance Settings"]="lxappearance"
+#  [" Display Settings"]="$I3SCRIPTS/rofi-randr.zsh"
+#  [" Layout Manager"]="$I3SCRIPTS/layout-manager.sh"
+)

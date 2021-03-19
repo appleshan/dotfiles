@@ -1,0 +1,217 @@
+#!/usr/bin/env zsh
+
+# menus with rofi, fzf, and zsh
+typeset appname=${0:A:t}
+typeset appver=0.1
+
+# Set path to menu files
+typeset -g menudir=${MENUZ_DIR:-$HOME/.config/menuz}
+
+# Set some common programs as globals
+typeset -g terminal="${TERMINAL:-"xterm"} -e" # <- appends '-e'
+typeset -g editor=${EDITOR:-"vim"}
+typeset -g browser=${BROWSER:-"qutebrowser"}
+typeset -g opener=${commands[xdg-open]}
+
+# Display specified menu or call select_menu
+function show_menu() {
+  local menu=$1
+  local choice
+  local prompt
+
+  local NAME
+  local -A ITEMS
+
+  if [[ -f $menudir/$menu ]]
+  then
+    # Menu was specified (and exists)
+    source $menudir/$menu
+    prompt=$NAME
+
+    choice=$( ( _list_items ${(k)ITEMS[@]}) | eval "$(_get_ui $prompt)")
+    if [[ -n $choice ]]
+    then
+      _run_cmd ${ITEMS[$choice]}
+    fi
+  else
+    # Or select from menu
+    choice=$(select_menu)
+    if [[ -n $choice ]] && [[ -f $menudir/$choice ]]
+    then
+      show_menu $choice
+    else
+      return 1
+    fi
+  fi
+}
+
+# Present UI to select menu
+function select_menu() {
+  local choice
+  local prompt=${MENUZ_PROMPT_SELECT:-"Select Menu"}
+
+  local -A LIST
+  local NAME
+  local -A ITEMS
+
+  # Get list of menu files
+  for menu ($menudir/*)
+  do
+    eval $(grep NAME= $menu | head -1)
+    [[ -n $NAME ]] && LIST[$NAME]+=${menu:t}
+  done
+
+  choice=$( (_list_items ${(k)LIST[@]}) | eval "$(_get_ui $prompt)")
+  if [[ -n $choice ]]
+  then
+    echo ${LIST[$choice]}
+  else
+    return 1
+  fi
+}
+
+# Edit existing or create new menu files
+function edit_menu() {
+  local menu=$1
+  local menupath
+
+  local -A LIST
+  local NAME
+  local -A ITEMS
+
+  if [[ -n $menu ]]
+  then
+    # Menu name was provided
+    menupath=$menudir/$menu
+  else
+    # Or select menu
+    choice=$(select_menu)
+    menupath=$menudir/$choice
+
+    [[ ! -f $menupath ]] && return 1
+  fi
+
+  # If menu name provided doesn't exist, create it
+  if [[ ! -f $menupath ]]
+  then
+    if _confirm "Create $menu?"
+    then
+      # Write template to new file
+      echo -n "NAME=\"New\"\nITEMS=(\n\t[entry]=\"\"\n)" > $menupath
+    else
+      return 1
+    fi
+  fi
+
+  # Finally, edit menu
+  _run_cmd "##TERM## $editor $menupath"
+}
+
+# Prints menu items for picker
+function _list_items() { local i; for i ($@); do echo $i; done }
+
+# Determine if script was called from CLI or GUI
+function _detect_ui() {
+  local proc shell
+
+  # Process script was called from
+  proc=$(readlink -f /proc/$(ps -o ppid:1= -p $$)/exe)
+
+  # User's shell
+  shell=$(readlink -f "$SHELL")
+
+  # When proc is your shell or tmux, assume CLI, else GUI
+  if [[ $proc == $shell ]] || [[ ${proc:t} == "tmux" ]]
+  then
+    UI=0 # CLI
+  else
+    UI=1 # GUI
+  fi
+}
+
+# Return picker for GUI or CLI
+function _get_ui() {
+  local title=$@
+
+  if [[ $UI == 0 ]]
+  then
+    _fzf $title
+  elif [[ $UI == 1 ]]
+  then
+    _rofi $title
+  else
+    return 1
+  fi
+}
+
+# Return GUI picker
+function _rofi() { echo "rofi -dmenu -i -p '$1'" }
+
+# Return CLI picker
+function _fzf() { echo "fzf -e --reverse --no-info --prompt='$1: '" }
+
+# Yes or no prompt
+function _confirm() {
+  local prompt=$1
+  local choice
+
+  choice=$( echo "Yes\nNo" | eval "$(_get_ui $prompt)")
+  if [[ ! $choice == Yes ]]
+  then
+    return 1
+  fi
+
+  return
+}
+
+# Process command string and execute
+function _run_cmd() {
+  local -a command=(${=*})
+
+  # run commands with or without terminal
+  if [[ $command[1] == "##TERM##" ]]
+  then
+    if [[ $UI == 0 ]]
+    then
+      # CLI, remove prefix
+      command[1]=""
+    else
+      # GUI, replace prefix
+      command[1]=$terminal
+    fi
+  fi
+
+  eval ${command[@]}
+}
+
+# Help
+function usage() { echo "Usage: menuz [-e] <name>" }
+
+###
+
+# Check for menu directory
+[[ ! -d $menudir ]] && { echo "'$menudir' does not exist!"; exit 1 }
+
+# Detect environment
+typeset -gi UI
+_detect_ui
+
+# Process arguments
+for arg in $@
+do
+  case $arg in
+    -h | --help)
+      usage;
+      exit 0;;
+    -e | --edit)
+      edit_menu $2;
+      exit 0;;
+  esac
+done
+
+# Display menu
+show_menu $@
+
+exit 0
+
+# vim: ft=zsh ts=2 sw=0 et:

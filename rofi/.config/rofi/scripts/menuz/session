@@ -1,0 +1,11 @@
+# vim: ft=zsh
+
+# session\wm tools
+
+NAME="  Session"
+ITEMS=(
+  [" Lock Screen"]="/home/alecshan/.config/i3lock-fancy-multimonitor/lock"
+  [" Reload Config"]="i3-msg reload"
+  [" Restart Desktop"]="i3-msg restart"
+  [" Exit Desktop"]="i3-msg exit"
+)

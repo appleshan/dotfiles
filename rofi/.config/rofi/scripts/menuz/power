@@ -1,0 +1,10 @@
+# vim: ft=zsh
+
+# system tools
+
+NAME="  Power"
+ITEMS=(
+  [" Suspend System"]="systemctl suspend"
+  [" Reboot System"]="systemctl reboot"
+  [" Shutdown System"]="systemctl poweroff"
+)
