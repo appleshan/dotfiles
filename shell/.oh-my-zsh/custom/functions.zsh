@@ -55,6 +55,8 @@ unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 #export TERM=rxvt-unicode-256color
 #export TERMINAL=rxvt-unicode-256color
 
+source $ZSH/custom/shell-aliases.sh
+
 # Termite
 export TERM=xterm-termite
 if [[ $TERM == xterm-termite ]]; then
