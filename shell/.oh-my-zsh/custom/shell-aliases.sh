@@ -23,12 +23,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
-alias pc='proxychains4'
-
 alias magit='ec -e "(magit-status \"$(pwd)\")"'
-
-alias wa='which -a'
-alias ta='type -a'
 
 # speed up download
 alias axel='axel -a -n 10'
@@ -38,8 +33,6 @@ alias axel='axel -a -n 10'
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
 
 alias mutt='mutt -F ~/.mutt/.muttrc'
-
-alias w3m='w3m -cookie '
 
 alias p='parallel'
 alias pp='parallel --pipe -k'
@@ -58,6 +51,10 @@ alias beep='aplay ~/projects-private/dotfiles/sounds/beep-07.wav'
 alias pavucontrol=pavucontrol-qt
 
 alias vim=nvim
+
+alias rm='echo "This is not the command you are looking for."; false'
+
+alias docker=podman
 
 ###############################################################################
 # Python
