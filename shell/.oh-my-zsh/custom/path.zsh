@@ -60,8 +60,6 @@ appendpath "$JAVA_HOME/bin"
 
 # export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
-export IDEA_JDK=$JAVA_11_HOME
-
 # Gradle Setup
 export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
