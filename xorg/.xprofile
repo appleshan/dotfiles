@@ -13,7 +13,7 @@ compton --backend glx --vsync -GCb --config $HOME/.config/compton.conf
 # => 屏幕管理
 # @See https://bbs.archlinuxcn.org/viewtopic.php?pid=30400#p30400
 # polybar上某些要显示托盘图标（tray icon），须执行 xrandr --output:
-xrandr --auto --output DP1 --primary --mode 1920x1080 --rate 75.00
+#xrandr --auto --output DP1 --primary --mode 1920x1080 --rate 60.00
 
 #{{ 桌面壁纸
 # .fehbg 与 wallpaper.sh 二选一。
