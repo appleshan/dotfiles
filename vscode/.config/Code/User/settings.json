@@ -1,4 +1,6 @@
 {
+    "sync.gist": "026e2e9d874f984df5e9cad24215f13e",
+
     "editor.fontFamily": "Hack, 'Microsoft YaHei', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
     "editor.fontWeight": "normal",
     "editor.fontSize": 18,
@@ -6,6 +8,13 @@
     "editor.insertSpaces": true,
     "editor.rulers": [80,100],
     "editor.suggestSelection": "first",
+
+    // 控制编辑器是否应自动设置粘贴内容的格式。格式化程序必须可用并且能设置文档中某一范围的格式。
+    "editor.formatOnPaste": false,
+    // 保存时设置文件的格式。格式化程序必须可用，不能自动保存文件，并且不能关闭编辑器。
+    "editor.formatOnSave": false,
+    // 在保存时格式化操作的超时时间。为 formatOnSave 命令指定时间限制 (单位: 毫秒)。运行超过设定时间的命令将被取消。
+    // "editor.formatOnSaveTimeout": 750,
 
     "files.autoSave": "afterDelay",
     "files.trimTrailingWhitespace": true,
@@ -17,8 +26,6 @@
     },
 
     "java.home": "/home/alecshan/bin/java/jdk-11.0.7-full",
-    "java.project.importOnFirstTimeStartup": "automatic",
-    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/alecshan/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
     "java.configuration.checkProjectSettingsExclusions": false,
     "java.configuration.runtimes": [
         {
@@ -47,13 +54,43 @@
             "javadoc" : "https://docs.oracle.com/en/java/javase/13/docs/api"
         }
     ],
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/alecshan/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+    "java.project.importOnFirstTimeStartup": "automatic",
+    "java.project.resourceFilters": [
+        "node_modules",
+        ".git"
+    ],
+    "java.import.maven.enabled": true,
+    "java.configuration.maven.userSettings": "/home/alecshan/bin/java/apache-maven-3.6.3/conf/settings.xml",
+    "maven.executable.path": "/home/alecshan/bin/java/apache-maven-3.6.3/bin/mvn",
+    "maven.excludedFolders": [
+        "**/.*",
+        "**/node_modules",
+        "**/target",
+        "**/bin"
+    ],
 
-    "python.autoComplete.extraPaths": ["any/path"],
-    "python.linting.flake8Enabled": true,
-    "python.linting.flake8Path": "/home/appleshan/.pyenv/shims/flake8",
-    "python.linting.flake8Args": ["--max-line-length=248"],
-    "python.linting.pylintEnabled": false,
-    "python.formatting.autopep8Path": "/home/appleshan/.pyenv/shims/autopep8",
+    "python.languageServer": "Pylance",
+
+    // Python代码格式化工具，可选'autopep8'、'black'或'yapf'.
+    "python.formatting.provider": "yapf",
+    "python.formatting.yapfPath": "/home/alecshan/.local/bin/yapf",
+
+    // 默认不使用flake8对Python文件进行静态检查
+    "python.linting.flake8Enabled": false,
+    // 默认不使用mypy对Python文件进行静态检查
+    "python.linting.mypyEnabled": false,
+    // 默认不使用pep8对Python文件进行静态检查
+    // "python.linting.pycodestyleEnabled": false,
+    // 默认不使用prospector对Python文件进行静态检查
+    "python.linting.prospectorEnabled": false,
+    // 默认不使用pydocstyle对Python文件进行静态检查
+    "python.linting.pydocstyleEnabled": false,
+    // 默认不使用pylama对Python文件进行静态检查
+    "python.linting.pylamaEnabled": false,
+    // 默认使用pylint对Python文件进行静态检查
+    "python.linting.pylintEnabled": true,
+    "python.linting.enabled": true,
 
     "vsintellicode.modify.editor.suggestSelection": "automaticallyOverrodeDefaultValue",
 
@@ -66,9 +103,25 @@
     ],
     "workbench.colorTheme": "Eva Dark",
     "workbench.iconTheme": "vscode-icons",
+
+    "workbench.editor.enablePreview": false,
+    "workbench.editorAssociations": [
+        {
+            "viewType": "jupyter.notebook.ipynb",
+            "filenamePattern": "*.ipynb"
+        }
+    ],
+
     "dashboard.projectData": null,
     "kite.showWelcomeNotificationOnStartup": false,
 
+    "explorer.confirmDelete": false,
+    "redhat.telemetry.enabled": true,
 
-    "sync.gist": "026e2e9d874f984df5e9cad24215f13e"
+    "cSpell.enableFiletypes": [
+        "python"
+    ],
+
+    "restructuredtext.confPath": "",
+    "restructuredtext.linter.disabled": true
 }
