@@ -114,24 +114,26 @@ export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 禁用字节码(.pyc)文件
 export PYTHONDONTWRITEBYTECODE=1
 
-# Pyenv
-export PYENV_ROOT="$HOME/.pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-export PYENV_VIRTUALENV_DISABLE_PROMPT=1
-eval "$(pyenv init -)"
-eval "$(pyenv virtualenv-init -)"
-
 # Miniconda
-#export MINICONDA_HOME=$HOME/miniconda3
-#export PATH=$MINICONDA_HOME/bin:$PATH
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/opt/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/opt/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/opt/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/opt/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
 
 # autoenv
 # 使用 git 方式安装了 Tarrasch/zsh-autoenv
 source $HOME/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
-
-# pipsi
-export PIPSI_HOME=$HOME/.local/venvs/pipsi
-appendpath "$PIPSI_HOME/bin"
 
 #################
 # Node.js       #
