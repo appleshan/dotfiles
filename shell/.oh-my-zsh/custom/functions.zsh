@@ -77,14 +77,12 @@ function twa() {
 }
 
 # Speed up SSH X11 Forwarding
-function sshx()
-{
+function sshx() {
     ssh -X -C -c blowfish-cbc,arcfour $@
 }
 
 # build ssh tunnel
-function ssht()
-{
+function ssht() {
     ssh -qTnNfD 7070 $@
 }
 
@@ -132,28 +130,8 @@ datauri() {
     printf "data:${mimeType};base64,$(openssl base64 -in "$1" | tr -d '\n')" | pbcopy | printf "=> data URI copied to pasteboard.\n"
 }
 
-function myip() # get IP adresses
-{
-    myip=`w3m http://ipecho.net/plain`
-    echo "${myip}"
-}
-
-function ii()   # get current host related info
-{
-    echo -e "\nYou are logged on $HOST"
-    echo -e "\nAdditionnal information:$NC " ; uname -a
-    echo -e "\nUsers logged on:$NC " ; w -h
-    echo -e "\nCurrent date :$NC " ; date
-    echo -e "\nMachine stats :$NC " ; uptime
-    echo -e "\nMemory stats :$NC " ; free -h
-    # my_ip 2>&- ;
-    echo -e "\nLocal IP Address :$NC" ; myip
-    echo
-}
-
 # finds directory sizes and lists them for the current directory
-dirsize ()
-{
+dirsize () {
     du -shx * .[a-zA-Z0-9_]* 2> /dev/null | \
         egrep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
     egrep '^ *[0-9.]*M' /tmp/list
@@ -161,46 +139,7 @@ dirsize ()
     rm -rf /tmp/list
 }
 
-# xclip has some problem with my emacs, so I use xsel for everything
-
-function gclip() {
-    if [ $OS_NAME == CYGWIN ]; then
-        getclip $@;
-    elif [ $OS_NAME == Darwin ]; then
-        pbpaste $@;
-    else
-        if [ -x /usr/bin/xsel ]; then
-            xsel -ob $@;
-        else
-            if [ -x /usr/bin/xclip ]; then
-                xclip -o $@;
-            else
-                echo "Neither xsel or xclip is installed!"
-            fi
-        fi
-    fi
-}
-
-function pclip() {
-    if [ $OS_NAME == CYGWIN ]; then
-        putclip $@;
-    elif [ $OS_NAME == Darwin ]; then
-        pbcopy $@;
-    else
-        if [ -x /usr/bin/xsel ]; then
-            xsel -ib $@;
-        else
-            if [ -x /usr/bin/xclip ]; then
-                xclip -selection c $@;
-            else
-                echo "Neither xsel or xclip is installed!"
-            fi
-        fi
-    fi
-}
-
-function xtitle ()
-{
+function xtitle () {
     case "$TERM" in
         *term | rxvt)
             echo -n -e "\033]0;$*\007" ;;
@@ -212,12 +151,6 @@ function xtitle ()
 function big() {
     # find files and sort by size, full path is printed
     find -name "$*" -type f -printf "`pwd`%P %s\n"|sort -k2,2n
-}
-
-function pdf {
-    if [ -f '/usr/bin/evince' ];then
-        evince $@
-    fi
 }
 
 proxy() {
@@ -236,7 +169,7 @@ proxy() {
 
 # {{ @see http://samray.xyz/%E5%A6%82%E4%BD%95%E5%9C%A8-Linux%20%E4%B8%8B%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87
 # SSH 免密码代理
-function config_ssh_login_key(){
+function config_ssh_login_key() {
     if [ $# -lt 3 ];then
     echo "Usage: $(basename $0) -u user -h hostname -p port"
     kill -INT $$
@@ -278,7 +211,7 @@ function config_ssh_login_key(){
 
 # 生成若干位的密钥
 # generate key
-function gkey(){
+function gkey() {
     if [ -n "$1" ];then
      local length="$1"
     else
@@ -305,15 +238,15 @@ function pclip() {
     elif [ $OS_NAME = "Darwin" ]; then
     pbcopy "$@";
     else
-    if [ -x /usr/bin/xsel ]; then
-        xsel -ib "$@";
-    else
-        if [ -x /usr/bin/xclip ]; then
-        xclip -selection c "$@";
+        if [ -x /usr/bin/xsel ]; then
+            xsel -ib "$@";
         else
-        echo "Neither xsel or xclip is installed!"
+            if [ -x /usr/bin/xclip ]; then
+            xclip -selection c "$@";
+            else
+            echo "Neither xsel or xclip is installed!"
+            fi
         fi
-    fi
     fi
 }
 # 脚本用法：
@@ -367,6 +300,7 @@ function current_shell() {
     which "$(ps -p $$ | tail -1 | awk '{print $NF}' | sed 's/\-//')"
 }
 
+# get IP adresses
 function localip {
     case `uname` in
         'Darwin')
@@ -379,6 +313,19 @@ function localip {
 			# hostname --ip-address
             ;;
     esac
+}
+
+# get current host related info
+function ii() {
+    echo -e "\nYou are logged on $HOST"
+    echo -e "\nAdditionnal information:$NC " ; uname -a
+    echo -e "\nUsers logged on:$NC " ; w -h
+    echo -e "\nCurrent date :$NC " ; date
+    echo -e "\nMachine stats :$NC " ; uptime
+    echo -e "\nMemory stats :$NC " ; free -h
+    # my_ip 2>&- ;
+    echo -e "\nLocal IP Address :$NC" ; localip
+    echo
 }
 
 # Run `dig` and display the most useful info
