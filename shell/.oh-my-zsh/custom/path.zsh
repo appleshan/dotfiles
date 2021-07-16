@@ -72,6 +72,11 @@ export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
 # ln -s $HOME/bin/java/apache-maven-3.6.3/bin/mvn /usr/local/bin
 
+# Ant Setup
+export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
+# 不添加HOME环境变量，软链接到 /usr/local/bin
+# ln -s $HOME/bin/java/apache-ant-1.10.10/bin/ant /usr/local/bin
+
 #################
 # Android Setup #
 #################
