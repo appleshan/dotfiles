@@ -63,3 +63,50 @@ Mac	mac
 Wi-Fi	wifi
 Apple ID	appleid
 QQ邮箱	qqyzxl
+
+# 方便词
+儿   r
+一   i
+你们  nm
+知道  zd
+没有  my
+又有  uu
+
+# 容错词
+什么  sheme
+为什么 weisheme
+
+# 拼词
+鑫   jinjinjin
+淼   shuishuishui
+垚   tututu
+焱   huohuohuo
+壵   shishishi
+掱   shoushoushou
+舙   shesheshe
+畾   tiantiantian
+孨   zizizi
+羴   yangyangyang
+矗   zhizhizhi
+尛   xiaoxiaoxiao
+毳   maomaomao
+麤   lululu
+鱻   yuyuyu
+猋   quanquanquan
+犇   niuniuniu
+驫   mamama
+骉   mamama
+㐂   qiqiqi
+龘   longlonglong
+
+# 符号
+·   jiangehao
+·   dian
+°   du
+℃   sheshidu
+℉   huashidu
+
+# 人名
+
+# 扩展词语
+朙月拼音    mingyuepinyin
