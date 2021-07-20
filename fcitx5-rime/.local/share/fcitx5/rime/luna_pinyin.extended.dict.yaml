@@ -55,6 +55,9 @@ import_tables:
   # 其他扩展词库
   - luna_pinyin.extended/zhwiki-20210704      #肥猫维基百万大词库。119w
   - luna_pinyin.extended/essay
+  - luna_pinyin.extended/sogou_chengyusuyu    #成语俗语
+# - luna_pinyin.extended/sogou_shici          #诗词名句大全
+# - luna_pinyin.extended/sogou_yaoming        #药品名称
   - luna_pinyin.extended/cn_en                #英文、中英文混合短语和名词
   - luna_pinyin.extended/kaifa                #计算机软件开发术语
   - luna_pinyin.extended/food                 #食物
