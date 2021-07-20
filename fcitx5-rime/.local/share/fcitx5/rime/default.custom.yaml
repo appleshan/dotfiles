@@ -14,6 +14,8 @@
 patch:
   schema_list:                                           # 激活的输入方案选单
     - schema: luna_pinyin_simp                           # 朙月拼音・简化字
+    - schema: luna_pinyin_fluency                        # 朙月拼音・语句流
+    - schema: numbers                                    # 大写数字
     - schema: symbols
 
   switcher:
@@ -178,6 +180,7 @@ patch:
       #   toggle: "ascii_punct"
       #   when: "always"
 
+#  符号快速输入和部分符号的快速上屏
   # 为了方便编写 Markdown，把一些奇怪的写中文根本用不到的符号弹出菜单改成直接输出英文符号。
   # 另一些直接默认输出中文符号，需要英文符号可以切换英文输入。
   # 有关 `"!": {commit: "！"}` 的写法含义是你设置这个键为翻页按键了，

@@ -1,6 +1,9 @@
 #提取《现代汉语语料库汉字频率表》中多音字
 #感谢项目PolyphoneDisambiguation(https://github.com/hjzin/PolyphoneDisambiguation)提供的多音字
 
+# Rime dictionary
+# encoding: utf-8
+
 ---
 name: polyphones
 version: "20200807"
