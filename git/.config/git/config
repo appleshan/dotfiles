@@ -5,3 +5,7 @@
     path = ./conf/colors.gitconfig
     path = ./conf/urls.gitconfig
 
+[http]
+	postBuffer = 100000000
+[ssh]
+	postBuffer = 100000000
