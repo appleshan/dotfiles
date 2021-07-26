@@ -66,25 +66,29 @@ source $ZSH/custom/zsh-theme.zsh
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+NVM_LAZY=1
+
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(alias-tips archlinux autoupdate \
+plugins=(ag aliases alias-tips archlinux anaconda \
          colored-man-pages colorize command-not-found common-aliases copybuffer copydir copyfile cp \
-         dircycle dirhistory dirpersist \
+         dircycle dirpersist \
          emoji encode64 extract \
          fancy-ctrl-z \
-         gitfast gitignore gradle \
-         hitokoto httpie jsontools k \
-         man mvn nmap \
-         pip pylint python pipenv anaconda conda-env-autodetect \
+         gradle \
+         httpie jsontools k \
+         man mvn nmap npm nvm \
+         pip pyenv pylint python zsh-pipx \
          ripgrep rsync \
-         safe-paste scd spring sudo svn-fast-info systemadmin systemd \
+         safe-paste sudo svn svn-fast-info systemadmin systemd \
          timer tmux \
-         urltools \
+         ufw urltools \
+         vscode \
          wakatime web-search \
-         zsh-autosuggestions zsh-interactive-cd zsh-peco-history zsh-proxychains-ng zsh_reload)
+         yarn zbell \
+         zsh-autosuggestions zsh-interactive-cd zsh-peco-history zsh-proxychains-ng)
 
 source $ZSH/oh-my-zsh.sh
 
