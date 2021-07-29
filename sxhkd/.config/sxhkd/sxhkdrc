@@ -82,15 +82,6 @@ super + control + x
 super + shift + b
     $HOME/.config/rofi/scripts/rofi-book-selector/rofi-book-selector.sh
 
-#   
-#                         q w e            LeftTop        Max        RightTop
-#      super + shift +:   a s d    ===>    Left          Center         Right 
-#                         z x c            LeftBottom    unMax    RightBottom
-#
-# description: 伪平铺特性
-#super + shift + {q,w,e,a,s,d,z,x,c}
-#    sh -c "$HOME/.config/sxhkd/window.sh {LT,M,RT,L,C,R,LB,U,RB}"
-
 
 ###############################################################################
 #   I3 conrols         
