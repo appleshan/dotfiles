@@ -298,6 +298,8 @@ mode "$mode_gaps_outer" {
 # configuration in ~/.config/polybar/config.ini
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
+exec_always --no-startup-id $HOME/.config/i3/startup_apps.sh
+
 # => 多屏切换
 # New mode for switching monitor modes
 set $monitorMode "monitor s=single, d=dual-screen"
