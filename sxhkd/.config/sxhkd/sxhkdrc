@@ -34,16 +34,16 @@ super + shift + control + m
 ###############################################################################
 
 # description: Rofi show window
-#super + Tab
-#    rofi -show window
+super + Tab
+    rofi -show window
 
 # description: Rofi show applications
 super + d
     rofi -show drun -columns 3
 
 # description: Rofi show command
-super + shift + d
-    rofi -show run -columns 3
+#super + shift + d
+#    rofi -show run -columns 3
 
 # description: System Menu
 super + shift + p
@@ -132,12 +132,12 @@ super + r
    i3-msg mode ""
 
 # description: Switch to the next workspace
-super + Tab
-   i3-msg workspace next
+#super + Tab
+#   i3-msg workspace next
 
 # description: Switch to the previous workspace
-super + shift + Tab
-   i3-msg workspace prev
+#super + shift + Tab
+#   i3-msg workspace prev
 
 # description: Switch to the previous/next workspace
 super + control + {Right,Left}
