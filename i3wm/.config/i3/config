@@ -28,12 +28,6 @@ font pango: Hack, FontAwesome 12
 # => 设定mod键为“微软大旗键”
 set $mod  Mod4
 
-# => reload the configuration file（更改配置文件后只须重载即可生效，不包含自启部分）
-# bindsym $mod+Shift+c reload
-
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-# bindsym $mod+Shift+r restart
-
 # => 设定工作区名 (workspace names)
 # icons assigned by `polybar`
 set $ws1 "1"
@@ -55,18 +49,6 @@ workspace_layout tabbed
 # 重复切换到当前工作区时会返回上一个所在工作区，有可能造成工作区错位
 #workspace_auto_back_and_forth yes
 
-# 转到工作区
-# bindsym $mod+1 workspace $ws1
-# bindsym $mod+2 workspace $ws2
-# bindsym $mod+3 workspace $ws3
-# bindsym $mod+4 workspace $ws4
-# bindsym $mod+5 workspace $ws5
-# bindsym $mod+6 workspace $ws6
-# bindsym $mod+7 workspace $ws7
-# bindsym $mod+8 workspace $ws8
-# bindsym $mod+9 workspace $ws9
-# bindsym $mod+0 workspace $ws0
-
 # => 窗口边框类型（边框类型有 <normal(正常)|1pixel|pixel xx(自定义宽度)|none(无边框)|pixel>）
 # 默认普通窗口的边框类型
 new_window normal
@@ -74,31 +56,6 @@ new_window normal
 new_float normal
 # 设置窗口边框隐藏
 hide_edge_borders both
-
-# 在三种边框类型中切换
-# bindsym $mod+b border toggle
-# change borders
-# bindsym $mod+u border none
-# bindsym $mod+y border pixel 1
-# bindsym $mod+n border normal
-
-# => 新建窗口的分割方向
-# Split window horizontally
-# bindsym $mod+Ctrl+h split h;exec notify-send 'tile horizontally'
-# Split window vertically
-# bindsym $mod+Ctrl+v split v;exec notify-send 'tile vertically'
-
-# => 移动窗口
-# move focused window with cursor keys
-# bindsym $mod+Shift+Left move left
-# bindsym $mod+Shift+Down move down
-# bindsym $mod+Shift+Up move up
-# bindsym $mod+Shift+Right move right
-# move focused window with vi keybindings
-# bindsym $mod+Shift+h move left
-# bindsym $mod+Shift+j move down
-# bindsym $mod+Shift+k move up
-# bindsym $mod+Shift+l move right
 
 # => 调整窗口大小 (resize window)
 mode "" {
@@ -123,93 +80,12 @@ mode "" {
 }
 # bindsym $mod+r mode ""
 
-# => 关闭窗口
-# kill focused window
-# bindsym mod1+F4 kill
-
 # => 焦点切换
 # 焦点跟随鼠标移动
 focus_follows_mouse yes
-# 焦点切换到父窗口 (focus the parent container)
-# bindsym $mod+q focus parent
-# 焦点切换回子窗口 (focus the child container)
-# bindsym $mod+z focus child
-# 焦点切换到浮动窗口 (change focus between tiling / floating windows)
-# bindsym $mod+space focus mode_toggle
-
-
-# use these keys for focus, movement, and resize directions when reaching for
-# the arrows is not convenient
-# set $up k
-# set $down j
-# set $left h
-# set $right l
-
-# change focus with cursor keys
-# bindsym $mod+Left focus left
-# bindsym $mod+Down focus down
-# bindsym $mod+Up focus up
-# bindsym $mod+Right focus right
-# change focus with vi keybindings
-# bindsym $mod+$left focus left
-# bindsym $mod+$down focus down
-# bindsym $mod+$up focus up
-# bindsym $mod+$right focus right
-
-# => 布局切换 (change container layout <stacked, tabbed, toggle split>)
-# Switch to stacked layout
-# bindsym $mod+s layout stacking
-# Switch to tabbed layout
-# bindsym $mod+w layout tabbed
-# Switch to tiled layout
-# bindsym $mod+e layout toggle split
-# Switch back and forth in all layouts <stacked, tabbed, toggle split>
-# bindsym $mod+x layout toggle all
-# enter fullscreen mode for the focused container
-# bindsym $mod+f fullscreen toggle
-# toggle tiling / floating
-# bindsym $mod+Shift+space floating toggle
-# toggle sticky
-# bindsym $mod+Shift+s sticky toggle
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
-
-# Navigate workspaces next / previous
-# bindsym $mod+Ctrl+Left workspace prev
-# bindsym $mod+Ctrl+Right workspace next
-
-# => 移动窗口到另一个工作区
-
-# Move focused container to workspace
-# bindsym $mod+Ctrl+1 move container to workspace $ws1
-# bindsym $mod+Ctrl+2 move container to workspace $ws2
-# bindsym $mod+Ctrl+3 move container to workspace $ws3
-# bindsym $mod+Ctrl+4 move container to workspace $ws4
-# bindsym $mod+Ctrl+5 move container to workspace $ws5
-# bindsym $mod+Ctrl+6 move container to workspace $ws6
-# bindsym $mod+Ctrl+7 move container to workspace $ws7
-# bindsym $mod+Ctrl+8 move container to workspace $ws8
-# bindsym $mod+Ctrl+9 move container to workspace $ws9
-# bindsym $mod+Ctrl+0 move container to workspace $ws0
-
-# Move to workspace with focused container
-# bindsym $mod+Shift+1 move container to workspace $ws1; workspace $ws1
-# bindsym $mod+Shift+2 move container to workspace $ws2; workspace $ws2
-# bindsym $mod+Shift+3 move container to workspace $ws3; workspace $ws3
-# bindsym $mod+Shift+4 move container to workspace $ws4; workspace $ws4
-# bindsym $mod+Shift+5 move container to workspace $ws5; workspace $ws5
-# bindsym $mod+Shift+6 move container to workspace $ws6; workspace $ws6
-# bindsym $mod+Shift+7 move container to workspace $ws7; workspace $ws7
-# bindsym $mod+Shift+8 move container to workspace $ws8; workspace $ws8
-# bindsym $mod+Shift+9 move container to workspace $ws9; workspace $ws9
-# bindsym $mod+Shift+0 move container to workspace $ws0; workspace $ws0
-
-# => 暂存窗口（额外的可隐藏浮动窗口，取消浮动还原成普通窗口）
-# 转换普通窗口为暂存窗口
-# bindsym $mod+Shift+minus move scratchpad
-# 呼出/隐藏暂存窗口
-# bindsym $mod+minus scratchpad show
 
 # => 自定义窗口（支持定义边框类型，窗口布局，大小调整，自动归类工作区等等，多个定义用,隔开）
 for_window [class="Termite"] move container to workspace $ws1, workspace $ws1, layout tabbed
