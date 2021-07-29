@@ -4,7 +4,7 @@
 
 cmd="\grep -A 1 description ""$HOME""/.config/sxhkd/sxhkdrc | sed -e s/--/\ /g"
 case $1 in
-	d) cmd="$cmd -e s/description:\ //gI" && echo -e "$(eval "$cmd")" | rofi -dmenu -p "sxhkd keybindings";; # If "d" arg is passed, show descriptions without "description: ".
+	d) cmd="$cmd -e s/description:\ //gI" && echo -e "$(eval "$cmd")" | rofi -dmenu -p "Start applications";; # If "d" arg is passed, show descriptions without "description: ".
 	e) $EDITOR "$HOME"/.config/sxhkd/sxhkdrc;; # If "e" arg is passed, edit config with $EDITOR.
 	h)
 		echo "
@@ -19,5 +19,5 @@ h: Display this help message
 Anything not the above args, or nothing at all: Display keybindings and descriptions like normal
 "
 		;;
-	*) echo -e "$(eval "$cmd")" | rofi -dmenu -p "sxhkd keybindings";; # If anything (or nothing) is passed, display keybindings like normal.
+	*) echo -e "$(eval "$cmd")" | rofi -dmenu -p "Start applications";; # If anything (or nothing) is passed, display keybindings like normal.
 esac
