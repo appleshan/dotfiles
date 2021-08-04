@@ -33,7 +33,7 @@ set-option -g window-status-separator '' # Remove space between windows in statu
 # Right side of status bar
 ### Fancy Font
 # status line variables document http://linux.die.net/man/3/strftime
-set-option -g status-right "#[fg=cyan]#(date +'%Y-%m-%d %H:%M') " # right part: time lisk 23:59
+set-option -g status-right "#{prefix_highlight} | #[fg=cyan]#(date +'%Y-%m-%d %H:%M') " # right part: time lisk 23:59
 set-option -g status-right-length 40 # more space left for center part (window names)
 
 # Pane border
