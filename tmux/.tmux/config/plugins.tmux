@@ -15,6 +15,8 @@ set-option -g @plugin 'tmux-plugins/tmux-sidebar'
 set-option -g @plugin 'tmux-plugins/tmux-urlview'
 # prefix + u - listing all urls on bottom pane
 
+set-option -g @plugin 'tmux-plugins/tmux-prefix-highlight'
+
 set-option -g @plugin 'tmux-plugins/tmux-resurrect'
 set-option -g @plugin 'tmux-plugins/tmux-continuum'
 # Features:
