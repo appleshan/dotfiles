@@ -25,6 +25,8 @@ set-option -g @plugin 'tmux-plugins/tmux-yank'
 # Step2. Ctrl + Shift+C复制
 # Step3. Ctrl+V
 
+set-option -g @plugin 'tmux-plugins/tmux-copycat'
+
 set-option -g @plugin 'tmux-plugins/tmux-resurrect'
 set-option -g @plugin 'tmux-plugins/tmux-continuum'
 # Features:
