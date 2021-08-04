@@ -8,6 +8,9 @@ set-option -g @plugin 'tmux-plugins/tmux-sensible'
 # bind C-p previous-window
 # bind C-n next-window
 
+set-option -g @plugin 'tmux-plugins/tmux-pain-control'
+set-option -g @pane_resize "2"
+
 set-option -g @plugin 'tmux-plugins/tmux-sidebar'
 # prefix + Tab - toggle sidebar with a directory tree
 # prefix + Backspace - toggle sidebar and move cursor to it (focus it)
