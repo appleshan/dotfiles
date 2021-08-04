@@ -20,6 +20,11 @@ set-option -g @plugin 'tmux-plugins/tmux-urlview'
 
 set-option -g @plugin 'tmux-plugins/tmux-prefix-highlight'
 
+set-option -g @plugin 'tmux-plugins/tmux-yank'
+# Step1. 按住shift，鼠标左键选择内容
+# Step2. Ctrl + Shift+C复制
+# Step3. Ctrl+V
+
 set-option -g @plugin 'tmux-plugins/tmux-resurrect'
 set-option -g @plugin 'tmux-plugins/tmux-continuum'
 # Features:
