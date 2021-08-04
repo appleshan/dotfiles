@@ -8,9 +8,6 @@ set-option -g mode-style bg=brightblack,fg=default
 # Use top tabbar
 set-option -g status-position top
 
-# Status update interval
-set-option -g status-interval 5  # 每 5 秒更新一次状态栏
-
 # Basic status bar colors
 set-option -g status-style bg=default,fg=white
 
