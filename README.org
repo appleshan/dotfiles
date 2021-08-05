@@ -148,6 +148,7 @@ urxvt          ->    urxvt 配置文件
 wakatime       ->    wakatime 配置文件
 X11            ->    Xresources 配置文件
 polybar        ->    polybar 配置文件
+rofi           ->    rofi 配置文件
 #+END_EXAMPLE
 
 * 可选安装软件
@@ -161,22 +162,22 @@ ttf-font-awesome            -> fontawesome字体(AUR)
 lightdm(lightdm-gtk-greeter)-> 启动管理器
 i3-gaps                     -> WM桌面
 xrander                     -> 分辨率调整
-picom                       -> 窗口透明(可解决fcitx输入法皮肤黑框问题)
+picom                       -> 特效合成器(窗口透明)
 lxappearance                -> 主题管理
-polybar                     -> 状态栏  (AUR)polybar-git
+polybar                     -> 状态栏(AUR)polybar-git
 arc-theme                   -> Gtk主题(AUR)
 numix-icon-theme-git        -> Numix图标(AUR)
-dunst                       -> manages my notifications
+dunst                       -> 通知管理器
 
 *生产工具
-rxvt-unicode(urxvt)         -> 终端管理器
+termite                     -> 终端管理器
 visual-studio-code          -> IDE编辑器(AUR)
 gvim                        -> 编辑器
 zsh                         -> 使用 zsh + oh-my-zsh + power10k
 
 *日常软件
 rofi                        -> 程序启动器
-thunar                      -> 文件管理(GUI)
+thunar                      -> 文件管理器(GUI)
 gvfs-smb                    -> Thunar增加smaba服务
 ranger                      -> 文件管理(终端)
 chromium                    -> 浏览器
@@ -188,8 +189,17 @@ mplayer                     -> 视频播放器(终端)
 shadowsocks-libev           -> sock5 代理
 mpd                         -> 音乐播放器后端
 moc/ncmpcpp                 -> 音乐播放器前端
-fcitx-im/fcitx-configtool   -> 输入法
-    fcitx-sogoupinyin(AUR)      -> 输入法
+fcitx5-rime                 -> 输入法
+redshift                    -> 护眼
+nitrogen, feh               -> 壁纸设置器
+xfce4-power-manager         -> 电源管理器
+flameshot                   -> 截图工具
+qv2ray                      -> 科学上网工具
+clipIt                      -> 剪切板管理器
+i3lock-fancy-multimonitor   -> 锁屏管理器
+zathura                     -> pdf 阅读器
+nvim                        -> 文本编辑器
+doom-emacs                  -> 文本编辑器
 
 *系统管理
 yaourt                      -> 包管理
