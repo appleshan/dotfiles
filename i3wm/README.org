@@ -51,9 +51,9 @@ then move the .config file in your home reload i3 it should works :)
  - 特定 WM_CLASS的窗口出现时悬浮
 
    如果想要自己添加新的窗口，执行：
-#+BEGIN_SRC sh
+   #+BEGIN_SRC sh
    xprop | grep WM_CLASS
-#+END_SRC
+   #+END_SRC
    之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM_CLASS
 
  - mod+q 关闭窗口
