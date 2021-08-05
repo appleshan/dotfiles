@@ -49,11 +49,11 @@ then move the .config file in your home reload i3 it should works :)
  - i3 启动时自动启动的软件
  - 固定特定 WM_CLASS 的窗口出现的工作区
  - 特定 WM_CLASS的窗口出现时悬浮
-如果想要自己添加新的窗口，执行：
-#+BEGIN_SRC sh
-xprop | grep WM_CLASS
-#+END_SRC
-之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM_CLASS
+   如果想要自己添加新的窗口，执行：
+   #+BEGIN_SRC sh
+   xprop | grep WM_CLASS
+   #+END_SRC
+   之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM_CLASS
  - mod+q 关闭窗口
  - mod+d 启动 rofi 启动应用的模式，mod+Tab 启动 rofi 切换窗口的模式
  - mod+f 切换当前聚焦窗口的全屏模式
