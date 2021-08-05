@@ -161,7 +161,7 @@ ttf-font-awesome            -> fontawesome字体(AUR)
 lightdm(lightdm-gtk-greeter)-> 启动管理器
 i3-gaps                     -> WM桌面
 xrander                     -> 分辨率调整
-xcompmgr                    -> 窗口透明(可解决fcitx输入法皮肤黑框问题)
+picom                       -> 窗口透明(可解决fcitx输入法皮肤黑框问题)
 lxappearance                -> 主题管理
 polybar                     -> 状态栏  (AUR)polybar-git
 arc-theme                   -> Gtk主题(AUR)
@@ -201,7 +201,7 @@ networkmanager              -> 网络管理
 
 | Shell      | WM / DE | Editor     | Terminal        | Multiplexer | Compositor | Audio      | Monitor | Mail | IRC |
 |------------|---------|------------|-----------------|-------------|------------|------------|---------|------|-----|
-| bash / zsh | i3wm    | Emacs      | termite / urxvt | tmux        | compton    | pulseaudio | custom  |      |     |
+| bash / zsh | i3wm    | Emacs      | termite / urxvt | tmux        | picom      | pulseaudio | custom  |      |     |
 
 * reference
 
