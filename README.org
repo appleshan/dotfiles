@@ -139,7 +139,7 @@ neofetch       ->    neofetch 配置文件
 ranger         ->    ranger 配置文件
 redshift       ->    redshift 配置文件
 rime           ->    rime 配置文件
-shell          ->    zsh 配置文件(使用oh-my-zsh)
+shell          ->    zsh 配置文件
 sift           ->    sift 配置文件
 tmux           ->    tmux 配置文件
 tor            ->    tor 配置文件
@@ -172,7 +172,7 @@ dunst                       -> manages my notifications
 rxvt-unicode(urxvt)         -> 终端管理器
 visual-studio-code          -> IDE编辑器(AUR)
 gvim                        -> 编辑器
-oh-my-zsh                   -> my shell
+zsh                         -> 使用 zsh + oh-my-zsh + power10k
 
 *日常软件
 rofi                        -> 程序启动器
