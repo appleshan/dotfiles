@@ -37,3 +37,28 @@ yaourt -S aur/polybar \
 #+END_SRC
 
 then move the .config file in your home reload i3 it should works :)
+
+* 配置解读
+
+ - Windows 键为 mod 键
+ - i3 相关的字体使用 Input Nerd Font，字号为 12
+ - 窗口边框和窗口间距设置
+ - 切换容器的展示方式(窗口的显示模式)
+ - 键盘快捷键控制鼠标聚焦窗口，移动窗口的相对位置
+ - 定义 10 个工作区，mod+1/2/3… 切换工作区，mod+shift+1/2/3… 移动窗口到目标工作区
+ - i3 启动时自动启动的软件
+ - 固定特定 WM_CLASS 的窗口出现的工作区
+ - 特定 WM_CLASS的窗口出现时悬浮
+如果想要自己添加新的窗口，执行：
+#+BEGIN_SRC sh
+xprop | grep WM_CLASS
+#+END_SRC
+之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM_CLASS
+ - mod+q 关闭窗口
+ - mod+d 启动 rofi 启动应用的模式，mod+Tab 启动 rofi 切换窗口的模式
+ - mod+f 切换当前聚焦窗口的全屏模式
+ - mod+shift+space 切换当前聚焦窗口漂浮或者平铺
+ - mod+return 打开 termite
+ - 定义启动不同应用的快捷键
+ - mod+shift+c 重载配置，mod+shift+r 重启 i3，mod+shift+escape 退出 i3
+ - mod+r 进入调节窗口大小的模式
