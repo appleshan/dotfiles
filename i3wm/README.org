@@ -55,6 +55,7 @@ then move the .config file in your home reload i3 it should works :)
    xprop | grep WM_CLASS
    #+END_SRC
    之后鼠标点击你想要看的窗口就可以看到这个窗口的 WM_CLASS
+
  - mod+q 关闭窗口
  - mod+d 启动 rofi 启动应用的模式，mod+Tab 启动 rofi 切换窗口的模式
  - mod+f 切换当前聚焦窗口的全屏模式
