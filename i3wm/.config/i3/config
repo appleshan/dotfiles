@@ -51,7 +51,7 @@ workspace_layout tabbed
 
 # => 窗口边框类型（边框类型有 <normal(正常)|1pixel|pixel xx(自定义宽度)|none(无边框)|pixel>）
 # 默认普通窗口的边框类型
-new_window normal
+new_window none
 # 默认浮动窗口的边框类型
 new_float normal
 # 设置窗口边框隐藏
