@@ -97,10 +97,17 @@ for_window [title="VLC media player"] move container to workspace $ws4, workspac
 for_window [class="微信"] move container to workspace $ws3, workspace $ws3, layout tabbed
 #for_window [class="File Manager PCManFM"] move container to workspace $ws5; workspace $ws5, layout tabbed
 for_window [class="Zeal"] move container to workspace $ws6; workspace $ws6, layout tabbed
-for_window [title="Visual Studio Code"] move container to workspace $ws7; workspace $ws7, layout tabbed
+for_window [class="Code"] move container to workspace $ws7; workspace $ws7, layout tabbed
 for_window [class="Emacs"] move container to workspace $ws7; workspace $ws7, layout tabbed
 for_window [class="org.remmina.Remmina"] move workspace $ws8; workspace $ws8
+for_window [class="Gnome-boxes"] move workspace $ws0; workspace $ws0
 for_window [class="VirtualBox Manager"] move workspace $ws0; workspace $ws0
+for_window [class="Arandr"] floating enable
+for_window [class="Xfce4-power-manager-settings"] floating enable
+
+# floating pop up automatically
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
 
 # => i3-gaps
 
