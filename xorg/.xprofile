@@ -12,10 +12,9 @@ export ZIPINFO="-O CP936"
 ###########################################################
 
 # => To autostart picom to achieve traspanrency
-compton --backend glx \
-        --vsync \
-        -GCb \
-        --config $HOME/.config/compton.conf
+picom -GCb \
+      --experimental-backends \
+      --config $HOME/.config/picom/picom.conf
 
 # => 屏幕管理
 # @See https://bbs.archlinuxcn.org/viewtopic.php?pid=30400#p30400
