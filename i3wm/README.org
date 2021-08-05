@@ -49,6 +49,7 @@ then move the .config file in your home reload i3 it should works :)
  - i3 启动时自动启动的软件
  - 固定特定 WM_CLASS 的窗口出现的工作区
  - 特定 WM_CLASS的窗口出现时悬浮
+
    如果想要自己添加新的窗口，执行：
    #+BEGIN_SRC sh
    xprop | grep WM_CLASS
