@@ -72,7 +72,7 @@ NVM_LAZY=1
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ag aliases alias-tips archlinux anaconda \
+plugins=(ag aliases alias-tips archlinux autoupdate \
          colored-man-pages colorize command-not-found common-aliases copybuffer copydir copyfile cp \
          dircycle dirpersist \
          emoji encode64 extract \
@@ -88,7 +88,7 @@ plugins=(ag aliases alias-tips archlinux anaconda \
          vscode \
          wakatime web-search \
          yarn zbell \
-         zsh-autosuggestions zsh-interactive-cd zsh-peco-history zsh-proxychains-ng)
+         zsh-autosuggestions zsh-dircolors-solarized zsh-interactive-cd zsh-peco-history zsh-proxychains-ng)
 
 source $ZSH/oh-my-zsh.sh
 
