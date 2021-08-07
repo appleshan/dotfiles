@@ -45,8 +45,3 @@ POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
 
 # powerlevel10k
 ZSH_THEME="powerlevel10k/powerlevel10k"
-
-# {{ dircolors
-eval `dircolors ~/.dircolors`
-# }}
-
