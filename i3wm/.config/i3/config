@@ -104,6 +104,7 @@ for_window [class="Gnome-boxes"] move workspace $ws0; workspace $ws0
 for_window [class="VirtualBox Manager"] move workspace $ws0; workspace $ws0
 for_window [class="Arandr"] floating enable
 for_window [class="Xfce4-power-manager-settings"] floating enable
+for_window [class="Nm-connection-editor"] floating enable
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
