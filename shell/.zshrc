@@ -78,7 +78,7 @@ plugins=(ag aliases alias-tips archlinux autoupdate \
          emoji encode64 extract \
          fancy-ctrl-z \
          gradle \
-         httpie jsontools k \
+         history-search-multi-word httpie jsontools k \
          man mvn nmap npm \
          proxy pip pyenv pylint python zsh-pipx \
          ripgrep rsync \
