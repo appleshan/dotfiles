@@ -80,7 +80,7 @@ plugins=(ag aliases alias-tips archlinux autoupdate \
          gradle \
          httpie jsontools k \
          man mvn nmap npm \
-         pip pyenv pylint python zsh-pipx \
+         proxy pip pyenv pylint python zsh-pipx \
          ripgrep rsync \
          safe-paste sudo svn svn-fast-info systemadmin systemd \
          timer tmux \
