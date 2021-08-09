@@ -88,7 +88,7 @@ plugins=(ag aliases alias-tips archlinux autoupdate \
          vscode \
          wakatime web-search \
          yarn zbell \
-         zsh-autosuggestions zsh-dircolors-solarized zsh-interactive-cd zsh-peco-history zsh-proxychains-ng)
+         zsh-autosuggestions zsh-dircolors-solarized zsh-interactive-cd zsh-proxychains-ng)
 
 source $ZSH/oh-my-zsh.sh
 
