@@ -72,10 +72,12 @@ URxvt.iso14755: false
 Xft.dpi:96
 
 URxvt.font:\
-xft:Hack:style=Regular:antialias=true:size=12,\
-xft:Microsoft YaHei Mono:style=Regular:antialias=true:size=12,\
-xft:Unifont:style=Medium:antialias=false:size=12,\
-xft:FontAwesome:style=Medium:antialias=false:size=12
+xft:Literation Mono Powerline:size=11:style=Regular,\
+xft:WenQuanYi Zen Hei:style=Regular:size=12,\
+xft:FreeSerif:style=Regular:size=12,\
+xft:Hack:style=Regular:antialias=false:size=12,\
+xft:Unifont:style=Regular:antialias=false:size=12,\
+xft:FontAwesome:style=Regular:antialias=false:size=12
 
 URxvt.boldfont:\
 xft:Hack:size=12:style=Bold:antialias=true,\
