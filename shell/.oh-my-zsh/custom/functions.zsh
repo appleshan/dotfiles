@@ -56,6 +56,7 @@ unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 export TERMINFO=/usr/lib/terminfo
 
 source $ZSH/custom/shell-aliases.sh
+source $ZSH/custom/emacs-functions.sh
 
 # Termite
 export TERM=xterm-termite
