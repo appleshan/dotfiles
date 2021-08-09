@@ -52,8 +52,8 @@ export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file s
 # Disable options:
 unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 
-#export TERM=rxvt-unicode-256color
-#export TERMINAL=rxvt-unicode-256color
+# @See https://stackoverflow.com/questions/799576/tput-unknown-terminal
+export TERMINFO=/usr/lib/terminfo
 
 source $ZSH/custom/shell-aliases.sh
 
