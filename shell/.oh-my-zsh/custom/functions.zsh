@@ -155,16 +155,6 @@ function big() {
     find -name "$*" -type f -printf "`pwd`%P %s\n"|sort -k2,2n
 }
 
-proxy() {
-    if [[ "${http_proxy:-NOTSET}" != "NOTSET" ]]; then
-        unset http_proxy && unset https_proxy;
-        echo "No proxy.";
-    else
-        export http_proxy=http://localhost:18080 && https_proxy=http://localhost:18080;
-        echo "proxy = $http_proxy";
-    fi;
-}
-
 # ------------------------------------------------------------
 # Define useful commands
 # ------------------------------------------------------------
