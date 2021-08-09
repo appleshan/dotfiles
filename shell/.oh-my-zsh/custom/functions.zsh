@@ -382,24 +382,3 @@ switchJavaNetProxy() {
         echo "turn off java net proxy!"
     }
 }
-
-###############################################################################
-# Git
-###############################################################################
-
-# Commit the current changes and push to the current branch
-function pushme {
-  br=`git branch | grep "*"`
-  git add --all
-  if (($# > 1)); then
-    params=''
-    for i in $*;
-    do
-        params=" $params $i"
-    done
-    git commit -m "$params"
-  else
-    git commit -m "$1"
-  fi
-  git push origin ${br/* /}
-}
