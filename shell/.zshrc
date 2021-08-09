@@ -80,6 +80,7 @@ plugins=(ag aliases alias-tips archlinux autoupdate \
          gradle \
          history-search-multi-word httpie jsontools k \
          man mvn nmap npm \
+         opt-path \
          proxy pip pyenv pylint python zsh-pipx \
          ripgrep rsync \
          safe-paste sudo svn svn-fast-info systemadmin systemd \
