@@ -1,9 +1,0 @@
-[Desktop Entry]
-Type=Application
-Encoding=UTF-8
-Name=IntelliJ PyCharm Ultimate Edition
-Exec=/usr/local/bin/charm
-Icon=/opt/python/pycharm-2018.1.1/bin/pycharm.png
-Comment=The Drive to Develop
-Categories=Development;
-StartupWMClass=IntelliJ PyCharm
