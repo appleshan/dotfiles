@@ -73,13 +73,15 @@ NVM_LAZY=1
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
 plugins=(ag aliases alias-tips archlinux autoupdate \
-         colored-man-pages colorize command-not-found common-aliases copybuffer copydir copyfile cp \
+         colored-man-pages colorize command-not-found common-aliases copybuffer \
+         copydir copyfile cp \
          dircycle dirpersist \
          emoji encode64 extract \
          fancy-ctrl-z \
          gradle \
          history-search-multi-word httpie jsontools k \
-         man mvn nmap npm \
+         man mvn \
+         nmap npm nvm \
          opt-path \
          proxy pip pyenv pylint python zsh-pipx \
          ripgrep rsync \
