@@ -1,3 +1,2 @@
 ## Country : China
-Server = https://mirrors.cloud.tencent.com/manjaro/stable/$repo/$arch
-
+Server = http://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
