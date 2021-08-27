@@ -1,9 +1,0 @@
-#!/usr/bin/env bash
-
-# Convert line endings to UNIX
-#
-# Author: Artem Sapegin, sapegin.me
-# License: MIT
-# https://github.com/sapegin/dotfiles
-
-perl -pi -e 's/\r\n?/\n/g'
