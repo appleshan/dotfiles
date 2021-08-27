@@ -7,6 +7,12 @@ export LC_CTYPE=zh_CN.UTF-8
 export UNZIP="-O CP936"
 export ZIPINFO="-O CP936"
 
+export INPUT_METHOD=fcitx
+export GTK_IM_MODULE=fcitx
+export QT_IM_MODULE=fcitx
+export SDL_IM_MODULE=fcitx
+export XMODIFIERS=@im=fcitx
+
 ###########################################################
 ####               Autostart applications              ####
 ###########################################################
