@@ -23,6 +23,7 @@ alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pa
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
 
+# 在终端中运行magit就会调用Emacs并在当前目录下运行magit-status
 alias magit='ec -e "(magit-status \"$(pwd)\")"'
 
 # speed up download
