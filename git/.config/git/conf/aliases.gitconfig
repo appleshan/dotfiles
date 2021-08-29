@@ -1,68 +1,658 @@
-[alias]
-    s = status
-    ss = status -s
+# ======== 自定义变量 ========
+# 用于 topic 工作流的自定义变量，定义主要用于向远程仓库推送的分支
+[gitalias "topic.base.branch"]
+    name = master
 
-    # via http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
-    snapshot = !git stash save "snapshot: $(date)" && git stash apply "stash@{0}"
-    snapshots = !git stash list --grep snapshot
+[alias]    # 很多alias来自 https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
+; NOTE: 不要取名alias为 sync, cp 避免和git-extras冲突
 
-    #via http://stackoverflow.com/questions/5188320/how-can-i-get-a-list-of-git-branches-ordered-by-most-recent-commit
-    recent-branches = !git for-each-ref --count=15 --sort=-committerdate refs/heads/ --format='%(refname:short)'
+; {{{ ### work flow ###
 
-    # branch
+; ======== topic 工作流 =========
+;   NOTE: 这套工作流正常应用的前提是
+;                   1. 只有一个远程仓库且命名为origin
+;                   2. 本地分支和远程分支名字相同
+;
+    ; 参考 https://github.com/GitAlias/gitalias/blob/master/gitalias.txt#L1217
+    set-global-base-branch = config --global gitalias.topic.base.branch.name
+    set-local-base-branch = config --local gitalias.topic.base.branch.name
+    ; global base-branch 默认是master， 这里设置local base-branch
+    set-bb = "!git set-local-base-branch"
+    bb = "!git base-branch"
+
+; {{{ topic-new-remote 介绍
+    #
+    # Example:
+    #     git topic-new-remote feat/foo
+    #     git topic-new-remote hotfix/bar
+    #
+    # We use this alias to begin work on a new feature,
+    # new task, new fix, new refactor, new optimization, etc.
+    #
+    # Many teams share branches before they are fully ready, to help
+    # the team provide feedback on the work-in-progress, and also to
+    # run any automatic tests to verify the branch runs successfully.
+    ##
+; }}}
+; {{{ topic-new-remote <topic-branch> [base-branch] 开始一个topic分支并推送到remote
+    topic-new-remote = "!f(){ \
+        topic_branch=$1; \
+        base_branch=${2:-$(git base-branch)}; \
+        base_exists_in_remote=$(git remote-branch $base_branch); \
+        current_branch=$(git current-branch); \
+        if [ -n \"$(git working-dir-dirty)\" ]; then \
+            echo \"============= Autosaving current working directory in branch: $current_branch ============\" \
+            git save \"Autosave on topic-new-remote: $topic_branch\"; \
+        fi; \
+        if [ -n \"$base_exists_in_remote\" ] && [ $(git behind-count $base_branch) -gt 0 ] ; then \
+            git pull origin $base_branch ; \
+        fi; \
+        git checkout -b $topic_branch $base_branch && git push -u origin $topic_branch; \
+        };f"
+
+; }}}
+; {{{ topic-new-local <topic-branch> [base-branch] 只在本地开启一个topic
+    topic-new-local = "!f(){ \
+        topic_branch=$1; \
+        base_branch=${2:-$(git base-branch)}; \
+        current_branch=$(git current-branch); \
+        if [ -n \"$(git working-dir-dirty)\" ]; then \
+            echo \"============= Autosaving current working directory in branch: $current_branch ============\" \
+            git save \"Autosave on topic-new-local: $topic_branch\"; \
+        fi; \
+        git checkout -b $topic_branch $base_branch; \
+        };f"
+; }}}
+    tnr = "!git topic-new-remote"
+    tn = "!git topic-new-local"
+
+; {{{  topic-merge [base-branch] 通过merge --no-ff 方式合并topic 并且自动删除topic分支
+;   merge后立刻删除分支就好，因为有merge历史记录，可以随时找回feature分支
+    topic-merge = "!f() { \
+        topic_branch=$(git current-branch); \
+        base_branch=${1:-$(git base-branch)}; \
+        current_branch=$(git current-branch); \
+        if [ $topic_branch = $base_branch ] || [ $topic_branch = master ]; then \
+            printf \"You are asking to do git topic-merge,\n\"; \
+            printf \"but you can't merge master or base branch: $base_branch.\n\"; \
+            printf \"Please ask to merge valid topic branch.\n\"; \
+        elif [ -n \"$(git working-dir-dirty)\" ]; then \
+            echo 'Current working directory is dirty!; \
+            echo 'Can't checkout'; \
+            return 1; \
+        else \
+            git checkout $base_branch && git merge --no-ff $topic_branch && git topic-delete $topic_branch; \
+        fi; \
+        };f"
+; }}}
+    tmg = "!git topic-merge"
+; {{{ topic-delete [topic-branch] 删除远程(如果存在)和本地的topic分支
+    topic-delete = "!f(){ \
+        topic_branch=${1:-$(git current-branch)}; \
+        base_branch=$(git base-branch); \
+        current_branch=$(git current-branch); \
+        topic_exists_in_remote=$(git remote-branch $topic_branch); \
+        if [ $topic_branch = $base_branch ] || [ $topic_branch = master ]; then \
+            printf \"You are asking to do git topic-delete,\n\"; \
+            printf \"but you can't stop master or base branch: $base_branch.\n\"; \
+            printf \"Please ask to stop valid topic branch.\n\"; \
+        else \
+            if [ -n \"$(git working-dir-dirty)\" ]; then \
+                echo 'Current working directory is dirty!; \
+                echo 'Can't checkout'; \
+                return 1; \
+            fi; \
+            if [ -n \"$topic_exists_in_remote\" ]; then \
+                if [ $(git behind-count $base_branch) -gt 0 ] ; then \
+                    git pull origin $topic_branch; \
+                elif [ $(git ahead-count $base_branch) -gt 0 ] ; then \
+                    git push origin $topic_branch; \
+                fi; \
+                git push origin --delete $topic_branch && git remote-prune-all; \
+            fi; \
+            git checkout $base_branch; \
+            git branch --delete $topic_branch; \
+        fi; \
+        };f"
+; }}}
+    td = "!git topic-delete"
+
+    # 修改旧的commit      See https://blog.filippo.io/git-fixup-amending-an-older-commit/
+    # NOTE: 1. 如果和TARGET..HEAD 之间的commit有冲突，则会提交新的提交，否则只是改变原来提交的历史位置
+    # usage:  git fixup <base_branch> [files...] 文件可选
+    # GIT_EDITOR=true可以在没有冲突的时候跳过编辑过程, --autosquash让fixup的commit出现在target下方
+    fixup = "!f() { \
+        target=$(git fzf-commit $(git oldest-changeable-commit) $(git current-branch)); \
+        git commit --fixup=$target && GIT_EDITOR=true git rebase --interactive --autosquash $target~; \
+        }; f"
+
+; {{{ branch-diff 和base分支公共祖先比较
+    branch-diff = "!f(){ \
+        base_branch=${1:-$(git base-branch)}; \
+        common_ancestor=$(git merge-base $base_branch $(git current-branch)); \
+        git diff $common_ancestor HEAD; \
+        };f"
+; }}}
+    bdf = "!git branch-diff"
+
+; {{{ 只获取topic分支的commit, 不输入条数就是10个, 圆圈表示公共祖先分支
+    branch-log = "!f() { \
+        parent_branch=${1:-$(git base-branch)}; \
+        common_ancestor=$(git merge-base $parent_branch $(git current-branch)); \
+        git log -${1:-10} $common_ancestor..$(git current-branch) --graph --topo-order --date=short --abbrev-commit --decorate --boundary \
+        --pretty=format:'%Cgreen%ad %Cred%h%Creset -%C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset'; \
+        }; f"
+; }}}
+    blg = "!git branch-log"
+
+    ; 三种查看log的方式: lg tree blg
+    refix = checkout --conflict=diff3  # 对某个文件回到解决冲突前的状态
+
+; {{{ edit and add unmerged file
+    ; 编辑和暂存有冲突的文件
+    ; NOTE: 工作流:
+    ;             $ git edit-unmerged
+    ;                 ... edit ...
+    ;                 ... test ...
+    ;             $ git add-unmerged
+    ;             $ git commit  # or git rebase --continue or whatever
+    edit-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; ${EDITOR:-vi} `f`"
+    add-unmerged = "!f() { git diff --name-status --diff-filter=U | cut -f2 ; }; git add `f`"
+; }}}
+
+; {{{ === 废弃 ===
+; {{{ topic-rebase 通过rebase方式合并topic
+    ; topic-rebase = "!f() { \
+    ;     topic_branch=${1:-$(git current-branch)}; \
+    ;     base_branch=$(git base-branch); \
+    ;     current_branch=$(git current-branch); \
+    ;     working_dir_dirty=$(git diff --stat | head -n -1); \
+    ;     if [ $topic_branch = $base_branch ] || [ $topic_branch = master ]; then \
+    ;     printf \"You are asking to do git topic-stop,\n\"; \
+    ;     printf \"but you can't merge master or base branch: $base_branch.\n\"; \
+    ;     printf \"Please ask to merge valid topic branch.\n\"; \
+    ;     else \
+    ;     if [ -n \"$working_dir_dirty\" ]; then \
+    ;     git save \"Autosave on topic-rebase: $topic_branch\"; \
+    ;     fi; \
+    ;     if [ $current_branch != $base_branch ]; then \
+    ;     git checkout $base_branch; \
+    ;     fi; \
+    ;     git pull && git checkout $topic_branch && git rebase $base_branch && git checkout $base_branch && git merge $topic_branch && git push && git topic-stop $topic_branch; \
+    ;     fi; \
+    ;     };f"
+    ;
+    ; trb = "!git topic-rebase"
+; }}}
+; }}}
+
+; }}}
+; {{{ ### git-extras 常用命令备注 ###
+;
+;   ==== 实用功能 ====
+;   git repl 连续输入命令不用输入git
+;   git commits-since last week/ last month/ yesterday   默认是last week
+;   git fork <username>/<repo>  从github fork项目并clone，设置origin
+;   git release <tag>  新增Release commit (修改ChangeLog) 打tag并推送  (也会执行.git/hooks/pre-release.sh 和 .git/hooks/post-release.sh)
+;   git ignore 查看或添加ignore    eg: git ignore "*.o" "*.log"
+    ignore-io-append = "!git ignore-io --append $(git ignore-io -l | fzf)"
+    adig = "!git ignore-io-append"
+    ignore-io-replace = "!git ignore-io --replace $(git ignore-io -l | fzf)" ; 替换成另一种
+;   git delete-tag  删除本地和远程tag         eg: git delete-tag 0.0.1
+;   git setup 初始化一个文件夹并进行第一次提交
+;   git browse 浏览器打开
+;   git sync     pull and push
+;
+;   ==== 查看信息 ====
+    author-search = "!git authors --list | fzf"
+;   git standup 查看某个人最近的提交   eg:  git standup -a John -d 7 也可不带参数查看自己
+    tree = "!git show-tree"  ; 显示所有分支的详情，只显示每个分支最近一次提交
+;   git contrib <username> 显示一个用户最近的提交
+;   git summary --line 每个人代码行数及占比信息
+;
+;   暂时用不到:
+;   git changelog 建议查文档使用
+;   git pr
+;   git pullrequest
+;
+; }}}
+
+; {{{ ### add ###
+
+    a = add
+    # add all
+    aa = add -A
+    # add by patch - looks at each change, and asks if we want to put it in the repo.
+    ap = add --patch
+    # add just the files that are updated.
+    au = add --update
+
+; }}}
+; {{{ ### branch ###
+
     b = branch
-    ba = branch -av # branch (verbose)
+    # 显示分支列表并 untrack 被删除的remote分支
+    bl = "!git branch -av; git remote-prune-all &"
+    blf = "!git branch --all | fzf"
 
-    # commit
+    bm = branch --merged
+    bnm = branch --no-merged
+    bd = branch --delete
+    bdd = branch -D
+    # 可在--list 后面写搜索版本号, 比如git tgs '*1' (如果不加引号要用\*转义) 也可不写搜索内容
+    tags = tag -n1 --list
+
+    z = checkout
+    zb = checkout -b
+    zz = "!git checkout $(git base-branch)"
+    zd = z dev
+    zm = checkout master
+
+    # 参数为修改后的branch名字
+    branch-move = "!f(){ \
+        new_branch=$1; \
+        old_branch=$(git current-branch); \
+        exists_in_remote=$(git remote-branch); \
+        git branch --move $old_branch $new_branch; \
+        if [ -n \"$exists_in_remote\" ]; then \
+            git push origin :$old_branch $new_branch; \
+        fi; \
+        };f"
+    bmv = "!git branch-move"
+
+    # Delete all local branches that have been merged into the local master branch.
+    branch-clean-local = "!git branch --merged | egrep -v \"(^\\*|master|dev|$(git base-branch))\" | xargs git branch -d"
+    # Delete all remote branches that have been merged into the remote master branch.
+    branch-clean-remote = "!git branch -r --merged | egrep -v \"(^\\*|master|dev|$(git base-branch))\" | sed 's/origin\\///' | xargs -n 1 git push origin --delete"
+
+; }}}
+; {{{ ### commit ###
+
+    # commit with a message
     c = commit
-    amend = commit --amend            # ammend your last commit
-    retry = commit -a --amend
+    caa = commit -a
 
-    # checkout
+    cmd = safe-commit-amend-no-edit
+    cmde = safe-commit-amend
+    # 将新的修改，删除全部应用到上次commit里
+    cmu = "!git add --update && git safe-commit-amend-no-edit"
+    cmue = "!git add --update && git safe-commit-amend"
+    ca = commit -a --message
+    # 将新的修改，添加，删除的文件都应用到上次commit里
+    cma = "!git add --all && git safe-commit-amend-no-edit"
+    cmae = "!git add --all && git safe-commit-amend"
+    # commit and push
+    cap = "!f() { git commit --all -m \"$@\" && git push; }; f"
+
+    # 只能amend没有push过的commit
+    safe-commit-amend = "!f() { \
+        HEAD_commit_exists_in_remote=$(git branch -r --contains HEAD); \
+        if [ -n \"$HEAD_commit_exists_in_remote\" ]; then \
+           echo 'HEAD commit exists in remote and you should not amend it. Please make another commit.'; \
+           return; \
+        fi; \
+        git commit --amend; \
+    }; f"
+
+    # 只能amend没有push过的commit
+    safe-commit-amend-no-edit = "!f() { \
+        HEAD_commit_exists_in_remote=$(git branch -r --contains HEAD); \
+        if [ -n \"$HEAD_commit_exists_in_remote\" ]; then \
+           echo 'HEAD commit exists in remote and you should not amend it. Please make another commit.'; \
+           return; \
+        fi; \
+        git commit --amend --no-edit; \
+    }; f"
+; }}}
+; {{{ ### checkout ###
+
+    # checkout - update the working tree to match a branch or paths. [same as "o" for "out"]
     co = checkout
+    cob = checkout -b
+    co-rs = checkout --
 
-    # cherry-pick
-    cp = cherry-pick -x               # grab a change from a branch
+; }}}
+; {{{ ### cherry-pick ###
 
-    # diff
-    d = diff                          # diff unstaged changes
-    dc = diff --cached                # diff staged changes
-    last = diff HEAD^                 # diff last committed change
+    # cherry-pick - apply the changes introduced by some existing commits; useful for moving small chunks of code between branches.
+    pi = cherry-pick
+    pif = "!git fzf-commit-multi | xargs -n 1 git cherry-pick"
+    # cherry-pick - abort the picking process
+    pia = cherry-pick --abort
+    # cherry-pick - continue the picking process
+    picc = cherry-pick --continue
+    # cherry-pick without making a commit, and when when recording the commit, append a line that says "(cherry picked from commit ...)"
+    pi-nx = cherry-pick --no-commit -x
 
-    # log
-    l = log --graph --date=short
-    lg = log --graph --pretty=format:'%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset'
-    changes = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\" --name-status
-    short = log --pretty=format:\"%h %cr %cn %Cgreen%s%Creset\"
-    simple = log --pretty=format:\" * %s\"
-    shortnocolor = log --pretty=format:\"%h %cr %cn %s\"
+; }}}
+; {{{ ### clean ###
+    dry = clean -d --dry-run  # 预览会clean什么
+    # 默认只删除未追踪的文件,不包括ignore的文件，-d删除空目录 -x删除ignore的文件
+    cl = clean -d -i
+    clx = clean -d -x -i
+    # Ignore all untracked files by appending them to .gitignore:
+    ignore-untracked = "!git status | grep -P \"^\\t\" | grep -vF .gitignore | sed \"s/^\\t//\" >> .gitignore"
 
-    # rebase
-    rb = rebase
+;}}}
+; {{{ ### diff ###
 
-    # remote
-    r = remote -v                     # show remotes (verbose)
+    d = diff
+    df = diff
+    # diff - show changes about to be commited
+    dc = diff --cached
 
-    # reset
-    unstage = reset HEAD              # remove files from index (tracking)
-    uncommit = reset --soft HEAD^     # go back before last commit, with files in uncommitted state
-    filelog = log -u                  # show changes to a file
-    mt = mergetool                    # fire up the merge tool
+; }}}
+; {{{ ### grep ###
 
-    # stash
-    #ss = stash                        # stash changes
-    #sl = stash list                   # list stashes
-    #sa = stash apply                  # apply stash (restore changes)
-    #sd = stash drop                   # drop stashes (destory changes)
+    rg = !rg $(git rev-parse --show-toplevel) --column --smart-case -e
+    rg-ls = !rg $(git rev-parse --show-toplevel) --files
+    rg-all = !rg $(git rev-parse --show-toplevel) --column --smart-case --no-ignore --hidden -g '!.git' -e
+    rg-all-ls = !rg $(git rev-parse --show-toplevel) --no-ignore --hidden -g '!.git' --files
 
-    # push
-    p = push
+; }}}
+; {{{ ### log ###
 
-    # tag
-    t = tag -n                        # show tags with <n> lines of each tag message
+    # NOTE: log 加了--graph 会让使用nvim 作为log的 pager时出bug
+    # log like - we like this summarization our key performance indicators. Also aliased as `log-like`.
+    lg = "!git log -${1:-10} --all --color=always --abbrev=12 --graph --topo-order --date=format:'%Y-%m-%d %H:%M:%S' --boundary \
+                --pretty=format:'%C(yellow)%d%Creset %s %Cblue[%cn] %Cgreen%ad - %C(magenta)%h'; #"
+    # 查看log，NOTE: 依赖Flog.vim插件
+    ll = "!${EDITOR:-vi} --git-log"
+    ; }}}
+; {{{ ### merge ###
 
-    # submodule
-    sbi = submodule init
-    sbu = submodule update
-    sbp = submodule foreach git pull
-    sbc = submodule foreach git co master
+    ; # merge but without autocommit, and with a commit even if the merge resolved as a fast-forward.
+    ; mg = merge --no-commit --no-ff
+    # merge but without autocommit, and with a commit 除非这个是同一路径上可以快进(faster-forward)的merge
+    ; mg = merge --no-commit
+    mg = merge
+    mgnf = merge --no-ff
+    mc = "!git add --update && git merge --continue"
+
+    mt = mergetool
+    ; merge并删除被merge的分支
+    mgd = "!git merge $1 && git branch -d $1; #"
+    ; 显示自共同父节点以来两条分支的提交
+    merge-log = log --oneline --left-right HEAD...MERGE_HEAD
+    ; 显示出现冲突的提交
+    conflict-log = log --oneline --left-right --merge
+
+; }}}
+; {{{ ### rebase ###
+
+    r = rebase
+
+    # 本功能遵守了不修改已push的commit历史的原则
+    # 1. rebase -i 当前分支直到和base-branch的共同祖先，
+    # 2. 如果当前分支是base-branch就rebase -i 未push的commit
+    branch-rebase = "!f(){ \
+        base_branch=${1:-$(git base-branch)}; \
+        common_ancestor=$(git merge-base $base_branch $(git current-branch)); \
+        if [ $base_branch = $(git current-branch) ]; then \
+            common_ancestor=$(git merge-base origin/$(git remote-branch) $(git current-branch)); \
+        fi; \
+        git rebase -i $common_ancestor; \
+    };f"
+    ri = "!git branch-rebase"
+
+    ra = rebase --abort
+    rc = "!git add --update && git rebase --continue"
+
+; }}}
+; {{{ ### remote ###
+
+    # 如果本地分支追踪的远程分支被删除，那么这个追踪会被删除，但是本地分支不会删除
+    remote-prune-all = !git remote | xargs -n 1 git remote prune
+    # remote - manage set of tracked repositories [same as "r"].
+    ro = remote
+    # remote show - gives some information about the remote <name>.
+    ros = "!git remote show ${1:-origin}"
+
+    remote-untrack = "!git branch --unset-upstream ${1:-$(git current-branch)}"
+    # Push the current branch to the remote "origin", and set it to track the upstream branch
+    publish = "!git push -u origin ${1:-$(git current-branch)}"
+    # 删除远程分支(若不指定分支名就是当前分支的名字)
+    unpublish = "!git push origin --delete ${1:-$(git current-branch)} && git branch --unset-upstream ${1:-$(git current-branch)}"
+    # Fire up your difftool (e.g. Kaleidescope) with all the changes that
+    # are on the current branch.
+    code-review = "!git difftool origin/$(git current-branch)..."
+
+; }}}
+; {{{ reset
+    rs = reset
+    rss = reset --soft
+    rsh = reset --hard
+
+; }}}
+; {{{ ### revert ###
+
+    # revert - undo the changes from some existing commits
+    rv = revert
+    # 撤销某次提交的修改，并且不自动提交，这样就可以干涉revert重做过程，手动进行提交
+    rvn = revert --no-commit
+
+; }}}
+; {{{ ### stash ###
+;   NOTE: 用save和snapshot替代原生stash
+
+    sapply = "!git stash apply $1"
+    # 保存对tracked文件的修改(包括未暂存和已暂存)
+    # use case: 1. 切换分支前 2. 工作中突然想commit --amend 或者 fixup
+    # 接受一个stash信息可选参数
+    save = "!f() { \
+        custom_message=$1; \
+        WIP_message=WIP; \
+        if [ -n \"$custom_message\" ]; then \
+            WIP_message=\"$WIP_message: $custom_message\"; \
+        fi; \
+        git stash push -m \"$WIP_message - $(date '+%Y-%m-%d %H:%M:%S') - Base commit: $(git log -1 HEAD --pretty=format:'%h %s') \"; \
+    };f"
+    pop = stash pop
+; {{{ snapshot 介绍
+
+    # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+    # Take a snapshot of your current working tree without removing changes.
+    # This is handy for refactoring where you can't quite fit what you've done
+    # into a commit but daren't stray too far from now without a backup.
+    #
+    # Running this:
+    #    $ git snapshot
+    #
+    # Creates this stash:
+    #    stash@{0}: On feature/handy-git-tricks: snapshot: Mon Apr 8 12:39:06 BST 2013
+    #
+    # And seemingly no changes to your working tree.
+; }}}
+    snapshot = "!f() { \
+        custom_message=$1; \
+        Snapshot_message=Snapshot; \
+        if [ -n \"$custom_message\" ]; then \
+            Snapshot_message=\"$Snapshot_message $custom_message\"; \
+        fi; \
+        git save \"Snapshot $1\" && git stash apply 0 >/dev/null 2>&1; \
+    };f"
+    drop = stash drop
+    sl = stash list
+    ; 显示最近15次stash的哈希值 NOTE: 前提是stash注释里有WIP以便grep过滤
+    ; 找到想要的stash后可以 git stash apply $stash_hash 或者 git branch recovered $stash_hash 恢复它
+    stash-history = "!f() { \
+        git fsck --unreachable | grep commit | cut -d\\  -f3 | xargs git log -15 --oneline --merges --no-walk --grep=WIP; \
+    };f"
+    sh = "!git stash-history"
+
+; }}}
+; {{{ ### submodule ###
+
+    # submodule - enables foreign repositories to be embedded within a dedicated subdirectory of the source tree.
+    sm = submodule
+    smi = submodule init
+    sma = submodule add
+    sms = submodule sync
+    smu = submodule update
+    # submodule update with initialize
+    smui = submodule update --init
+    # submodule update with initialize and recursive; this is useful to bring a submodule fully up to date.
+    smuir = submodule update --init --recursive
+
+; }}}
+; {{{ ### undo ###
+
+    ; 只撤销了git commit操作，保留了 git add 操作。
+    uncommit = reset --soft HEAD~1
+    # 撤销commit， 清空工作区和暂存区
+    # 命令末尾的#不能少
+    uncommit-n = "!git reset --soft HEAD~$1; #"
+    uncommit-h = reset --hard HEAD~1
+    uncommit-hn = "!git reset --hard HEAD~$1; #"
+    unadd = reset HEAD
+    untrack = rm --cache --
+    unstage = reset HEAD
+    # Discard changes in a (list of) file(s) in working tree
+    discard = checkout --
+
+; }}}
+
+; {{{ ### short alias ###
+
+    ps = push
+    ft = fetch
+    pl = pull
+    # 恢复一个删除的分支用 checkout -b <branch> <SHA>, 其中SHA可以从ref获取
+    ref = reflog --no-abbrev
+
+    # status with short format instead of full details
+    s = status --short --branch
+
+; }}}
+; {{{ ### SHELL SCRIPTING ALIASES ###
+    # 这些是用在其他alias里面的
+    #
+    # 获取git仓库最上层目录
+    root-dir = rev-parse --show-toplevel
+
+    # 本仓库第一个commit的hash
+    first-commit = rev-list --max-parents=0 HEAD
+
+    ; NOTE: fzf中只能选一个值 调用方式为 $(git fzf-commit)
+    fzf-commit = "!f() { \
+        left=${1:-$(git first-commit)}; \
+        right=${2:-$(git current-branch)}; \
+        commit_hash=$(git log $left..$right --color=always --topo-order --date=format:'%Y-%m-%d %H:%M:%S' --abbrev-commit \
+                --pretty=format:'%Cgreen%ad %C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset - %Cred%H%Creset' \
+                | fzf | awk '{print $NF}'); \
+        echo $commit_hash; \
+        };f"
+
+    ; NOTE: fzf可以选多个值, 调用方式只能为　git fzf-commit-multi | xargs -n 1 <command>
+    fzf-commit-multi = "!f() { \
+        left=${1:-$(git first-commit)}; \
+        right=${2:-$(git current-branch)}; \
+        git log --all --color=always --graph --topo-order --date=format:'%Y-%m-%d %H:%M:%S' --abbrev-commit \
+                --pretty=format:' %Cgreen%ad %C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset - %Cred%H%Creset' \
+                | fzf | awk '{print $NF}' | xargs -n 1 echo; \
+        };f"
+
+
+    # 用if [ -n \"$(git working-dir-dirty)\" ]; then 来判断
+    working-dir-dirty = "!git diff --stat | head -n -1"
+
+    # 最远的可以安全改变的commit
+    # oldest-changeable-commit [base-branch]
+    oldest-changeable-commit = "!f() { \
+        oldest_commit='' \
+        current_branch=$(git current-branch); \
+        base_branch=${1:-$(git base-branch)}; \
+        common_ancestor=$(git merge-base $base_branch $current_branch); \
+        current_exists_in_remote=$(git remote-branch); \
+        base_exists_in_remote=$(git remote-branch $base_branch); \
+        if [ -n \"$current_exists_in_remote\" ]; then \
+            oldest_commit=origin/$current_branch; \
+        elif [ -n \"$base_exists_in_remote\" ]; then \
+            oldest_commit=origin/$base_branch; \
+        else \
+            oldest_commit=$common_ancestor; \
+        fi; \
+        echo $oldest_commit; \
+        };f"
+
+    # Get the top level directory name
+    top-name = rev-parse --show-toplevel
+    # Get the current branch name
+    current-branch = rev-parse --abbrev-ref HEAD
+    # 获取当前分支的远程分支名字
+    # HACK: 在awk里拼接字符串用了两对单引号 awk -F '/' '{if($2~/'$current_branch'/)print $2}'
+    # remote-branch [local-branch]
+    remote-branch = "!f() { \
+        current_branch=${1:-$(git current-branch)}; \
+        git branch -r | awk '{print $1}' | awk -F '/' '{if($2~/'$current_branch'/)print $2}'; \
+    }; f"
+
+    # TODO: 用于检查delete
+    # 本地分支比远程分支领先的commit数量
+    ahead-count = "!local_branch=${1:-$(git current-branch)} && git rev-list --count origin/$local_branch..$local_branch"
+    # 本地分支比远程分支落后的commit数量
+    behind-count = "!local_branch=${1:-$(git current-branch)} && git rev-list --count $local_branch..origin/$local_branch"
+
+    # Get the upstream branch name
+    upstream-name = "!git for-each-ref --format='%(upstream:short)' $(git symbolic-ref -q HEAD)"
+    # Execute shell scripts. Git always runs scripts in the top directory.
+    # For example "git exec pwd" will always show you the top directory.
+    exec = ! exec
+    # topic work flow 依赖的base branch
+    base-branch = "!f(){ \
+    git config --get gitalias.topic.base.branch.name || printf '%s\n' main; \
+    };f"
+
+
+; }}}
+; {{{ ### other commands ###
+    fd = fuzzy diff
+    fs = fuzzy status
+    fl = fuzzy log
+
+    # initalize a repo and immediate add an empty commit, which makes rebase easier.
+    init-empty = !"f() { git init && git commit --allow-empty --allow-empty-message --message ''; }; f"
+
+    # ls-files - show information about files in the index and the working tree; like Unix "ls" command.
+    ls = ls-files
+    # ls-ignored -  list files that git has ignored.
+    ls-ignored = ls-files --others --i --exclude-standard
+
+
+    # Expunge a file everywhere; this command is typically for a serious problem,
+    # such as accidentally committing a file of sensitive data, such as passwords.
+    # After you use command, you will likely need to force push everything.
+    # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
+    expunge = "!f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
+    # Delete a branch name, then create the same branch name based on master -
+    # useful if you have, for example, a development branch and master branch
+    # and they go out of sync, and you want to nuke the development branch.
+    #
+    # Calls the `publish` and `unpublish` aliases.
+    #
+    recreate = "!f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout master && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+    # ahead of origin, Show commits that haven't made it to remote master yet.
+    ahead = "!git log --oneline origin/$(git current-branch)..HEAD"
+    # 最后一个commit
+    last = log -1 HEAD
+    ; Get everything new:
+    get = !git pull --rebase && git submodule update --init --recursive
+    # Push to all remotes
+    push-to-all-remotes = !git remote | xargs -I% -n1 git push %
+    # Show who contributed, in descending order by number of commits
+    whorank = shortlog --summary --numbered --no-merges
+    ; 获取hash全称，在遇到hash冲突的时候很有用
+    abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H\" $commit; done' -"
+; }}}
+; {{{ ### unused ###
+    df-staged = diff --staged --color
+    df-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh diff
+    ad-u = reset HEAD --
+    ad-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh add
+    co-rs-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh restore
+    logs = log --oneline --decorate --graph --pretty=format:\"(%h)  %an, %ar: %s\"
+    logs-all = log --oneline --decorate --graph --all --pretty=format:\"(%h)  %an, %ar: %s\"
+    log-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh log
+    ig-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh ignore
+    ; edit = !nvim `git ls-files -m --other --exclude-standard` -p
+; }}}
