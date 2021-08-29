@@ -7,10 +7,10 @@ alias jm='cd $(emacsclient -e "(with-current-buffer (window-buffer (frame-select
 alias emacs-test='emacs -q --debug-init --load "~/projects-private/emacs-test/init.el"'
 
 # 在Emacs中阅读这些man page
-pps_man() {
+emacs_man() {
     emacsclient -t -e "(woman \"$1\")"
 }
-alias m=pps_man
+alias m=emacs_man
 
 function edb {
     emacs --debug-init
