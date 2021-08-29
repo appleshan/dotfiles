@@ -1,3 +1,10 @@
+;基础设置 {{{
+# 专为github设置的代理
+[http "https://github.com"]
+    proxy = socks5://127.0.0.1:1089
+[https "https://github.com"]
+    proxy = socks5://127.0.0.1:1089
+
 [core]
     #{{ @See https://p3terx.com/archives/how-to-choose-crlf-lf.html
     autocrlf = input
@@ -22,44 +29,117 @@
     # 解决中文文件名称在这些Git命令输出中的显示问题
     quotepath = false
 
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    # pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = "{                                                           \
+    COLUMNS=$(tput cols);                                            \
+    if [ $COLUMNS -ge 80 ] && [ -z $FZF_PREVIEW_COLUMNS ]; then      \
+        pager_width=$(($COLUMNS-4)); \
+        delta --side-by-side -w $pager_width;                            \
+    elif [ $COLUMNS -ge 160 ] && [ ! -z $FZF_PREVIEW_COLUMNS ]; then \
+        delta --side-by-side -w $FZF_PREVIEW_COLUMNS;                \
+    else                                                             \
+        delta;                                                       \
+    fi                                                               \
+}"
 
+; {{{ delta配置 用于查看diff
+[delta]
+    plus-color = "#012800"
+    minus-color = "#340001"
+    syntax-theme = "TwoDark"
+    plus-emph-style = "#8c99a2 bold ul auto"
+    minus-emph-style = "#8c99a2 bold ul auto"
+    plus-style = "white #0e3c15 "
+    minus-style="white #5a0c0f"
+    line-numbers = true
+    side-by-side = true
+    features = unobtrusive-line-numbers decorations
+    whitespace-error-style = 22 reverse
+    inspect-raw-lines = false
+    navigate = true  # 用n和N在文件之间跳转
+
+[delta "unobtrusive-line-numbers"]
+    line-numbers = true
+    line-numbers-minus-style = "#444444"
+    line-numbers-zero-style = "#444444"
+    line-numbers-plus-style = "#444444"
+    line-numbers-left-format = "{nm:>4}┊"
+    line-numbers-right-format = "{np:>4}│"
+    line-numbers-left-style = blue
+    line-numbers-right-style = blue
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
+    hunk-header-decoration-style = yellow box
+
+; }}}
+
+[interactive]
+    diffFilter = delta --color-only
+
+[commit]
+    # 设置 commit 模板文件路径
+    template = ~/.config/git/.gitmessage
+
+[pager]
+    ; # 以下命令不使用core.pager / $PAGER浏览
+    log = false
+    branch = false
+    tag = false
+    reflog = false
+    ; diff = false
+    shortlog = false
+    grep = false
+
+# difftool用editor(nvr) 有bug， 还是nvim 好
 [diff]
-    # Git diff will use (i)ndex, (w)ork tree, (c)ommit and (o)bject
-    # instead of a/b/c/d as prefixes for patches
-    mnemonicprefix = true
-    algorithm = patience
-
-    # Detect copies as well as renames
-    renames = copies
-[diff "bin"]
-    # Use `hexdump` to diff binary files
-    textconv = hexdump -v -C
-
-[push]
-    # 'git push' will push the current branch to its tracking branch
-    # the usual default is to push all branches
-    default = upstream
-    # Make `git push` push relevant annotated tags when pushing branches out.
-    followTags = true
+    tool = vimdiff3
+    # 移动的行特别显示
+    colorMoved = default
+[difftool]
+    prompt = false
+    trustExitCode = true
+[difftool "vimdiff3"]
+    path = nvim
 
 [merge]
-    # Include summaries of merged commits in newly created merge commit messages
-    log = true
+    tool = vim_mergetool
+    conflictStyle = diff3
+[mergetool]
+    prompt = false
+    trustExitCode = true
+    # 这样在解决冲突后就不会保留.orig文件了
+    keepBackup = false
+[mergetool "vim_mergetool"]
+    # floaterm用nvr mergetool 有bug 还是nvim好, 然后<Alt-o>放大floaterm
+    cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
 
-[apply]
-    # Detect whitespace errors when applying a patch
-    whitespace = fix
+[rebase]
+    # 在rebase -i 里自动将 之前commit --fixup A 产生的commit 放在 A 之后
+    autosquash = true
+    autoStash = true
 
-[format]
-    pretty = format:%C(blue)%ad%Creset %C(yellow)%h%C(green)%d%Creset %C(blue)%s %C(magenta) [%an]%Creset
+[fetch]
+    # fetch自动prune
+    prune = true
+[pull]
+    # pull时用rebase="interactive"替代merge
+    ; rebase = "interactive"
+    rebase = true
 
-[help]
-    # Automatically correct and execute mistyped commands
-    autocorrect = 1
+[push]
+    # push自动带上tags
+    followTags = true
 
-[http]
-    proxy = socks5://127.0.0.1:1089
-[https]
-    proxy = socks5://127.0.0.1:1089
+[credential]
+    # 缓存HTTP/HTTPS方式输入的用户名密码时间, 设置为
+    # 时间单位为秒 此处为大于100年
+    helper = cache --timeout=3600000000
 
+# 自动解决重复冲突(比如reset后再次合并)
+[rerere]
+    enabled = true
+
+; }}}

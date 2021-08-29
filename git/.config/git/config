@@ -1,3 +1,16 @@
+; NOTE: 1. alias不区分大小写
+;       2. 和git-extras一起使用效果更佳
+; FIXME: 在gitconfig里写的bash注意事项
+; {{{  在gitconfig里写的bash注意事项
+;           1. 应该用[ ] 而不是[[ ]], 不然会报错
+;           2. 不能写#注释
+;           3. 语句后面要写分号;
+;           4. if [ -n  \"$abc\" ]; then 用-n或-z 判断字符串不为空/为空需要用双引号，不能不加引号或者是单引号
+;           5. 双引号内一个 \ 就可以连接多行单命令语句了，用\\会转义空格的
+;           6. 函数内不能用local
+;       技巧：用多个'abc'$variable'abc'进行拼接字符串
+;}}}
+
 [include]
     path = ./conf/user.gitconfig
     path = ./conf/settings.gitconfig
