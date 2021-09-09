@@ -6,7 +6,7 @@
 # and it will move all files starting with `.someSoftware` to the correct location
 # then link them back,
 # Which will produce a directory structure like:
-# 
+#
 # $ tree -aL 2 ~/projects-private/dotfiles
 # ~/projects-private/dotfiles :
 # ├── dotfiles.sh
@@ -19,32 +19,32 @@ export DOTFILES=~/projects-private/dotfiles
 
 # List unlinked dotfiles
 dotfiles-count() {
-    pushd >/dev/null 2>&1
-    cd $HOME
+    pushd >/dev/null 2>&1 || exit
+    cd "$HOME" || exit
     ls -ald .* | grep -v ^l | tee >(wc -l)
-    popd >/dev/null 2>&1
+    popd >/dev/null 2>&1 || exit
 }
 
 # Move and link files named `.something*`
 dotfiles-init() {
-    pushd >/dev/null 2>&1
-    cd $HOME
-    ls -ald .$1*;
-    mkdir -p $DOTFILES/$1;
-    mv .$1* $DOTFILES/$1;
-    stow --dir=$DOTFILES --target=$HOME -vv $1
-    popd >/dev/null 2>&1
+    pushd >/dev/null 2>&1 || exit
+    cd "$HOME" || exit
+    ls -ald ."$1"*
+    mkdir -p $DOTFILES/"$1"
+    mv ."$1"* $DOTFILES/"$1"
+    stow --dir=$DOTFILES --target="$HOME" -vv "$1"
+    popd >/dev/null 2>&1 || exit
 }
 
 # rebuild links - useful when you are recovering settings to a new OS
 # run `dotfiles-rebuild *` to rebuild all at once
 dotfiles-rebuild() {
-    stow --dir=$DOTFILES --target=$HOME -vv $@
+    stow --dir=$DOTFILES --target="$HOME" -vv $@
 }
 
 # delete
 dotfiles-delete() {
-    stow --dir=$DOTFILES --target=$HOME -vv -D $@
+    stow --dir=$DOTFILES --target="$HOME" -vv -D $@
 }
 
 # dotfiles-rebuild() :
