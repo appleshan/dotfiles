@@ -8,20 +8,20 @@ configuration {
     lines:           10;
     
     show-icons:      true;
-    drun-icon-theme: "Numix-Circle";
+    drun-icon-theme: "Korla";
                      
     modi:            "drun,window,run";
-    display-drun:    "Run";
-    display-window:  "Window";
-    display-run:     "Command";
+    display-drun:    " Run";
+    display-window:  " Window";
+    display-run:     " Command";
                      
     sidebar-mode:    false;
     fullscreen:      false;
 }
 * {
-    font-generic: "Open Sans 11";
-    font-button:  "Open Sans 10";
-    font-prompt:  "Open Sans Semibold 12";
+    font-generic: "Sarasa Term SC 15";
+    font-button:  "Sarasa Term SC 14";
+    font-prompt:  "Sarasa Term SC 16";
     
     font: @font-generic;
     
