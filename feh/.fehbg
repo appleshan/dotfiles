@@ -1,2 +1,2 @@
 #!/bin/sh
-feh --no-fehbg --bg-scale '/home/alecshan/.config/i3/wallpaper.jpg' 
+feh --no-fehbg --bg-scale '/home/alecshan/persist/pictures/wallpaper/Aldeyjarfoss.jpg' 
