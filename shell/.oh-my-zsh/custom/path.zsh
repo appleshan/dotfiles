@@ -146,5 +146,3 @@ source /usr/share/nvm/init-nvm.sh
 #################
 
 export DOTNET_ROOT=$HOME/bin/dotnet
-
-export PATH="$HOME/bin/git-fuzzy/bin:$PATH"
