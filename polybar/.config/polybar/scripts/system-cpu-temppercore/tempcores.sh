@@ -4,7 +4,7 @@
 # https://github.com/jaagr/polybar/wiki/User-contributed-modules#per-core-temperatures
 
 # Get information from cores temp thanks to sensors
-rawData=$( sensors | grep Core | awk '{print substr($3, 2, length($3)-5)}' )
+rawData=$( sensors | grep "Package id" | awk '{print substr($4, 2, length($4)-5)}' )
 tempCore=($rawData)
 
 # Define constants :
