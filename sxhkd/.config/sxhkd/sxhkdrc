@@ -68,7 +68,7 @@ super + control + m
 
 # description: Open sxhkdrc
 super + Escape
-    xdg-open $XDG_CONFIG_HOME/sxhkd/sxhkdrc
+    xdg-open $HOME/.config/sxhkd/sxhkdrc
 
 # description: Restart sxhkd
 control + alt + shift + Escape
