@@ -66,33 +66,52 @@ source $ZSH/custom/zsh-theme.zsh
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
-NVM_LAZY=1
-
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ag aliases alias-tips archlinux autoupdate \
+plugins=(ag aliases \
+         # https://github.com/djui/alias-tips
+         alias-tips \
+         archlinux \
+         # https://github.com/zsh-users/zsh-autosuggestions
+         zsh-autosuggestions \
+         # https://github.com/Pilaton/OhMyZsh-full-autoupdate
+         ohmyzsh-full-autoupdate \
          colored-man-pages colorize command-not-found common-aliases copybuffer \
-         copydir copyfile cp \
+         copyfile cp \
+         # https://github.com/joel-porquet/zsh-dircolors-solarized
+         zsh-dircolors-solarized \
          dircycle dirpersist \
          emoji encode64 extract \
          fancy-ctrl-z \
          gradle \
-         history-search-multi-word httpie jsontools k \
+         # https://github.com/z-shell/H-S-MW
+         H-S-MW \
+         httpie jsontools \
          man mvn \
          nmap npm nvm \
+         # https://github.com/amyreese/zsh-opt-path
          opt-path \
-         proxy pip pyenv pylint python zsh-pipx \
+         # https://github.com/escalate/oh-my-zsh-proxy-plugin
+         proxy \
+         # https://github.com/six-ddc/zsh-proxychains-ng
+         zsh-proxychains-ng \
+         pip pyenv pylint python \
          ripgrep rsync \
-         safe-paste sudo svn svn-fast-info systemadmin systemd \
+         safe-paste \
+         # https://github.com/mattmc3/zsh-safe-rm
+         zsh-safe-rm \
+         sudo svn svn-fast-info systemadmin systemd \
          timer tmux \
          ufw urltools \
          vscode \
-         wakatime web-search \
+         # https://github.com/sobolevn/wakatime-zsh-plugin
+         wakatime \
+         web-search \
          yarn \
-         zbell zsh-autosuggestions zsh-dircolors-solarized zsh-interactive-cd \
-         zsh-proxychains-ng zsh-safe-rm)
+         zbell zsh-interactive-cd \
+         )
 
 source $ZSH/oh-my-zsh.sh
 
