@@ -1,0 +1,3 @@
+#+TITLE: dotfiles - Fontconfig
+
+Fontconfig 的配置文件推荐放在 ~/.config/fontconfig/fonts.conf 里，放在别处是废弃的用法，可能导致出错。
