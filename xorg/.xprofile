@@ -18,14 +18,12 @@ export XMODIFIERS=@im=fcitx
 ###########################################################
 
 # => To autostart picom to achieve traspanrency
-picom -GCb \
-      --experimental-backends \
-      --config $HOME/.config/picom/picom.conf
+picom -b --config $HOME/.config/picom/picom.conf
 
 # => 屏幕管理
 # @See https://bbs.archlinuxcn.org/viewtopic.php?pid=30400#p30400
 # polybar上某些要显示托盘图标（tray icon），须执行 xrandr --output:
-#xrandr --auto --output DP1 --primary --mode 1920x1080 --rate 60.00
+xrandr --auto --output HDMI-1 --primary --mode 1920x1080 --rate 60.00
 
 #{{ wallpaper
 # .fehbg 与 wallpaper.sh 二选一。
@@ -34,7 +32,7 @@ picom -GCb \
 # $HOME/.fehbg
 
 # => To autostart wallpaper manager
-$HOME/.config/feh/wallpaper.sh &
+$HOME/.config/nitrogen/nitrogen.sh &
 #}}
 
 # => To autostart input method
@@ -66,14 +64,12 @@ sxhkd &
 /usr/lib/geoclue-2.0/demos/agent &
 
 # => To autostart redshift
-$HOME/.config/redshift/redshift.sh &
+$HOME/.config/redshift/redshift.sh &> /dev/null 2>&1
 #}}
 
 # => To autostart power manager
 # xfce4-power-manager 是 XFCE 管理电源和屏幕亮度的托盘程序，可以脱离 XFCE 独立安装运行。
 xfce4-power-manager &
-
-fix_xcursor &
 
 # => To autostart workrave tray
 workrave &
