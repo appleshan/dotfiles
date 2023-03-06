@@ -7,15 +7,15 @@
 # then link them back,
 # Which will produce a directory structure like:
 #
-# $ tree -aL 2 ~/projects-private/dotfiles
-# ~/projects-private/dotfiles :
+# $ tree -aL 2 ~/projects/private/dotfiles
+# ~/projects/private/dotfiles :
 # ├── dotfiles.sh
 # └── shell
 #     └── .zshrc
 #
 
 # Where to store your actual config files
-export DOTFILES=~/projects-private/dotfiles
+export DOTFILES=~/projects/private/dotfiles
 
 # List unlinked dotfiles
 dotfiles-count() {
@@ -48,9 +48,10 @@ dotfiles-delete() {
 }
 
 # dotfiles-rebuild() :
-# $ stow -d $HOME/projects-private/dotfiles -t $HOME -vv shell
+# $ stow -d $HOME/projects/private/dotfiles -t $HOME -vv shell
 
 # usage
 # $ dotfiles-rebuild shell
 
 # $ ls -alF | grep "^l"
+
