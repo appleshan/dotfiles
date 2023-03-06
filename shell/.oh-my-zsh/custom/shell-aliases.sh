@@ -45,7 +45,7 @@ alias disks='echo "╓───── m o u n t . p o i n t s"; echo "╙──�
 alias lsdisk='lsblk -o+FSTYPE,FSSIZE,PARTLABEL,LABEL'
 
 alias grep='grep --color=auto --exclude-dir={.git,.hg,.svn,.cvs,bzr,CVS,target,build,_site,.idea,Pods,taobao-tomcat} --exclude=\*.{ipr,iml,iws,jar,war,zip}'
-export GREP_COLOR='07;31'
+export GREP_COLOR='mt=07;31'
 
 alias beep='aplay ~/projects-private/dotfiles/sounds/beep-07.wav'
 

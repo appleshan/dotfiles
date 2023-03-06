@@ -23,9 +23,9 @@ SPACESHIP_VENV_PREFIX="venv:("
 SPACESHIP_VENV_SUFFIX=") "
 
 # PYENV
-SPACESHIP_PYENV_PREFIX="python:("
-SPACESHIP_PYENV_SUFFIX=") "
-SPACESHIP_PYENV_SYMBOL=""
+SPACESHIP_PYTHON_PREFIX="python:("
+SPACESHIP_PYTHON_SUFFIX=") "
+SPACESHIP_PYTHON_SYMBOL=""
 
 SPACESHIP_CONDA_PREFIX="conda:("
 SPACESHIP_CONDA_SUFFIX=") "
@@ -53,4 +53,8 @@ zstyle ":plugin:history-search-multi-word" synhl "yes"                 # Whether
 zstyle ":plugin:history-search-multi-word" active "underline"          # Effect on active history entry. Try: standout, bold, bg=blue (default underline)
 zstyle ":plugin:history-search-multi-word" check-paths "yes"           # Whether to check paths for existence and mark with magenta (default true)
 zstyle ":plugin:history-search-multi-word" clear-on-cancel "no"        # Whether pressing Ctrl-C or ESC should clear entered query
+# }}
+
+# {{ nvm
+zstyle ':omz:plugins:nvm' lazy yes
 # }}

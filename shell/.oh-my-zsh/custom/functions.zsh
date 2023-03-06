@@ -58,12 +58,6 @@ export TERMINFO=/usr/lib/terminfo
 source $ZSH/custom/shell-aliases.sh
 source $ZSH/custom/emacs-functions.sh
 
-# Termite
-export TERM=xterm-termite
-if [[ $TERM == xterm-termite ]]; then
-  source /etc/profile.d/vte.sh
-fi
-
 # Automatically start tmux
 # export ZSH_TMUX_AUTOSTART=true
 
