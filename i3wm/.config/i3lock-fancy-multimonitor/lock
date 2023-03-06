@@ -96,6 +96,7 @@ else
   PARAMS="'$INPUT_IMAGE' '-level' '0%,100%,0.6' '-blur' '$BLURTYPE' $PARAMS '$OUTPUT_IMAGE'"
 fi
 
+# convert in imagemagick
 eval convert $PARAMS
 
 #Lock the screen:
