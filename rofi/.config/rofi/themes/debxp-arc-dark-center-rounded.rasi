@@ -60,7 +60,7 @@ configuration {
     selected-active-background:  @lightbg;
     
     selected-urgent-foreground:  @lightred;
-    selected-urgent-background:  @lighbg;
+    selected-urgent-background:  @lightbg;
     
     alternate-normal-foreground: @text-color;
     alternate-normal-background: @background-color;
