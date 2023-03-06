@@ -50,7 +50,7 @@ CookieAuthentication 1        # method for controller authentication
 ClientOnly 1                  # prevents us from ever being used as a relay
 
 # 前置的网络代理
-Socks5Proxy 127.0.0.1:18080
+Socks5Proxy 127.0.0.1:20089
 
 # 禁用以下国家的中继节点
 ExcludeNodes {cn},{hk},{mo},{sg},{th},{pk},{by},{ru},{ir},{vn},{ph},{my},{cu},{br},{kz},{kw},{lk},{ci},{tk},{tw},{kp},{sy}

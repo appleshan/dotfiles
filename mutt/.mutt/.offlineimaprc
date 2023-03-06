@@ -23,8 +23,8 @@ remoterepository = Gmail-Remote
 # Status cache. Default is plain, which eventually becomes huge and slow.
 status_backend = sqlite
 #使用proxy選項，得確保安裝Python 2的PySocks包，不然代理設置會被忽略。
-#proxy = HTTP:127.0.0.1:18080
-proxy = SOCKS5:127.0.0.1:18080
+#proxy = HTTP:127.0.0.1:20089
+proxy = SOCKS5:127.0.0.1:20089
 
 [Repository Gmail-Local]
 # Currently, offlineimap only supports maildir and IMAP for local repositories.
