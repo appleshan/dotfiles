@@ -1,47 +1,27 @@
 ##
-## Manjaro Linux custom mirrorlist
-## Generated on 2021-08-18 08:15
-##
-## Please use 'pacman-mirrors -id' To reset custom mirrorlist
-## Please use 'pacman-mirrors -c all' To reset custom mirrorlist
-## To remove custom config run  'pacman-mirrors -c all'
+## Arch Linux repository mirrorlist
+## Generated on 2022-12-04
 ##
 
-## Country : China
-## 莞工 GNU/Linux 协会
-Server = https://mirrors.dgut.edu.cn/manjaro/stable/$repo/$arch
+## China
+Server = http://mirrors.aliyun.com/archlinux/$repo/os/$arch
 
 ## Country : China
 ## 中国科学技术大学
-Server = https://mirrors.ustc.edu.cn/manjaro/stable/$repo/$arch
+Server = https://mirrors.ustc.edu.cn/archlinux/$repo/os/$arch
 
 ## Country : China
 ## 清华大学
-Server = http://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinux/$repo/os/$arch
 
 ## Country : China
 ## 浙江大学
-Server = https://mirrors.zju.edu.cn/manjaro/stable/$repo/$arch
+Server = https://mirrors.zju.edu.cn/archlinux/$repo/os/$arch
 
 ## Country : China
-## 重庆大学
-Server = http://mirrors.cqu.edu.cn/manjaro/stable/$repo/$arch
+# 更新比其他源慢些
+Server = https://repo.huaweicloud.com/archlinux/$repo/os/$arch
 
 ## Country : China
-## 哈尔滨工业大学
-Server = https://mirrors.hit.edu.cn/manjaro/stable/$repo/$arch
+Server = https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
 
-## Country : China
-Server = https://mirrors.huaweicloud.com/manjaro/stable/$repo/$arch
-
-## Country : China
-Server = https://mirrors.cloud.tencent.com/manjaro/stable/$repo/$arch
-
-## Country : Japan
-Server = http://ftp.riken.jp/Linux/manjaro/stable/$repo/$arch
-
-## Country : Japan
-Server = http://ftp.tsukuba.wide.ad.jp/Linux/manjaro/stable/$repo/$arch
-
-## Country : China
-Server = https://mirrors.sjtug.sjtu.edu.cn/manjaro/stable/$repo/$arch
