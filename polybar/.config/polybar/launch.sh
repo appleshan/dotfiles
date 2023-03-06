@@ -18,19 +18,17 @@ tray_output=$1
 
 for m in $outputs; do
     if [ $m == $1 ]; then
-        MONITOR1=$m polybar -l=error -c ~/.config/polybar/config.ini top &
-        MONITOR1=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
+        MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini top &
+        MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
     elif [ $m == $2 ]; then
         tray_output=$m
-        MONITOR2=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
+        MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
     else
-        MONITOR1=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
+        MONITOR=$m polybar -l=error -c ~/.config/polybar/config.ini bottom &
     fi
 done
 
 for m in $outputs; do
-    export MONITOR1=$1
-    export MONITOR2=$2
     export TRAY_POSITION=none
     if [[ $m == $tray_output ]]; then
         TRAY_POSITION=right
