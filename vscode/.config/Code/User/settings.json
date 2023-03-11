@@ -87,7 +87,7 @@
             "startOnActivation": true
         }
     ],
-    "workbench.colorTheme": "Eva Dark",
+    "workbench.colorTheme": "Solarized Light",
     "workbench.iconTheme": "vscode-icons",
 
     "workbench.editor.enablePreview": false,
