@@ -5,7 +5,7 @@
 NAME="  Tools"
 ITEMS=(
   [" Open terminal"]="termite"
-  [" Start file manager"]="pcmanfm"
+  [" Start file manager"]="pcmanfm"
   [" Open web browser"]="google-chrome-stable"
   [" soundcard mixer"]="urxvt -e 'alsamixer'"
   [" flameshot 屏幕截图"]="flameshot gui --delay 200"

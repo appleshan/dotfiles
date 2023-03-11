@@ -7,7 +7,28 @@ echo ${work_path}
 
 NAME="  System"
 ITEMS=(
-  [" Tools Menu"]="${work_path}/show-tools-menu.sh"
-  [" Session Menu"]="${work_path}/show-session-menu.sh"
-  [" Power Menu"]="${work_path}/show-power-menu.sh"
+  # power menu
+  [" Shutdown System"]="systemctl poweroff"
+  [" Reboot System"]="systemctl reboot"
+  [" Suspend System"]="systemctl suspend"
+
+  # session menu
+  ["⚿ Lock Screen"]="$HOME/.config/i3lock-fancy-multimonitor/lock"
+  [" Exit Desktop"]="i3-msg exit"
+  [" Reload Config"]="i3-msg reload"
+  [" Restart Desktop"]="i3-msg restart"
+
+  # tools menu
+  [" Open terminal"]="termite"
+  [" Start file manager"]="pcmanfm"
+  [" Open web browser"]="google-chrome-stable"
+  [" soundcard mixer"]="urxvt -e 'alsamixer'"
+  [" flameshot 屏幕截图"]="flameshot gui --delay 200"
+  [" flameshot config"]="flameshot config"
+  [" Rofi show window"]="rofi -show window"
+  [" Rofi show applications"]="rofi -show drun -columns 3"
+  [" Rofi show command"]="rofi -show run -columns 3"
+  ["🔍 Search document on Zeal and Man"]="$HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh"
+  [" Display keybindings"]="$HOME/.config/sxhkd/sxhkd-bindings d"
+  [" Appearance Settings"]="lxappearance"
 )

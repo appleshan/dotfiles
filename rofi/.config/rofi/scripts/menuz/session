@@ -2,10 +2,10 @@
 
 # session\wm tools
 
-NAME="  Session"
+NAME="  Session"
 ITEMS=(
-  [" Lock Screen"]="/home/alecshan/.config/i3lock-fancy-multimonitor/lock"
-  [" Reload Config"]="i3-msg reload"
-  [" Restart Desktop"]="i3-msg restart"
+  ["⚿ Lock Screen"]="$HOME/.config/i3lock-fancy-multimonitor/lock"
   [" Exit Desktop"]="i3-msg exit"
+  [" Reload Config"]="i3-msg reload"
+  [" Restart Desktop"]="i3-msg restart"
 )
