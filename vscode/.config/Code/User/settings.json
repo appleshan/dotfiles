@@ -25,35 +25,21 @@
         "**/.idea": true
     },
 
-    "java.home": "/home/alecshan/bin/java/jdk-11.0.7-full",
-    "java.configuration.checkProjectSettingsExclusions": false,
     "java.configuration.runtimes": [
         {
-            "name": "JavaSE-1.6",
-            "path": "/home/alecshan/bin/java/jdk1.6.0_45",
-            "sources" : "/home/alecshan/bin/java/jdk1.6.0_45/src.zip",
-            "javadoc" : "https://docs.oracle.com/en/java/javase/1.6/docs/api"
-        },
-        {
             "name": "JavaSE-1.8",
-            "path": "/home/alecshan/bin/java/jdk1.8.0_162",
-            "sources" : "/home/alecshan/bin/java/jdk1.6.0_45/src.zip",
+            "path": "/home/alecshan/bin/java/jdk1.8.0_212",
+            "sources" : "/home/alecshan/bin/java/jdk1.8.0_212/src.zip",
             "javadoc" : "https://docs.oracle.com/en/java/javase/1.8/docs/api"
         },
         {
-            "name": "JavaSE-11",
-            "path": "/home/alecshan/bin/java/jdk-11.0.7-full",
-            "sources" : "/home/alecshan/bin/java/jdk-11.0.7-full/lib/src.zip",
-            "javadoc" : "https://docs.oracle.com/en/java/javase/11/docs/api",
-            "default":  true
-        },
-        {
-            "name": "JavaSE-13",
-            "path": "/home/alecshan/bin/java/jdk-13.0.2",
-            "sources" : "/home/alecshan/bin/java/jdk-13.0.2/lib/src.zip",
-            "javadoc" : "https://docs.oracle.com/en/java/javase/13/docs/api"
+            "name": "JavaSE-17",
+            "path": "/usr/lib/jvm/java-17-openjdk",
+            "sources" : "",
+            "javadoc" : "https://docs.oracle.com/en/java/javase/17/docs/api"
         }
     ],
+    "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk",
     "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/alecshan/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
     "java.project.importOnFirstTimeStartup": "automatic",
     "java.project.resourceFilters": [
