@@ -1,4 +1,21 @@
 [user]
-    name = appleshan
-    email = apple.shan@gmail.com
+
+## 不再设置全局的用户名
+# github.com
+# name = appleshan
+# email = apple.shan@gmail.com
+
+# gitlab.hytto.com
+# name = alecshan
+# email = alecshan@hytto.com
+
+
+## 在每个 project 里设置相关的用户名
+## github.com
+# git config --local user.name "appleshan"
+# git config --local user.email "apple.shan@gmail.com"
+
+## gitlab.hytto.com
+# git config --local user.name "alecshan"
+# git config --local user.email "alecshan@hytto.com"
 
