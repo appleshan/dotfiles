@@ -49,14 +49,14 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/.ripgreprc
 # Oracle JDK 7
 # export JAVA_7_HOME=$HOME/bin/java/jdk1.7.0_60
 # Oracle JDK 8
-export JAVA_8_HOME=$HOME/bin/java/jdk1.8.0_162
+# export JAVA_8_HOME=$HOME/bin/java/jdk1.8.0_162
 # Oracle JDK 11
-export JAVA_11_HOME=$HOME/bin/java/jdk-11.0.7-full
+# export JAVA_11_HOME=$HOME/bin/java/jdk-11.0.7-full
 # default JDK is 11
-export JAVA_HOME=$JAVA_11_HOME
-export JRE_HOME=$JAVA_11_HOME/jre
+# export JAVA_HOME=$JAVA_11_HOME
+# export JRE_HOME=$JAVA_11_HOME/jre
 
-appendpath "$JAVA_HOME/bin"
+# appendpath "$JAVA_HOME/bin"
 
 # export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
