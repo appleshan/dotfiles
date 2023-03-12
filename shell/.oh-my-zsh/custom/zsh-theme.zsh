@@ -31,12 +31,12 @@ SPACESHIP_CONDA_PREFIX="conda:("
 SPACESHIP_CONDA_SUFFIX=") "
 SPACESHIP_CONDA_SYMBOL=""
 
-# ZSH_THEME="spaceship-prompt/spaceship"
+ZSH_THEME="spaceship-prompt/spaceship"
 # }}
 
 # powerlevel10k
 # https://github.com/romkatv/powerlevel10k#oh-my-zsh
-ZSH_THEME="powerlevel10k/powerlevel10k"
+# ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # {{ history-search-multi-word
 zstyle ":history-search-multi-word" page-size "20"                     # Number of entries to show (default is $LINES/3)
