@@ -34,16 +34,8 @@ SPACESHIP_CONDA_SYMBOL=""
 # ZSH_THEME="spaceship-prompt/spaceship"
 # }}
 
-# {{ powerlevel9k
-POWERLEVEL9K_MODE='nerdfont-complete'
-POWERLEVEL9K_PROMPT_ADD_NEWLINE=true
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(dir vcs newline virtualenv pyenv)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs history time)
-POWERLEVEL9K_VCS_BRANCH_ICON=$'\uF126 '
-# ZSH_THEME="powerlevel9k/powerlevel9k"
-# }}
-
 # powerlevel10k
+# https://github.com/romkatv/powerlevel10k#oh-my-zsh
 ZSH_THEME="powerlevel10k/powerlevel10k"
 
 # {{ history-search-multi-word
