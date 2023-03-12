@@ -64,7 +64,8 @@ sxhkd &
 /usr/lib/geoclue-2.0/demos/agent &
 
 # => To autostart redshift
-$HOME/.config/redshift/redshift.sh &> /dev/null 2>&1
+#$HOME/.config/redshift/redshift.sh &> /dev/null 2>&1
+# 启动时间过长，需要十几妙，禁用
 #}}
 
 # => To autostart power manager
