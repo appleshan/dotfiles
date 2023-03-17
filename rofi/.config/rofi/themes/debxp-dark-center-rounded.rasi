@@ -2,19 +2,19 @@
  * Author: Blau Araujo
  * Update: 2019-04-20
  */
- 
+
 configuration {
     columns:         1;
     lines:           10;
-    
+
     show-icons:      true;
     drun-icon-theme: "Korla";
-                     
+
     modi:            "drun,window,run";
-    display-drun:    " Run";
-    display-window:  " Window";
+    display-drun:    " Run";
+    display-window:  " Window";
     display-run:     " Command";
-                     
+
     sidebar-mode:    false;
     fullscreen:      false;
 }
@@ -34,9 +34,9 @@ configuration {
     
     red:                         #C64E44;
     lightred:                    #ff7c7c;
-    orange:                      #E9A86F; 
-    blue:                        #5294E2; 
-    lightblue:                   #92d4f2; 
+    orange:                      #E9A86F;
+    blue:                        #5294E2;
+    lightblue:                   #92d4f2;
     
     bordercolor:                 @text-color;
     separatorcolor:              @orange;
