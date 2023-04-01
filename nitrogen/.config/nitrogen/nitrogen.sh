@@ -22,17 +22,17 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Moniotor 1 Wallpaper Directory
-MON1WALLPAPERS=~/persist/pictures/wallpaper/
+MON1WALLPAPERS=~/persist/pictures/wallpaper
 # Change monitor 1 wallpaper in "x" seconds
 MON1TIME=45
 
 # Monitor 2 Wallpaper Directory
-MON2WALLPAPERS=~/persist/pictures/wallpaper/
+MON2WALLPAPERS=~/persist/pictures/wallpaper
 # Change monitor 2 wallpaper in "x" seconds
 MON2TIME=45
 
 # Monitor 3 Wallpaper Directory
-MON3WALLPAPERS=~/persist/pictures/wallpaper/
+MON3WALLPAPERS=~/persist/pictures/wallpaper
 # Change monitor 3 Wallpaper in "x" seconds
 MON3TIME=45
 
@@ -45,7 +45,7 @@ MON2RANGE=$(ls $MON2WALLPAPERS | wc -l)
 MON3RANGE=$(ls $MON3WALLPAPERS | wc -l)
 
 function main_monitor () {
-    for i in 7 ; do
+    for i in 2 ; do
         let "number = $RANDOM % $MON1RANGE"
         IMAGE=$(ls $MON1WALLPAPERS | head -$number | tail -1 )
         sed -i $i' c\file='"$MON1WALLPAPERS/$IMAGE"'' ~/.config/nitrogen/bg-saved.cfg
@@ -53,7 +53,7 @@ function main_monitor () {
 }
 
 function left_monitor () {
-    for i in 17; do
+    for i in 7; do
         let "number = $RANDOM % $MON3RANGE"
         IMAGE=$(ls $MON3WALLPAPERS | head -$number | tail -1 )
         sed -i $i' c\file='"$MON3WALLPAPERS/$IMAGE"'' ~/.config/nitrogen/bg-saved.cfg
