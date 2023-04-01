@@ -12,15 +12,18 @@ then
     PLAYER=$(echo $(playerctl metadata) |  awk '{print $1}')
     ARTIST=$(playerctl metadata artist)
     TITLE=$(playerctl metadata title)
+
     # If either artist or title length is > 15, Then cut and add ellipsis
     if [ "${#ARTIST}" -ge "16" ];
     then
         ARTIST=$(echo $(echo $ARTIST | cut -b 1-15)"...")
     fi
+
     if [ "${#TITLE}" -ge "16" ];
     then
         TITLE=$(echo $(echo $TITLE | cut -b 1-15)"...")
     fi
+
     case "$PLAYER" in
         "chromium") echo $CHROME_ICON$ARTIST - $TITLE
         ;;
@@ -33,6 +36,7 @@ then
         "mpv") echo $MUSIC_ICON$ARTIST - $TITLE
         ;;
     esac
+
 else
-    echo ""
+    echo "player is not running"
 fi
