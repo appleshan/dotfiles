@@ -49,16 +49,16 @@ export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/.ripgreprc
 # Oracle JDK 7
 # export JAVA_7_HOME=$HOME/bin/java/jdk1.7.0_60
 # Oracle JDK 8
-# export JAVA_8_HOME=$HOME/bin/java/jdk1.8.0_162
-# Oracle JDK 11
-# export JAVA_11_HOME=$HOME/bin/java/jdk-11.0.7-full
-# default JDK is 11
-# export JAVA_HOME=$JAVA_11_HOME
-# export JRE_HOME=$JAVA_11_HOME/jre
+export JAVA_8_HOME=$HOME/bin/java/jdk1.8.0_212
+# Oracle JDK 17
+export JAVA_17_HOME=$HOME/bin/java/jdk-17.0.6
+# default JDK is 17
+export JAVA_HOME=$JAVA_17_HOME
+export JRE_HOME=$JAVA_17_HOME/jre
 
-# appendpath "$JAVA_HOME/bin"
+appendpath "$JAVA_HOME/bin"
 
-# export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
+export CLASSPATH=.:$JAVA_HOME/lib:$JRE_HOME/lib
 
 # Gradle Setup
 export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
@@ -68,7 +68,7 @@ export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # Maven Setup
 export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
-# ln -s $HOME/bin/java/apache-maven-3.6.3/bin/mvn /usr/local/bin
+# ln -s $HOME/bin/java/apache-maven-3.9.0/bin/mvn /usr/local/bin
 
 # Ant Setup
 export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
