@@ -1,9 +1,9 @@
 ;基础设置 {{{
 # 专为github设置的代理
 [http "https://github.com"]
-    proxy = socks5://127.0.0.1:20089
+#    proxy = socks5://127.0.0.1:20089
 [https "https://github.com"]
-    proxy = socks5://127.0.0.1:20089
+#    proxy = socks5://127.0.0.1:20089
 
 [core]
     #{{ @See https://p3terx.com/archives/how-to-choose-crlf-lf.html
