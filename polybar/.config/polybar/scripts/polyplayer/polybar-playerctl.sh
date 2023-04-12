@@ -16,12 +16,12 @@ then
     # If either artist or title length is > 15, Then cut and add ellipsis
     if [ "${#ARTIST}" -ge "16" ];
     then
-        ARTIST=$(echo $(echo $ARTIST | cut -b 1-15)"...")
+        ARTIST=$(echo $(echo ${ARTIST: 0: 16})"...")
     fi
 
     if [ "${#TITLE}" -ge "16" ];
     then
-        TITLE=$(echo $(echo $TITLE | cut -b 1-15)"...")
+        TITLE=$(echo $(echo ${TITLE: 0: 18})"...")
     fi
 
     case "$PLAYER" in
