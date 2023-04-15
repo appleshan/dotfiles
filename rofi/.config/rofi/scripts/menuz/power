@@ -4,7 +4,7 @@
 
 NAME="  Power"
 ITEMS=(
-  [" Shutdown System"]="systemctl poweroff"
-  [" Reboot System"]="systemctl reboot"
+  [" Shutdown System"]="systemctl poweroff"
+  [" Reboot System"]="systemctl reboot"
   [" Suspend System"]="systemctl suspend"
 )
