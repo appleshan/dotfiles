@@ -22,17 +22,17 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Moniotor 1 Wallpaper Directory
-MON1WALLPAPERS=~/persist/pictures/wallpaper
+MON1WALLPAPERS=~/persist/pictures/wallpaper/bing-wallpaper
 # Change monitor 1 wallpaper in "x" seconds
 MON1TIME=45
 
 # Monitor 2 Wallpaper Directory
-MON2WALLPAPERS=~/persist/pictures/wallpaper
+MON2WALLPAPERS=~/persist/pictures/wallpaper/bing-wallpaper
 # Change monitor 2 wallpaper in "x" seconds
 MON2TIME=45
 
 # Monitor 3 Wallpaper Directory
-MON3WALLPAPERS=~/persist/pictures/wallpaper
+MON3WALLPAPERS=~/persist/pictures/wallpaper/bing-wallpaper
 # Change monitor 3 Wallpaper in "x" seconds
 MON3TIME=45
 

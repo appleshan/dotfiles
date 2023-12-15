@@ -1,6 +1,6 @@
 #!/bin/bash
 #using the path WALLPAPERS will select a new random wallpaper
-WALLPAPERS=~/persist/pictures/wallpaper
+WALLPAPERS=~/persist/pictures/wallpaper/bing-wallpaper
 RANGE=$(ls $WALLPAPERS | wc -l)
 
 for i in 2 7 12; do
