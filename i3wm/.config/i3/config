@@ -25,7 +25,7 @@
 # => 字体
 font pango: Hack, FontAwesome 12
 
-# => 设定mod键为“微软大旗键”
+# => Super key ==  ⊞ Windows logo key  ==  Apple ⌘ Command key
 set $mod  Mod4
 
 # => 设定工作区名 (workspace names)
@@ -378,18 +378,18 @@ bindsym $mod+Shift+g  mode "$mode_gaps"
 # configuration in ~/.config/polybar/config.ini
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-#exec_always --no-startup-id $HOME/.config/i3/startup_apps.sh
+exec_always --no-startup-id $HOME/.config/i3/startup_apps.sh
 
 # => 多屏切换
 # New mode for switching monitor modes
 set $monitorMode "monitor s=single, d=dual-screen"
 bindsym $mod+Shift+m mode $monitorMode
 mode $monitorMode {
-  bindsym s exec "~/.config/i3/screenlayout/single"
-  bindsym d exec "~/.config/i3/screenlayout/dual-screen"
+  bindsym s  exec "~/.config/i3/screenlayout/single"
+  bindsym d  exec "~/.config/i3/screenlayout/dual-screen"
   # back to normal: Enter or Escape
-  bindsym Return mode "default"
-  bindsym Escape mode "default"
+  bindsym Return  mode "default"
+  bindsym Escape  mode "default"
 }
 
 # enable syntax highlighting in vim/neovim. must have the i3 plugin!
