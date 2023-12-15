@@ -57,7 +57,7 @@ pasystray &
 clipit &
 
 # => To autostart sxhkd
-sxhkd &
+# sxhkd &
 
 #{{ redshift
 # enable the geoclue agent on startup.
