@@ -89,8 +89,6 @@
     ],
     "workbench.colorTheme": "Solarized Light",
     "workbench.iconTheme": "vscode-icons",
-
-    "workbench.editor.enablePreview": false,
     "workbench.editorAssociations": [
         {
             "viewType": "jupyter.notebook.ipynb",
