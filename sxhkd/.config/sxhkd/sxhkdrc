@@ -99,83 +99,83 @@ super + shift + r
 
 # description: Focus on the left/up/right/down/panel
 super + {Left,Right,Up,Down}
-   i3-msg focus {left,right,up,down}
+    i3-msg focus {left,right,up,down}
 
 # description: Move panel to the left/up/right/down/panel
 super + shift + {Left,Right,Up,Down}
-   i3-msg move {left,right,up,down}
+    i3-msg move {left,right,up,down}
 
 # description: Move workspace to the output left/right
 #super + control + shift + {Next,Prior}
-#   i3-msg move workspace to output {left,right}
+#    i3-msg move workspace to output {left,right}
 
 # description: Move window/panel to the Scratchpad
 super + shift + minus
-   i3-msg move scratchpad
+    i3-msg move scratchpad
 
 # description: Toggle Scratchpad
 super + minus
-   i3-msg scratchpad show
+    i3-msg scratchpad show
 
 # description: Resize panel 10x10 pixel
 super + control + shift + {Left,Right,Up,Down}
-   i3-msg resize {shrink width,grow width,shrink height,grow height} 10 px or 10 ppt
+    i3-msg resize {shrink width,grow width,shrink height,grow height} 10 px or 10 ppt
 
 # description: Resize panel 100x100 pixel
 super + shift + {Next,Prior}
-   mode={grow,shrink}; \
-   size="100 px or 100 ppt"; \
-   i3-msg resize $mode height $size,resize $mode width $size
+    mode={grow,shrink}; \
+    size="100 px or 100 ppt"; \
+    i3-msg resize $mode height $size,resize $mode width $size
 
 # description: Go into i3 resize mode
 super + r
-   i3-msg mode ""
+    i3-msg mode ""
 
 # description: Switch to the next workspace
 #super + Tab
-#   i3-msg workspace next
+#    i3-msg workspace next
 
 # description: Switch to the previous workspace
 #super + shift + Tab
-#   i3-msg workspace prev
+#    i3-msg workspace prev
 
 # description: Switch to the previous/next workspace
 super + control + {Right,Left}
-   i3-msg workspace {next,prev}
+    i3-msg workspace {next,prev}
 
 # description: Change layout to stacking
 # description: Change layout to tabbed
 # description: Toggle horizontal/vertical splits
 super + {s,w,e}
-   i3-msg layout {stacking,tabbed,toggle split}
+    i3-msg layout {stacking,tabbed,toggle split}
 
 # description: Split layout horizontaly
 super + control + h
-   i3-msg split h
+    i3-msg split h
 
 # description: Split layout verticaly
 super + control + v
-   i3-msg split v, mark "lastsplit"
+    i3-msg split v, mark "lastsplit"
 
 # description: Kill the current panel/window
 super + q
-   i3-msg kill
+    i3-msg kill
 
 # description: Toggle floating on a pannel or window
 super + space
-   i3-msg focus mode_toggle
+    i3-msg focus mode_toggle
 
 # description: Toggle stickyness on a window
 super + shift + {space,s}
-   i3-msg {floating,sticky} toggle
+    i3-msg {floating,sticky} toggle
 
 # description: Toggle fullscreen
 super + f
-   i3-msg fullscreen toggle
+    i3-msg fullscreen toggle
 
 # description: Toggle border
 super + b
-   i3-msg border toggle
+    i3-msg border toggle
 
 # description: 转到工作区
 super + {1,2,3,4,5,6,7,8,9,0}
