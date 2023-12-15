@@ -57,6 +57,206 @@ new_float normal
 # 设置窗口边框隐藏
 hide_edge_borders both
 
+
+###############################################################################
+#  Application openners  
+###############################################################################
+
+# description: Open terminal (i3-sensible-terminal or termite)
+bindsym $mod+Return  exec --no-startup-id  termite
+
+# description: Start file manager (ranger、pcmanfm or thunar)
+bindsym $mod+F3  exec --no-startup-id  pcmanfm
+
+# description: Open web browser
+bindsym $mod+F2  exec --no-startup-id  google-chrome-stable
+
+# description: flameshot 屏幕截图
+bindsym Print  exec --no-startup-id  flameshot gui --delay 200
+
+# description: flameshot config
+bindsym $mod+shift+Print  exec --no-startup-id  flameshot config
+
+# description: soundcard mixer
+bindsym $mod+shift+control+m  exec --no-startup-id  urxvt -e 'alsamixer'
+
+
+###############################################################################
+#   Service Controls    
+###############################################################################
+
+# description: Rofi show window
+bindsym $mod+Tab  exec --no-startup-id  rofi -show window
+
+# description: Rofi show applications
+bindsym $mod+d  exec --no-startup-id  rofi -show drun -columns 3
+
+# description: Rofi show command
+#bindsym $mod+shift+d  exec --no-startup-id  rofi -show run -columns 3
+
+# description: System Menu
+bindsym $mod+shift+p  exec --no-startup-id  $HOME/.config/rofi/scripts/menuz/show-system-menu.sh
+
+# description: Use rofi to search documentation on Zeal and Man
+bindsym $mod+g  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
+
+# description: 多媒体播放
+bindsym $mod+control+m  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-media/media.sh
+
+
+###############################################################################
+#   Misc keys          
+###############################################################################
+
+# description: Use rofi to search book on 'ebook' dir
+bindsym $mod+shift+b  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-book-selector/rofi-book-selector.sh
+
+
+###############################################################################
+#   I3 conrols         
+###############################################################################
+
+# => reload the configuration file（更改配置文件后只须重载即可生效，不包含自启部分）
+## 重新载入 i3 配置 // i3 WM // <Super><Shift> c ##
+bindsym $mod+Shift+c  reload
+
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+## 重启 i3 窗口管理器 // i3 WM // <Super><Shift> r ##
+bindsym $mod+Shift+r  restart
+
+# change focus with cursor keys
+## 在窗口之间导航焦点 // Window // <Super> ↑ ↓ ← → ##
+bindsym $mod+Left   focus left
+bindsym $mod+Down   focus down
+bindsym $mod+Up     focus up
+bindsym $mod+Right  focus right
+
+# => 移动窗口
+# move focused window with cursor keys
+## 移动聚焦的窗口 // Window // <Super><Shift> ↑ ↓ ← → ##
+bindsym $mod+Shift+Left   move left
+bindsym $mod+Shift+Down   move down
+bindsym $mod+Shift+Up     move up
+bindsym $mod+Shift+Right  move right
+
+# => 暂存窗口（额外的可隐藏浮动窗口，取消浮动还原成普通窗口）
+## 转换普通窗口为暂存窗口 // Scratchpad // <Super><Shift> - ##
+bindsym $mod+Shift+minus  move scratchpad
+## 呼出/隐藏暂存窗口 // Scratchpad // <Super> - ##
+bindsym $mod+minus  scratchpad show
+
+# description: Resize panel 10x10 pixel
+bindsym $mod+control+shift+Left   resize shrink width 10 px or 10 ppt
+bindsym $mod+control+shift+Right  resize grow   width 10 px or 10 ppt
+bindsym $mod+control+shift+Up     resize shrink height 10 px or 10 ppt
+bindsym $mod+control+shift+Down   resize grow   height 10 px or 10 ppt
+
+# Navigate workspaces next / previous
+## 导航下一个/上一个工作区 // Window // <Super><Ctrl> ← → ##
+bindsym $mod+Ctrl+Left   workspace prev
+bindsym $mod+Ctrl+Right  workspace next
+
+# => 布局切换 (change container layout <stacked, tabbed, toggle split>)
+
+# Switch to stacked layout
+## 切换到堆叠布局 // Window // <Super> s ##
+bindsym $mod+s  layout stacking
+
+# Switch to tabbed layout
+## 切换到标签布局 // Window // <Super> w ##
+bindsym $mod+w  layout tabbed
+
+# Switch to tiled layout
+## 切换到平铺布局（竖直/水平） // Window // <Super> e ##
+bindsym $mod+e  layout toggle split
+
+# Switch back and forth in all layouts <stacked, tabbed, toggle split>
+## 在所有布局中轮回切换 // Window // <Super> x ##
+bindsym $mod+x  layout toggle all
+
+# enter fullscreen mode for the focused container
+## 窗口切换到全屏 // Window // <Super> f ##
+bindsym $mod+f  fullscreen toggle
+
+# toggle tiling / floating
+## 窗口切换到浮动 // Window // <Super><Shift><space> ##
+bindsym $mod+Shift+space  floating toggle
+
+# toggle sticky
+## 窗口切换为粘滞 // Window // <Super><Shift> s ##
+bindsym $mod+Shift+s  sticky toggle
+
+# => 焦点切换
+# 焦点跟随鼠标移动
+focus_follows_mouse yes
+# 焦点切换到父窗口 (focus the parent container)
+# bindsym $mod+q focus parent
+# 焦点切换回子窗口 (focus the child container)
+# bindsym $mod+z focus child
+# 焦点切换到浮动窗口 (change focus between tiling / floating windows)
+## 焦点切换到浮动窗口 // Window // <Super><space> ##
+bindsym $mod+space  focus mode_toggle
+
+# => 新建窗口的分割方向
+# Split window horizontally
+## 水平分割视窗 // Workspace // <Super><Ctrl> h ##
+bindsym $mod+Ctrl+h  split h;exec notify-send 'tile horizontally'
+# Split window vertically
+## 垂直分割窗口 // Workspace // <Super><Ctrl> v ##
+bindsym $mod+Ctrl+v  split v;exec notify-send 'tile vertically'
+
+# => 关闭窗口
+# kill focused window
+## 关闭聚焦的窗口 // Window // <Alt> F4 ##
+bindsym mod1+F4  kill
+
+## 在三种边框类型中切换 // Workspace // <Super> b ##
+bindsym $mod+b border toggle
+# change borders
+# bindsym $mod+u  border none
+# bindsym $mod+y  border pixel 1
+# bindsym $mod+n  border normal
+
+## 转到工作区 // Workspace // <Super> 1...0 ##
+bindsym $mod+1  workspace $ws1
+bindsym $mod+2  workspace $ws2
+bindsym $mod+3  workspace $ws3
+bindsym $mod+4  workspace $ws4
+bindsym $mod+5  workspace $ws5
+bindsym $mod+6  workspace $ws6
+bindsym $mod+7  workspace $ws7
+bindsym $mod+8  workspace $ws8
+bindsym $mod+9  workspace $ws9
+bindsym $mod+0  workspace $ws0
+
+# => 移动窗口到另一个工作区
+
+# Move focused container to workspace
+## 将聚焦的容器移动到另一个工作区 // Workspace // <Super><Ctrl> 1...0 ##
+bindsym $mod+Ctrl+1  move container to workspace $ws1
+bindsym $mod+Ctrl+2  move container to workspace $ws2
+bindsym $mod+Ctrl+3  move container to workspace $ws3
+bindsym $mod+Ctrl+4  move container to workspace $ws4
+bindsym $mod+Ctrl+5  move container to workspace $ws5
+bindsym $mod+Ctrl+6  move container to workspace $ws6
+bindsym $mod+Ctrl+7  move container to workspace $ws7
+bindsym $mod+Ctrl+8  move container to workspace $ws8
+bindsym $mod+Ctrl+9  move container to workspace $ws9
+bindsym $mod+Ctrl+0  move container to workspace $ws0
+
+# Move to workspace with focused container
+## 带上聚焦的容器移动到另一个工作区 // Workspace // <Super><Shift> 1...0 ##
+bindsym $mod+Shift+1  move container to workspace $ws1; workspace $ws1
+bindsym $mod+Shift+2  move container to workspace $ws2; workspace $ws2
+bindsym $mod+Shift+3  move container to workspace $ws3; workspace $ws3
+bindsym $mod+Shift+4  move container to workspace $ws4; workspace $ws4
+bindsym $mod+Shift+5  move container to workspace $ws5; workspace $ws5
+bindsym $mod+Shift+6  move container to workspace $ws6; workspace $ws6
+bindsym $mod+Shift+7  move container to workspace $ws7; workspace $ws7
+bindsym $mod+Shift+8  move container to workspace $ws8; workspace $ws8
+bindsym $mod+Shift+9  move container to workspace $ws9; workspace $ws9
+bindsym $mod+Shift+0  move container to workspace $ws0; workspace $ws0
+
 # => 调整窗口大小 (resize window)
 mode "" {
         # these bindings trigger as soon as you enter the resize mode
@@ -65,24 +265,20 @@ mode "" {
         # pressing 'RIGHT' or 'L' will grow the window’s width.
         # pressing 'UP' or 'K' will shrink the window’s height.
         # pressing 'DOWN' or 'J' will grow the window’s height.
-        bindsym Down resize grow height 5 px or 5 ppt
-        bindsym Up resize shrink height 5 px or 5 ppt
-        bindsym Right resize grow width 5 px or 5 ppt
-        bindsym Left resize shrink width 5 px or 5 ppt
-        bindsym j resize grow height 5 px or 5 ppt
-        bindsym k resize shrink height 5 px or 5 ppt
-        bindsym l resize grow width 5 px or 5 ppt
-        bindsym h resize shrink width 5 px or 5 ppt
+        bindsym Down   resize grow height 5 px or 5 ppt
+        bindsym Up     resize shrink height 5 px or 5 ppt
+        bindsym Right  resize grow width 5 px or 5 ppt
+        bindsym Left   resize shrink width 5 px or 5 ppt
+        bindsym j      resize grow height 5 px or 5 ppt
+        bindsym k      resize shrink height 5 px or 5 ppt
+        bindsym l      resize grow width 5 px or 5 ppt
+        bindsym h      resize shrink width 5 px or 5 ppt
 
         # back to normal: Enter or Escape
         bindsym Return mode "default"
         bindsym Escape mode "default"
 }
-# bindsym $mod+r mode ""
-
-# => 焦点切换
-# 焦点跟随鼠标移动
-focus_follows_mouse yes
+bindsym $mod+r mode ""
 
 # Use Mouse+$mod to drag floating windows to their wanted position
 floating_modifier $mod
@@ -168,7 +364,7 @@ mode "$mode_gaps_outer" {
         bindsym Escape mode "default"
 }
 
-# bindsym $mod+Shift+g mode "$mode_gaps"
+bindsym $mod+Shift+g  mode "$mode_gaps"
 
 # => startup apps and daemons
 
