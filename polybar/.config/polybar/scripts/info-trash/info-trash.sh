@@ -12,11 +12,11 @@ get_trash
 
 
 if (("$EFFECTIVE_SIZE" > "$ALLERT" )); then
-    echo "%{F#ff5770} %{F#f2f2f2}Very Full %{F#77f2f2}$SIZE""B"
+    echo "%{F#f2f2f2}Very Full %{F#77f2f2}$SIZE""B"
 elif (("$TRASH" > 0)); then
-    echo "%{F#FF8B42} %{F#f2f2f2}Full %{F#77f2f2}$SIZE""B"
+    echo "%{F#f2f2f2}Full %{F#77f2f2}$SIZE""B"
 else
-    echo " %{F#44f2f2} %{F#77f2f2}Empty"
+    echo "%{F#77f2f2}Empty"
 fi
 
 clean_trash(){

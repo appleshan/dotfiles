@@ -123,6 +123,9 @@ feels_like="$DEFAULT_WEATHER_TEMP"
 
 # 调用和风天气API获取数据
 jwt_token=$(generate_jwt_token)
+
+DATE="$(date +"%Y-%m-%d %H:%M:%S")"
+
 if [ -n "$jwt_token" ]; then
     weather_json=$(timeout ${WEATHER_TIMEOUT}s curl -s --compressed -H "Authorization: Bearer $jwt_token" \
         "https://kw59fc43yp.re.qweatherapi.com/v7/weather/now?location=${WEATHER_LOCATION}&lang=${WEATHER_LANG}&unit=${WEATHER_UNIT}" 2>/dev/null)
@@ -147,28 +150,40 @@ if [ -n "$jwt_token" ]; then
                 ;;
             "401"|"403")
                 # Token认证失败
-                echo "天气API认证失败，请检查配置" >&2
+                # echo "天气API认证失败，请检查配置" >&2
+                echo $DATE "ERROR 天气API认证失败，请检查配置" >> weather-api.log
+                echo " " >&2
                 ;;
             "404")
                 # 城市代码无效
-                echo "天气API：城市代码无效，请检查WEATHER_LOCATION配置" >&2
+                # echo "天气API：城市代码无效，请检查 WEATHER_LOCATION 配置" >&2
+                echo $DATE "ERROR 天气API：城市代码无效，请检查 WEATHER_LOCATION 配置" >> weather-api.log
+                echo " " >&2
                 ;;
             "429")
                 # API调用频率限制
-                echo "天气API调用频率超限" >&2
+                # echo "天气API调用频率超限" >&2
+                echo $DATE "ERROR 天气API调用频率超限" >> weather-api.log
+                echo " " >&2
                 ;;
             *)
                 # 其他API错误
-                echo "天气API返回错误代码: $api_code" >&2
+                # echo "天气API返回错误代码: $api_code" >&2
+                echo $DATE "ERROR 天气API返回错误代码: $api_code" >> weather-api.log
+                echo " " >&2
                 ;;
         esac
     else
         # 网络请求失败
-        echo "天气API网络请求失败，可能原因：网络连接问题或API服务器不可达" >&2
+        # echo "天气API网络请求失败，可能原因：网络连接问题或API服务器不可达\n" >&2
+        echo $DATE "ERROR 天气API网络请求失败，可能原因：网络连接问题或API服务器不可达" >> weather-api.log
+        echo " " >&2
     fi
 else
     # JWT Token生成失败
-    echo "JWT Token生成失败，请检查PRIVATE_KEY、KEY_ID、PROJECT_ID配置" >&2
+    # echo "JWT Token生成失败，请检查PRIVATE_KEY、KEY_ID、PROJECT_ID配置" >&2
+    echo $DATE "ERROR JWT Token生成失败，请检查PRIVATE_KEY、KEY_ID、PROJECT_ID配置" >> weather-api.log
+    echo " " >&2
 fi
 
 # === 输出状态栏 ===
