@@ -5,8 +5,8 @@
 # == Statistic commands ==
 
 sudo lshw -C network
-sudo ip link show eno1
-sudo ip link show wlp3s0
+sudo ip link show enp86s0
+sudo ip link show wlo1
 ifconfig
 sudo systemd-resolve --statistics
 

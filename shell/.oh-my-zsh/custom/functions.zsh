@@ -55,6 +55,9 @@ unset MAILCHECK       # I don not want my shell to warn me of incoming mail
 # @See https://stackoverflow.com/questions/799576/tput-unknown-terminal
 export TERMINFO=/usr/lib/terminfo
 
+# @See https://wiki.archlinuxcn.org/wiki/Sudo#%E5%BD%A9%E8%89%B2%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA
+export SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0): "
+
 source $ZSH/custom/shell-aliases.sh
 source $ZSH/custom/emacs-functions.sh
 
@@ -133,7 +136,8 @@ dirsize () {
         egrep '^ *[0-9.]*[MG]' | sort -n > /tmp/list
     egrep '^ *[0-9.]*M' /tmp/list
     egrep '^ *[0-9.]*G' /tmp/list
-    rm -rf /tmp/list
+    # rm is an alias
+    /usr/bin/rm -rf /tmp/list
 }
 
 function xtitle () {
@@ -147,7 +151,7 @@ function xtitle () {
 
 function big() {
     # find files and sort by size, full path is printed
-    find -name "$*" -type f -printf "`pwd`%P %s\n"|sort -k2,2n
+    find -name "$*" -type f -printf "`pwd`/%P %s\n"|sort -k2,2n
 }
 
 # ------------------------------------------------------------
@@ -361,6 +365,9 @@ function getcertnames() {
 function ltree() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
+
+# McFly - fly through your shell history
+eval "$(mcfly init zsh)"
 
 ###############################################################################
 # Java

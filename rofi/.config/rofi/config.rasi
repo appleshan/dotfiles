@@ -1,2 +1,5 @@
 /*-*- mode: css; -*-*/
-@import "/home/alecshan/.config/rofi/themes/debxp-dark-center-rounded.rasi"
+/*@import "/home/alecshan/.config/rofi/themes/debxp-dark-center-rounded.rasi"*/
+
+/* repo: https://github.com/dracula/rofi */
+@import "/home/alecshan/.config/rofi/themes/dracula-dark-1.rasi"

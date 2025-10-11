@@ -52,7 +52,7 @@
     # Print a notification on startup.
     # This is mainly for error detection, since dbus (re-)starts dunst
     # automatically after a crash.
-    startup_notification = false
+#    startup_notification = false
 
 # Appearance
 # ---------------------------------------------------------------------
@@ -68,14 +68,14 @@
     # window allows bounces back and forth.
     # This option conflicts with "word_wrap".
     # Set to 0 to disable.
-    bounce_freq = 0
+#    bounce_freq = 0
 
     # Icons:
     # Align icons left/right/off
     icon_position = left
 
     # Paths to default icons.
-    icon_folders = /usr/share/icons/gnome/48x48/status/:/usr/share/icons/gnome/48x48/devices/:/usr/share/icons/Numix-Circle/48/apps
+#    icon_folders = /usr/share/icons/gnome/48x48/status/:/usr/share/icons/gnome/48x48/devices/:/usr/share/icons/Numix-Circle/48/apps
 
     max_icon_size = 32
 
@@ -101,7 +101,7 @@
     #
     # For a complete reference see
     # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
-    allow_markup = yes
+#    allow_markup = yes
 
     # The format of the message.  Possible variables are:
     #   %a  appname
@@ -128,7 +128,7 @@
     # the top and down respectevly.
     # The width can be negative.  In this case the actual width is the
     # screen width minus the width defined in within the geometry option.
-    geometry = "600x50-30+52"
+#    geometry = "600x50-30+52"
 
     # Shrink window if it's smaller than the width.  Will be ignored if
     # width is 0.
@@ -159,14 +159,14 @@
     horizontal_padding = 20
 
     # Border
-[frame]
-    width = 3
-    color = "#aaaaaa"
+#[frame]
+#    width = 3
+#    color = "#aaaaaa"
 
 
 # Key Bindings
 # ---------------------------------------------------------------------
-[shortcuts]
+#[shortcuts]
     # Shortcuts are specified as [modifier+][modifier+]...key
     # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
     # "mod3" and "mod4" (windows-key).

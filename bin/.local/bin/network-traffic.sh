@@ -28,7 +28,7 @@ print_bit() {
 
 INTERVAL=2
 # INTERFACES="enp0s25 wlp3s0"
-INTERFACES="eno1 wlp3s0"
+INTERFACES="enp86s0 wlo1"
 
 declare -A bytes
 

@@ -96,8 +96,9 @@ else
   PARAMS="'$INPUT_IMAGE' '-level' '0%,100%,0.6' '-blur' '$BLURTYPE' $PARAMS '$OUTPUT_IMAGE'"
 fi
 
-# convert in imagemagick
-eval convert $PARAMS
+# WARNING: The convert command is deprecated in IMv7, use "magick" instead of "convert" or "magick convert"
+# magick in imagemagick
+eval magick $PARAMS
 
 #Lock the screen:
 i3lock -i $OUTPUT_IMAGE -t

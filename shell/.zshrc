@@ -70,7 +70,7 @@ source $ZSH/custom/zsh-theme.zsh
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(ag aliases \
+plugins=(aliases \
          # https://github.com/djui/alias-tips
          alias-tips \
          archlinux \
@@ -78,16 +78,15 @@ plugins=(ag aliases \
          zsh-autosuggestions \
          # https://github.com/Pilaton/OhMyZsh-full-autoupdate
          ohmyzsh-full-autoupdate \
-         colored-man-pages colorize command-not-found common-aliases copybuffer \
-         copyfile cp \
+         colored-man-pages colorize command-not-found common-aliases \
+         copybuffer copyfile cp \
          # https://github.com/joel-porquet/zsh-dircolors-solarized
          zsh-dircolors-solarized \
          dircycle dirpersist \
          emoji encode64 extract \
          fancy-ctrl-z \
-         gradle \
          # https://github.com/z-shell/H-S-MW
-         H-S-MW \
+         #H-S-MW \
          httpie jsontools \
          man mvn \
          nmap npm nvm \
@@ -98,7 +97,7 @@ plugins=(ag aliases \
          # https://github.com/six-ddc/zsh-proxychains-ng
          zsh-proxychains-ng \
          pip pyenv pylint python \
-         ripgrep rsync \
+         rsync \
          safe-paste \
          # https://github.com/mattmc3/zsh-safe-rm
          zsh-safe-rm \

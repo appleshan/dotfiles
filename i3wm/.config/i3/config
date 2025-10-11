@@ -66,7 +66,7 @@ hide_edge_borders both
 bindsym $mod+Return  exec --no-startup-id  termite
 
 # description: Start file manager (ranger、pcmanfm or thunar)
-bindsym $mod+F3  exec --no-startup-id  pcmanfm
+bindsym $mod+F3  exec --no-startup-id  thunar
 
 # description: Open web browser
 bindsym $mod+F2  exec --no-startup-id  google-chrome-stable
@@ -92,10 +92,17 @@ bindsym $mod+Tab  exec --no-startup-id  rofi -show window
 bindsym $mod+d  exec --no-startup-id  rofi -show drun -columns 3
 
 # description: Rofi show command
-#bindsym $mod+shift+d  exec --no-startup-id  rofi -show run -columns 3
+bindsym $mod+shift+d  exec --no-startup-id  rofi -show run -columns 3
 
 # description: System Menu
-bindsym $mod+shift+p  exec --no-startup-id  $HOME/.config/rofi/scripts/menuz/show-system-menu.sh
+bindsym $mod+shift+a  exec --no-startup-id  $HOME/.config/rofi/scripts/menuz/show-system-menu.sh
+
+# description: Power Menu
+# Repo: https://github.com/jluttine/rofi-power-menu
+# No icons: https://github.com/jluttine/rofi-power-menu/issues/8#issuecomment-1440149437
+bindsym $mod+shift+p  exec --no-startup-id  \
+    rofi -show power-menu \
+    -modi power-menu:$HOME/.config/rofi/scripts/rofi-power-menu/rofi-power-menu
 
 # description: Use rofi to search documentation on Zeal and Man
 bindsym $mod+g  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
@@ -111,6 +118,10 @@ bindsym $mod+control+m  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-me
 # description: Use rofi to search book on 'ebook' dir
 bindsym $mod+shift+b  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-book-selector/rofi-book-selector.sh
 
+# description: xkill
+# https://unix.stackexchange.com/questions/383065/execute-xkill-in-i3
+bindsym --release $mod+control+x  exec  xkill; exec notify-send 'Run xkill...'
+
 
 ###############################################################################
 #   I3 conrols         
@@ -118,11 +129,11 @@ bindsym $mod+shift+b  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-book
 
 # => reload the configuration file（更改配置文件后只须重载即可生效，不包含自启部分）
 ## 重新载入 i3 配置 // i3 WM // <Super><Shift> c ##
-bindsym $mod+Shift+c  reload
+bindsym $mod+Shift+c  reload; exec notify-send 'Reload i3wm config'
 
 # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
 ## 重启 i3 窗口管理器 // i3 WM // <Super><Shift> r ##
-bindsym $mod+Shift+r  restart
+bindsym $mod+Shift+r  restart; exec notify-send 'Restart i3wm'
 
 # change focus with cursor keys
 ## 在窗口之间导航焦点 // Window // <Super> ↑ ↓ ← → ##
@@ -378,7 +389,7 @@ bindsym $mod+Shift+g  mode "$mode_gaps"
 # configuration in ~/.config/polybar/config.ini
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
-exec_always --no-startup-id $HOME/.config/i3/startup_apps.sh
+# exec_always --no-startup-id $HOME/.config/i3/startup_apps.sh
 
 # => 多屏切换
 # New mode for switching monitor modes

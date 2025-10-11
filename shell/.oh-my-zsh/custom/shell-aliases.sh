@@ -11,14 +11,12 @@
 alias df='df -kTh'
 alias dfxfs='df -Th --total -t xfs'
 
-alias tree='tree -CAFa -I "CVS|*.*.package|.svn|.git|.hg|node_modules|bower_components" --dirsfirst'
-
 # new commands
 alias internet-ip="curl ipinfo.io/ip"
 alias openports='netstat --all --numeric --programs --inet --inet6'
 
 # Pipe my public key to my clipboard.
-alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
+#alias pubkey="more ~/.ssh/id_rsa.pub | pbcopy | echo '=> Public key copied to pasteboard.'"
 
 # Pretty print the path
 alias path='echo $PATH | tr -s ":" "\n"'
