@@ -1,5 +1,7 @@
 #!/bin/sh
 
+export LIBVA_DRIVER_NAME=iHD
+
 #archwiki:enable Chinese locale
 export LANG=zh_CN.UTF-8
 export LANGUAGE=zh_CN:en_US
@@ -76,4 +78,18 @@ xfce4-power-manager &
 workrave &
 
 # 在鼠标指针不活动时隐藏鼠标指针.
-unclutter -idle 5 &
+#unclutter -idle 5 &
+xbanish -i shift -i mod4 -i control & # Remove mouse when typing
+
+# Automounter for removable media
+# https://github.com/coldfix/udiskie/wiki/Usage
+udiskie &
+
+# 转发 80 端口到 8080，为 Lovense Web 准备开发环境
+# iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
+# 查看刚才添加的规则：
+# iptables -t nat -L
+# 备份与恢复：
+# sudo iptables-save > /etc/iptables.rules
+# sudo iptables-restore < /etc/iptables.rules
+

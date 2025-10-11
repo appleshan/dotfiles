@@ -1,2 +1,2 @@
 ## Country : China
-Server = http://mirrors.tuna.tsinghua.edu.cn/manjaro/stable/$repo/$arch
+Server = https://mirrors.tuna.tsinghua.edu.cn/archlinuxcn/$arch
