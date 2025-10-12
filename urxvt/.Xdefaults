@@ -58,7 +58,8 @@
 *.color15: #fdf6e3
 
 !! URxvt Appearance
-URxvt.letterSpace: 0
+!By default, the spacing between characters may feel too wide. The spacing can be reduced by one pixel
+URxvt.letterSpace: -1
 URxvt.lineSpace: 0
 URxvt.geometry: 90x25+180+200
 ! URxvt.geometry: 92x24
@@ -71,20 +72,20 @@ URxvt.iso14755: false
 ! █▓▒░ Fonts
 Xft.dpi:96
 
+![WenQuanYi Bitmap Song]，This font makes Chinese look compact
 URxvt.font:\
 xft:Literation Mono Powerline:size=11:style=Regular,\
-xft:WenQuanYi Zen Hei:style=Regular:size=12,\
-xft:FreeSerif:style=Regular:size=12,\
+xft:WenQuanYi Bitmap Song:style=Regular:size=12,\
 xft:Hack:style=Regular:antialias=false:size=12,\
 xft:Unifont:style=Regular:antialias=false:size=12,\
-xft:FontAwesome:style=Regular:antialias=false:size=12
+xft:Font Awesome 7 Free:style=Regular:antialias=false:size=12
 
 URxvt.boldfont:\
 xft:Hack:size=12:style=Bold:antialias=true,\
 xft:DejaVu Sans Mono:size=12:style=Bold:antialias=true
 
 ! █▓▒░ icons
-URxvt.iconFile: /usr/share/icons/Vibrancy-Colors/apps/16/terminal.png
+URxvt.iconFile: /usr/share/icons/Papirus/16x16/apps/urxvt.svg
 
 ! █▓▒░ 边框设置
 urxvt.internalBorder: 5
@@ -171,7 +172,7 @@ urxvt.keysym.M-Escape: perl:keyboard-select:activate
 ! █▓▒░ Input Method
 !URxvt.preeditType:Root
 URxvt.preeditType:OffTheSpot
-URxvt.inputMethod:fcitx
+URxvt.inputMethod:fcitx5
 
 ! █▓▒░ Clickable URLs
 URxvt.urlLauncher: google-chrome
@@ -201,7 +202,7 @@ URxvt.tabbed.tab-bg: 0
 URxvt.tabbed.active-fg: 1
 URxvt.tabbed.actives-fg: 5
 URxvt.tabbed.actived-fg: 4
-URxvt.tabbed.new-button: false
+URxvt.tabbed.new-button: true
 URxvt.tabbed.autohide: true
 URXvt.tabbed.reopen-on-close: no
 
