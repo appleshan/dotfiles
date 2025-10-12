@@ -136,7 +136,7 @@
 [credential]
     # 缓存HTTP/HTTPS方式输入的用户名密码时间, 设置为
     # 时间单位为秒 此处为大于100年
-    helper = cache --timeout=3600000000
+    helper = cache --timeout=360000000
 
 # 自动解决重复冲突(比如reset后再次合并)
 [rerere]
