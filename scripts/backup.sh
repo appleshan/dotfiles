@@ -13,6 +13,9 @@ for f in $TARGETS; do
 
     #备份配置文件
 	rsync -a --relative $SRC/./$conf $DST/$f
+
+	#rsync报错时显示文件路径
+	echo "file:" $SRC/$conf "\n"
 done
 
 #列出已经安装软件，备份软件名称

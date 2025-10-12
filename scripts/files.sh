@@ -46,10 +46,7 @@ TARGETS=(
 	# i3wm/.config/i3/screenlayout/monitor-toggle.sh
 	# i3wm/.config/i3/screenlayout/single
 	i3wm/.config/i3lock-fancy-multimonitor/lock
-	i3wm/.config/i3lock-fancy-multimonitor/lock.png
-	i3wm/.config/i3lock-fancy-multimonitor/text.png
-	i3wm/.config/i3lock-fancy-multimonitor/i3-lock-screen.png
-	mimeapps/.config/mimeapps.list
+	#mimeapps/.config/mimeapps.list
 	#mutt
 	#nano/.config/nano/nanorc
 	neofetch/.config/neofetch/config.conf
@@ -71,13 +68,13 @@ TARGETS=(
     #pacman/etc/pacman.d/mirrorlist.sync
     peco/.config/peco/config.json
     picom/.config/picom/picom.conf
-    podman/etc/containers/registries.conf
+    #podman/etc/containers/registries.conf
     polybar/.config/polybar/launch.sh
     polybar/.config/polybar/config.ini
     polybar/.config/polybar/master.ini
     polybar/.config/polybar/modules.ini
     polybar/.config/polybar/workspaces.ini
-    polybar/.config/polybar/scripts/dnsmasq/dnsmasq
+    #polybar/.config/polybar/scripts/dnsmasq/dnsmasq
     polybar/.config/polybar/scripts/info-trash/info-trash.sh
     polybar/.config/polybar/scripts/player/polybar-playerctl.sh
     polybar/.config/polybar/scripts/popup-calendar/popup-calendar.sh
@@ -129,21 +126,21 @@ TARGETS=(
     shell/.oh-my-zsh/custom/path.zsh
     shell/.oh-my-zsh/custom/functions.zsh
     shell/.oh-my-zsh/custom/emacs-functions.sh
-    shell/.oh-my-zsh/custom/completion/_ag
-    shell/.oh-my-zsh/custom/completion/_cmake
-    shell/.oh-my-zsh/custom/completion/_docker
-    shell/.oh-my-zsh/custom/completion/_pass
-    shell/.oh-my-zsh/custom/completion/maven-bash-completion.sh
-    shellcheck/.shellcheckrc
+    #shell/.oh-my-zsh/custom/completion/_ag
+    #shell/.oh-my-zsh/custom/completion/_cmake
+    #shell/.oh-my-zsh/custom/completion/_docker
+    #shell/.oh-my-zsh/custom/completion/_pass
+    #shell/.oh-my-zsh/custom/completion/maven-bash-completion.sh
+    #shellcheck/.shellcheckrc
     #sift/.sift.conf
     ssh/.ssh/config
-    ssh/etc/ssh/sshd_config
+    #ssh/etc/ssh/sshd_config
     stow/.stow-global-ignore
     sxhkd/.config/sxhkd/sxhkdrc
     sxhkd/.config/sxhkd/sxhkd-bindings
-    terminator/.config/terminator/config
-    terminator/.config/terminator/plugins/logger.py
-    terminator/.config/terminator/plugins/searchplugin.py
+    #terminator/.config/terminator/config
+    #terminator/.config/terminator/plugins/logger.py
+    #terminator/.config/terminator/plugins/searchplugin.py
     termite/.config/termite/config
     #tmux/.tmux.conf
     #tmux/.tmux/config/settings.tmux
@@ -153,7 +150,7 @@ TARGETS=(
     #tmux/.tmux/config/mappings/prefix.tmux
     #tmux/.tmux/config/mappings/root.tmux
     #tor/.arm/torrc
-    urlview/.urlview
+    #urlview/.urlview
     urxvt/.Xdefaults
     urxvt/.Xresources.d/blaquemagick.Xcolors
     urxvt/.Xresources.d/blizzard-orb.Xcolors
@@ -163,31 +160,31 @@ TARGETS=(
     urxvt/.urxvt/ext/config-print
     urxvt/.urxvt/ext/config-reload
     urxvt/.urxvt/ext/tabbed
-    vifm/.config/vifm/vifmrc
-    vifm/.config/vifm/vifminfo
-    vifm/.config/vifm/vifm-help.txt
-    vifm/.config/vifm/colors/darkdesert.vifm
-    vifm/.config/vifm/colors/Default.vifm
-    vifm/.config/vifm/scripts/vifmrun
-    vifm/.config/vifm/scripts/vifmimg
-    #vscode/.config/Code/User/settings.json
+    #vifm/.config/vifm/vifmrc
+    #vifm/.config/vifm/vifminfo
+    #vifm/.config/vifm/vifm-help.txt
+    #vifm/.config/vifm/colors/darkdesert.vifm
+    #vifm/.config/vifm/colors/Default.vifm
+    #vifm/.config/vifm/scripts/vifmrun
+    #vifm/.config/vifm/scripts/vifmimg
+    vscode/.config/Code/User/settings.json
     #wakatime/.wakatime.cfg
-    wget/.wgetrc
+    #wget/.wgetrc
     xorg/.profile
-    xorg/.xinitrc
+    #xorg/.xinitrc
     xorg/.xprofile
     xorg/.Xresources
     xorg/.Xresources.d/Xresources.colors
     xorg/.Xresources.d/Xresources.xcursor
     xorg/.Xresources.d/Xresources.xft
     xorg/.Xresources.d/Xresources.xterm
-    xorg/etc/X11/xorg.conf.d/00-fonts.conf
-    xorg/etc/X11/xorg.conf.d/00-keyboard.conf
-    xorg/etc/X11/xorg.conf.d/10-magic-trackpad2.conf
-    xorg/etc/X11/xorg.conf.d/10-monitor.conf
-    xorg/etc/X11/xorg.conf.d/20-intel.conf
-    xorg/etc/X11/xorg.conf.d/30-touchpad.conf
-    xorg/etc/X11/xorg.conf.d/90-mouse.conf
+    #xorg/etc/X11/xorg.conf.d/00-fonts.conf
+    #xorg/etc/X11/xorg.conf.d/00-keyboard.conf
+    #xorg/etc/X11/xorg.conf.d/10-magic-trackpad2.conf
+    #xorg/etc/X11/xorg.conf.d/10-monitor.conf
+    #xorg/etc/X11/xorg.conf.d/20-intel.conf
+    #xorg/etc/X11/xorg.conf.d/30-touchpad.conf
+    #xorg/etc/X11/xorg.conf.d/90-mouse.conf
     yay/.config/yay/config.json
     #youtube-dl/youtube-dl.conf
 )
