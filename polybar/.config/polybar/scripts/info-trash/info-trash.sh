@@ -1,10 +1,13 @@
 #!/bin/bash
 
+path="$HOME/.local/share/Trash/files"
+if [ ! -d "$path" ]; then mkdir -p "$path"; fi
+
 get_trash() {
-    CHECK=$(du -a $HOME/.local/share/Trash/files/ | wc -l );
+    CHECK=$(du -a $path | wc -l );
     TRASH=$(expr "$CHECK" - 1);
-    SIZE=$(du -sh $HOME/.local/share/Trash/files | awk '{ printf $1}');
-    EFFECTIVE_SIZE=$(du -s $HOME/.local/share/Trash/files | awk '{ printf $1}');
+    SIZE=$(du -sh $path | awk '{ printf $1}');
+    EFFECTIVE_SIZE=$(du -s $path | awk '{ printf $1}');
     ALLERT=$(printf 5000000);
 }
 
@@ -20,11 +23,11 @@ else
 fi
 
 clean_trash(){
-    TRASHSIZE=$( du -s ~/.local/share/Trash/files/ | awk '{ printf $1}' );
+    TRASHSIZE=$( du -s $path | awk '{ printf $1}' );
     LIMIT_TRASH=$(printf 8000000);
 }
 
 clean_trash
 if (("$TRASHSIZE" > "$LIMIT_TRASH")); then
-    rm -rf $HOME/.local/share/Trash/files/*
+    rm -rf $path/*
 fi
