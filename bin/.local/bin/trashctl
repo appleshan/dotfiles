@@ -1,0 +1,31 @@
+#!/bin/sh
+
+# @See https://rqdmap.top/posts/trash%E5%8F%96%E4%BB%A3%E5%8D%B1%E9%99%A9%E7%9A%84rm/
+
+DEST="/home/`whoami`/.local/share/Trash/files/"
+
+if [ -z "$1" ]; then
+	echo "trashctl: [ list | empty ]"
+	exit -1
+fi
+
+if [ $1 = 'list' -o $1 = 'lis' -o $1 = 'li' -o $1 = 'l' -o $1 = 'ls' ]; then
+	ls -al --color=auto $DEST
+	echo '-----------------------------------'
+	echo -e 'Disk Usage:	\c'
+	du -sh $DEST
+
+
+elif [ $1 = 'empty' -o $1 = 'empy' -o $1 = 'emp' -o $1 = 'em' -o $1 = 'e' ]; then
+	echo -ne "\033[31m[Warning]\033[0m Remove all files in '$DEST'? (y/n) "
+	read answer
+	if [ -z "$answer" -o "${answer:0:1}x" = 'yx' -o "${answer:0:1}" = 'Yx' ]; then
+		rm -rf $DEST*
+		echo -e '\033[32m[Success]\033[0m Removed.'
+	fi
+else
+	echo "trashctl: [ list | empty ]"
+	exit -1
+fi
+
+exit 0
