@@ -74,11 +74,13 @@ Xft.dpi:96
 
 ![WenQuanYi Bitmap Song]，This font makes Chinese look compact
 URxvt.font:\
-xft:Literation Mono Powerline:size=11:style=Regular,\
-xft:WenQuanYi Bitmap Song:style=Regular:size=12,\
 xft:Hack:style=Regular:antialias=false:size=12,\
-xft:Unifont:style=Regular:antialias=false:size=12,\
-xft:Font Awesome 7 Free:style=Regular:antialias=false:size=12
+xft:WenQuanYi Bitmap Song:style=Regular:size=12,\
+xft:NotoColorEmoji:size=11:style=Regular,\
+xft:Font Awesome 7 Free:style=Regular:antialias=false:size=12,\
+xft:SymbolsNerdFont:style=Regular:antialias=false:size=12,\
+xft:IosevkaNerdFontMono:style=Regular:antialias=false:size=12,\
+xft:JetBrainsMonoNerdFontMono:style=Regular:antialias=false:size=12
 
 URxvt.boldfont:\
 xft:Hack:size=12:style=Bold:antialias=true,\
