@@ -151,6 +151,7 @@ TARGETS=(
     #terminator/.config/terminator/plugins/logger.py
     #terminator/.config/terminator/plugins/searchplugin.py
     termite/.config/termite/config
+    tgpt/.config/tgpt/proxy.txt
     #tmux/.tmux.conf
     #tmux/.tmux/config/settings.tmux
     #tmux/.tmux/config/plugins.tmux
