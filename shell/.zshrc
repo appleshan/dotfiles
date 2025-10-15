@@ -79,19 +79,20 @@ plugins=(aliases \
          # https://github.com/Pilaton/OhMyZsh-full-autoupdate
          ohmyzsh-full-autoupdate \
          colored-man-pages colorize command-not-found common-aliases \
-         copybuffer copyfile cp \
+         copybuffer copyfile copypath cp \
          # https://github.com/joel-porquet/zsh-dircolors-solarized
          zsh-dircolors-solarized \
-         dircycle dirpersist \
+         dircycle dirpersist dotenv \
          emoji encode64 extract \
          fancy-ctrl-z \
          # https://github.com/z-shell/H-S-MW
          #H-S-MW \
-         httpie jsontools \
+         history httpie isodate jsontools \
          man mvn \
          nmap npm nvm \
          # https://github.com/amyreese/zsh-opt-path
          opt-path \
+         podman
          # https://github.com/escalate/oh-my-zsh-proxy-plugin
          proxy \
          # https://github.com/six-ddc/zsh-proxychains-ng
@@ -101,7 +102,7 @@ plugins=(aliases \
          safe-paste \
          # https://github.com/mattmc3/zsh-safe-rm
          zsh-safe-rm \
-         sudo svn svn-fast-info systemadmin systemd \
+         sudo systemadmin systemd \
          timer tmux \
          ufw urltools \
          vscode \
