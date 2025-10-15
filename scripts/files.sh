@@ -89,7 +89,7 @@ TARGETS=(
     polybar/.config/polybar/scripts/pulseaudio-control/pulseaudio-control.bash
     polybar/.config/polybar/scripts/redshift/redshift.sh
     #polybar/.config/polybar/scripts/release/release.sh
-    polybar/.config/polybar/scripts/system-cpu-temppercore/system-cpu-temppercore.sh
+    polybar/.config/polybar/scripts/system-cpu-temppercore/tempcores.sh
     #polybar/.config/polybar/scripts/system-fan-speed/system-fan-speed.sh
     polybar/.config/polybar/scripts/system-uptime-pretty/system-uptime-pretty.sh
     #polybar/.config/polybar/scripts/updates-arch-aur/updates-arch-aur.sh
