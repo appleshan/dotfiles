@@ -13,7 +13,7 @@ set -e
 set -u
 
 # All supported choices
-all=(shutdown reboot suspend hibernate logout lockscreen)
+all=(lockscreen shutdown reboot suspend hibernate logout)
 
 # By default, show all (i.e., just copy the array)
 show=("${all[@]}")
@@ -209,7 +209,9 @@ do
 done
 for entry in "${all[@]}"
 do
-    confirmationMessages[$entry]=$(write_message "${icons[$entry]}" "Yes, ${texts[$entry]}")
+    # Add zero-width space character (\u200b) to icon to ensure confirmation-
+    # and regular messages never collide.
+    confirmationMessages[$entry]=$(write_message "${icons[$entry]}\u200b" "Yes, ${texts[$entry]}")
 done
 confirmationMessages[cancel]=$(write_message "${icons[cancel]}" "No, cancel")
 
