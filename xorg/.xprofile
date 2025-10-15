@@ -1,5 +1,6 @@
 #!/bin/sh
 
+export LIBVA_DRIVERS_PATH=/usr/lib/dri/iHD_drv_video.so
 export LIBVA_DRIVER_NAME=iHD
 
 #archwiki:enable Chinese locale
