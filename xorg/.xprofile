@@ -53,7 +53,7 @@ blueman-applet &
 
 # => To autostart volume manager tray
 #volumeicon &
-pasystray &
+#pasystray &
 
 # => To autostart clipboard Manager
 clipit &
@@ -84,6 +84,12 @@ xbanish -i shift -i mod4 -i control & # Remove mouse when typing
 # Automounter for removable media
 # https://github.com/coldfix/udiskie/wiki/Usage
 udiskie &
+
+# PulseAudio or PipeWire volume notification.
+pa-notify -u 1 &
+
+# PipeWire microphone tray indicator
+mic-indicator &
 
 # 转发 80 端口到 8080，为 Lovense Web 准备开发环境
 # iptables -t nat -A PREROUTING -p tcp --dport 80 -j REDIRECT --to-port 8080
