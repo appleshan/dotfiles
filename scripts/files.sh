@@ -11,6 +11,7 @@ TARGETS=(
 	bin/.local/bin/et
 	bin/.local/bin/trash
 	bin/.local/bin/trashctl
+    bin/.local/bin/test-fonts.pl
 	curl/.curlrc
 	dunst/.config/dunst/dunstrc
 	dunst/.config/dunst/dunstrc_dark-blood
