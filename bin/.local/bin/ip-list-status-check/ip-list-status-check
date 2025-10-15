@@ -52,7 +52,8 @@ IP_SOURCE=${IP_SOURCE:-'/etc/hosts'}
 IP_REGEXP=${IP_REGEXP:-"^10\.10\.10\."}
 
 ## Get local IP addresses from /etc/hosts
-LOCAL_IP_ADDRESSES=`egrep -o "$IP_REGEXP[\.0-9]*" "$IP_SOURCE"`
+#LOCAL_IP_ADDRESSES=`egrep -o "$IP_REGEXP[\.0-9]*" "$IP_SOURCE"`
+LOCAL_IP_ADDRESSES=`grep -E "$IP_REGEXP[\.0-9]*" "$IP_SOURCE"`
 
 
 echo -e "---------------------------------"
