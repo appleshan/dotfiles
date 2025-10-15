@@ -68,6 +68,14 @@ TARGETS=(
     #pacman/etc/pacman.d/mirrorlist.sync
     peco/.config/peco/config.json
     picom/.config/picom/picom.conf
+    PipeWire/.config/pipewire/client.conf.d/resample.conf
+    PipeWire/.config/pipewire/pipewire.conf.d/clock.conf
+    PipeWire/.config/pipewire/pipewire.conf.d/sink-eq11.conf
+    PipeWire/.config/pipewire/pipewire-pulse.conf.d/switch-on-connect.conf
+    PipeWire/.config/wireplumber/main.lua
+    PipeWire/.config/wireplumber/wireplumber.conf.d/50-alsa-config.conf
+    PipeWire/.config/wireplumber/wireplumber.conf.d/51-bluez-config.conf
+    PipeWire/.config/wireplumber/wireplumber.conf.d/51-disable-suspension.conf
     #podman/etc/containers/registries.conf
     polybar/.config/polybar/launch.sh
     polybar/.config/polybar/config.ini
