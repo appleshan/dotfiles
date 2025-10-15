@@ -100,9 +100,7 @@ bindsym $mod+shift+a  exec --no-startup-id  $HOME/.config/rofi/scripts/menuz/sho
 # description: Power Menu
 # Repo: https://github.com/jluttine/rofi-power-menu
 # No icons: https://github.com/jluttine/rofi-power-menu/issues/8#issuecomment-1440149437
-bindsym $mod+shift+p  exec --no-startup-id  \
-    rofi -show power-menu \
-    -modi power-menu:$HOME/.config/rofi/scripts/rofi-power-menu/rofi-power-menu
+bindsym $mod+shift+p  exec --no-startup-id  $HOME/.config/polybar/scripts/system-power-menu/rofi-power-menu.sh
 
 # description: Use rofi to search documentation on Zeal and Man
 bindsym $mod+g  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
