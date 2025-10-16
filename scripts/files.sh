@@ -85,6 +85,10 @@ TARGETS=(
     polybar/.config/polybar/workspaces.ini
     #polybar/.config/polybar/scripts/dnsmasq/dnsmasq
     polybar/.config/polybar/scripts/info-trash/info-trash.sh
+    polybar/.config/polybar/scripts/pipewire-wireplumber/headphones_acpi_handler.sh
+    polybar/.config/polybar/scripts/pipewire-wireplumber/pipewire.sh
+    polybar/.config/polybar/scripts/pipewire-wireplumber/pipewire-volume.sh
+    polybar/.config/polybar/scripts/pipewire-wireplumber/pipewire-microphone.sh
     polybar/.config/polybar/scripts/player/polybar-playerctl.sh
     polybar/.config/polybar/scripts/popup-calendar/popup-calendar.sh
     polybar/.config/polybar/scripts/pulseaudio-control/pulseaudio-control.bash
