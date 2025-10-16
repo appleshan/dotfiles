@@ -368,3 +368,13 @@ function ltree() {
 
 # McFly - fly through your shell history
 eval "$(mcfly init zsh)"
+
+# load-fonts
+function load-fonts() {
+    for dir in $(find ~/.local/share/fonts/ -type d) ;
+    do
+        (cd $dir; mkfontdir ; mkfontscale) ;
+    done ;
+
+    fc-cache -f
+}
