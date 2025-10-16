@@ -368,19 +368,3 @@ function ltree() {
 
 # McFly - fly through your shell history
 eval "$(mcfly init zsh)"
-
-###############################################################################
-# Java
-###############################################################################
-
-switchJavaNetProxy() {
-    [ -z "$JAVA_OPTS_BEFORE_NET_PROXY"] && {
-        export JAVA_OPTS_BEFORE_NET_PROXY="$JAVA_OPTS"
-        export JAVA_OPTS="$JAVA_OPTS -DproxySet=true -DsocksProxyHost=127.0.0.1 -DsocksProxyPort=7070"
-        echo "turn ON java net proxy!"
-    }|| {
-        export JAVA_OPTS="$JAVA_OPTS_BEFORE_NET_PROXY"
-        unset JAVA_OPTS_BEFORE_NET_PROXY
-        echo "turn off java net proxy!"
-    }
-}
