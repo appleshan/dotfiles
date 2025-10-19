@@ -107,6 +107,8 @@ export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 #export GOBIN=$GOPATH/bin
 #export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
+export GOPROXY="https://goproxy.cn,direct"
+
 #################
 # Oracle Client #
 #################
