@@ -97,14 +97,13 @@ plugins=(aliases \
          proxy \
          # https://github.com/six-ddc/zsh-proxychains-ng
          zsh-proxychains-ng \
-         pip pyenv pylint python \
          rsync \
          safe-paste \
          # https://github.com/mattmc3/zsh-safe-rm
          zsh-safe-rm \
          sudo systemadmin systemd \
          timer tmux \
-         ufw urltools \
+         ufw urltools uv \
          vscode \
          # https://github.com/sobolevn/wakatime-zsh-plugin
          wakatime \
