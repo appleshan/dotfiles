@@ -153,6 +153,13 @@ source $HOME/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
 
 source /usr/share/nvm/init-nvm.sh
 
+# pnpm
+export PNPM_HOME="$HOME/.local/share/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
+
 #################
 # dotnet-sdk    #
 #################
