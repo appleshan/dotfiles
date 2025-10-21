@@ -103,19 +103,15 @@
     shortlog = false
     grep = false
 
-# difftool用editor(nvr) 有bug， 还是nvim 好
 [diff]
-    tool = vimdiff3
-#    tool = difftastic
+    tool = difftastic
     # 移动的行特别显示
     colorMoved = default
 [difftool]
     prompt = false
     trustExitCode = true
-[difftool "vimdiff3"]
-    path = nvim
-#[difftool "difftastic"]
-#    cmd = difft \"$LOCAL\" \"$REMOTE\"
+[difftool "difftastic"]
+    cmd = difft \"$LOCAL\" \"$REMOTE\"
 
 [merge]
     # set "nvim" as tool for merging
