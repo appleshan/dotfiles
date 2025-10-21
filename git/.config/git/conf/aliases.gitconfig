@@ -644,6 +644,8 @@
     whorank = shortlog --summary --numbered --no-merges
     ; 获取hash全称，在遇到hash冲突的时候很有用
     abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H\" $commit; done' -"
+
+    aliases = "!f() { git config list | grep '^alias\\.' | cut -c 7-; }; f"
 ; }}}
 ; {{{ ### unused ###
     df-staged = diff --staged --color
