@@ -1,7 +1,7 @@
 # ======== 自定义变量 ========
 # 用于 topic 工作流的自定义变量，定义主要用于向远程仓库推送的分支
 [gitalias "topic.base.branch"]
-    name = dev
+    name = main
 
 [alias]
 # 很多alias来自 https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
