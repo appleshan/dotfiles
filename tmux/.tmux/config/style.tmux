@@ -51,3 +51,5 @@ set-option -g clock-mode-style 24
 #set-option -g message-style bg=yellow,fg=black
 set-option -g message-style bg="#343843",fg="#ffffff"
 
+# Using Delta with tmux
+set -ga terminal-overrides ",*-256color:Tc"

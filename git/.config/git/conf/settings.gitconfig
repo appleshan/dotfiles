@@ -29,7 +29,6 @@
     # 解决中文文件名称在这些Git命令输出中的显示问题
     quotepath = false
 
-    # pager = diff-so-fancy | less --tabs=4 -RFX
     pager = "{                                                           \
     COLUMNS=$(tput cols);                                            \
     if [ $COLUMNS -ge 80 ] && [ -z $FZF_PREVIEW_COLUMNS ]; then      \
@@ -44,6 +43,8 @@
 
 # {{{ delta配置 用于查看diff
 [delta]
+    # colors/styles
+    dark = true      # or light = true, or omit for auto-detection
     plus-color = "#012800"
     minus-color = "#340001"
     syntax-theme = "TwoDark"
@@ -51,12 +52,20 @@
     minus-emph-style = "#8c99a2 bold ul auto"
     plus-style = "white #0e3c15 "
     minus-style="white #5a0c0f"
+    inspect-raw-lines = false
+    navigate = true  # use n and N to move between diff sections
+    # Line numbers
     line-numbers = true
+    # Side-by-side view
     side-by-side = true
+    # named groups of settings
     features = unobtrusive-line-numbers decorations
     whitespace-error-style = 22 reverse
-    inspect-raw-lines = false
-    navigate = true  # 用n和N在文件之间跳转
+    # Hyperlinks
+    hyperlinks = true
+    hyperlinks-file-link-format = "vscode://file/{path}:{line}"
+    # hyperlinks-file-link-format = "idea://open?file={path}&line={line}"
+    # hyperlinks-file-link-format = "pycharm://open?file={path}&line={line}"
 
 [delta "unobtrusive-line-numbers"]
     line-numbers = true
@@ -90,12 +99,14 @@
     tag = false
     reflog = false
     ; diff = false
+    difftool = true
     shortlog = false
     grep = false
 
 # difftool用editor(nvr) 有bug， 还是nvim 好
 [diff]
     tool = vimdiff3
+#    tool = difftastic
     # 移动的行特别显示
     colorMoved = default
 [difftool]
@@ -103,18 +114,23 @@
     trustExitCode = true
 [difftool "vimdiff3"]
     path = nvim
+#[difftool "difftastic"]
+#    cmd = difft \"$LOCAL\" \"$REMOTE\"
 
 [merge]
-    tool = vim_mergetool
-    conflictStyle = diff3
+    # set "nvim" as tool for merging
+    tool = nvim
+    conflictStyle = zdiff3
 [mergetool]
+    # automatically launch merge tool without displaying a prompt
     prompt = false
     trustExitCode = true
     # 这样在解决冲突后就不会保留.orig文件了
     keepBackup = false
-[mergetool "vim_mergetool"]
-    # floaterm用nvr mergetool 有bug 还是nvim好, 然后<Alt-o>放大floaterm
-    cmd = nvim -f -c "MergetoolStart" "$MERGED" "$BASE" "$LOCAL" "$REMOTE"
+
+# define command which will be used when "nvim" is set as a merge tool
+[mergetool "nvim"]
+    cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 
 [rebase]
     # 在rebase -i 里自动将 之前commit --fixup A 产生的commit 放在 A 之后
