@@ -1,22 +1,23 @@
 # ======== 自定义变量 ========
 # 用于 topic 工作流的自定义变量，定义主要用于向远程仓库推送的分支
 [gitalias "topic.base.branch"]
-    name = master
+    name = dev
 
-[alias]    # 很多alias来自 https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
+[alias]
+# 很多alias来自 https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
 ; NOTE: 不要取名alias为 sync, cp 避免和git-extras冲突
 
 ; {{{ ### work flow ###
 
 ; ======== topic 工作流 =========
-;   NOTE: 这套工作流正常应用的前提是
-;                   1. 只有一个远程仓库且命名为origin
-;                   2. 本地分支和远程分支名字相同
+; NOTE: 这套工作流正常应用的前提是
+;       1. 只有一个远程仓库且命名为origin
+;       2. 本地分支和远程分支名字相同
 ;
     ; 参考 https://github.com/GitAlias/gitalias/blob/master/gitalias.txt#L1217
     set-global-base-branch = config --global gitalias.topic.base.branch.name
     set-local-base-branch = config --local gitalias.topic.base.branch.name
-    ; global base-branch 默认是master， 这里设置local base-branch
+    ; global base-branch 默认是main， 这里设置local base-branch
     set-bb = "!git set-local-base-branch"
     bb = "!git base-branch"
 
@@ -72,9 +73,9 @@
         topic_branch=$(git current-branch); \
         base_branch=${1:-$(git base-branch)}; \
         current_branch=$(git current-branch); \
-        if [ $topic_branch = $base_branch ] || [ $topic_branch = master ]; then \
+        if [ $topic_branch = $base_branch ] || [ $topic_branch = main ]; then \
             printf \"You are asking to do git topic-merge,\n\"; \
-            printf \"but you can't merge master or base branch: $base_branch.\n\"; \
+            printf \"but you can't merge main or base branch: $base_branch.\n\"; \
             printf \"Please ask to merge valid topic branch.\n\"; \
         elif [ -n \"$(git working-dir-dirty)\" ]; then \
             echo 'Current working directory is dirty!; \
@@ -92,9 +93,9 @@
         base_branch=$(git base-branch); \
         current_branch=$(git current-branch); \
         topic_exists_in_remote=$(git remote-branch $topic_branch); \
-        if [ $topic_branch = $base_branch ] || [ $topic_branch = master ]; then \
+        if [ $topic_branch = $base_branch ] || [ $topic_branch = main ]; then \
             printf \"You are asking to do git topic-delete,\n\"; \
-            printf \"but you can't stop master or base branch: $base_branch.\n\"; \
+            printf \"but you can't stop main or base branch: $base_branch.\n\"; \
             printf \"Please ask to stop valid topic branch.\n\"; \
         else \
             if [ -n \"$(git working-dir-dirty)\" ]; then \
@@ -167,9 +168,9 @@
     ;     base_branch=$(git base-branch); \
     ;     current_branch=$(git current-branch); \
     ;     working_dir_dirty=$(git diff --stat | head -n -1); \
-    ;     if [ $topic_branch = $base_branch ] || [ $topic_branch = master ]; then \
+    ;     if [ $topic_branch = $base_branch ] || [ $topic_branch = main ]; then \
     ;     printf \"You are asking to do git topic-stop,\n\"; \
-    ;     printf \"but you can't merge master or base branch: $base_branch.\n\"; \
+    ;     printf \"but you can't merge main or base branch: $base_branch.\n\"; \
     ;     printf \"Please ask to merge valid topic branch.\n\"; \
     ;     else \
     ;     if [ -n \"$working_dir_dirty\" ]; then \
@@ -239,14 +240,14 @@
     bnm = branch --no-merged
     bd = branch --delete
     bdd = branch -D
-    # 可在--list 后面写搜索版本号, 比如git tgs '*1' (如果不加引号要用\*转义) 也可不写搜索内容
+    # 可在--list 后面写搜索版本号, 比如git tags '*1' (如果不加引号要用\*转义) 也可不写搜索内容
     tags = tag -n1 --list
 
     z = checkout
     zb = checkout -b
     zz = "!git checkout $(git base-branch)"
     zd = z dev
-    zm = checkout master
+    zm = checkout main
 
     # 参数为修改后的branch名字
     branch-move = "!f(){ \
@@ -260,10 +261,10 @@
         };f"
     bmv = "!git branch-move"
 
-    # Delete all local branches that have been merged into the local master branch.
-    branch-clean-local = "!git branch --merged | egrep -v \"(^\\*|master|dev|$(git base-branch))\" | xargs git branch -d"
-    # Delete all remote branches that have been merged into the remote master branch.
-    branch-clean-remote = "!git branch -r --merged | egrep -v \"(^\\*|master|dev|$(git base-branch))\" | sed 's/origin\\///' | xargs -n 1 git push origin --delete"
+    # Delete all local branches that have been merged into the local main branch.
+    branch-clean-local = "!git branch --merged | egrep -v \"(^\\*|main|dev|$(git base-branch))\" | xargs git branch -d"
+    # Delete all remote branches that have been merged into the remote main branch.
+    branch-clean-remote = "!git branch -r --merged | egrep -v \"(^\\*|main|dev|$(git base-branch))\" | sed 's/origin\\///' | xargs -n 1 git push origin --delete"
 
 ; }}}
 ; {{{ ### commit ###
@@ -274,11 +275,11 @@
 
     cmd = safe-commit-amend-no-edit
     cmde = safe-commit-amend
-    # 将新的修改，删除全部应用到上次commit里
+    # 将新的修改、删除的文件全部应用到上次commit里
     cmu = "!git add --update && git safe-commit-amend-no-edit"
     cmue = "!git add --update && git safe-commit-amend"
     ca = commit -a --message
-    # 将新的修改，添加，删除的文件都应用到上次commit里
+    # 将新的修改、添加、删除的文件都应用到上次commit里
     cma = "!git add --all && git safe-commit-amend-no-edit"
     cmae = "!git add --all && git safe-commit-amend"
     # commit and push
@@ -358,7 +359,7 @@
                 --pretty=format:'%C(yellow)%d%Creset %s %Cblue[%cn] %Cgreen%ad - %C(magenta)%h'; #"
     # 查看log，NOTE: 依赖Flog.vim插件
     ll = "!${EDITOR:-vi} --git-log"
-    ; }}}
+; }}}
 ; {{{ ### merge ###
 
     ; # merge but without autocommit, and with a commit even if the merge resolved as a fast-forward.
@@ -624,14 +625,14 @@
     # After you use command, you will likely need to force push everything.
     # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
     expunge = "!f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
-    # Delete a branch name, then create the same branch name based on master -
-    # useful if you have, for example, a development branch and master branch
+    # Delete a branch name, then create the same branch name based on main -
+    # useful if you have, for example, a development branch and main branch
     # and they go out of sync, and you want to nuke the development branch.
     #
     # Calls the `publish` and `unpublish` aliases.
     #
-    recreate = "!f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout master && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
-    # ahead of origin, Show commits that haven't made it to remote master yet.
+    recreate = "!f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout main && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+    # ahead of origin, Show commits that haven't made it to remote main yet.
     ahead = "!git log --oneline origin/$(git current-branch)..HEAD"
     # 最后一个commit
     last = log -1 HEAD
