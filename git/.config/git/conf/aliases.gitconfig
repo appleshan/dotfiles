@@ -272,16 +272,19 @@
     # commit with a message
     c = commit
     caa = commit -a
+    ca = commit -a --message
 
     cmd = safe-commit-amend-no-edit
     cmde = safe-commit-amend
+
     # 将新的修改、删除的文件全部应用到上次commit里
     cmu = "!git add --update && git safe-commit-amend-no-edit"
     cmue = "!git add --update && git safe-commit-amend"
-    ca = commit -a --message
+
     # 将新的修改、添加、删除的文件都应用到上次commit里
     cma = "!git add --all && git safe-commit-amend-no-edit"
     cmae = "!git add --all && git safe-commit-amend"
+
     # commit and push
     cap = "!f() { git commit --all -m \"$@\" && git push; }; f"
 
@@ -416,7 +419,7 @@
     unpublish = "!git push origin --delete ${1:-$(git current-branch)} && git branch --unset-upstream ${1:-$(git current-branch)}"
     # Fire up your difftool (e.g. Kaleidescope) with all the changes that
     # are on the current branch.
-    code-review = "!git difftool origin/$(git current-branch)..."
+    code-review = "!git difftool origin/$(git current-branch)"
 
 ; }}}
 ; {{{ reset
@@ -607,9 +610,6 @@
 
 ; }}}
 ; {{{ ### other commands ###
-    fd = fuzzy diff
-    fs = fuzzy status
-    fl = fuzzy log
 
     # initalize a repo and immediate add an empty commit, which makes rebase easier.
     init-empty = !"f() { git init && git commit --allow-empty --allow-empty-message --message ''; }; f"
@@ -650,7 +650,6 @@
 ; {{{ ### unused ###
     df-staged = diff --staged --color
     df-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh diff
-    ad-u = reset HEAD --
     ad-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh add
     co-rs-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh restore
     logs = log --oneline --decorate --graph --pretty=format:\"(%h)  %an, %ar: %s\"
