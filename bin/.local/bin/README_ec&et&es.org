@@ -1,0 +1,2 @@
+Emacs 的相关脚本 ec、et、es 来自：
+http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
