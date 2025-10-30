@@ -12,6 +12,8 @@ TARGETS=(
 	bin/.local/bin/trash
 	bin/.local/bin/trashctl
     bin/.local/bin/test-fonts.pl
+    claude/.claude/CLAUDE.md
+    codex/.codex/AGENTS.md
 	curl/.curlrc
 	dunst/.config/dunst/dunstrc
 	dunst/.config/dunst/dunstrc_dark-blood
@@ -31,6 +33,7 @@ TARGETS=(
 	# font/etc/fonts/conf.d/60-latin.conf
 	# font/etc/fonts/conf.d/65-nonlatin.conf
 	# font/etc/fonts/conf.d/70-noto-cjk.conf
+    gemini/.gemini/GEMINI.md
 	git/.gitignore
 	git/.config/git/config
 	git/.config/git/.gitmessage
