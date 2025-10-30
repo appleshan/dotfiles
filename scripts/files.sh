@@ -62,7 +62,7 @@ TARGETS=(
     nitrogen/.config/nitrogen/nitrogen.cfg
     nitrogen/.config/nitrogen/nitrogen.sh
     nitrogen/.config/nitrogen/nitrogen-change-all.sh
-    #npm/.npmrc
+    npm/.npmrc
     #pacman/etc/pacman.d/hooks/clean_package_cache.hook
     #pacman/etc/pacman.d/archlinuxcn-mirrorlist
     #pacman/etc/pacman.d/mirrorlist
