@@ -246,7 +246,7 @@
     z = checkout
     zb = checkout -b
     zz = "!git checkout $(git base-branch)"
-    zd = z dev
+    zd = checkout dev
     zm = checkout main
 
     # 参数为修改后的branch名字
@@ -271,8 +271,8 @@
 
     # commit with a message
     c = commit
-    caa = commit -a
-    ca = commit -a --message
+    ca = commit -a
+    cam = commit -a --message
 
     cmd = safe-commit-amend-no-edit
     cmde = safe-commit-amend
@@ -371,9 +371,9 @@
     ; mg = merge --no-commit
     mg = merge
     mgnf = merge --no-ff
-    mc = "!git add --update && git merge --continue"
+    mgc = "!git add --update && git merge --continue"
 
-    mt = mergetool
+    mgt = mergetool
     ; merge并删除被merge的分支
     mgd = "!git merge $1 && git branch -d $1; #"
     ; 显示自共同父节点以来两条分支的提交
@@ -604,7 +604,7 @@
     exec = ! exec
     # topic work flow 依赖的base branch
     base-branch = "!f(){ \
-    git config --get gitalias.topic.base.branch.name || printf '%s\n' main; \
+        git config --get gitalias.topic.base.branch.name || printf '%s\n' main; \
     };f"
 
 
@@ -612,7 +612,7 @@
 ; {{{ ### other commands ###
 
     # initalize a repo and immediate add an empty commit, which makes rebase easier.
-    init-empty = !"f() { git init && git commit --allow-empty --allow-empty-message --message ''; }; f"
+    init-empty = "!f() { git init && git commit --allow-empty --allow-empty-message --message ''; }; f"
 
     # ls-files - show information about files in the index and the working tree; like Unix "ls" command.
     ls = ls-files
