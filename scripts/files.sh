@@ -89,7 +89,7 @@ TARGETS=(
     polybar/.config/polybar/scripts/pipewire-wireplumber/pipewire.sh
     polybar/.config/polybar/scripts/pipewire-wireplumber/pipewire-volume.sh
     polybar/.config/polybar/scripts/pipewire-wireplumber/pipewire-microphone.sh
-    polybar/.config/polybar/scripts/player/polybar-playerctl.sh
+    polybar/.config/polybar/scripts/playerctl/polyplayer.sh
     polybar/.config/polybar/scripts/popup-calendar/popup-calendar.sh
     polybar/.config/polybar/scripts/pulseaudio-control/pulseaudio-control.bash
     polybar/.config/polybar/scripts/redshift/redshift.sh
