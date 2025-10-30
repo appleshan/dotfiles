@@ -86,6 +86,121 @@ $ tree -a -L 2
 ...
 #+END_EXAMPLE
 
+* 配置概览
+
+这是一个使用 *GNU Stow* 管理的全面的 Linux 配置仓库，包含了广泛的工具和应用程序的配置。
+
+** 核心配置领域
+
+*** 1. Shell 配置 (shell/)
+- *ZSH* 搭配 Oh My Zsh 框架
+- *Powerlevel10k* 主题提供自定义提示符
+- 丰富的插件配置包括：
+  - ~aliases~, ~alias-tips~ 命令别名管理
+  - ~archlinux~ Arch Linux 集成
+  - ~zsh-autosuggestions~ 自动建议
+  - ~tmux~, ~systemadmin~, ~vscode~ 工具集成
+  - 网络工具：~podman~, ~proxy~, ~zsh-proxychains-ng~
+  - 开发工具：~npm~, ~nvm~, ~yarn~, ~uv~
+
+*** 2. 窗口管理器 (i3wm/)
+- *i3* 平铺式窗口管理器配置
+- *Polybar* 状态栏集成
+- *Dunst* 通知系统
+- *Compton/Picom* 窗口特效和透明度
+- *Nitrogen/Feh* 壁纸管理
+- *i3lock* 屏幕锁定
+- 多屏幕布局支持（单屏和双屏）
+
+*** 3. 开发工具
+- *Git* (git/) - 丰富的自定义别名和工作流管理
+  - Topic 工作流支持 (~topic-new-remote~, ~topic-merge~, ~topic-delete~)
+  - 分支管理工具
+  - 安全提交实践
+  - 与 FZF 集成的交互式操作
+- *Tmux* (tmux/) - 终端复用器，带有自定义插件和键位映射
+- *Vim/Neovim* - 编辑器配置
+- *VSCode* (vscode/) - IDE 配置
+
+*** 4. 桌面环境 (xorg/)
+- *X11* 配置，包含 Xresources 用于终端和字体设置
+- *Xfce4* 电源管理
+- 自定义光标和字体配置
+- 会话管理文件 (~.xinitrc~, ~.profile~)
+
+*** 5. 系统和网络工具
+- *DNS/网络*：
+  - ~dnscrypt-proxy/~ - DNS 加密
+  - ~dnsmasq/~ - DNS 缓存
+  - ~unbound/~ - DNS 验证
+  - ~proxychains/~ - 代理管理
+- *音频*：
+  - ~PulseAudio/~ - 音频系统配置
+  - ~PipeWire/~ - 现代音频框架
+- *系统服务*：
+  - ~docker/~ - 容器管理
+  - ~podman/~ - 容器运行时
+  - ~systemd~ 集成
+- *安全*：
+  - ~gpg/~ - GPG 配置
+  - ~ssh/~ - SSH 设置
+  - ~tor/~ - Tor 配置
+
+*** 6. 生产力与实用工具
+- *终端模拟器*：
+  - ~urxvt/~ - RXVT 终端配置
+  - ~terminator/~ - 终端模拟器
+  - ~termite/~ - 终端配置
+- *文件管理*：
+  - ~ranger/~ - 终端文件管理器
+  - ~vifm/~ - 类 VIM 文件管理器
+- *命令行工具*：
+  ~ripgrep/~, ~bat/~, ~sift/~, ~peco/~ - 增强的命令行工具
+- *通信*：
+  ~mutt/~ - 邮件客户端
+
+*** 7. 外观与主题
+- *Polybar* (polybar/) - 带有模块和主题的状态栏
+- *Rofi* (rofi/) - 应用启动器和菜单系统
+- *字体* (font/) - 字体配置
+- 各种桌面组件的主题
+
+*** 8. 编程语言与环境
+- *Python* (python/) - Python 环境配置
+- *Node.js/NPM* (npm/) - JavaScript 包管理
+- *Emacs* - 编辑器配置
+- *Arch Linux* (archlinux/) - 发行版专用脚本
+- *Yay* (yay/) - AUR 包管理器
+
+*** 9. 脚本与工具 (scripts/)
+- 部署和备份脚本
+- Arch Linux 包管理
+- 文件管理工具
+- 系统自动化脚本
+
+** 架构特点
+
+*** 组织结构
+- *模块化设计*：每个工具在主仓库下都有自己的目录
+- *GNU Stow 集成*：使用符号链接管理配置
+- *版本控制*：整个仓库使用 Git 追踪
+- *跨平台*：专为 Linux 设计，主要针对 Arch Linux
+
+*** 关键工作流
+1. *Topic 工作流*：先进的 Git 工作流与分支策略
+2. *环境设置*：自动化部署脚本用于系统配置
+3. *备份与同步*：用于备份和同步配置的脚本
+4. *包管理*：与 Arch Linux 包管理器集成
+
+*** 显著特性
+- *全面的 Git 别名*：600+ 行自定义 Git 别名，包括 topic 工作流
+- *Powerlevel10k 集成*：带主题的高级 ZSH 提示符
+- *i3 窗口管理器*：完整的桌面环境，支持平铺窗口管理
+- *安全考虑*：DNS 加密、代理管理、GPG 集成
+- *开发生产力*：丰富的开发工具配置
+
+这是一个成熟的、生产就绪的 dotfiles 设置，展示了先进的 Linux 系统管理实践，专注于生产力、安全性和可维护性。
+
 * installing
 i manage symlinks with [[http://www.gnu.org/software/stow/][gnu stow]]
 
