@@ -29,6 +29,9 @@ TARGETS=(
 	feh/.fehbg
 	# flatpak/var/lib/flatpak/repo/config
 	font/.config/fontconfig/fonts.conf
+    font/.config/fontconfig/web.conf
+    font/.config/fontconfig/web-ui-fonts.conf
+    font/.config/fontconfig/win-replacements.conf
 	# font/etc/fonts/conf.d/10-antialias.conf
 	# font/etc/fonts/conf.d/60-latin.conf
 	# font/etc/fonts/conf.d/65-nonlatin.conf
