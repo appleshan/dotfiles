@@ -401,6 +401,16 @@ mode $monitorMode {
   bindsym Escape  mode "default"
 }
 
+# => clipcat integrating with i3 Window Manager
+exec_always --no-startup-id clipcatd # start clipcatd at startup
+
+set $launcher-clipboard-insert clipcat-menu insert
+set $launcher-clipboard-remove clipcat-menu remove
+
+bindsym $mod+p exec $launcher-clipboard-insert
+bindsym $mod+o exec $launcher-clipboard-remove
+# end clipcat
+
 # enable syntax highlighting in vim/neovim. must have the i3 plugin!
 # get it at https://github.com/PotatoesMaster/i3-vim-syntax
 # vim:filetype=i3

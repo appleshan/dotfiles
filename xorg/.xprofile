@@ -57,7 +57,7 @@ blueman-applet &
 #pasystray &
 
 # => To autostart clipboard Manager
-clipit &
+clipcatd
 
 # => To autostart sxhkd
 # sxhkd &
