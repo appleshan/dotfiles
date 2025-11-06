@@ -83,7 +83,7 @@ TARGETS=(
     PipeWire/.config/wireplumber/wireplumber.conf.d/50-alsa-config.conf
     PipeWire/.config/wireplumber/wireplumber.conf.d/51-bluez-config.conf
     PipeWire/.config/wireplumber/wireplumber.conf.d/51-disable-suspension.conf
-    #podman/etc/containers/registries.conf
+    podman/.config/containers/registries.conf
     polybar/.config/polybar/launch.sh
     polybar/.config/polybar/config.ini
     polybar/.config/polybar/master.ini
