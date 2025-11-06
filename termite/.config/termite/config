@@ -74,7 +74,7 @@ modify_other_keys = false
 # background black
 foreground = #dcdccc
 foreground_bold = #ffffff
-background = rgba(0, 0, 0, .7) 
+background = rgba(0, 0, 0, .8) 
 #background = rgba(0, 0, 0, 1) 
 # END black
 
