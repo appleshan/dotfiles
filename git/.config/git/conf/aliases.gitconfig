@@ -515,6 +515,17 @@
     discard = checkout --
 
 ; }}}
+; {{{ ### Working trees ###
+
+    W ='worktree'
+    Wa ='worktree add'
+    Wls ='worktree list'
+    Wmv ='worktree move'
+    Wp ='worktree prune'
+    Wrm ='worktree remove'
+    Wrmf ='worktree remove --force'
+
+; }}}
 
 ; {{{ ### short alias ###
 
