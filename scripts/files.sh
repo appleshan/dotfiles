@@ -13,6 +13,9 @@ TARGETS=(
 	bin/.local/bin/trashctl
     bin/.local/bin/test-fonts.pl
     claude/.claude/CLAUDE.md
+    claude/.claude/docs/Response-Language.md
+    claude/.claude/docs/Role-Linus-Torvalds.md
+    claude/.claude/docs/Codex-MCP.md
     codex/.codex/AGENTS.md
 	curl/.curlrc
 	dunst/.config/dunst/dunstrc
