@@ -15,7 +15,7 @@ TARGETS=(
     claude/.claude/CLAUDE.md
     claude/.claude/docs/Response-Language.md
     claude/.claude/docs/Role-Linus-Torvalds.md
-    claude/.claude/docs/Codex-MCP.md
+    claude/.claude/docs/CC_Codex-MCP.md
     codex/.codex/AGENTS.md
 	curl/.curlrc
 	dunst/.config/dunst/dunstrc
