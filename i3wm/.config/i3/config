@@ -66,10 +66,10 @@ hide_edge_borders both
 bindsym $mod+Return  exec --no-startup-id  termite
 
 # description: Start file manager (ranger、pcmanfm or thunar)
-bindsym $mod+F3  exec --no-startup-id  thunar
+bindsym $mod+F5  exec --no-startup-id  thunar
 
 # description: Open web browser
-bindsym $mod+F2  exec --no-startup-id  google-chrome-stable
+bindsym $mod+F3  exec --no-startup-id  google-chrome-stable
 
 # description: flameshot 屏幕截图
 bindsym Print  exec --no-startup-id  flameshot gui --delay 200
