@@ -47,8 +47,6 @@ export GREP_COLOR='mt=07;31'
 
 alias beep='aplay ~/projects-private/dotfiles/sounds/beep-07.wav'
 
-alias pavucontrol=pavucontrol-qt
-
 alias vim=nvim
 
 alias rm='echo "This is not the command you are looking for."; false'
