@@ -16,7 +16,10 @@ TARGETS=(
     claude/.claude/docs/Response-Language.md
     claude/.claude/docs/Role-Linus-Torvalds.md
     claude/.claude/docs/CC_Codex-MCP.md
+    claude/.claude/docs/Tool-Selection.md
     codex/.codex/AGENTS.md
+    codex/.codex/docs/Response-Language.md
+    codex/.codex/docs/Tool-Selection.md
 	curl/.curlrc
 	dunst/.config/dunst/dunstrc
 	dunst/.config/dunst/dunstrc_dark-blood
