@@ -1,0 +1,47 @@
+{
+  "mcpServers": {
+    "context7": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "ctx7sk-483c364d-6b90-4f13-af3d-30b12f30c0eb"
+      ]
+    },
+    "desktop-commander": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@wonderwhy-er/desktop-commander@latest"
+      ]
+    },
+    "quillopy": {
+      "command": "npx",
+      "args": ["-y", "@quillopy/mcp"],
+      "env": {
+        "QUILLOPY_API_KEY": "sk_scfw24_UbOYEYm8BnbKQXNA1TvB1f7c0VUWWuRaIZ6KLmNkFc9w8as_05NJmzRAylusqNoN09EvRqKXsW3NbOg"
+      }
+    },
+    "sequential-thinking": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ]
+    },
+    "memory": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-memory"
+      ]
+    },
+    "serena": {
+      "command": "uv",
+      "args": [
+        "run", "--directory", "/home/alecshan/projects/private/serena", "serena", "start-mcp-server"
+      ]
+    }
+  }
+}

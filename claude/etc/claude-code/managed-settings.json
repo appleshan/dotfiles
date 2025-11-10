@@ -1,0 +1,13 @@
+{
+  "allowedMcpServers": [
+    { "serverName": "context7" },
+    { "serverName": "desktop-commander" },
+    { "serverName": "quillopy" },
+    { "serverName": "sequential-thinking" },
+    { "serverName": "memory" },
+    { "serverName": "serena" }
+  ],
+  "deniedMcpServers": [
+    { "serverName": "chrome-devtools-mcp" }
+  ]
+}
