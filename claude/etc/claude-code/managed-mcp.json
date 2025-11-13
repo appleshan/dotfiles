@@ -42,6 +42,13 @@
       "args": [
         "run", "--directory", "/home/alecshan/projects/private/serena", "serena", "start-mcp-server"
       ]
+    },
+    "codex-cli": {
+      "command": "npx",
+      "args": [
+        "-y",
+        "@cexll/codex-mcp-server"
+      ]
     }
   }
 }

@@ -5,7 +5,8 @@
     { "serverName": "quillopy" },
     { "serverName": "sequential-thinking" },
     { "serverName": "memory" },
-    { "serverName": "serena" }
+    { "serverName": "serena" },
+    { "serverName": "codex-cli" }
   ],
   "deniedMcpServers": [
     { "serverName": "chrome-devtools-mcp" }
