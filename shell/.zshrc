@@ -109,7 +109,7 @@ plugins=(aliases \
          wakatime \
          web-search \
          yarn \
-         zbell zsh-interactive-cd \
+         zbell zsh-interactive-cd zsh-tab-title \
          )
 
 source $ZSH/oh-my-zsh.sh
