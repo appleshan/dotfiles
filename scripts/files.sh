@@ -44,6 +44,7 @@ TARGETS=(
 	# font/etc/fonts/conf.d/65-nonlatin.conf
 	# font/etc/fonts/conf.d/70-noto-cjk.conf
     gemini/.gemini/GEMINI.md
+    ghostty/.config/ghostty/config
 	git/.gitignore
 	git/.config/git/config
 	git/.config/git/.gitmessage

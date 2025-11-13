@@ -1,0 +1,72 @@
+# https://ghostty.org/docs/config/reference
+
+theme = carbonfox
+
+font-family = Hack
+font-style = Hack
+font-size = 14
+
+# Disable ligatures and configure font features
+font-feature = calt
+font-feature = -clig
+font-feature = -liga
+font-feature = zero
+font-feature = ss01
+
+# Available themes: ef-day, ef-spring, ef-bio, ef-night
+theme = ef-bio
+minimum-contrast = 1.1
+macos-icon = custom-style
+macos-titlebar-style = tabs
+macos-window-shadow = false
+
+window-padding-x = 8
+window-padding-y = 12
+
+# 办公/编程场景（平衡性能与可读性）：
+background-opacity = 0.9
+background-blur = false
+# 设置为线性校正模式以获得最佳文本清晰度
+alpha-blending = linear-corrected
+# 此配置在保持85%以上性能的同时，提供足够透明度查看底层窗口内容。
+
+# 设计/创意场景（视觉优先）：
+#background-opacity = 0.7
+#background-blur = true
+# 通过分层透明度创建丰富视觉层次，建议搭配高性能GPU使用。
+
+# 低配置设备（性能优先）：
+#background-opacity = 1.0
+#alpha-blending = native
+#font-synthetic-style = "no-bold,no-italic"
+# 关闭所有透明度相关特性，显存占用可减少40%。
+
+# Bar non-blinking cursor
+adjust-cursor-thickness = 2
+cursor-style = bar
+cursor-style-blink = false
+shell-integration = zsh
+shell-integration-features = no-cursor
+mouse-hide-while-typing = true
+
+window-save-state = always
+
+clipboard-trim-trailing-spaces = true
+copy-on-select = clipboard
+
+# It interferes with some accessibility features like Touch ID
+macos-auto-secure-input = false
+
+# Hot keys
+# Toggle the "quick" terminal globally from the top
+keybind = global:cmd+escape=toggle_quick_terminal
+
+# Switch between panes
+keybind = super+shift+left=goto_split:previous
+keybind = super+shift+right=goto_split:next
+
+# Delete the whole line
+keybind = super+backspace=text:\x15s
+
+# Insert newline
+keybind = shift+enter=text:\n
