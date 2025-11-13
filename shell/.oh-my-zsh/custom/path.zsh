@@ -143,10 +143,6 @@ fi
 unset __conda_setup
 # <<< conda initialize <<<
 
-# autoenv
-# 使用 git 方式安装了 Tarrasch/zsh-autoenv
-source $HOME/.oh-my-zsh/custom/plugins/zsh-autoenv/autoenv.zsh
-
 #################
 # Node.js       #
 #################
