@@ -9,6 +9,7 @@ TARGETS=(
 	bin/.local/bin/ec
 	bin/.local/bin/es
 	bin/.local/bin/et
+    bin/.local/bin/st
 	bin/.local/bin/trash
 	bin/.local/bin/trashctl
     bin/.local/bin/test-fonts.pl
