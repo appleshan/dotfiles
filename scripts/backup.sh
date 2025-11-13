@@ -20,4 +20,4 @@ done
 
 #列出已经安装软件，备份软件名称
 pacman -Qne | sort > $ARCHLINUX/pkg_native
-pacman -Qm | sort > $ARCHLINUX/pkg_aur
+pacman -Qm | grep -v "debug" | sort > $ARCHLINUX/pkg_aur
