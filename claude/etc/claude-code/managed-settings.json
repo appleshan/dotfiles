@@ -2,6 +2,7 @@
   "allowedMcpServers": [
     { "serverName": "context7" },
     { "serverName": "desktop-commander" },
+    { "serverName": "ddg-search" },
     { "serverName": "quillopy" },
     { "serverName": "sequential-thinking" },
     { "serverName": "memory" },
