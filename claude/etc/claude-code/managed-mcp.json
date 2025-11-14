@@ -42,9 +42,9 @@
       ]
     },
     "serena": {
-      "command": "uv",
+      "command": "uvx",
       "args": [
-        "run", "--directory", "/home/alecshan/projects/private/serena", "serena", "start-mcp-server"
+        "--from", "git+https://github.com/oraios/serena", "serena", "start-mcp-server"
       ]
     },
     "codex-cli": {
