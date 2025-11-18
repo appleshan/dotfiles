@@ -15,10 +15,6 @@ if [ -d "$HOME/.local/bin" ] ; then
     appendpath "$HOME/.local/bin"
 fi
 
-# z - jump around
-# @see https://github.com/rupa/z
-source $HOME/.local/bin/z.sh
-
 # ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/.ripgreprc
 
