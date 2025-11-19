@@ -434,3 +434,14 @@ if type clipcat-menu >/dev/null 2>&1; then
     bindkey -s '^\' "^Q clipcat-menu --finder=builtin insert ^J"
     bindkey -s '^]' "^Q clipcat-menu --finder=builtin remove ^J"
 fi
+
+ranger_cd() {
+  local tempfile="$(mktemp -t tmp.XXXXXX)"
+  ranger --choosedir="$tempfile" "${@:-$(pwd)}"
+  if [ -f "$tempfile" ]; then
+      local dest="$(cat "$tempfile")"
+      rm -f "$tempfile"
+      [ -d "$dest" ] && [ "$dest" != "$(pwd)" ] && cd "$dest"
+  fi
+}
+alias r='ranger_cd'  # 用 'r' 快速启动
