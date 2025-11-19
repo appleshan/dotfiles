@@ -32,14 +32,14 @@ dotfiles-init() {
     ls -ald ."$1"*
     mkdir -p $DOTFILES/"$1"
     mv ."$1"* $DOTFILES/"$1"
-    stow --dir=$DOTFILES --target="$HOME" -vv "$1"
+    stow --dir=$DOTFILES --target="$HOME" -vv --no-folding "$1"
     popd >/dev/null 2>&1 || exit
 }
 
 # rebuild links - useful when you are recovering settings to a new OS
 # run `dotfiles-rebuild *` to rebuild all at once
 dotfiles-rebuild() {
-    stow --dir=$DOTFILES --target="$HOME" -vv $@
+    stow --dir=$DOTFILES --target="$HOME" -vv -R --no-folding $@
 }
 
 # delete
