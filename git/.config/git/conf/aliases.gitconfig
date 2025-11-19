@@ -623,7 +623,9 @@
 ; {{{ ### other commands ###
 
     # initalize a repo and immediate add an empty commit, which makes rebase easier.
-    init-empty = "!f() { git init && git commit --allow-empty --allow-empty-message --message ''; }; f"
+    init-empty = "!f() { \
+        git init && git commit --allow-empty --allow-empty-message --message ''; \
+    }; f"
 
     # ls-files - show information about files in the index and the working tree; like Unix "ls" command.
     ls = ls-files
@@ -635,14 +637,30 @@
     # such as accidentally committing a file of sensitive data, such as passwords.
     # After you use command, you will likely need to force push everything.
     # See https://help.github.com/articles/removing-sensitive-data-from-a-repository/
-    expunge = "!f() { git filter-branch --force --index-filter \"git rm --cached --ignore-unmatch $1\" --prune-empty --tag-name-filter cat -- --all }; f"
+    expunge = "!f() { \
+        git filter-branch \
+            --force \
+            --index-filter \"git rm --cached --ignore-unmatch $1\" \
+            --prune-empty \
+            --tag-name-filter cat -- --all \
+    }; f"
+
     # Delete a branch name, then create the same branch name based on main -
     # useful if you have, for example, a development branch and main branch
     # and they go out of sync, and you want to nuke the development branch.
     #
     # Calls the `publish` and `unpublish` aliases.
     #
-    recreate = "!f() { [[ -n $@ ]] && git checkout \"$@\" && git unpublish && git checkout main && git branch -D \"$@\" && git checkout -b \"$@\" && git publish; }; f"
+    recreate = "!f() { \
+        [[ -n $@ ]] && \
+        git checkout \"$@\" && \
+        git unpublish && \
+        git checkout main && \
+        git branch -D \"$@\" && \
+        git checkout -b \"$@\" && \
+        git publish; \
+    }; f"
+
     # ahead of origin, Show commits that haven't made it to remote main yet.
     ahead = "!git log --oneline origin/$(git current-branch)..HEAD"
     # 最后一个commit
@@ -656,7 +674,10 @@
     ; 获取hash全称，在遇到hash冲突的时候很有用
     abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H\" $commit; done' -"
 
-    aliases = "!f() { git config list | grep '^alias\\.' | cut -c 7-; }; f"
+    aliases = "!f() { \
+        git config list | grep '^alias\\.' | cut -c 7-; \
+    }; f"
+
 ; }}}
 ; {{{ ### unused ###
     df-staged = diff --staged --color
