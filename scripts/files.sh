@@ -117,6 +117,7 @@ TARGETS=(
     python/.config/pip/pip.conf
     python/.config/flake8
     python/.condarc
+    PaoPaoDNS/.config/systemd/user/container-paopaodns.service
     ranger/.config/ranger/rc.conf
     ranger/.config/ranger/scope.sh
     redshift/.config/redshift/redshift.sh
