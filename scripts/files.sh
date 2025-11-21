@@ -15,8 +15,8 @@ TARGETS=(
     bin/.local/bin/test-fonts.pl
     bin/.local/bin/serena-project-index.sh
     claude/.claude/CLAUDE.md
-    claude/.claude/AGENTS.md
-    claude/.claude/Development-Guidelines.md
+    claude/.claude/docs/AGENTS.md
+    claude/.claude/docs/Development-Guidelines.md
     codex/.codex/AGENTS.md
 	curl/.curlrc
 	dunst/.config/dunst/dunstrc
@@ -41,8 +41,8 @@ TARGETS=(
 	# font/etc/fonts/conf.d/65-nonlatin.conf
 	# font/etc/fonts/conf.d/70-noto-cjk.conf
     ghostty/.config/ghostty/config
-	git/.gitignore
 	git/.config/git/config
+    git/.config/git/ignore
 	git/.config/git/.gitmessage
 	git/.config/git/conf/aliases.gitconfig
 	git/.config/git/conf/colors.gitconfig
