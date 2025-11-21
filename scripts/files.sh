@@ -15,12 +15,9 @@ TARGETS=(
     bin/.local/bin/test-fonts.pl
     bin/.local/bin/serena-project-index.sh
     claude/.claude/CLAUDE.md
-    claude/.claude/docs/Response-Language.md
-    claude/.claude/docs/Role-Linus-Torvalds.md
-    claude/.claude/docs/CC_Codex-MCP.md
+    claude/.claude/AGENTS.md
+    claude/.claude/Development-Guidelines.md
     codex/.codex/AGENTS.md
-    codex/.codex/docs/Response-Language.md
-    codex/.codex/docs/Tool-Selection.md
 	curl/.curlrc
 	dunst/.config/dunst/dunstrc
 	dunst/.config/dunst/dunstrc_dark-blood
@@ -43,7 +40,6 @@ TARGETS=(
 	# font/etc/fonts/conf.d/60-latin.conf
 	# font/etc/fonts/conf.d/65-nonlatin.conf
 	# font/etc/fonts/conf.d/70-noto-cjk.conf
-    gemini/.gemini/GEMINI.md
     ghostty/.config/ghostty/config
 	git/.gitignore
 	git/.config/git/config
