@@ -51,7 +51,7 @@ alias vim=nvim
 
 alias rm='echo "This is not the command you are looking for."; false'
 
-alias docker=podman
+# alias docker=podman
 
 ###############################################################################
 # Python
