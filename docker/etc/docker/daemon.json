@@ -10,6 +10,11 @@
         "https://demo.52013120.xyz",
         "https://proxy.vvvv.ee",
         "https://registry.cyou",
-        "docker.xuanyuan.me"
+        "https://docker.xuanyuan.me",
+        "https://hub-mirror.c.163.com",
+        "https://dockerproxy.net",
+        "https://registry.docker-cn.com",
+        "https://docker.mirrors.ustc.edu.cn",
+        "https://mirror.baidubce.com"
     ]
 }
