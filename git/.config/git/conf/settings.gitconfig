@@ -1,9 +1,11 @@
 #基础设置 {{{
 # 专为github设置的代理
-[https "https://github.com"]
-    proxy = socks5://127.0.0.1:20089
-[https "https://android.googlesource.com"]
-    proxy = socks5://127.0.0.1:20089
+[http "https://github.com"]
+    proxy = http://127.0.0.1:20089
+    sslVerify = false
+[http "https://android.googlesource.com"]
+    proxy = http://127.0.0.1:20089
+    sslVerify = false
 
 [core]
     #{{ @See https://p3terx.com/archives/how-to-choose-crlf-lf.html
