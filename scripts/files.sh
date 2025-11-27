@@ -77,7 +77,6 @@ TARGETS=(
     #pacman/etc/pacman.d/archlinuxcn-mirrorlist
     #pacman/etc/pacman.d/mirrorlist
     #pacman/etc/pacman.d/mirrorlist.sync
-    peco/.config/peco/config.json
     picom/.config/picom/picom.conf
     PipeWire/.config/pipewire/client.conf.d/resample.conf
     PipeWire/.config/pipewire/pipewire.conf.d/clock.conf
