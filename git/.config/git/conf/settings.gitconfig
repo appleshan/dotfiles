@@ -116,7 +116,7 @@
 [merge]
     # set "nvim" as tool for merging
     tool = nvim
-    conflictStyle = zdiff3
+    conflictStyle = diff3
 [mergetool]
     # automatically launch merge tool without displaying a prompt
     prompt = false
@@ -126,6 +126,9 @@
 
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
+    ; Be able to abort all diffs with `:cq` or `:cquit`
+    trustExitCode = true
+    ; layout = "(LOCAL,BASE,REMOTE)/MERGED"
     cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
 
 [rebase]
