@@ -84,7 +84,7 @@ plugins=(aliases \
          zsh-dircolors-solarized \
          dircycle dirpersist dotenv \
          emoji encode64 extract \
-         fancy-ctrl-z \
+         fancy-ctrl-z forgit \
          # https://github.com/z-shell/H-S-MW
          #H-S-MW \
          history httpie isodate jsontools \

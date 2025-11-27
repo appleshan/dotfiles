@@ -686,13 +686,16 @@
 
 ; }}}
 ; {{{ ### unused ###
-    df-staged = diff --staged --color
-    df-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh diff
-    ad-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh add
-    co-rs-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh restore
     logs = log --oneline --decorate --graph --pretty=format:\"(%h)  %an, %ar: %s\"
     logs-all = log --oneline --decorate --graph --all --pretty=format:\"(%h)  %an, %ar: %s\"
-    log-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh log
-    ig-fzf = !zsh $HOME/repo/scripts/func/forgit.zsh ignore
+    df-staged = diff --staged --color
+
+    # 依赖 forgit
+    df-fzf = !git forgit diff
+    ad-fzf = !git forgit add
+    co-rs-fzf = !git forgit checkout_file
+    log-fzf = !git forgit log
+    ig-fzf = !git forgit ignore
+
     ; edit = !nvim `git ls-files -m --other --exclude-standard` -p
 ; }}}

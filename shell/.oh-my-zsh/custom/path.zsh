@@ -189,3 +189,11 @@ export FORGIT_FZF_DEFAULT_OPTS="
 --reverse
 --height '80%'
 "
+
+
+#################
+# forgit        #
+#################
+
+# after `forgit` was loaded
+PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
