@@ -1,5 +1,8 @@
 #!/bin/bash -e
 
+# pacsync: sync with latest mirrors, download from fastest ones
+# https://gist.github.com/lilydjwg/314d7c08843a62139cfffb601f0b74d7
+
 unshare -m bash <<'EOF'
 mount --make-rprivate /
 for f in /etc/pacman.d/*.sync; do

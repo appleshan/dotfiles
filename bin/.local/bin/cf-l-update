@@ -1,0 +1,60 @@
+#!/usr/bin/env python3
+
+# update your CloudFlare record when your IP changes
+# https://gist.github.com/lilydjwg/68827d778da4bc8aeb63
+
+import fcntl
+import socket
+import struct
+import json
+import urllib.request
+
+from dns.resolver import Resolver
+
+def get_my_ip(ifname):
+  ifname = ifname.encode('ascii')
+  s = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
+  # 0x8915 是 SIOCGIFADDR
+  ip = socket.inet_ntoa(fcntl.ioctl(s.fileno(), 0x8915, struct.pack('256s', ifname[:15]))[20:24])
+  return ip
+
+def main():
+  myip = get_my_ip('ppp0')
+
+  ns_ip = socket.gethostbyname('kami.ns.cloudflare.com')
+  r = Resolver()
+  r.nameservers[:] = [ns_ip]
+  ans = r.query('你的域名')
+  ip = list(ans)[0].address
+
+  if ip == myip:
+    return
+
+  print('updating IP: %s -> %s' % (ip, myip))
+
+  data = {
+    'id': '你的域名那项对应的 ID',
+    'type': 'A',
+    'name': '你的域名',
+    'content': myip,
+    'proxied': False,
+  }
+
+  req = urllib.request.Request(
+    'https://api.cloudflare.com/client/v4/zones/你的域名（zone）对应的 ID/dns_records/你的域名那项对应的 ID',
+    headers = {
+      'X-Auth-Email': '你的登录名',
+      'X-Auth-Key': '你的 API key',
+      'Content-Type': 'application/json',
+    },
+    data = json.dumps(data).encode('utf-8'),
+    method = 'PUT',
+  )
+  res = urllib.request.urlopen(req)
+  data = res.read()
+  ans = json.loads(data.decode('utf-8'))
+  if not ans['success']:
+    raise Exception(ans)
+
+if __name__ == '__main__':
+  main()

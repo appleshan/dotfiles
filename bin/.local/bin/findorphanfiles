@@ -1,0 +1,28 @@
+#!/usr/bin/python3
+
+# Find files not managed by pacman (for Arch Linux and derivatives)
+# https://gist.github.com/lilydjwg/0d54a2fce675725884d51c838d3f76a4
+
+import os
+
+def allrepofiles():
+  repo = '/var/lib/pacman/local'
+  files = set()
+  for dirpath, dirnames, filenames in os.walk(repo):
+    for file in filenames:
+      if file != 'files':
+        continue
+      with open(os.path.join(dirpath, file)) as f:
+        files.update('/' + l.rstrip() for l in f)
+  return files
+
+def main(startdir):
+  managed = allrepofiles()
+  for dirpath, dirnames, filenames in os.walk(startdir, topdown=False):
+    for f in filenames:
+      p = os.path.join(dirpath, f)
+      if p not in managed:
+        print(p, 'not managed')
+
+if __name__ == '__main__':
+  main('/usr')
