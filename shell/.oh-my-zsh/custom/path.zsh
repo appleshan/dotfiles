@@ -157,3 +157,6 @@ esac
 #################
 
 export DOTNET_ROOT=$HOME/bin/dotnet
+
+# podman
+export SUPPRESS_BOLTDB_WARNING=true
