@@ -25,30 +25,44 @@
         "**/.idea": true
     },
 
+    // https://code.visualstudio.com/docs/java/java-project#_configure-runtime-for-projects
     "java.configuration.runtimes": [
         {
             "name": "JavaSE-1.8",
-            "path": "/home/alecshan/bin/java/jdk1.8.0_212",
-            "sources" : "/home/alecshan/bin/java/jdk1.8.0_212/src.zip",
+            "path": "~/bin/java/jdk1.8.0_212",
+            "sources" : "~/bin/java/jdk1.8.0_212/src.zip",
             "javadoc" : "https://docs.oracle.com/en/java/javase/1.8/docs/api"
         },
         {
             "name": "JavaSE-17",
-            "path": "/usr/lib/jvm/java-17-openjdk",
-            "sources" : "",
+            "path": "~/bin/java/jdk-17.0.6",
+            "sources" : "~/bin/java/jdk-17.0.6/lib/src.zip",
             "javadoc" : "https://docs.oracle.com/en/java/javase/17/docs/api"
+        },
+        {
+            "name": "JavaSE-21",
+            "path": "/usr/lib/jvm/java-21-openjdk",
+            "sources" : "",
+            "javadoc" : "https://docs.oracle.com/en/java/javase/21/docs/api",
+            "default": true
+        },
+        {
+            "name": "JavaSE-25",
+            "path": "/usr/lib/jvm/java-25-openjdk",
+            "sources" : "",
+            "javadoc" : "https://docs.oracle.com/en/java/javase/25/docs/api"
         }
     ],
-    "java.jdt.ls.java.home": "/usr/lib/jvm/java-17-openjdk",
-    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m -javaagent:\"/home/alecshan/.vscode/extensions/gabrielbb.vscode-lombok-1.0.1/server/lombok.jar\"",
+    "java.jdt.ls.java.home": "/usr/lib/jvm/java-25-openjdk",
+    "java.jdt.ls.vmargs": "-XX:+UseParallelGC -XX:GCTimeRatio=4 -XX:AdaptiveSizePolicyWeight=90 -Dsun.zip.disableMemoryMapping=true -Xmx1G -Xms100m --add-opens java.base/jdk.internal.misc=ALL-UNNAMED ",
     "java.project.importOnFirstTimeStartup": "automatic",
     "java.project.resourceFilters": [
         "node_modules",
         ".git"
     ],
     "java.import.maven.enabled": true,
-    "java.configuration.maven.userSettings": "/home/alecshan/bin/java/apache-maven-3.6.3/conf/settings.xml",
-    "maven.executable.path": "/home/alecshan/bin/java/apache-maven-3.6.3/bin/mvn",
+    "java.configuration.maven.userSettings": "~/.m2/settings.xml",
+    "maven.executable.path": "~/bin/java/apache-maven-3.9.0/bin/mvn",
     "maven.excludedFolders": [
         "**/.*",
         "**/node_modules",
@@ -59,8 +73,8 @@
     "python.languageServer": "Pylance",
 
     // Python代码格式化工具，可选'autopep8'、'black'或'yapf'.
-    "python.formatting.provider": "yapf",
-    "python.formatting.yapfPath": "/home/alecshan/.local/bin/yapf",
+    "python.formatting.provider": "black",
+    "python.formatting.blackPath": "~/.local/bin/black",
 
     // 默认不使用flake8对Python文件进行静态检查
     "python.linting.flake8Enabled": false,
@@ -89,12 +103,13 @@
     ],
     "workbench.colorTheme": "Solarized Light",
     "workbench.iconTheme": "vscode-icons",
-    "workbench.editorAssociations": [
-        {
+    "workbench.editorAssociations": {
+        "0": {
             "viewType": "jupyter.notebook.ipynb",
             "filenamePattern": "*.ipynb"
-        }
-    ],
+        },
+        "*.java": "default"
+    },
 
     "dashboard.projectData": null,
     "kite.showWelcomeNotificationOnStartup": false,
@@ -107,5 +122,15 @@
     ],
 
     "restructuredtext.confPath": "",
-    "restructuredtext.linter.disabled": true
+    "restructuredtext.linter.disabled": true,
+    "vscode_vibrancy.opacity": 0.8,
+    "vscode_vibrancy.refreshInterval": 5,
+    "translation-for-vscode.api-choice": "DeepL(Free)",
+    "github.copilot.advanced": {
+
+    },
+    "sonarlint.pathToNodeExecutable": "~/.nvm/versions/node/v22.20.0/bin/node",
+    "[java]": {
+        "editor.defaultFormatter": "redhat.java"
+    }
 }
