@@ -212,7 +212,7 @@
 ;
     # History tree
     # from git-extras https://github.com/tj/git-extras/blob/master/bin/git-show-tree
-    show-tree = log --graph --decorate --oneline --simplify-by-decoration --all
+    show-tree = log --oneline --decorate --graph --simplify-by-decoration --all
     tree = "!git show-tree"  ; 显示所有分支的详情，只显示每个分支最近一次提交
 ;
 ;   暂时用不到:
