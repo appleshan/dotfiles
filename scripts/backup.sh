@@ -19,5 +19,7 @@ for f in $TARGETS; do
 done
 
 #列出已经安装软件，备份软件名称
-pacman -Qne | sort > $ARCHLINUX/pkg_native
-pacman -Qm | grep -v "debug" | sort > $ARCHLINUX/pkg_aur
+# https://wiki.archlinux.org/title/Migrate_installation_to_new_hardware
+# [List of installed packages]、[Install previously installed software]
+pacman -Qqen | sort > $ARCHLINUX/pkg_native
+pacman -Qqem | grep -v "debug" | sort > $ARCHLINUX/pkg_aur
