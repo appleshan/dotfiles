@@ -236,7 +236,7 @@ bindsym $mod+6  workspace $ws6, exec --no-startup-id ~/.local/bin/st subl
 bindsym $mod+7  workspace $ws7
 bindsym $mod+8  workspace $ws8
 bindsym $mod+9  workspace $ws9
-bindsym $mod+0  workspace $ws0, exec --no-startup-id ~/.local/bin/st v2rayn
+bindsym $mod+0  workspace $ws0
 
 # => 移动窗口到另一个工作区
 
