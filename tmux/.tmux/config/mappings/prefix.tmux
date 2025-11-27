@@ -10,10 +10,10 @@ bind-key -T prefix -r \} swap-pane -D
 bind-key -T prefix P choose-buffer "paste-buffer -b '%%' -s ''"
 
 # Kill windows without prompt.
-bind-key -T prefix x kill-window
+bind-key -T prefix X kill-window
 
 # Kill panes without prompt.
-bind-key -T prefix X kill-pane
+bind-key -T prefix x kill-pane
 
 # Jump search mode with prefix.
 bind-key -T prefix / copy-mode \; send-keys '/'
