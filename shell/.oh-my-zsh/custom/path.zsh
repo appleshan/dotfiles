@@ -45,6 +45,10 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/perl5"; export PERL_MM_OPT;
 # emacs安装目录的 bin 文件夹，须要加入 PATH 变量
 # export PATH=$EMACS_HOME/bin:$PATH
 
+export EDITOR=et
+# Emacs 的相关脚本 ec、et、es 来自：
+# http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
+
 ##############
 # Java Setup #
 ##############

@@ -364,8 +364,10 @@
     # log like - we like this summarization our key performance indicators. Also aliased as `log-like`.
     lg = "!git log -${1:-10} --all --color=always --abbrev=12 --graph --topo-order --date=format:'%Y-%m-%d %H:%M:%S' --boundary \
                 --pretty=format:'%C(yellow)%d%Creset %s %Cblue[%cn] %Cgreen%ad - %C(magenta)%h'; #"
-    # 查看log，NOTE: 依赖Flog.vim插件
-    ll = "!${EDITOR:-vi} --git-log"
+
+    # 查看log，NOTE: 依赖 脚本ec、Emacs & magit插件.
+    # Emacs 的相关脚本 ec、et、es 来自：http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
+    ll = "!ec -e '(magit-log-current)'"
 ; }}}
 ; {{{ ### merge ###
 
