@@ -47,7 +47,7 @@ export GREP_COLOR='mt=07;31'
 
 alias beep='aplay ~/projects-private/dotfiles/sounds/beep-07.wav'
 
-alias vim=nvim
+# alias vim=nvim
 
 alias rm='echo "This is not the command you are looking for."; false'
 
