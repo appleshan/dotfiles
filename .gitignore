@@ -1,9 +1,8 @@
-.claude
-.gemini
-.serena
+./.claude
+./.gemini
+./.serena
 
 rofi/.config/rofi/scripts/rofi-autorandr/
 sudo/
 
-GEMINI.md
 polybar/.config/polybar/scripts/sink-switch.sh
