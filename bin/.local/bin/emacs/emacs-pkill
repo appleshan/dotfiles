@@ -1,0 +1,3 @@
+#!/bin/bash
+# 若Emacs卡住了,且按C-g无效的话，可以执行以下命令强制emacs取消正在运行的东西
+pkill -SIGUSR2 emacs

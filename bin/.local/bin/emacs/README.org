@@ -1,2 +1,23 @@
-Emacs 的相关脚本 ec、et、es 来自：
-http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
+#+TITLE: Emacs startup script
+
+Emacs 的相关脚本来自：
+- http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
+- https://github.com/lujun9972/emacs-document/blob/master/emacs-common/%E6%88%91%E6%98%AF%E6%80%8E%E6%A0%B7%E4%BD%BF%E7%94%A8Emacs%E7%9A%84.org
+
+* ec: This script starts emacs daemon if it is not running
+Install it:
+#+BEGIN_SRC bash
+sudo install -m 0755 emacs-client /usr/local/bin
+#+END_SRC
+
+* et: Makes sure emacs daemon is running and opens the file in Emacs in the terminal.
+Install it:
+#+BEGIN_SRC bash
+sudo install -m 0755 emacs-terminal /usr/local/bin
+#+END_SRC
+
+* es: simple script to shutdown the running Emacs daemon
+Install it:
+#+BEGIN_SRC bash
+sudo install -m 0755 emacs-shutdown /usr/local/bin
+#+END_SRC
