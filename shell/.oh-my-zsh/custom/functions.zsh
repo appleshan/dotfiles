@@ -381,7 +381,8 @@ function load-fonts() {
 
 # proxy
 function proxy_on() {
-    export no_proxy="localhost,127.0.0.1,localaddress,.localdomain.com"
+    # 我们可以对某些网段进行忽略代理设置，比如本地 127.0.0.1 等等
+    export no_proxy="localhost,localaddress,.localdomain.com,127.0.0.1,10.96.0.0/12,192.168.99.0/24,192.168.39.0/24"
 
     if (( $# > 0 )); then
         valid=$(echo $@ | sed -n 's/\([0-9]\{1,3\}.\?\)\{4\}:\([0-9]\+\)/&/p')
@@ -393,7 +394,11 @@ function proxy_on() {
         export http_proxy="$proxy" \
                https_proxy=$proxy \
                ftp_proxy=$proxy \
-               rsync_proxy=$proxy
+               rsync_proxy=$proxy \
+               HTTP_PROXY=$proxy \
+               HTTPS_PROXY=$proxy \
+               FTP_PROXY=$proxy \
+               RSYNC_PROXY=$proxy
         echo "Proxy environment variable set."
         return 0
     fi
