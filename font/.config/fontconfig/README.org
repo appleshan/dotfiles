@@ -1,0 +1,5 @@
+#+TITLE: Linux 上的字体配置
+
+# 参考文档
+- Linux 上的字体配置与故障排除: https://blog.lilydjwg.me/2023/3/5/linux-fonts.216591.html
+- https://github.com/lilydjwg/dotconfig/tree/base/fontconfig

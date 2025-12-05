@@ -34,6 +34,7 @@ TARGETS=(
 	feh/.fehbg
 	# flatpak/var/lib/flatpak/repo/config
 	font/.config/fontconfig/fonts.conf
+    font/.config/fontconfig/source-han-for-noto-cjk.conf
     font/.config/fontconfig/web.conf
     font/.config/fontconfig/web-ui-fonts.conf
     font/.config/fontconfig/win-replacements.conf
