@@ -81,9 +81,11 @@ TARGETS=(
     #pacman/etc/pacman.d/mirrorlist
     #pacman/etc/pacman.d/mirrorlist.sync
     picom/.config/picom/picom.conf
+    PipeWire/.config/pipewire/client.conf.d/20-upmix.conf
     PipeWire/.config/pipewire/client.conf.d/resample.conf
-    PipeWire/.config/pipewire/pipewire.conf.d/clock.conf
+    PipeWire/.config/pipewire/pipewire.conf.d/10-sound.conf
     PipeWire/.config/pipewire/pipewire.conf.d/sink-eq11.conf
+    PipeWire/.config/pipewire/pipewire-pulse.conf.d/20-upmix.conf
     PipeWire/.config/pipewire/pipewire-pulse.conf.d/switch-on-connect.conf
     PipeWire/.config/wireplumber/main.lua
     PipeWire/.config/wireplumber/wireplumber.conf.d/50-alsa-config.conf
