@@ -33,9 +33,10 @@ xrandr --auto --output HDMI-1 --primary --mode 1920x1080 --rate 60.00
 
 # => feh 设置桌面壁纸
 # $HOME/.fehbg
+$HOME/.config/feh/wallpaper.sh &
 
 # => To autostart wallpaper manager
-$HOME/.config/nitrogen/nitrogen.sh &
+#$HOME/.config/nitrogen/nitrogen-change-all.sh &
 #}}
 
 # => To autostart input method

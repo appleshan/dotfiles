@@ -22,17 +22,17 @@
 # ~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 
 # Moniotor 1 Wallpaper Directory
-MON1WALLPAPERS=~/persist/pictures/wallpaper/bing-wallpaper
+MON1WALLPAPERS=~/persist/pictures/bing-wallpaper
 # Change monitor 1 wallpaper in "x" seconds
 MON1TIME=45
 
 # Monitor 2 Wallpaper Directory
-MON2WALLPAPERS=~/persist/pictures/wallpaper/bing-wallpaper
+MON2WALLPAPERS=~/persist/pictures/bing-wallpaper
 # Change monitor 2 wallpaper in "x" seconds
 MON2TIME=45
 
 # Monitor 3 Wallpaper Directory
-MON3WALLPAPERS=~/persist/pictures/wallpaper/bing-wallpaper
+MON3WALLPAPERS=~/persist/pictures/bing-wallpaper
 # Change monitor 3 Wallpaper in "x" seconds
 MON3TIME=45
 
@@ -70,19 +70,19 @@ function right_monitor () {
 
 function set_main_monitor () {
     main_monitor
-    nitrogen --restore
+    nitrogen --restore 2>/dev/null
     sleep $MON1TIME
 }
 
 function set_left_monitor () {
     left_monitor
-    nitrogen --restore
+    nitrogen --restore 2>/dev/null
     sleep $MON3TIME
 }
 
 function set_right_monitor () {
     right_monitor
-    nitrogen --restore
+    nitrogen --restore 2>/dev/null
     sleep $MON2TIME
 }
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 #using the path WALLPAPERS will select a new random wallpaper
-WALLPAPERS=~/persist/pictures/wallpaper/bing-wallpaper
+WALLPAPERS=~/persist/pictures/bing-wallpaper
 RANGE=$(ls $WALLPAPERS | wc -l)
 
 for i in 2 7 12; do
@@ -9,4 +9,4 @@ for i in 2 7 12; do
   sed -i $i' c\file='"$WALLPAPERS/$IMAGE"'' ~/.config/nitrogen/bg-saved.cfg
 done
 
-nitrogen --restore
+nitrogen --restore 2>/dev/null
