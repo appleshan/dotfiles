@@ -1,0 +1,9 @@
+[Unit]
+Description=Cleans pacman cache
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/pacman -Scc --noconfirm
+
+[Install]
+WantedBy=multi-user.target
