@@ -1,6 +1,9 @@
 {
     "dns": ["223.6.6.6", "223.5.5.5"],
     "registry-mirrors": [
+        "https://registry.access.redhat.com",
+        "https://docker.io",
+        "https://quay.io",
         "https://docker.1ms.run",
         "https://dytt.online",
         "https://docker-0.unsee.tech",
