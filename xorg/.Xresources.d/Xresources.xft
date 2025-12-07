@@ -1,10 +1,9 @@
 !! Xft {{{
 Xft.dpi: 96
 Xft.rgba: rgb
-Xft.antialias: true
-Xft.hinting: true
-Xft.autohint: true
-Xft.hintstyle: hintfull
+Xft.antialias: 1
+Xft.hinting: 1
+Xft.autohint: 0
+Xft.hintstyle: hintslight
 Xft.lcdfilter: lcddefault
 !! }}}
-

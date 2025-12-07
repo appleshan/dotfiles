@@ -59,7 +59,7 @@
 
 !! URxvt Appearance
 !By default, the spacing between characters may feel too wide. The spacing can be reduced by one pixel
-URxvt.letterSpace: -1
+URxvt.letterSpace: 0
 URxvt.lineSpace: 0
 URxvt.geometry: 90x25+180+200
 ! URxvt.geometry: 92x24
@@ -72,11 +72,10 @@ URxvt.iso14755: false
 ! █▓▒░ Fonts
 Xft.dpi:96
 
-![WenQuanYi Bitmap Song]，This font makes Chinese look compact
 URxvt.font:\
 xft:Hack:style=Regular:antialias=false:size=12,\
-xft:WenQuanYi Bitmap Song:style=Regular:size=12,\
-xft:NotoColorEmoji:size=11:style=Regular,\
+xft:Source Han Sans:style=Regular:size=12,\
+xft:Twemoji:size=11:style=Regular,\
 xft:Font Awesome 7 Free:style=Regular:antialias=false:size=12,\
 xft:SymbolsNerdFont:style=Regular:antialias=false:size=12,\
 xft:IosevkaNerdFontMono:style=Regular:antialias=false:size=12,\
@@ -87,11 +86,11 @@ xft:Hack:size=12:style=Bold:antialias=true,\
 xft:DejaVu Sans Mono:size=12:style=Bold:antialias=true
 
 ! █▓▒░ icons
-URxvt.iconFile: /usr/share/icons/Papirus/16x16/apps/urxvt.svg
+URxvt.iconFile: terminal
 
 ! █▓▒░ 边框设置
-urxvt.internalBorder: 5
-urxvt.borderColor: #1c1c1c
+URxvt.internalBorder: 5
+URxvt.borderColor: #1c1c1c
 URxvt.borderLess: False
 
 ! █▓▒░ color scheme: Solarized light
@@ -118,7 +117,7 @@ URxvt.colorUL:Green
 
 !!透明度设置
 URxvt.transparent: true
-URxvt.shading: 65
+URxvt.shading: 20
 ! URxvt.shading: 110
 URxvt.tintColor: gray
 URxvt.inheritPixmap: false
@@ -141,52 +140,57 @@ URxvt.keysym.Control-Right: \033[1;5C
 URxvt.keysym.Control-Left: \033[1;5D
 
 ! █▓▒░ General
-URxvt.title: alec-rxvt
-URxvt.termName: rxvt-unicode-256color
+URxvt.title: alans-rxvt
+URxvt.termName: rxvt-unicode
 !!缓存行数
 URxvt.saveLines:65536
+! 当按下PrintScreen时，禁用打印终端内容。
+URxvt.print-pipe: "cat > /dev/null"
 
 ! █▓▒░ Extensions
 !!!!No white space between extension names
-URxvt.perl-ext-common: default,clipboard,keyboard-select,url-select,matcher,fullscreen,resize-font,tabbed
+URxvt.perl-ext-common: default,clipboard,keyboard-select,resize-font,tabbed
 
 ! █▓▒░ Copy Paste
-URxvt.clipboard.autocopy:   true
+URxvt.clipboard.autocopy:   false
 URxvt.clipboard.copycmd:    xclip -i -selection clipboard
 URxvt.clipboard.pastecmd:   xclip -o -selection clipboard
-urxvt.keysym.M-c:      perl:clipboard:copy
-urxvt.keysym.C-v:      perl:clipboard:paste
-urxvt.keysym.M-C-v:    perl:clipboard:paste_escaped
+URxvt.keysym.C-c:      perl:clipboard:copy
+URxvt.keysym.C-v:      perl:clipboard:paste
+URxvt.keysym.M-C-v:    perl:clipboard:paste_escaped
+URxvt.keysym.Control-Insert:    eval:selection_to_clipboard
+URxvt.keysym.Shift-Insert:      eval:paste_clipboard
 
 ! █▓▒░ 滚屏设置
 URxvt.mouseWheelScrollPage:True
+! 输出时不滚动
 URxvt.scrollTtyOutput:False
+! scroll in relation to buffer (with mouse scroll or Shift+Page Up)
 URxvt.scrollWithBuffer:True
+! 按键按下时回到最底部
 URxvt.scrollTtyKeypress:True
-
-! █▓▒░ Fullscreen
-URxvt.keysym.F11: perl:fullscreen:switch
 
 ! █▓▒░ keyboard-select
 URxvt.keysym.M-s:      perl:keyboard-select:search
-urxvt.keysym.M-Escape: perl:keyboard-select:activate
+URxvt.keysym.M-Escape: perl:keyboard-select:activate
+! Use Meta-Escape to activate selection mode, then use the following keys:
+!==============================================================================
+! h/j/k/l:        Move cursor left/down/up/right (also with arrow keys)
+! g/G/0/^/$/H/M/L/f/F/;/,/w/W/b/B/e/E: More vi-like cursor movement keys
+! '/'/?:          Start forward/backward search
+! n/N:            Repeat last search, N: in reverse direction
+! Ctrl-f/b:       Scroll down/up one screen
+! Ctrl-d/u:       Scroll down/up half a screen
+! v/V/Ctrl-v:     Toggle normal/linewise/blockwise selection
+! y/Return:       Copy selection to primary buffer, Return: quit afterwards
+! Y:              Copy selected lines to primary buffer or cursor line and quit
+! q/Escape:       Quit keyboard selection mode
+!==============================================================================
 
 ! █▓▒░ Input Method
-!URxvt.preeditType:Root
+URxvt.preeditType:Root
 URxvt.preeditType:OffTheSpot
 URxvt.inputMethod:fcitx5
-
-! █▓▒░ Clickable URLs
-URxvt.urlLauncher: google-chrome
-URxvt.matcher.button: 1
-URxvt.keysym.C-Delete: perl:matcher:last
-URxvt.keysym.M-Delete: perl:matcher:list
-
-! █▓▒░ Yankable URLs (no mouse)
-urxvt.keysum.M-u: perl:url-select:select_next
-urxvt.url-select.autocopy: true
-urxvt.url-select.launcher: google-chrome
-URxvt.url-select.underline: true
 
 ! █▓▒░ Simple tabs
 ! 默认支持鼠标点击使用，快捷键如下：
@@ -209,8 +213,10 @@ URxvt.tabbed.autohide: true
 URXvt.tabbed.reopen-on-close: no
 
 ! █▓▒░ Changing font size on the fly
-URxvt.keysym.C-Down:  resize-font:smaller
-URxvt.keysym.C-Up:    resize-font:bigger
+! "smaller" => "C-minus",
+! "bigger"  => "C-plus",
+! "reset"   => "C-equal",
+! "show"    => "C-question",
 
 ! █▓▒░ login shell
 URxvt.loginShell: false

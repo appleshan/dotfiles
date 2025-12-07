@@ -227,7 +227,7 @@ set $ws0 "10"
 
 # => 工作区切换&智能启动（添加智能启动脚本 ~/.local/bin/st 自动且不重复打开工作区相应程序）
 ## 转到工作区 // Workspace // <Super> 1...0 ##
-bindsym $mod+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st termite
+bindsym $mod+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st urxvt
 bindsym $mod+2  workspace $ws2, exec --no-startup-id ~/.local/bin/st ghostty
 bindsym $mod+3  workspace $ws3, exec --no-startup-id ~/.local/bin/st google-chrome-stable
 bindsym $mod+4  workspace $ws4
