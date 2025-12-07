@@ -49,7 +49,6 @@ mediainfo
 mesa-demos
 mpv
 neovim
-noto-fonts-emoji
 npm
 numlockx
 openssh

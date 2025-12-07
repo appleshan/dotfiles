@@ -38,10 +38,6 @@ TARGETS=(
     font/.config/fontconfig/web.conf
     font/.config/fontconfig/web-ui-fonts.conf
     font/.config/fontconfig/win-replacements.conf
-	# font/etc/fonts/conf.d/10-antialias.conf
-	# font/etc/fonts/conf.d/60-latin.conf
-	# font/etc/fonts/conf.d/65-nonlatin.conf
-	# font/etc/fonts/conf.d/70-noto-cjk.conf
     gemini/.gemini/.env
     gemini/.gemini/GEMINI.md
     ghostty/.config/ghostty/config

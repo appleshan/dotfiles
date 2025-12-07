@@ -1,7 +1,7 @@
 {
     "sync.gist": "026e2e9d874f984df5e9cad24215f13e",
 
-    "editor.fontFamily": "Hack, 'Microsoft YaHei', 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback'",
+    "editor.fontFamily": "Hack, 'Microsoft YaHei', 'DejaVu Sans Mono', 'monospace', monospace",
     "editor.fontWeight": "normal",
     "editor.fontSize": 18,
     "editor.tabSize": 4,

@@ -26,7 +26,8 @@
 #+BEGIN_SRC sh
 yay -S aur/polybar \
       aur/i3-gaps \
-      extra/noto-fonts \
+      extra/adobe-source-han-serif-otc-fonts \
+      extra/adobe-source-han-sans-otc-fonts \
       aur/ttf-material-icons-git \
       aur/termsyn-font \
       aur/ttf-unifont \
