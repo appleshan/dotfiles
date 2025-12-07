@@ -85,9 +85,7 @@ TARGETS=(
     PipeWire/.config/pipewire/pipewire-pulse.conf.d/20-upmix.conf
     PipeWire/.config/pipewire/pipewire-pulse.conf.d/switch-on-connect.conf
     PipeWire/.config/wireplumber/main.lua
-    PipeWire/.config/wireplumber/wireplumber.conf.d/50-alsa-config.conf
     PipeWire/.config/wireplumber/wireplumber.conf.d/51-bluez-config.conf
-    PipeWire/.config/wireplumber/wireplumber.conf.d/51-disable-suspension.conf
     podman/.config/containers/registries.conf
     polybar/.config/polybar/launch.sh
     polybar/.config/polybar/config.ini
@@ -167,7 +165,6 @@ TARGETS=(
     #terminator/.config/terminator/plugins/logger.py
     #terminator/.config/terminator/plugins/searchplugin.py
     termite/.config/termite/config
-    tgpt/.config/tgpt/proxy.txt
     tmux/.tmux.conf
     tmux/.tmux/config/settings.tmux
     tmux/.tmux/config/plugins.tmux
