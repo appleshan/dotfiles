@@ -7,6 +7,18 @@
 
 # modified commands
 
+# Replace ls with eza for beautiful directory listings
+alias ls='eza --icons --group-directories-first'
+alias ll='eza -l --icons --group-directories-first --header'
+alias la='eza -la --icons --group-directories-first --header'
+alias lt='eza --tree --icons --level=2'
+alias ltd='eza --tree --icons --level=2 --only-dirs'
+
+# Extended eza aliases
+alias l='eza -lbF --git --icons'                # list with git status
+alias llm='eza -lbGd --git --sort=modified'     # long list, modified date sort
+alias lls='eza -lbhHigmuSa --time-style=long-iso --git --color-scale'  # full details
+
 # alias more='less'
 alias df='df -kTh'
 alias dfxfs='df -Th --total -t xfs'
