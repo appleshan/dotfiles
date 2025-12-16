@@ -64,7 +64,7 @@ bindsym Print  exec --no-startup-id  flameshot gui --delay 200
 bindsym $mod+shift+Print  exec --no-startup-id  flameshot config
 
 # description: soundcard mixer
-bindsym $mod+shift+control+m  exec --no-startup-id  urxvt -e 'alsamixer'
+bindsym $mod+shift+control+m  exec --no-startup-id  i3-sensible-terminal -e 'alsamixer'
 
 
 ###############################################################################
@@ -227,15 +227,15 @@ set $ws0 "10"
 
 # => 工作区切换&智能启动（添加智能启动脚本 ~/.local/bin/st 自动且不重复打开工作区相应程序）
 ## 转到工作区 // Workspace // <Super> 1...0 ##
-bindsym $mod+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st urxvt
-bindsym $mod+2  workspace $ws2, exec --no-startup-id ~/.local/bin/st ghostty
+bindsym $mod+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st wezterm
+bindsym $mod+2  workspace $ws2
 bindsym $mod+3  workspace $ws3, exec --no-startup-id ~/.local/bin/st google-chrome-stable
 bindsym $mod+4  workspace $ws4
 bindsym $mod+5  workspace $ws5, exec --no-startup-id ~/.local/bin/st thunar
 bindsym $mod+6  workspace $ws6, exec --no-startup-id ~/.local/bin/st subl
 bindsym $mod+7  workspace $ws7
 bindsym $mod+8  workspace $ws8
-bindsym $mod+9  workspace $ws9
+bindsym $mod+9  workspace $ws9, exec --no-startup-id ~/.local/bin/st cc-switch
 bindsym $mod+0  workspace $ws0
 
 # => 移动窗口到另一个工作区
@@ -300,6 +300,8 @@ for_window [title="uGet"] move container to workspace $ws3, workspace $ws3, layo
 for_window [class="Thunderbird"] move container to workspace $ws3, workspace $ws3, layout tabbed
 for_window [title="VLC media player"] move container to workspace $ws4, workspace $ws4, layout tabbed
 #for_window [class="File Manager PCManFM"] move container to workspace $ws5; workspace $ws5, layout tabbed
+for_window [class="Thunar"] move container to workspace $ws5; workspace $ws5, layout tabbed
+for_window [class="Sublime"] move container to workspace $ws6; workspace $ws6, layout tabbed
 for_window [class="Zeal"] move container to workspace $ws6; workspace $ws6, layout tabbed
 for_window [class="Code"] move container to workspace $ws7; workspace $ws7, layout tabbed
 for_window [class="Emacs"] move container to workspace $ws7; workspace $ws7, layout tabbed
