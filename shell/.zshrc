@@ -93,8 +93,6 @@ plugins=(aliases \
          # https://github.com/amyreese/zsh-opt-path
          opt-path \
          podman
-         # https://github.com/six-ddc/zsh-proxychains-ng
-         zsh-proxychains-ng \
          rsync \
          safe-paste \
          # https://github.com/mattmc3/zsh-safe-rm
