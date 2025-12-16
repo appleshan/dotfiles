@@ -5,6 +5,9 @@
 [http "https://android.googlesource.com"]
     proxy = http://127.0.0.1:20089
 
+[init]
+    defaultBranch = main
+
 [core]
     #{{ @See https://p3terx.com/archives/how-to-choose-crlf-lf.html
     autocrlf = input
