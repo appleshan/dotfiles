@@ -98,18 +98,18 @@ export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 #################
 # golang        #
 #################
-#export GOARCH=amd64
-#export GOOS=linux
+export GOARCH=amd64
+export GOOS=linux
 
 # GOROOT is the location where Go package is installed on your system.
-#export GOROOT=/opt/golang/go-1.7.5
+export GOROOT=/usr/lib/go
 
 # GOPATH is the location of your work directory.
-#export GOPATH=$HOME/developer/projects/golang
+export GOPATH=$HOME/projects/golang
 
 # 安装目录的 bin 文件夹，须要加入 PATH 变量
-#export GOBIN=$GOPATH/bin
-#export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+export GOBIN=$GOPATH/bin
+export PATH="$PATH:$(go env GOROOT)/bin:$(go env GOBIN)"
 
 export GOPROXY="https://goproxy.cn,direct"
 
