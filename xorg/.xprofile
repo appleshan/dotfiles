@@ -1,7 +1,11 @@
 #!/bin/sh
 
-export LIBVA_DRIVERS_PATH=/usr/lib/dri/iHD_drv_video.so
+# iGPU settings
 export LIBVA_DRIVER_NAME=iHD
+# VDPAU settings
+#export VDPAU_DRIVER=va_gl
+# Vulkan Video settings
+export ANV_DEBUG=video-decode,video-encode
 
 #archwiki:enable Chinese locale
 export LANG=zh_CN.UTF-8
