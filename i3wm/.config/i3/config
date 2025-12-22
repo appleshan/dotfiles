@@ -14,7 +14,7 @@
 #   Author  : Appleshan
 #   Version : v1.1
 #
-#   依赖:conky feh (可选推荐:xcompmgr freetype-infinality)
+#   依赖: picom polybar (可选推荐: dunst, rofi, feh)
 #   部分特性可能需要新版本支持，请更新至最新版本或自行修改相应部分
 #   更多内容请参考:
 #   i3 User’s Guide: http://i3wm.org/docs/userguide.html
