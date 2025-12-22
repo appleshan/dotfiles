@@ -201,3 +201,10 @@ export FORGIT_FZF_DEFAULT_OPTS="
 
 # after `forgit` was loaded
 PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
+
+
+#################
+# claude        #
+#################
+
+export PATH="$PATH:$HOME/.claude/bin"
