@@ -232,7 +232,7 @@ bindsym $mod+2  workspace $ws2
 bindsym $mod+3  workspace $ws3, exec --no-startup-id ~/.local/bin/st google-chrome-stable
 bindsym $mod+4  workspace $ws4
 bindsym $mod+5  workspace $ws5, exec --no-startup-id ~/.local/bin/st thunar
-bindsym $mod+6  workspace $ws6, exec --no-startup-id ~/.local/bin/st subl
+bindsym $mod+6  workspace $ws6
 bindsym $mod+7  workspace $ws7
 bindsym $mod+8  workspace $ws8
 bindsym $mod+9  workspace $ws9, exec --no-startup-id ~/.local/bin/st cc-switch
