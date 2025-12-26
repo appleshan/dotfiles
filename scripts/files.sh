@@ -191,7 +191,6 @@ TARGETS=(
     #vifm/.config/vifm/scripts/vifmrun
     #vifm/.config/vifm/scripts/vifmimg
     vscode/.config/Code/User/settings.json
-    #wakatime/.wakatime.cfg
     #wget/.wgetrc
     xorg/.profile
     #xorg/.xinitrc

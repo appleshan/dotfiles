@@ -101,8 +101,6 @@ plugins=(aliases \
          timer tmux \
          ufw urltools uv \
          vscode \
-         # https://github.com/sobolevn/wakatime-zsh-plugin
-         wakatime \
          web-search \
          yarn \
          zbell zsh-interactive-cd zsh-tab-title \

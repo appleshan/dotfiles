@@ -260,7 +260,6 @@ tmux           ->    tmux 配置文件
 tor            ->    tor 配置文件
 unbound        ->    unbound 配置文件
 urxvt          ->    urxvt 配置文件
-wakatime       ->    wakatime 配置文件
 X11            ->    Xresources 配置文件
 polybar        ->    polybar 配置文件
 rofi           ->    rofi 配置文件
