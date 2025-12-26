@@ -111,6 +111,7 @@ export GOPATH=$HOME/projects/golang
 export GOBIN=$GOPATH/bin
 export PATH="$PATH:$(go env GOROOT)/bin:$(go env GOBIN)"
 
+export GO111MODULE=on
 export GOPROXY="https://goproxy.cn,direct"
 
 #################
