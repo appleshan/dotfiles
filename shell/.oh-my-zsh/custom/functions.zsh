@@ -67,6 +67,11 @@ source $ZSH/custom/emacs-functions.sh
 # Automatically start tmux
 # export ZSH_TMUX_AUTOSTART=true
 
+#  加载 GitHub 镜像加速的 Shell 包装器
+if [ -f ~/.local/bin/github-wrappers.sh ]; then
+    source ~/.local/bin/github-wrappers.sh
+fi
+
 function twa() {
     echo "================================================================================"
     echo "type -a:\n"
