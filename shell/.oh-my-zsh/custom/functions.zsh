@@ -50,7 +50,10 @@ export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
 export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
 
 # Disable options:
-unset MAILCHECK       # I don not want my shell to warn me of incoming mail
+# I don not want my shell to warn me of incoming mail
+unset MAILCHECK
+# 禁用 Zsh 的 Bracketed Paste Mode (解决粘贴出现 ^[[200~ 的问题)
+unset zle_bracketed_paste
 
 # @See https://stackoverflow.com/questions/799576/tput-unknown-terminal
 export TERMINFO=/usr/lib/terminfo
