@@ -5,4 +5,4 @@ rofi \
 -modi p:$HOME/.config/rofi/scripts/rofi-power-menu/rofi-power-menu \
 -font 'DejaVu Sans Mono 22' \
 -theme Arc-Dark \
--theme-str 'window {width: 8em;} listview {lines: 6;}'
+-theme-str 'window {width: 8em;} listview {lines: 4;}'
