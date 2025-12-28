@@ -10,7 +10,7 @@ shopt -s nullglob
 
 # 另外一种脚本写法
 while true; do
-    nitrogen --set-zoom --random ~/persist/pictures/wallpaper/
+    nitrogen --set-zoom --random ~/persist/pictures/bing-wallpaper/
 
     #更换间隔时间 15m即是15分钟
     sleep 15m
