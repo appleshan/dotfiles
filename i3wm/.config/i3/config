@@ -29,13 +29,14 @@
 font pango: DejaVu Sans Mono, FontAwesome 12
 
 # => Super key ==  ⊞ Windows logo key  ==  Apple ⌘ Command key
-set $mod  Mod4
+set $super  Mod4
+set $alt Mod1
 
 # Set default container layout for i3 (<default|stacking|tabbed>)
 workspace_layout tabbed
 # 自动切换到新打开的窗口(需4.12版本支持)
 #focus_on_window_activation focus
-# 重复切换到当前工作区时会返回上一个所在工作区，有可能造成工作区错位
+# last activate workspace
 #workspace_auto_back_and_forth yes
 
 # => 窗口边框类型（边框类型有 <normal(正常)|1pixel|pixel xx(自定义宽度)|none(无边框)|pixel>）
@@ -51,169 +52,166 @@ new_float normal
 #  Application openners  
 ###############################################################################
 
-# description: Open terminal (i3-sensible-terminal)
-bindsym $mod+Return  exec --no-startup-id  i3-sensible-terminal
+# Open terminal (i3-sensible-terminal)
+bindsym $super+Return  exec --no-startup-id  i3-sensible-terminal
 
-# description: Start file manager (ranger、pcmanfm or thunar)
-bindsym $mod+F5  exec --no-startup-id  thunar
+# Start file manager (ranger、pcmanfm or thunar)
+bindsym $super+F5  exec --no-startup-id  thunar
 
-# description: Open web browser
-bindsym $mod+F3  exec --no-startup-id  google-chrome-stable
+# Open web browser
+bindsym $super+F3  exec --no-startup-id  google-chrome-stable
 
-# description: flameshot 屏幕截图
+# flameshot 屏幕截图
 bindsym Print  exec --no-startup-id  flameshot gui --delay 200
 
-# description: flameshot config
-bindsym $mod+shift+Print  exec --no-startup-id  flameshot config
+# flameshot config
+bindsym $super+shift+Print  exec --no-startup-id  flameshot config
 
-# description: soundcard mixer
-bindsym $mod+shift+control+m  exec --no-startup-id  i3-sensible-terminal -e 'alsamixer'
+# soundcard mixer
+bindsym $super+shift+Ctrl+m  exec --no-startup-id  urxvt -e 'alsamixer'
 
 
 ###############################################################################
 #   Service Controls    
 ###############################################################################
 
-# description: Rofi show window
-bindsym $mod+Tab  exec --no-startup-id  rofi -show window
+# Rofi show applications
+bindsym $super+d  exec --no-startup-id  rofi -show drun -columns 3
 
-# description: Rofi show applications
-bindsym $mod+d  exec --no-startup-id  rofi -show drun -columns 3
-
-# description: Rofi show command
-bindsym $mod+shift+d  exec --no-startup-id  rofi -show run -columns 3
-
-# description: System Menu
-bindsym $mod+shift+a  exec --no-startup-id  $HOME/.config/rofi/scripts/menuz/show-system-menu.sh
-
-# description: Power Menu
+# Power Menu
 # Repo: https://github.com/jluttine/rofi-power-menu
 # No icons: https://github.com/jluttine/rofi-power-menu/issues/8#issuecomment-1440149437
-bindsym $mod+shift+p  exec --no-startup-id  $HOME/.config/polybar/scripts/system-power-menu/rofi-power-menu.sh
+bindsym $super+shift+p  exec --no-startup-id  $HOME/.config/polybar/scripts/system-power-menu/rofi-power-menu.sh
 
-# description: Use rofi to search documentation on Zeal and Man
-bindsym $mod+g  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
+# Use rofi to search documentation on Zeal and Man
+bindsym $super+g  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
 
-# description: 多媒体播放
-bindsym $mod+control+m  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-media/media.sh
+# 多媒体播放
+bindsym $super+Ctrl+m  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-media/media.sh
 
 
 ###############################################################################
 #   Misc keys          
 ###############################################################################
 
-# description: Use rofi to search book on 'ebook' dir
-bindsym $mod+shift+b  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-book-selector/rofi-book-selector.sh
+# Use rofi to search book on 'ebook' dir
+bindsym $super+shift+b  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-book-selector/rofi-book-selector.sh
 
-# description: xkill
+# xkill
 # https://unix.stackexchange.com/questions/383065/execute-xkill-in-i3
-bindsym --release $mod+control+x  exec  xkill; exec notify-send 'Run xkill...'
+bindsym --release $super+Ctrl+x  exec  xkill; exec notify-send 'Run xkill...'
 
 
 ###############################################################################
 #   I3 conrols         
 ###############################################################################
 
-# => reload the configuration file（更改配置文件后只须重载即可生效，不包含自启部分）
-## 重新载入 i3 配置 // i3 WM // <Super><Shift> c ##
-bindsym $mod+Shift+c  reload; exec notify-send 'Reload i3wm config'
+# Rofi show window
+bindsym $super+Tab  exec --no-startup-id  rofi -show window
 
-# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
-## 重启 i3 窗口管理器 // i3 WM // <Super><Shift> r ##
-bindsym $mod+Shift+r  restart; exec notify-send 'Restart i3wm'
+bindsym $super+comma  workspace back_and_forth
 
-# change focus with cursor keys
+# switch window in workspace
 ## 在窗口之间导航焦点 // Window // <Super> ↑ ↓ ← → ##
-bindsym $mod+Left   focus left
-bindsym $mod+Down   focus down
-bindsym $mod+Up     focus up
-bindsym $mod+Right  focus right
+bindsym $super+Left   focus left
+bindsym $super+Down   focus down
+bindsym $super+Up     focus up
+bindsym $super+Right  focus right
 
-# => 移动窗口
+# 绑定了 Redo 按键，它实际对应的是原右 ALT 按键
+bindsym Redo exec ~/projects/private/metaesc/lib/restore_fullscreen.sh \
+        && exec ~/projects/private/metaesc/lib/focus_next_win.sh
+
+# 移动窗口
 # move focused window with cursor keys
 ## 移动聚焦的窗口 // Window // <Super><Shift> ↑ ↓ ← → ##
-bindsym $mod+Shift+Left   move left
-bindsym $mod+Shift+Down   move down
-bindsym $mod+Shift+Up     move up
-bindsym $mod+Shift+Right  move right
+#bindsym $super+Shift+Left   move left
+#bindsym $super+Shift+Down   move down
+#bindsym $super+Shift+Up     move up
+#bindsym $super+Shift+Right  move right
 
-# => 暂存窗口（额外的可隐藏浮动窗口，取消浮动还原成普通窗口）
+# 暂存窗口（额外的可隐藏浮动窗口，取消浮动还原成普通窗口）
 ## 转换普通窗口为暂存窗口 // Scratchpad // <Super><Shift> - ##
-bindsym $mod+Shift+minus  move scratchpad
+bindsym $super+Shift+minus  move scratchpad
 ## 呼出/隐藏暂存窗口 // Scratchpad // <Super> - ##
-bindsym $mod+minus  scratchpad show
+bindsym $super+minus  scratchpad show
 
-# description: Resize panel 10x10 pixel
-bindsym $mod+control+shift+Left   resize shrink width 10 px or 10 ppt
-bindsym $mod+control+shift+Right  resize grow   width 10 px or 10 ppt
-bindsym $mod+control+shift+Up     resize shrink height 10 px or 10 ppt
-bindsym $mod+control+shift+Down   resize grow   height 10 px or 10 ppt
+# Resize panel 10x10 pixel
+bindsym $super+Ctrl+shift+Left   resize shrink width 10 px or 10 ppt
+bindsym $super+Ctrl+shift+Right  resize grow   width 10 px or 10 ppt
+bindsym $super+Ctrl+shift+Up     resize shrink height 10 px or 10 ppt
+bindsym $super+Ctrl+shift+Down   resize grow   height 10 px or 10 ppt
 
 # Navigate workspaces next / previous
 ## 导航下一个/上一个工作区 // Window // <Super><Ctrl> ← → ##
-bindsym $mod+Ctrl+Left   workspace prev
-bindsym $mod+Ctrl+Right  workspace next
+bindsym $super+Ctrl+Left   workspace prev
+bindsym $super+Ctrl+Right  workspace next
 
 # => 布局切换 (change container layout <stacked, tabbed, toggle split>)
 
 # Switch to stacked layout
 ## 切换到堆叠布局 // Window // <Super> s ##
-bindsym $mod+s  layout stacking
+#bindsym $super+s  layout stacking
 
 # Switch to tabbed layout
 ## 切换到标签布局 // Window // <Super> w ##
-bindsym $mod+w  layout tabbed
+#bindsym $super+w  layout tabbed
 
 # Switch to tiled layout
 ## 切换到平铺布局（竖直/水平） // Window // <Super> e ##
-bindsym $mod+e  layout toggle split
+#bindsym $super+e  layout toggle split
 
 # Switch back and forth in all layouts <stacked, tabbed, toggle split>
 ## 在所有布局中轮回切换 // Window // <Super> x ##
-bindsym $mod+x  layout toggle all
+#bindsym $super+x  layout toggle all
 
 # enter fullscreen mode for the focused container
 ## 窗口切换到全屏 // Window // <Super> f ##
-bindsym $mod+f  fullscreen toggle
+bindsym $super+f  fullscreen toggle
 
+# => float window setting
+# Use Mouse+$super to drag floating windows to their wanted position
+floating_modifier $super
 # toggle tiling / floating
 ## 窗口切换到浮动 // Window // <Super><Shift><space> ##
-bindsym $mod+Shift+space  floating toggle
+bindsym $super+Shift+space  floating toggle
+# floating_maximum_size 1200 x 900
+floating_maximum_size -1 x -1
 
 # toggle sticky
 ## 窗口切换为粘滞 // Window // <Super><Shift> s ##
-bindsym $mod+Shift+s  sticky toggle
+#bindsym $super+Shift+s  sticky toggle
 
 # => 焦点切换
-# 焦点跟随鼠标移动
+# 焦点跟随鼠标移动 (change focus with cursor)
 focus_follows_mouse yes
 # 焦点切换到父窗口 (focus the parent container)
-# bindsym $mod+q focus parent
+# bindsym $super+q focus parent
 # 焦点切换回子窗口 (focus the child container)
-# bindsym $mod+z focus child
+# bindsym $super+z focus child
 # 焦点切换到浮动窗口 (change focus between tiling / floating windows)
 ## 焦点切换到浮动窗口 // Window // <Super><space> ##
-bindsym $mod+space  focus mode_toggle
+bindsym $super+space  focus mode_toggle
 
 # => 新建窗口的分割方向
 # Split window horizontally
 ## 水平分割视窗 // Workspace // <Super><Ctrl> h ##
-bindsym $mod+Ctrl+h  split h;exec notify-send 'tile horizontally'
+#bindsym $super+Ctrl+h  split h;exec notify-send 'tile horizontally'
 # Split window vertically
 ## 垂直分割窗口 // Workspace // <Super><Ctrl> v ##
-bindsym $mod+Ctrl+v  split v;exec notify-send 'tile vertically'
+#bindsym $super+Ctrl+v  split v;exec notify-send 'tile vertically'
 
 # => 关闭窗口
 # kill focused window
 ## 关闭聚焦的窗口 // Window // <Alt> F4 ##
-bindsym mod1+F4  kill
+bindsym $alt+F4  kill
 
 ## 在三种边框类型中切换 // Workspace // <Super> b ##
-bindsym $mod+b border toggle
+bindsym $super+b border toggle
 # change borders
-# bindsym $mod+u  border none
-# bindsym $mod+y  border pixel 1
-# bindsym $mod+n  border normal
+# bindsym $super+u  border none
+# bindsym $super+y  border pixel 1
+# bindsym $super+n  border normal
 
 # => 设定工作区名 (workspace names)
 # icons assigned by `polybar`
@@ -228,74 +226,54 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws0 "10"
 
+set $wst "t"
+set $wsy "y"
+set $wsu "u"
+
 # => 工作区切换&智能启动（添加智能启动脚本 ~/.local/bin/st 自动且不重复打开工作区相应程序）
 ## 转到工作区 // Workspace // <Super> 1...0 ##
-bindsym $mod+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st wezterm
-bindsym $mod+2  workspace $ws2
-bindsym $mod+3  workspace $ws3, exec --no-startup-id ~/.local/bin/st google-chrome-stable
-bindsym $mod+4  workspace $ws4
-bindsym $mod+5  workspace $ws5, exec --no-startup-id ~/.local/bin/st thunar
-bindsym $mod+6  workspace $ws6
-bindsym $mod+7  workspace $ws7
-bindsym $mod+8  workspace $ws8
-bindsym $mod+9  workspace $ws9, exec --no-startup-id ~/.local/bin/st cc-switch
-bindsym $mod+0  workspace $ws0
+bindsym $super+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st wezterm
+bindsym $super+2  workspace $ws2
+bindsym $super+3  workspace $ws3, exec --no-startup-id ~/.local/bin/st google-chrome-stable
+bindsym $super+4  workspace $ws4
+bindsym $super+5  workspace $ws5, exec --no-startup-id ~/.local/bin/st thunar
+bindsym $super+6  workspace $ws6
+bindsym $super+7  workspace $ws7
+bindsym $super+8  workspace $ws8
+bindsym $super+9  workspace $ws9, exec --no-startup-id ~/.local/bin/st cc-switch
+bindsym $super+0  workspace $ws0
 
 # => 移动窗口到另一个工作区
 
 # Move focused container to workspace
 ## 将聚焦的容器移动到另一个工作区 // Workspace // <Super><Ctrl> 1...0 ##
-bindsym $mod+Ctrl+1  move container to workspace $ws1
-bindsym $mod+Ctrl+2  move container to workspace $ws2
-bindsym $mod+Ctrl+3  move container to workspace $ws3
-bindsym $mod+Ctrl+4  move container to workspace $ws4
-bindsym $mod+Ctrl+5  move container to workspace $ws5
-bindsym $mod+Ctrl+6  move container to workspace $ws6
-bindsym $mod+Ctrl+7  move container to workspace $ws7
-bindsym $mod+Ctrl+8  move container to workspace $ws8
-bindsym $mod+Ctrl+9  move container to workspace $ws9
-bindsym $mod+Ctrl+0  move container to workspace $ws0
+bindsym $super+Ctrl+1  move container to workspace $ws1
+bindsym $super+Ctrl+2  move container to workspace $ws2
+bindsym $super+Ctrl+3  move container to workspace $ws3
+bindsym $super+Ctrl+4  move container to workspace $ws4
+bindsym $super+Ctrl+5  move container to workspace $ws5
+bindsym $super+Ctrl+6  move container to workspace $ws6
+bindsym $super+Ctrl+7  move container to workspace $ws7
+bindsym $super+Ctrl+8  move container to workspace $ws8
+bindsym $super+Ctrl+9  move container to workspace $ws9
+bindsym $super+Ctrl+0  move container to workspace $ws0
 
 # Move to workspace with focused container
 ## 带上聚焦的容器移动到另一个工作区 // Workspace // <Super><Shift> 1...0 ##
-bindsym $mod+Shift+1  move container to workspace $ws1; workspace $ws1
-bindsym $mod+Shift+2  move container to workspace $ws2; workspace $ws2
-bindsym $mod+Shift+3  move container to workspace $ws3; workspace $ws3
-bindsym $mod+Shift+4  move container to workspace $ws4; workspace $ws4
-bindsym $mod+Shift+5  move container to workspace $ws5; workspace $ws5
-bindsym $mod+Shift+6  move container to workspace $ws6; workspace $ws6
-bindsym $mod+Shift+7  move container to workspace $ws7; workspace $ws7
-bindsym $mod+Shift+8  move container to workspace $ws8; workspace $ws8
-bindsym $mod+Shift+9  move container to workspace $ws9; workspace $ws9
-bindsym $mod+Shift+0  move container to workspace $ws0; workspace $ws0
-
-# => 调整窗口大小 (resize window)
-mode "" {
-        # these bindings trigger as soon as you enter the resize mode
-
-        # pressing 'LEFT' or 'H' will shrink the window’s width.
-        # pressing 'RIGHT' or 'L' will grow the window’s width.
-        # pressing 'UP' or 'K' will shrink the window’s height.
-        # pressing 'DOWN' or 'J' will grow the window’s height.
-        bindsym Down   resize grow height 5 px or 5 ppt
-        bindsym Up     resize shrink height 5 px or 5 ppt
-        bindsym Right  resize grow width 5 px or 5 ppt
-        bindsym Left   resize shrink width 5 px or 5 ppt
-        bindsym j      resize grow height 5 px or 5 ppt
-        bindsym k      resize shrink height 5 px or 5 ppt
-        bindsym l      resize grow width 5 px or 5 ppt
-        bindsym h      resize shrink width 5 px or 5 ppt
-
-        # back to normal: Enter or Escape
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
-}
-bindsym $mod+r mode ""
-
-# Use Mouse+$mod to drag floating windows to their wanted position
-floating_modifier $mod
+bindsym $super+Shift+1  move container to workspace $ws1; workspace $ws1
+bindsym $super+Shift+2  move container to workspace $ws2; workspace $ws2
+bindsym $super+Shift+3  move container to workspace $ws3; workspace $ws3
+bindsym $super+Shift+4  move container to workspace $ws4; workspace $ws4
+bindsym $super+Shift+5  move container to workspace $ws5; workspace $ws5
+bindsym $super+Shift+6  move container to workspace $ws6; workspace $ws6
+bindsym $super+Shift+7  move container to workspace $ws7; workspace $ws7
+bindsym $super+Shift+8  move container to workspace $ws8; workspace $ws8
+bindsym $super+Shift+9  move container to workspace $ws9; workspace $ws9
+bindsym $super+Shift+0  move container to workspace $ws0; workspace $ws0
 
 # => 自定义窗口（支持定义边框类型，窗口布局，大小调整，自动归类工作区等等，多个定义用,隔开）
+# title 需要通过在终端执行 xprop，然后点击对应的 window, 
+# 在显示信息中查找 _NET_WM_NAME 变量对应的名称，如果没有该变量，则匹配 WM_NAME 变量里的窗口名称
 for_window [class="Termite"] move container to workspace $ws1, workspace $ws1, layout tabbed
 for_window [class="微信"] move container to workspace $ws2, workspace $ws2, layout tabbed
 for_window [class="Google-chrome"] move container to workspace $ws3, workspace $ws3, layout tabbed
@@ -323,70 +301,181 @@ for_window [window_role="task_dialog"] floating enable
 # => i3-gaps
 
 # Set inner/outer gaps
-set $default_gaps_inner 8
-set $default_gaps_outer 8
-gaps inner $default_gaps_inner
-gaps outer $default_gaps_outer
+set $default-gaps-inner 5
+set $default-gaps-outer 5
+gaps inner $default-gaps-inner
+gaps outer $default-gaps-outer
 
 # Smart gaps (gaps used if only more than one container on the workspace)
 # smart_gaps on
 
-# Smart borders (draw borders around container only if it is not the only container on this workspace) 
+# Smart borders (draw borders around container only if it is not the only container on this workspace)
 # on|no_gaps (on=always activate and no_gaps=only activate if the gap size to the edge of the screen is 0)
 smart_borders on
 
 # adjust gaps on-the-fly
-# Press $mod+Shift+g to enter the gap mode.
+# Press $super+Shift+g to enter the gap mode.
 # Choose o or i for modifying outer/inner gaps.
 # Press one of + / - (in-/decrement for current workspace)
 # or 0 (remove gaps for current workspace).
 # If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode_gaps Gaps: (o) outer, (i) inner
-set $mode_gaps_outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode_gaps_inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode-gaps Gaps: (o) outer, (i) inner
+set $mode-gaps-outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode-gaps-inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
 
-mode "$mode_gaps" {
-        bindsym o      mode "$mode_gaps_outer"
-        bindsym i      mode "$mode_gaps_inner"
+mode "$mode-gaps" {
+    bindsym o      mode "$mode-gaps-outer"
+    bindsym i      mode "$mode-gaps-inner"
 
-        bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
-        bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default_gaps_inner" && i3-msg "gaps outer current set $default_gaps_outer"
+    bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
+    bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default-gaps-inner" && i3-msg "gaps outer current set $default-gaps-outer"
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Escape mode "default"
 }
 
-mode "$mode_gaps_inner" {
-        bindsym plus  gaps inner current plus 1
-        bindsym minus gaps inner current minus 1
-        bindsym 0     mode "default", gaps inner current set 0
-        bindsym d     mode "default", gaps inner current set $default_gaps_inner
+mode "$mode-gaps-inner" {
+    bindsym plus  gaps inner current plus 1
+    bindsym minus gaps inner current minus 1
+    bindsym 0     mode "default", gaps inner current set 0
+    bindsym d     mode "default", gaps inner current set $default-gaps-inner
 
-        bindsym Shift+plus  gaps inner all plus 1
-        bindsym Shift+minus gaps inner all minus 1
-        bindsym Shift+0     mode "default", gaps inner all set 0
-        bindsym Shift+d     mode "default", gaps inner all set $default_gaps_inner
+    bindsym Shift+plus  gaps inner all plus 1
+    bindsym Shift+minus gaps inner all minus 1
+    bindsym Shift+0     mode "default", gaps inner all set 0
+    bindsym Shift+d     mode "default", gaps inner all set $default-gaps-inner
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Escape mode "default"
 }
 
-mode "$mode_gaps_outer" {
-        bindsym plus  gaps outer current plus 1
-        bindsym minus gaps outer current minus 1
-        bindsym 0     mode "default", gaps outer current set 0
-        bindsym d     mode "default", gaps outer current set $default_gaps_outer
+mode "$mode-gaps-outer" {
+    bindsym plus  gaps outer current plus 1
+    bindsym minus gaps outer current minus 1
+    bindsym 0     mode "default", gaps outer current set 0
+    bindsym d     mode "default", gaps outer current set $default-gaps-outer
 
-        bindsym Shift+plus  gaps outer all plus 1
-        bindsym Shift+minus gaps outer all minus 1
-        bindsym Shift+0     mode "default", gaps outer all set 0
-        bindsym Shift+d     mode "default", gaps outer all set $default_gaps_outer
+    bindsym Shift+plus  gaps outer all plus 1
+    bindsym Shift+minus gaps outer all minus 1
+    bindsym Shift+0     mode "default", gaps outer all set 0
+    bindsym Shift+d     mode "default", gaps outer all set $default-gaps-outer
 
-        bindsym Return mode "default"
-        bindsym Escape mode "default"
+    bindsym Escape mode "default"
 }
 
-bindsym $mod+Shift+g  mode "$mode_gaps"
+# => 关闭窗口的子菜单
+set $close "Close the window? (y/n)"
+mode $close {
+    bindsym y kill, mode default
+    bindsym Return kill, mode default
+    bindsym q kill, mode default
+    bindsym n mode default
+    bindsym Escape mode default
+}
+bindsym $super+q mode $close
+
+# => 调整窗口大小 (resize window with hjkl)
+set $resize " resize h=shrink_5 j=grow_5 k=shrink_5 l=grow_5"
+mode $resize {
+    # these bindings trigger as soon as you enter the resize mode
+
+    # pressing 'LEFT' or 'H' will shrink the window’s width.
+    # pressing 'RIGHT' or 'L' will grow the window’s width.
+    # pressing 'UP' or 'K' will shrink the window’s height.
+    # pressing 'DOWN' or 'J' will grow the window’s height.
+    bindsym Down   resize grow height 5 px or 5 ppt
+    bindsym Up     resize shrink height 5 px or 5 ppt
+    bindsym Right  resize grow width 5 px or 5 ppt
+    bindsym Left   resize shrink width 5 px or 5 ppt
+    bindsym j      resize grow height 5 px or 5 ppt
+    bindsym k      resize shrink height 5 px or 5 ppt
+    bindsym l      resize grow width 5 px or 5 ppt
+    bindsym h      resize shrink width 5 px or 5 ppt
+
+    bindsym 0 resize set 50 ppt 50 ppt
+    bindsym 8 resize set 53 ppt 47 ppt
+    bindsym 9 resize set 62 ppt 38 ppt
+
+    # back to normal: Escape
+    bindsym Escape mode "default"
+}
+
+# => 交换窗口 (swap window with shift hjkl)
+set $swap-window "swap H=left J=down K=up L=right"
+mode $swap-window {
+    bindsym Shift+h move left
+    bindsym Shift+j move down
+    bindsym Shift+k move up
+    bindsym Shift+l move right
+
+    # back to normal: Escape
+    bindsym Escape mode "default"
+}
+
+# => 修改工作区布局的子菜单
+# set $layout-mode "layout stack[s] tabbed[t] split[x] other toggle[o] parent[p] child[c]"
+set $layout-mode "layout stack[s] tabbed[t] split[x] other toggle[o]"
+mode $layout-mode {
+    # change container layout (stacked, tabbed, toggle split)
+    bindsym s layout stacking
+    bindsym t layout tabbed
+    bindsym x layout toggle split
+    bindsym o layout toggle all
+
+    # bindsym p focus parent
+    # bindsym c focus child
+
+    # 用 \ 切换左右布局
+    bindsym backslash split h; exec notify-send " | split"
+    # 用 - 切换为上下布局
+    bindsym minus split v; exec notify-send "-- split"
+    # back to normal: Escape
+
+    bindsym Escape mode default
+}
+
+# => 多屏切换
+# New mode for switching monitor modes
+set $monitorMode "monitor s=single, d=dual-screen"
+mode $monitorMode {
+    bindsym s  exec "~/.config/i3/screenlayout/single"
+    bindsym d  exec "~/.config/i3/screenlayout/dual-screen"
+    # back to normal: Escape
+    bindsym Escape  mode "default"
+}
+
+# => 切换键盘布局的子菜单（binding mode）
+exec_always --no-startup-id exec ~/projects/private/metaesc/lib/code01s2.sh
+
+set $keymap-switch-mode "keymap: s(2), metaesc(1), default(0)"
+mode $keymap-switch-mode {
+    bindsym 0 exec ~/projects/private/metaesc/lib/code01default.sh, mode default
+    bindsym 1 exec ~/projects/private/metaesc/lib/code01s1.sh, mode default
+    bindsym 2 exec ~/projects/private/metaesc/lib/code01s2.sh, mode default
+    # back to normal: Escape
+    bindsym Escape mode default
+}
+
+set $main-mode "Menu swap/resize[[S]-hjkl,8,9] keymaps[k] reload[S-c] restart[S-r]"
+mode $main-mode {
+    bindsym g  mode $mode-gaps
+    bindsym k  mode $keymap-switch-mode
+    bindsym l  mode $layout-mode
+    bindsym m  mode $monitorMode
+    bindsym r  mode $resize
+    bindsym s  mode $swap-window
+
+    # => reload the configuration file（更改配置文件后只须重载即可生效，不包含自启部分）
+    ## 重新载入 i3 配置 // i3 WM // <Super><Shift> c ##
+    bindsym Shift+c  reload; exec notify-send 'Reload i3wm config'
+
+    # restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+    ## 重启 i3 窗口管理器 // i3 WM // <Super><Shift> r ##
+    bindsym Shift+r  restart; exec notify-send 'Restart i3wm'
+
+    # back to normal: Escape
+    bindsym Escape mode default
+}
+
+bindsym $super+semicolon  mode $main-mode
 
 # => startup apps and daemons
 
@@ -402,17 +491,9 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # exec_always --no-startup-id $HOME/.config/i3/startup_apps.sh
 
-# => 多屏切换
-# New mode for switching monitor modes
-set $monitorMode "monitor s=single, d=dual-screen"
-bindsym $mod+Shift+m mode $monitorMode
-mode $monitorMode {
-  bindsym s  exec "~/.config/i3/screenlayout/single"
-  bindsym d  exec "~/.config/i3/screenlayout/dual-screen"
-  # back to normal: Enter or Escape
-  bindsym Return  mode "default"
-  bindsym Escape  mode "default"
-}
+# super-c/v: 拷贝粘贴的统一
+bindsym F8 --release exec ~/projects/private/metaesc/lib/paste.sh c
+bindsym F9 --release exec ~/projects/private/metaesc/lib/paste.sh v
 
 # => clipcat integrating with i3 Window Manager
 exec_always --no-startup-id clipcatd # start clipcatd at startup
@@ -420,9 +501,23 @@ exec_always --no-startup-id clipcatd # start clipcatd at startup
 set $launcher-clipboard-insert clipcat-menu insert
 set $launcher-clipboard-remove clipcat-menu remove
 
-bindsym $mod+p exec $launcher-clipboard-insert
-bindsym $mod+o exec $launcher-clipboard-remove
+bindsym $super+p exec $launcher-clipboard-insert
+bindsym $super+o exec $launcher-clipboard-remove
 # end clipcat
+
+# => piper-speak
+# https://github.com/appleshan/piper-speak
+bindsym $super+Shift+s  exec --no-startup-id  ~/projects/private/piper-speak/scripts/speak-selection
+
+set $audio-note ~/projects/private/metaesc/lib/show_audio.sh
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $audio-note
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $audio-note
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $audio-note
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $audio-note
+
+set $bright-note ~/projects/private/metaesc/lib/brightness_code01.sh
+bindsym XF86MonBrightnessUp exec $bright-note 20
+bindsym XF86MonBrightnessDown exec $bright-note -20
 
 # enable syntax highlighting in vim/neovim. must have the i3 plugin!
 # get it at https://github.com/PotatoesMaster/i3-vim-syntax
