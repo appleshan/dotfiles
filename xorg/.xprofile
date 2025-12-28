@@ -20,6 +20,17 @@ export QT_IM_MODULE=fcitx
 export SDL_IM_MODULE=fcitx
 export XMODIFIERS=@im=fcitx
 
+# 关闭警告声（alarm sound/beep/蜂鸣）
+xset -b
+
+# X Server 环境阻止黑屏
+# 关闭屏幕保护
+xset s off
+# 禁用 DPMS
+xset -dpms
+# 禁用屏幕变黑
+xset s noblank
+
 ###########################################################
 ####               Autostart applications              ####
 ###########################################################
