@@ -235,7 +235,7 @@ clipcat 守护进程随 i3 自动启动。
 - **v2rayn**: 代理工具
 
 ### 字体
-- **Hack**: 等宽编程字体
+- **DejaVu Sans Mono**: 等宽编程字体
 - **Font Awesome**: 图标字体
 
 ---

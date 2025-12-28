@@ -2,7 +2,7 @@
 
 theme = carbonfox
 
-font-family = "Hack", "JetBrainsMono Nerd Font", "Source Han Sans"
+font-family = DejaVu Sans Mono, JetBrainsMono Nerd Font, Source Han Sans
 font-size = 12
 
 # Disable ligatures and configure font features

@@ -1,6 +1,6 @@
 !!XTerm {{{
-XTerm*faceName: Hack
-xterm*faceSize: 12
+XTerm*faceName: DejaVu Sans Mono
+xterm*faceSize: 14
 xterm*vt100*geometry: 100x30
 xterm*saveLines: 16384
 xterm*loginShell: true

@@ -20,8 +20,8 @@ configuration {
 }
 * {
     font-generic: "FontAwesome 28";
-    font-button:  "Hack 20";
-    font-prompt:  "Hack 28";
+    font-button:  "DejaVu Sans Mono 20";
+    font-prompt:  "DejaVu Sans Mono 28";
     
     font: @font-generic;
     

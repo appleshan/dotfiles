@@ -69,7 +69,7 @@ rofi.opacity:                        100
 rofi.width:                          60
 rofi.lines:                          8
 rofi.columns:                        1
-rofi.font:                           Inconsolata 24
+rofi.font:                           DejaVu Sans Mono 24
 rofi.fg:                             #5294E2
 rofi.bg:                             #5d729f
 rofi.fg-active:                      #34405a

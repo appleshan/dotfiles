@@ -14,9 +14,9 @@
 font = GoMono 8
 font = Monospace 10
 font = Terminus 12px
-font = Hack 16px
+font = DejaVu Sans Mono 16px
 
-boldfont = Hack 16px
+boldfont = DejaVu Sans Mono 16px
 word_chars = " " '"'&()*,;<=>?@[]^{|}\"()*,<>[]{}|''"\
 allow_bold = true
 bold_is_bright = true
@@ -147,7 +147,7 @@ color17 = #00bcd4
 color19 = #607d8b
 
 [hints]
-font = Hack 12
+font = DejaVu Sans Mono 12
 padding = 2
 foreground = #dcdccc
 background = #3f3f3f
