@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
-xmodmap ~/projects/private/metaesc/lib/code01s2.xmodmap
+xmodmap ~/.config/metaesc/code01s2.xmodmap
 sleep 0.2
 killall xcape
 sleep 0.2
