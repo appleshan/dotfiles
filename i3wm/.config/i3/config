@@ -119,8 +119,8 @@ bindsym $super+Up     focus up
 bindsym $super+Right  focus right
 
 # 绑定了 Redo 按键，它实际对应的是原右 ALT 按键
-bindsym Redo exec ~/projects/private/metaesc/lib/restore_fullscreen.sh \
-        && exec ~/projects/private/metaesc/lib/focus_next_win.sh
+bindsym Redo exec ~/.config/metaesc/restore_fullscreen.sh \
+        && exec ~/.config/metaesc/focus_next_win.sh
 
 # 移动窗口
 # move focused window with cursor keys
@@ -443,13 +443,13 @@ mode $monitorMode {
 }
 
 # => 切换键盘布局的子菜单（binding mode）
-exec_always --no-startup-id exec ~/projects/private/metaesc/lib/code01s2.sh
+exec_always --no-startup-id exec ~/.config/metaesc/code01s2.sh
 
 set $keymap-switch-mode "keymap: s(2), metaesc(1), default(0)"
 mode $keymap-switch-mode {
-    bindsym 0 exec ~/projects/private/metaesc/lib/code01default.sh, mode default
-    bindsym 1 exec ~/projects/private/metaesc/lib/code01s1.sh, mode default
-    bindsym 2 exec ~/projects/private/metaesc/lib/code01s2.sh, mode default
+    bindsym 0 exec ~/.config/metaesc/code01default.sh, mode default
+    bindsym 1 exec ~/.config/metaesc/code01s1.sh, mode default
+    bindsym 2 exec ~/.config/metaesc/code01s2.sh, mode default
     # back to normal: Escape
     bindsym Escape mode default
 }
@@ -492,8 +492,8 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # exec_always --no-startup-id $HOME/.config/i3/startup_apps.sh
 
 # super-c/v: 拷贝粘贴的统一
-bindsym F8 --release exec ~/projects/private/metaesc/lib/paste.sh c
-bindsym F9 --release exec ~/projects/private/metaesc/lib/paste.sh v
+bindsym F8 --release exec ~/.config/metaesc/paste.sh c
+bindsym F9 --release exec ~/.config/metaesc/paste.sh v
 
 # => clipcat integrating with i3 Window Manager
 exec_always --no-startup-id clipcatd # start clipcatd at startup
@@ -509,13 +509,13 @@ bindsym $super+o exec $launcher-clipboard-remove
 # https://github.com/appleshan/piper-speak
 bindsym $super+Shift+s  exec --no-startup-id  ~/projects/private/piper-speak/scripts/speak-selection
 
-set $audio-note ~/projects/private/metaesc/lib/show_audio.sh
+set $audio-note ~/.config/metaesc/show_audio.sh
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $audio-note
 bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $audio-note
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $audio-note
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $audio-note
 
-set $bright-note ~/projects/private/metaesc/lib/brightness_code01.sh
+set $bright-note ~/.config/metaesc/brightness_code01.sh
 bindsym XF86MonBrightnessUp exec $bright-note 20
 bindsym XF86MonBrightnessDown exec $bright-note -20
 
