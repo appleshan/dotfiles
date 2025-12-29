@@ -36,9 +36,6 @@ alias path='echo $PATH | tr -s ":" "\n"'
 # 在终端中运行magit就会调用Emacs并在当前目录下运行magit-status
 alias magit='ec -e "(magit-status \"$(pwd)\")"'
 
-# speed up download
-alias axel='axel -a -n 10'
-
 # Add an "alert" alias for long running commands.  Use like so:
 #   sleep 10; alert
 alias alert='notify-send --urgency=low -i "$([ $? = 0 ] && echo terminal || echo error)" "$(history|tail -n1|sed -e '\''s/^\s*[0-9]\+\s*//;s/[;&|]\s*alert$//'\'')"'
@@ -75,7 +72,3 @@ alias py3='python3'
 alias ipy='ipython'
 alias ipy2='ipython2'
 alias ipy3='ipython3'
-
-alias prp="pipenv run python"
-
-alias webshare='python -c "import SimpleHTTPServer;SimpleHTTPServer.test()"'
