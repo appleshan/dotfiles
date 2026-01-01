@@ -30,21 +30,21 @@ font pango: DejaVu Sans Mono, FontAwesome 12
 
 # => Super key ==  ⊞ Windows logo key  ==  Apple ⌘ Command key
 set $super  Mod4
-set $alt Mod1
 
 # Set default container layout for i3 (<default|stacking|tabbed>)
 workspace_layout tabbed
-# 自动切换到新打开的窗口(需4.12版本支持)
-#focus_on_window_activation focus
-# last activate workspace
-#workspace_auto_back_and_forth yes
+# 自动切换到新打开的窗口 (smart|urgent|focus|none)
+focus_on_window_activation smart
+
+# 延迟工作区变化紧急提示重置
+force_display_urgency_hint 2000 ms
 
 # => 窗口边框类型（边框类型有 <normal(正常)|1pixel|pixel xx(自定义宽度)|none(无边框)|pixel>）
 # 默认普通窗口的边框类型
 new_window normal
 # 默认浮动窗口的边框类型
 new_float normal
-# 设置窗口边框隐藏
+# 设置窗口边框隐藏 (none|vertical|horizontal|both|smart)
 # hide_edge_borders both
 
 
@@ -109,6 +109,9 @@ bindsym --release $super+Ctrl+x  exec  xkill; exec notify-send 'Run xkill...'
 # Rofi show window
 bindsym $super+Tab  exec --no-startup-id  rofi -show window
 
+# 当切换当前工作区时自动来回切换
+workspace_auto_back_and_forth yes
+# last activate workspace
 bindsym $super+comma  workspace back_and_forth
 
 # switch window in workspace
@@ -201,11 +204,6 @@ bindsym $super+space  focus mode_toggle
 ## 垂直分割窗口 // Workspace // <Super><Ctrl> v ##
 #bindsym $super+Ctrl+v  split v;exec notify-send 'tile vertically'
 
-# => 关闭窗口
-# kill focused window
-## 关闭聚焦的窗口 // Window // <Alt> F4 ##
-bindsym $alt+F4  kill
-
 ## 在三种边框类型中切换 // Workspace // <Super> b ##
 bindsym $super+b border toggle
 # change borders
@@ -232,8 +230,8 @@ set $wsu "u"
 
 # => 工作区切换&智能启动（添加智能启动脚本 ~/.local/bin/st 自动且不重复打开工作区相应程序）
 ## 转到工作区 // Workspace // <Super> 1...0 ##
-bindsym $super+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st wezterm
-bindsym $super+2  workspace $ws2
+bindsym $super+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st wezterm start --cwd .
+bindsym $super+2  workspace $ws2, exec --no-startup-id ~/.local/bin/st ghostty --gtk-single-instance=true
 bindsym $super+3  workspace $ws3, exec --no-startup-id ~/.local/bin/st google-chrome-stable
 bindsym $super+4  workspace $ws4
 bindsym $super+5  workspace $ws5, exec --no-startup-id ~/.local/bin/st thunar
@@ -271,11 +269,11 @@ bindsym $super+Shift+8  move container to workspace $ws8; workspace $ws8
 bindsym $super+Shift+9  move container to workspace $ws9; workspace $ws9
 bindsym $super+Shift+0  move container to workspace $ws0; workspace $ws0
 
-# => 自定义窗口（支持定义边框类型，窗口布局，大小调整，自动归类工作区等等，多个定义用,隔开）
+# => 自动将窗口放到指定工作区（支持定义边框类型，窗口布局，大小调整，自动归类工作区等等，多个定义用,隔开）
 # title 需要通过在终端执行 xprop，然后点击对应的 window, 
 # 在显示信息中查找 _NET_WM_NAME 变量对应的名称，如果没有该变量，则匹配 WM_NAME 变量里的窗口名称
-for_window [class="Termite"] move container to workspace $ws1, workspace $ws1, layout tabbed
-for_window [class="微信"] move container to workspace $ws2, workspace $ws2, layout tabbed
+for_window [class="^org.wezfurlong.wezterm$"] move container to workspace $ws1, workspace $ws1, layout tabbed
+for_window [class="^com.mitchellh.ghostty$"] move container to workspace $ws2, workspace $ws2, layout tabbed
 for_window [class="Google-chrome"] move container to workspace $ws3, workspace $ws3, layout tabbed
 for_window [title="uGet"] move container to workspace $ws3, workspace $ws3, layout tabbed
 for_window [class="Thunderbird"] move container to workspace $ws3, workspace $ws3, layout tabbed
@@ -291,8 +289,8 @@ for_window [class="Gnome-boxes"] move workspace $ws0; workspace $ws0
 for_window [class="VirtualBox Manager"] move workspace $ws0; workspace $ws0
 for_window [class="v2rayn"] move container to workspace $ws0, workspace $ws0, layout tabbed
 for_window [class="Arandr"] floating enable
-for_window [class="Xfce4-power-manager-settings"] floating enable
 for_window [class="Nm-connection-editor"] floating enable
+for_window [class="Xfce4-power-manager-settings"] floating enable
 
 # floating pop up automatically
 for_window [window_role="pop-up"] floating enable
@@ -361,7 +359,8 @@ mode "$mode-gaps-outer" {
     bindsym Escape mode "default"
 }
 
-# => 关闭窗口的子菜单
+# => kill focused window
+## 关闭聚焦的窗口 // Window // <Super> q ##
 set $close "Close the window? (y/n)"
 mode $close {
     bindsym y kill, mode default
@@ -411,13 +410,12 @@ mode $swap-window {
 }
 
 # => 修改工作区布局的子菜单
-# set $layout-mode "layout stack[s] tabbed[t] split[x] other toggle[o] parent[p] child[c]"
 set $layout-mode "layout stack[s] tabbed[t] split[x] other toggle[o]"
 mode $layout-mode {
     # change container layout (stacked, tabbed, toggle split)
     bindsym s layout stacking
-    bindsym t layout tabbed
-    bindsym x layout toggle split
+    bindsym w layout tabbed
+    bindsym e layout toggle split
     bindsym o layout toggle all
 
     # bindsym p focus parent
@@ -427,8 +425,8 @@ mode $layout-mode {
     bindsym backslash split h; exec notify-send " | split"
     # 用 - 切换为上下布局
     bindsym minus split v; exec notify-send "-- split"
-    # back to normal: Escape
 
+    # back to normal: Escape
     bindsym Escape mode default
 }
 
@@ -438,6 +436,7 @@ set $monitorMode "monitor s=single, d=dual-screen"
 mode $monitorMode {
     bindsym s  exec "~/.config/i3/screenlayout/single"
     bindsym d  exec "~/.config/i3/screenlayout/dual-screen"
+
     # back to normal: Escape
     bindsym Escape  mode "default"
 }
@@ -450,6 +449,7 @@ mode $keymap-switch-mode {
     bindsym 0 exec ~/.config/metaesc/code01default.sh, mode default
     bindsym 1 exec ~/.config/metaesc/code01s1.sh, mode default
     bindsym 2 exec ~/.config/metaesc/code01s2.sh, mode default
+
     # back to normal: Escape
     bindsym Escape mode default
 }
@@ -487,9 +487,7 @@ bindsym $super+semicolon  mode $main-mode
 # `polybar` replaces `i3bar`
 # more info at https://github.com/jaagr/polybar
 # configuration in ~/.config/polybar/config.ini
-exec_always --no-startup-id $HOME/.config/polybar/launch.sh
-
-# exec_always --no-startup-id $HOME/.config/i3/startup_apps.sh
+exec_always --no-startup-id ~/.config/polybar/launch.sh
 
 # super-c/v: 拷贝粘贴的统一
 bindsym F8 --release exec ~/.config/metaesc/paste.sh c
