@@ -1,4 +1,7 @@
 #!zsh
+#  ┌┬┐┬ ┬┌─┐  ┌─┐┬─┐┌─┐┌┬┐┌─┐┌┬┐
+#   │ ├─┤├┤   ├─┘├┬┘│ ││││├─┘ │ 
+#   ┴ ┴ ┴└─┘  ┴  ┴└─└─┘┴ ┴┴   ┴
 
 # {{ spaceship
 # See https://github.com/denysdovhan/spaceship-zsh-theme

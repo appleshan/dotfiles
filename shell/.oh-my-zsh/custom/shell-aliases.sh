@@ -1,9 +1,7 @@
 #!zsh
-# bash_aliases
-
-#-------------------
-# Personnal Aliases
-#-------------------
+#  ┌─┐┬  ┬┌─┐┌─┐
+#  ├─┤│  │├─┤└─┐
+#  ┴ ┴┴─┘┴┴ ┴└─┘
 
 # modified commands
 

@@ -1,7 +1,13 @@
 #!zsh
-
+#  ╔═╗╔═╗╦ ╦╦═╗╔═╗  ╔═╗╔═╗╔╗╔╔═╗╦╔═╗
+#  ╔═╝╚═╗╠═╣╠╦╝║    ║  ║ ║║║║╠╣ ║║ ╦
+#  ╚═╝╚═╝╩ ╩╩╚═╚═╝  ╚═╝╚═╝╝╚╝╚  ╩╚═╝
 # source me in your script or .bashrc/.zshrc if wanna use cecho
 # source '/path/to/functions.sh'
+
+#  ┬  ┬┌─┐┬─┐┌─┐
+#  └┐┌┘├─┤├┬┘└─┐
+#   └┘ ┴ ┴┴└─└─┘
 
 export LESSCHARSET=utf-8
 
@@ -21,6 +27,23 @@ export TIME_STYLE='+%Y/%m/%d %H:%M:%S'
 
 export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
 
+# The FIGNORE environment variable is nice when you want TAB completion
+# to ignore files or folders with certain suffixes, e.g.:
+export FIGNORE=~:.o:.svn:.git:.bak:.swp:.elc:.swa:.pyc:.a:.class:.la:.mo:.obj:.pyo
+
+#  ┬ ┬┬┌─┐┌┬┐┌─┐┬─┐┬ ┬
+#  ├─┤│└─┐ │ │ │├┬┘└┬┘
+#  ┴ ┴┴└─┘ ┴ └─┘┴└─ ┴ 
+
+# @see http://www.talug.org/events/20030709/cmdline_history.html
+# If you include the expression "[ \t]*" in the HISTIGNORE string,
+# you cansuppress history recording at will for any given command
+# just by starting with a space!
+# Larger bash history (allow 32³ entries; default is 500)
+export HISTFILESIZE=10000        # increase history file size (default is 500)
+export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
+export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
+
 # don't put duplicate lines or lines starting with space in the history.
 # See bash(1) for more options
 # leading space hides commands from history
@@ -31,23 +54,49 @@ export HISTCONTROL=$HISTCONTROL:ignoredups
 # @See https://blog.lilydjwg.me/2013/7/3/manually-save-read-zsh-history-entries.39852.html
 # 不保留重复的历史记录项
 setopt hist_ignore_all_dups
+# Do not write events to history that are duplicates of previous events
+setopt HIST_IGNORE_DUPS
 # 在命令前添加空格，不将此命令添加到记录文件中
 setopt hist_ignore_space
+# When searching history don't display results already cycled through twice
+setopt HIST_FIND_NO_DUPS
+# Remove extra blanks from each command line being added to history
+setopt HIST_REDUCE_BLANKS
 # 在多个 zsh 中及时共享历史记录
 setopt SHARE_HISTORY
+# Allow multiple terminal sessions to all append to one zsh command history
+setopt APPEND_HISTORY 
+# Add comamnds as they are typed, don't wait until shell exit
+setopt INC_APPEND_HISTORY 
+# Include more information about when the command was executed, etc
+setopt EXTENDED_HISTORY
 
-# The FIGNORE environment variable is nice when you want TAB completion
-# to ignore files or folders with certain suffixes, e.g.:
-export FIGNORE=~:.o:.svn:.git:.bak:.swp:.elc:.swa:.pyc:.a:.class:.la:.mo:.obj:.pyo
+# McFly - fly through your shell history
+eval "$(mcfly init zsh)"
 
-# @see http://www.talug.org/events/20030709/cmdline_history.html
-# If you include the expression "[ \t]*" in the HISTIGNORE string,
-# you cansuppress history recording at will for any given command
-# just by starting with a space!
-# Larger bash history (allow 32³ entries; default is 500)
-export HISTFILESIZE=10000        # increase history file size (default is 500)
-export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
-export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
+#  ┌─┐┌─┐┬ ┬  ┌─┐┌─┐┌─┐┬    ┌─┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
+#  ┌─┘└─┐├─┤  │  │ ││ ││    │ │├─┘ │ ││ ││││└─┐
+#  └─┘└─┘┴ ┴  └─┘└─┘└─┘┴─┘  └─┘┴   ┴ ┴└─┘┘└┘└─┘
+
+# ===== Basics
+# If you type foo, and it isn't a command, and it is a directory in your cdpath, go there
+setopt AUTO_CD
+
+# ===== Completion
+# When completing from the middle of a word, move the cursor to the end of the word
+setopt ALWAYS_TO_END
+# Automatically list choices on ambiguous completion.
+setopt AUTO_LIST
+# Allow completion from within a word/phrase
+setopt COMPLETE_IN_WORD
+# The completion menu takes less space.
+setopt LIST_PACKED
+# Automatically highlight first element of completion menu
+setopt MENU_COMPLETE
+
+# ===== Prompt
+# Enable parameter expansion, command substitution, and arithmetic expansion in the prompt
+setopt PROMPT_SUBST
 
 # Disable options:
 # I don not want my shell to warn me of incoming mail
@@ -373,9 +422,6 @@ function getcertnames() {
 function ltree() {
 	tree -aC -I '.git|node_modules|bower_components' --dirsfirst "$@" | less -FRNX;
 }
-
-# McFly - fly through your shell history
-eval "$(mcfly init zsh)"
 
 # load-fonts
 function load-fonts() {
