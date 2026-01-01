@@ -1,210 +1,204 @@
+# See dunst(5) for all configuration options
 [global]
+    # --- Display --- #
 
-# Behaviour
-# ---------------------------------------------------------------------
+    # The monitor to be displayed to
+    monitor = 0
 
-    # Sort messages by urgency.
-    sort = yes
+    frame_color = "#89B4FA"
+    separator_color= frame
 
-    # Show how many messages are currently hidden (because of geometry).
+    # Follow monitor with mouse
+    follow = mouse
+
+    width = 300
+    # height = 260
+    origin = top-right
+    offset = 20x14
+
+    progress_bar = true
+    progress_bar_height = 14
+    progress_bar_frame_width = 1
+    progress_bar_min_width = 150
+    progress_bar_max_width = 300
+
+    # Show how many messages are hidden
     indicate_hidden = yes
 
-    # Show age of message if message is older than show_age_threshold
-    # seconds.
-    # Set to -1 to disable.
-    show_age_threshold = 60
+    # Shrink window if it's smaller than the width.
+    shrink = no
+
+    # Draw a line between multiple notifications
+    separator_height = 2
+
+    separator_color = "#272f57"
+
+    # Set notification padding
+    padding = 16
+    horizontal_padding = 16
+
+    # Disable frame (border)
+    frame_width = 0
+
+    # Sort messages by urgency.
+    sort = no
 
     # Don't remove messages, if the user is idle (no mouse or keyboard input)
     # for longer than idle_threshold seconds.
     # Set to 0 to disable.
     idle_threshold = 120
 
-    # Browser for opening urls in context menu.
-    browser = google-chrome-stable
-
-    # History:
-
-    # Should a notification popped up from history be sticky or timeout
-    # as if it would normally do.
-    sticky_history = yes
-
-    # Maximum amount of notifications kept in history
-    history_length = 20
-
-    # Monitor:
-
-    # Which monitor should the notifications be displayed on.
-    monitor = 0
-
-    # Display notification on focused monitor.  Possible modes are:
-    #   mouse: follow mouse pointer
-    #   keyboard: follow window with keyboard focus
-    #   none: don't follow anything
-    #
-    # "keyboard" needs a windowmanager that exports the
-    # _NET_ACTIVE_WINDOW property.
-    # This should be the case for almost all modern windowmanagers.
-    #
-    # If this option is set to mouse or keyboard, the monitor option
-    # will be ignored.
-    follow = mouse
-
-    # Print a notification on startup.
-    # This is mainly for error detection, since dbus (re-)starts dunst
-    # automatically after a crash.
-#    startup_notification = false
-
-# Appearance
-# ---------------------------------------------------------------------
-
-    # General
-    font = "Font Awesome" 14
-
-    # Alignment of message text.
-    # Possible values are "left", "center" and "right".
-    alignment = left
-
-    # The frequency with wich text that is longer than the notification
-    # window allows bounces back and forth.
-    # This option conflicts with "word_wrap".
-    # Set to 0 to disable.
-#    bounce_freq = 0
-
-    # Icons:
-    # Align icons left/right/off
-    icon_position = left
-
-    # Paths to default icons.
-#    icon_folders = /usr/share/icons/gnome/48x48/status/:/usr/share/icons/gnome/48x48/devices/:/usr/share/icons/Numix-Circle/48/apps
-
-    max_icon_size = 32
-
-    # Split notifications into multiple lines if they don't fit into geometry.
-    word_wrap = yes
-
-    # The height of a single line.  If the height is smaller than the
-    # font height, it will get raised to the font height.
-    # This adds empty space above and under the text.
-    line_height = 0
-
     # The transparency of the window.  Range: [0; 100].
     # This option will only work if a compositing windowmanager is
     # present (e.g. xcompmgr, compiz, etc.).
     transparency = 20
 
-    # Markup Options
-    # Allow a small subset of html markup:
-    #   <b>bold</b>
-    #   <i>italic</i>
-    #   <s>strikethrough</s>
-    #   <u>underline</u>
-    #
-    # For a complete reference see
-    # <http://developer.gnome.org/pango/stable/PangoMarkupFormat.html>.
-#    allow_markup = yes
+   
+    # --- Text --- #
 
-    # The format of the message.  Possible variables are:
-    #   %a  appname
-    #   %s  summary
-    #   %b  body
-    #   %i  iconname (including its path)
-    #   %I  iconname (without its path)
-    #   %p  progress value if set ([  0%] to [100%]) or nothing
-    # Markup is allowed
-    format = "<b>%s</b>\n%b"
+    # Set the font
+    font = "Font Awesome" 12
 
-    # Ignore newlines '\n' in notifications
+    # Set line height to font height
+    line_height = 0
+
+    # Reference for markup and formatting:
+    #  <b>bold</b>
+    #  <i>italic</i>
+    #  <s>strikethrough</s>
+    #  <u>underline</u>
+    #  <https://developer.gnome.org/pango/stable/pango-Markup.html>.
+    #  %a appname
+    #  %s summary
+    #  %b body
+    #  %i iconname (including its path)
+    #  %I iconname (without its path)
+    #  %p progress value if set ([  0%] to [100%]) or nothing
+    #  %n progress value if set without any extra characters
+    #  %% Literal %
+
+    markup = full
+    format = "<b>%a</b>\n%s\n%b"
+
+    # Left align the text
+    alignment = left
+
+    # Vertical alignment of message text and icon.
+    vertical_alignment = center
+
+    # Show age of message if message is old
+    show_age_threshold = 120
+
+    # Wrap text if it doesn't fit in geometry
+    word_wrap = yes
+
+    # Where to place ellipses if word wrap is disabled
+    # ellipsize = middle
+
+    # Use newlines '\n' in notifications.
     ignore_newline = no
 
-    # The geometry of the window:
-    #   [{width}]x{height}[+/-{x}+/-{y}]
-    # The geometry of the message window.
-    # The height is measured in number of notifications everything else
-    # in pixels.  If the width is omitted but the height is given
-    # ("-geometry x2"), the message window expands over the whole screen
-    # (dmenu-like).  If width is 0, the window expands to the longest
-    # message displayed.  A positive x is measured from the left, a
-    # negative from the right side of the screen.  Y is measured from
-    # the top and down respectevly.
-    # The width can be negative.  In this case the actual width is the
-    # screen width minus the width defined in within the geometry option.
-#    geometry = "600x50-30+52"
+    # Don't stack together notifications
+    stack_duplicates = false
 
-    # Shrink window if it's smaller than the width.  Will be ignored if
-    # width is 0.
-    shrink = no
+    # Hide the count of stacked notifications
+    # hide_duplicate_count = false
 
     # Display indicators for URLs (U) and actions (A).
     show_indicators = yes
 
-    # Separator:
-
-    # Draw a line of "separatpr_height" pixel height between two
-    # notifications.
-    # Set to 0 to disable.
-    separator_height = 2
-
-    # Define a color for the separator.
-    # possible values are:
-    #  * auto: dunst tries to find a color fitting to the background;
-    #  * foreground: use the same color as the foreground;
-    #  * frame: use the same color as the frame;
-    #  * anything else will be interpreted as a X color.
-    separator_color = auto
-
-    # Padding between text and separator.
-    padding = 20
-
-    # Horizontal padding.
-    horizontal_padding = 20
-
-    # Border
-#[frame]
-#    width = 3
-#    color = "#aaaaaa"
-
-
-# Key Bindings
-# ---------------------------------------------------------------------
-#[shortcuts]
-    # Shortcuts are specified as [modifier+][modifier+]...key
-    # Available modifiers are "ctrl", "mod1" (the alt-key), "mod2",
-    # "mod3" and "mod4" (windows-key).
-    # Xev might be helpful to find names for keys.
-
-    # Close notification.
-    close = ctrl+space
     
-    # Close all notifications.
-    close_all = ctrl+shift+space
-    
-    # Redisplay last message(s).
-    # On the US keyboard layout "grave" is normally above TAB and left
-    # of "1".
-    history = ctrl+grave
-    
-    # Context menu.
-    context = ctrl+period
+    # ---- Icons ---- #
+
+    # Align icons left/right/off
+    icon_position = left
+
+    # Scale small icons up to this size, set to 0 to disable.
+    min_icon_size = 50
+
+    # Scale larger icons down to this size, set to 0 to disable
+    max_icon_size = 60
+
+    # Paths to default icons.
+    # icon_path = /usr/share/icons/Tela-dracula/24/panel
+    # icon_theme = "Deepin2022-Dark, Adwaita"
+    enable_recursive_icon_lookup = true
+
+
+    # --- History --- #
+
+    # Avoid timing out hidden notifications
+    sticky_history = yes
+
+    # Maximum amount of notifications kept in history
+    history_length = 100
+
+
+    # --- Misc/Advanced --- #
+
+    dmenu = /usr/bin/dmenu -p dunst:
+
+    # Browser for opening urls in context menu.
+    browser = /usr/bin/google-chrome-stable -new-tab
+
+    # Always run rule-defined scripts, even if the notification is suppressed
+    always_run_script = false
+
+    # Define the title of the windows spawned by dunst
+    title = Dunst
+
+    # Define the class of the windows spawned by dunst
+    class = Dunst
+
+    # Define the corner radius of the notification window
+    corner_radius = 10
+
+    # Don't gnore the dbus closeNotification message.
+    ignore_dbusclose = false
+
+
+    # --- Legacy --- #
+
+    # Use the Xinerama extension instead of RandR for multi-monitor support.
+    force_xinerama = false
+
+
+    # --- Mouse --- #
+    mouse_left_click = do_action, close_current
+    mouse_middle_click = do_action, close_current
+    # mouse_right_click = close_all
+    mouse_right_click = close_current
+
+
+[experimental]
+    per_monitor_dpi = false
 
 
 # Urgency Levels
 # ---------------------------------------------------------------------
 
+# IMPORTANT: colors have to be defined in quotation marks.
+# Otherwise the "#" and following would be interpreted as a comment.
 [urgency_low]
-    # IMPORTANT: colors have to be defined in quotation marks.
-    # Otherwise the "#" and following would be interpreted as a comment.
-    background = "#282c34"
     foreground = "#abb2bf"
-    timeout = 5
+    background = "#1E1E2E"
+    highlight = "#70a5eb"
+    frame_color = "#242931"
+    timeout = 8
 
 [urgency_normal]
-    background = "#282c34"
+    # script = ~/.scripts/dunst/sound-normal.sh
     foreground = "#abb2bf"
-    timeout = 10
+    background = "#1E1E2E"
+    highlight = "#70a5eb"
+    timeout = 16
 
 [urgency_critical]
-    background = "#282c34"
+    # script = ~/.scripts/dunst/sound-critical.sh
     foreground = "#e06c75"
+    background = "#1E1E2E"
+    frame_color = "#FAB387"
+    highlight = "#e05f65"
     timeout = 0
 
 
