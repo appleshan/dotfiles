@@ -1,0 +1,2 @@
+#!/bin/sh
+feh --no-fehbg --bg-fill '/home/alecshan/persist/pictures/bing-wallpaper/SunSalutation_ZH-CN7833986255_UHD.jpg' 
