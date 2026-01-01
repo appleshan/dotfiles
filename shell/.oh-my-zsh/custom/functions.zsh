@@ -495,3 +495,57 @@ ranger_cd() {
   fi
 }
 alias r='ranger_cd'  # 用 'r' 快速启动
+
+# Function to list Docker containers, supports -a option to show all containers
+dockps() {
+  if [[ "$1" == "-a" ]]; then
+    echo "Listing all Docker containers (including stopped):"
+    docker ps -a --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
+  else
+    echo "Listing all running Docker containers:"
+    docker ps --format "table {{.ID}}\t{{.Names}}\t{{.Status}}"
+  fi
+}
+
+# Function to enter a Docker container by name or partial ID (first two characters)
+docksh() {
+  if [ -z "$1" ]; then
+    echo "Usage: docksh <container_name_or_id>"
+    return 1
+  fi
+
+  # Try to find the container ID by name or the first two characters of the ID
+  local container_id=$(docker ps -aq --filter "name=$1" --filter "id=$1" | grep -E "^$1" | head -n 1)
+
+  if [ -z "$container_id" ]; then
+    # Attempt to find any container ID matching the first two characters
+    container_id=$(docker ps -aq | grep "^$1")
+
+    if [ -z "$container_id" ]; then
+      echo "No container found matching '$1'."
+      return 1
+    fi
+
+    echo "Starting container '$container_id'..."
+    docker start "$container_id"
+  fi
+
+  # Enter the container's shell
+  docker exec -it "$container_id" /bin/bash 2>/dev/null || docker exec -it "$container_id" /bin/sh
+}
+
+dockcp() {
+    if [ "$#" -ne 2 ]; then
+        echo "Usage: dockcp <container_name_or_id>:<source_path> <destination_path>"
+        return 1
+    fi
+
+    container_path=$1
+    dest_path=$2
+
+    docker cp "$container_path" "$dest_path"
+}
+
+dockshi() {
+  docker run -it $1 /bin/bash
+}
