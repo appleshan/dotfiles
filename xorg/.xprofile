@@ -47,7 +47,6 @@ xrandr --auto --output HDMI-1 --primary --mode 1920x1080 --rate 60.00
 # .fehbg 与 wallpaper.sh 二选一。
 
 # => feh 设置桌面壁纸
-# $HOME/.fehbg
 $HOME/.config/metaesc/wallpaper.sh &
 
 # => To autostart wallpaper manager

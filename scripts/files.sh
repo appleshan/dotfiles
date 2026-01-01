@@ -31,7 +31,6 @@ TARGETS=(
 	fcitx5-rime/.config/fcitx5/conf/rime.conf
 	feh/.config/feh/keys
 	feh/.config/feh/wallpaper.sh
-	feh/.fehbg
 	# flatpak/var/lib/flatpak/repo/config
 	font/.config/fontconfig/fonts.conf
     font/.config/fontconfig/source-han-for-noto-cjk.conf
