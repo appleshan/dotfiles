@@ -44,7 +44,7 @@ picom -b --config $HOME/.config/picom/picom.conf
 xrandr --auto --output HDMI-1 --primary --mode 1920x1080 --rate 60.00
 
 #{{ wallpaper
-# .fehbg 与 wallpaper.sh 二选一。
+# feh 与 nitrogen 二选一。
 
 # => feh 设置桌面壁纸
 $HOME/.config/metaesc/wallpaper.sh &
