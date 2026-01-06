@@ -58,17 +58,25 @@ export EDITOR=et
 ##############
 
 # VERSIONS #
-# Oracle JDK 6
-# export JAVA_6_HOME=$HOME/bin/java/jdk1.6.0_45
-# Oracle JDK 7
-# export JAVA_7_HOME=$HOME/bin/java/jdk1.7.0_60
 # Oracle JDK 8
-export JAVA_8_HOME=$HOME/bin/java/jdk1.8.0_212
+# export JAVA_8_HOME=$HOME/bin/java/jdk1.8.0_212
 # Oracle JDK 17
-export JAVA_17_HOME=$HOME/bin/java/jdk-17.0.6
-# default JDK is 17
-export JAVA_HOME=$JAVA_17_HOME
-export JRE_HOME=$JAVA_17_HOME/jre
+# export JAVA_17_HOME=$HOME/bin/java/jdk-17.0.6
+# Azul Zulu Builds of OpenJDK
+# Java 8 (LTS)
+export JAVA_8_HOME=$HOME/bin/java/zulu8.90.0.19-ca-jdk8.0.472-linux_x64
+# Java 11 (LTS)
+export JAVA_11_HOME=$HOME/bin/java/zulu11.84.17-ca-jdk11.0.29-linux_x64
+# Java 17 (LTS)
+export JAVA_17_HOME=$HOME/bin/java/zulu17.62.17-ca-jdk17.0.17-linux_x64
+# Java 21 (LTS)
+export JAVA_21_HOME=$HOME/bin/java/zulu21.46.19-ca-jdk21.0.9-linux_x64
+# Java 25 (LTS)
+export JAVA_25_HOME=$HOME/bin/java/zulu25.30.17-ca-jdk25.0.1-linux_x64
+
+# default JDK is 25
+export JAVA_HOME=$JAVA_25_HOME
+export JRE_HOME=$JAVA_25_HOME/jre
 
 appendpath "$JAVA_HOME/bin"
 
@@ -82,12 +90,7 @@ export GRADLE_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # Maven Setup
 export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
 # 不添加HOME环境变量，软链接到 /usr/local/bin
-# ln -s $HOME/bin/java/apache-maven-3.9.0/bin/mvn /usr/local/bin
-
-# Ant Setup
-export MAVEN_OPTS="-Xmx2g -XX:ReservedCodeCacheSize=512m"
-# 不添加HOME环境变量，软链接到 /usr/local/bin
-# ln -s $HOME/bin/java/apache-ant-1.10.10/bin/ant /usr/local/bin
+# ln -s $HOME/bin/java/apache-maven-3.9.12/bin/mvn /usr/local/bin
 
 #################
 # Android Setup #
