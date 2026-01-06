@@ -212,3 +212,11 @@ PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
 #################
 
 export PATH="$PATH:$HOME/.claude/bin"
+
+#################
+# rustup        #
+#################
+
+# 长期启用镜像源加速 rustup 下载
+export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
+export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
