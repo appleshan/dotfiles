@@ -224,10 +224,6 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws0 "10"
 
-set $wst "t"
-set $wsy "y"
-set $wsu "u"
-
 # => 工作区切换&智能启动（添加智能启动脚本 ~/.local/bin/st 自动且不重复打开工作区相应程序）
 ## 转到工作区 // Workspace // <Super> 1...0 ##
 bindsym $super+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st wezterm start --cwd .
