@@ -6,7 +6,8 @@ cloudflarewarpspeedtest-bin v1.5.15-1
 cockpit-navigator 0.6.0-1
 github520-git r8-1
 go-chroma-bin 2.21.1-1
-google-chrome 143.0.7499.169-1
+google-chrome 143.0.7499.192-1
+gpu-viewer 3.23-1
 has 1.5.2-1
 highlight-pointer 1.2-1
 intel-hybrid-codec-driver-git 2.0.0.r6.gb0c7970d-1
@@ -28,12 +29,9 @@ sddm-theme-greenleaf 1.1-2
 siji-ttf r22.14e7da9-1
 simplicity-sddm-theme-git r96-1
 sourcetrail 2025.12.8-1
-stacer-bin 1.5.0-1
 sublime-text-4 4.4200-1
-termite 16.9-8
 ttf-twemoji 17.0.2-3
 ttf-unifont 17.0.03-1
-v2rayn-bin 7.16.8-1
 visual-studio-code-bin 1.107.1-1
 xbanish 1.8-1
 xorgxrdp-glamor 0.10.4-1
