@@ -180,7 +180,6 @@ TARGETS=(
     urxvt/.urxvt/ext/clipboard
     urxvt/.urxvt/ext/config-print
     urxvt/.urxvt/ext/config-reload
-    urxvt/.urxvt/ext/tabbed
     #vifm/.config/vifm/vifmrc
     #vifm/.config/vifm/vifminfo
     #vifm/.config/vifm/vifm-help.txt
