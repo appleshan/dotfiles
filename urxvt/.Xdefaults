@@ -74,7 +74,7 @@ Xft.dpi:96
 
 URxvt.font:\
 xft:DejaVu Sans Mono:style=Regular:antialias=false:size=12,\
-xft:Source Han Sans:style=Regular:size=12,\
+xft:Source Han Sans SC:style=Regular:size=12,\
 xft:Twemoji:size=11:style=Regular,\
 xft:Font Awesome 7 Free:style=Regular:antialias=false:size=12,\
 xft:JetBrainsMono Nerd Font Mono:style=Regular:antialias=false:size=12
