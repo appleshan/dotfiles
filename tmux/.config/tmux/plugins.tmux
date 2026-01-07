@@ -38,5 +38,5 @@ set-option -g @continuum-restore 'on'
 set-option -g @plugin 'nhdaly/tmux-better-mouse-mode'
 
 # Initialize TMUX plugin manager (keep this line at the very bottom of tmux.conf)
-run '~/.tmux/plugins/tpm/tpm'
+run '~/.config/tmux/plugins/tpm/tpm'
 

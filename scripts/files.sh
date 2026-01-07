@@ -164,13 +164,13 @@ TARGETS=(
     #terminator/.config/terminator/plugins/logger.py
     #terminator/.config/terminator/plugins/searchplugin.py
     termite/.config/termite/config
-    tmux/.tmux.conf
-    tmux/.tmux/config/settings.tmux
-    tmux/.tmux/config/plugins.tmux
-    tmux/.tmux/config/style.tmux
-    tmux/.tmux/config/mappings/copy-mode-vi.tmux
-    tmux/.tmux/config/mappings/prefix.tmux
-    tmux/.tmux/config/mappings/root.tmux
+    tmux/.config/tmux.conf
+    tmux/.config/tmux/settings.tmux
+    tmux/.config/tmux/plugins.tmux
+    tmux/.config/tmux/style.tmux
+    tmux/.config/tmux/mappings/copy-mode-vi.tmux
+    tmux/.config/tmux/mappings/prefix.tmux
+    tmux/.config/tmux/mappings/root.tmux
     #tor/.arm/torrc
     #urlview/.urlview
     urxvt/.Xdefaults

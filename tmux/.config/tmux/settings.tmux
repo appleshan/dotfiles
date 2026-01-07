@@ -26,7 +26,7 @@ set-option -g status-keys vi
 set-option -g mouse on
 
 # Keep commands history and set its limit.
-set-option -g history-file ~/.tmux/cache/history
+set-option -g history-file ~/.config/tmux/cache/history
 
 # Start window numbers at 1 to match keyboard order with tmux window order.
 set-option -g base-index 1
