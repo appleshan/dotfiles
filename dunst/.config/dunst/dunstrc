@@ -211,4 +211,7 @@
     format = "<b>%s</b>: %p %b"
     urgency = low
 
+[blueman]
+actions = false;
+
 # vim: ft=cfg
