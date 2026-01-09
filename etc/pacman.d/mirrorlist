@@ -25,3 +25,5 @@ Server = https://repo.huaweicloud.com/archlinux/$repo/os/$arch
 ## Country : China
 Server = https://mirrors.cloud.tencent.com/archlinux/$repo/os/$arch
 
+## Country : USA
+Server = https://cloudflaremirrors.com/archlinux/$repo/os/$arch
