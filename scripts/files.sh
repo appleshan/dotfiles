@@ -16,8 +16,6 @@ TARGETS=(
     bin/.local/bin/serena-project-index.sh
     claude/.claude/CLAUDE.md
     claude/.claude/statusline.sh
-    claude/.claude/docs/AGENTS.md
-    claude/.claude/docs/Development-Guidelines.md
     codex/.codex/AGENTS.md
 	curl/.curlrc
 	dunst/.config/dunst/dunstrc
