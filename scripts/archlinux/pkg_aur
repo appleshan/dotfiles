@@ -1,37 +1,38 @@
-aic94xx-firmware 30-10
-anydesk-bin 7.1.2-2
-arc-gtk-theme 20221218-2
-cc-switch-bin 3.8.3-1
-cloudflarewarpspeedtest-bin v1.5.15-1
-cockpit-navigator 0.6.0-1
-github520-git r8-1
-go-chroma-bin 2.21.1-1
-google-chrome 143.0.7499.192-1
-gpu-viewer 3.23-1
-has 1.5.2-1
-highlight-pointer 1.2-1
-intel-hybrid-codec-driver-git 2.0.0.r6.gb0c7970d-1
-keynav 0.20180821.0-2
-localsend-bin 1.17.0-1
-nitrogen 1.6.1-6
-pa-notify 1.5.0-1
-piper-tts 1.3.0-2
-podman-tui 1.10.0-1
-pwvucontrol 0.5.1-1
-qpdfview 0.5.0-3
-qview 7.1-2
-redir 3.3-1
-rofi-vscode-mode 0.9.0-1
-rxvt-unicode-truecolor-secondaryscroll-clear 9.31-4
-sampler 1.1.0-1
-sddm-conf 0.3.0-1
-sddm-theme-greenleaf 1.1-2
-siji-ttf r22.14e7da9-1
-simplicity-sddm-theme-git r96-1
-sourcetrail 2025.12.8-1
-sublime-text-4 4.4200-1
-ttf-twemoji 17.0.2-3
-ttf-unifont 17.0.03-1
-visual-studio-code-bin 1.107.1-1
-xbanish 1.8-1
-xorgxrdp-glamor 0.10.4-1
+aic94xx-firmware
+anydesk-bin
+arc-gtk-theme
+cc-switch-bin
+cloudflarewarpspeedtest-bin
+cockpit-navigator
+github520-git
+go-chroma-bin
+google-chrome
+gpu-viewer
+has
+highlight-pointer
+intel-hybrid-codec-driver-git
+keynav
+localsend-bin
+nitrogen
+pa-notify
+piper-tts
+podman-tui
+powerkit
+pwvucontrol
+qpdfview
+qview
+redir
+rofi-vscode-mode
+rxvt-unicode-truecolor-wide-glyphs
+sampler
+sddm-conf
+sddm-theme-greenleaf
+siji-ttf
+simplicity-sddm-theme-git
+sourcetrail
+sublime-text-4
+ttf-twemoji
+ttf-unifont
+visual-studio-code-bin
+xbanish
+xorgxrdp-glamor
