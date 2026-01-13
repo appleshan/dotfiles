@@ -60,6 +60,8 @@ alias rm='echo "This is not the command you are looking for."; false'
 
 # alias docker=podman
 
+alias roll='echo $(head -n1 /var/log/pacman.log | cut -d " " -f 1,2) 以来一共滚动更新了 $(grep -c "full system upgrade" /var/log/pacman.log) 次'
+
 ###############################################################################
 # Python
 ###############################################################################
