@@ -496,7 +496,7 @@ bindsym $super+Shift+c  exec clipcatctl clear  # Clear clipboard history
 
 # => piper-speak
 # https://github.com/appleshan/piper-speak
-bindsym $super+Shift+s  exec --no-startup-id  ~/projects/private/piper-speak/scripts/speak-selection
+bindsym $super+Shift+s  exec --no-startup-id  speak-selection
 
 set $audio-note ~/.config/metaesc/show_audio.sh
 bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $audio-note
