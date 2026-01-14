@@ -2,7 +2,6 @@ aic94xx-firmware
 anydesk-bin
 arc-gtk-theme
 cc-switch-bin
-cloudflarewarpspeedtest-bin
 cockpit-navigator
 github520-git
 go-chroma-bin
@@ -13,8 +12,12 @@ highlight-pointer
 intel-hybrid-codec-driver-git
 keynav
 localsend-bin
+logviewer-bin
 nitrogen
+opencode-bin
+package-query
 pa-notify
+piper-speak
 piper-tts
 podman-tui
 powerkit
