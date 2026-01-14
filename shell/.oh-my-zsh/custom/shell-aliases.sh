@@ -60,6 +60,9 @@ alias rm='echo "This is not the command you are looking for."; false'
 
 # alias docker=podman
 
+# by Felix Yan <https://github.com/felixonmars>
+# stat of system update
+# 查询archlinux滚了多少次
 alias roll='echo $(head -n1 /var/log/pacman.log | cut -d " " -f 1,2) 以来一共滚动更新了 $(grep -c "full system upgrade" /var/log/pacman.log) 次'
 
 ###############################################################################
