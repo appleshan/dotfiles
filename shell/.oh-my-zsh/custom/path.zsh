@@ -36,19 +36,6 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/bin/perl5"; export PERL_MM_OPT;
 # Emacs Setup #
 ###############
 
-# export EMACS_HOME=/opt/emacs-25.1
-
-#EMACSLOADPATH=$EMACS_HOME/share/emacs/24.5/lisp
-#EMACS_DIR=$EMACS_HOME/share/emacs/24.5
-#EMACSDATA=$EMACS_HOME/share/emacs/24.5/etc
-
-#export EMACSLOADPATH EMACS_DIR EMACSDATA
-
-# export EDITOR='emacsclient -a ""'
-
-# emacs安装目录的 bin 文件夹，须要加入 PATH 变量
-# export PATH=$EMACS_HOME/bin:$PATH
-
 export EDITOR=et
 # Emacs 的相关脚本 ec、et、es 来自：
 # http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
@@ -116,16 +103,6 @@ export PATH="$PATH:$(go env GOROOT)/bin:$(go env GOBIN)"
 
 export GO111MODULE=on
 export GOPROXY="https://goproxy.cn,direct"
-
-#################
-# Oracle Client #
-#################
-
-# Oracle Client
-#export ORACLE_HOME=/opt/oracle
-#export LD_LIBRARY_PATH=/opt/oracle/lib
-#export NLS_LANG="SIMPLIFIED CHINESE_CHINA.AL32UTF8"
-#export PATH=$ORACLE_HOME/bin:$PATH
 
 #################
 # Python        #
