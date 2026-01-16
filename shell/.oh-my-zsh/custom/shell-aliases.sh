@@ -52,7 +52,7 @@ alias lsdisk='lsblk -o+FSTYPE,FSSIZE,PARTLABEL,LABEL'
 alias grep='grep --color=auto --exclude-dir={.git,.hg,.svn,.cvs,bzr,CVS,target,build,_site,.idea,Pods,taobao-tomcat} --exclude=\*.{ipr,iml,iws,jar,war,zip}'
 export GREP_COLOR='mt=07;31'
 
-alias beep='aplay ~/projects-private/dotfiles/sounds/beep-07.wav'
+alias beep='pw-play ~/projects/private/dotfiles/sounds/beep.mp3'
 
 alias vim=nvim
 
