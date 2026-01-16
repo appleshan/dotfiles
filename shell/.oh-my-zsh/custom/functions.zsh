@@ -113,7 +113,6 @@ export TERMINFO=/usr/lib/terminfo
 # @See https://wiki.archlinuxcn.org/wiki/Sudo#%E5%BD%A9%E8%89%B2%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA
 export SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0): "
 
-source $ZSH/custom/shell-aliases.sh
 source $ZSH/custom/emacs-functions.sh
 
 # Automatically start tmux
