@@ -72,7 +72,10 @@ setopt INC_APPEND_HISTORY
 setopt EXTENDED_HISTORY
 
 # McFly - fly through your shell history
+export MCFLY_FUZZY=2
+export MCFLY_INTERFACE_VIEW=BOTTOM
 eval "$(mcfly init zsh)"
+eval "$(mcfly-fzf init zsh)"
 
 #  ┌─┐┌─┐┬ ┬  ┌─┐┌─┐┌─┐┬    ┌─┐┌─┐┌┬┐┬┌─┐┌┐┌┌─┐
 #  ┌─┘└─┐├─┤  │  │ ││ ││    │ │├─┘ │ ││ ││││└─┐
