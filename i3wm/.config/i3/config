@@ -437,6 +437,17 @@ mode $monitorMode {
     bindsym Escape  mode "default"
 }
 
+set $volume-mode "Volume: Mute(F1), Volume-(F2), Volume+(F3), MicMute(F4)"
+mode $volume-mode {
+    bindsym F1 exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $audio-note
+    bindsym F2 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2% && $audio-note
+    bindsym F3 exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2% && $audio-note
+    bindsym F4 exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $audio-note
+
+    # back to normal: Escape
+    bindsym Escape mode default
+}
+
 # => 切换键盘布局的子菜单（binding mode）
 exec_always --no-startup-id exec ~/.config/metaesc/code01s2.sh
 
@@ -450,7 +461,7 @@ mode $keymap-switch-mode {
     bindsym Escape mode default
 }
 
-set $main-mode "Menu swap/resize[[S]-hjkl,8,9] keymaps[k] reload[S-c] restart[S-r]"
+set $main-mode "Menu swap/resize[[S]-hjkl,8,9] gaps[g] keymaps[k] layout[l] monitor[m] volume[v]"
 mode $main-mode {
     bindsym g  mode $mode-gaps
     bindsym k  mode $keymap-switch-mode
@@ -458,6 +469,7 @@ mode $main-mode {
     bindsym m  mode $monitorMode
     bindsym r  mode $resize
     bindsym s  mode $swap-window
+    bindsym v  mode $volume-mode
 
     # => reload the configuration file（更改配置文件后只须重载即可生效，不包含自启部分）
     ## 重新载入 i3 配置 // i3 WM // <Super><Shift> c ##
@@ -499,8 +511,8 @@ bindsym $super+Shift+c  exec clipcatctl clear  # Clear clipboard history
 bindsym $super+Shift+s  exec --no-startup-id  speak-selection
 
 set $audio-note ~/.config/metaesc/show_audio.sh
-bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $audio-note
-bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $audio-note
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +2% && $audio-note
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -2% && $audio-note
 bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $audio-note
 bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $audio-note
 
