@@ -12,7 +12,6 @@
 ;}}}
 
 [include]
-    path = ./conf/user.gitconfig
     path = ./conf/settings.gitconfig
     path = ./conf/aliases.gitconfig
     path = ./conf/colors.gitconfig
@@ -22,3 +21,11 @@
 	postBuffer = 100000000
 [ssh]
 	postBuffer = 100000000
+[user]
+# Git用户配置（用户名和邮箱）
+# 通常建议放在全局（--global），适用于你所有仓库，
+# 但在特定项目需要不同身份时，再在项目内（不加 --global）覆盖设置，项目配置优先级高于全局，
+# 这样既能保证日常开发一致性，又能灵活处理特殊项目（如公司内工作、开源项目）的身份切换.
+    # github.com
+	name = appleshan
+	email = apple.shan@gmail.com
