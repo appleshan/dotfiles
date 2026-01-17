@@ -170,16 +170,6 @@ function mcd {
     mkdir -p "$1" && cd "$1"
 }
 
-# SSH to the given machine and add your id_rsa.pub or id_dsa.pub to authorized_keys.
-#
-#     henrik@Nyx ~$ sshkey hyper
-#     Password:
-#     sshkey done.
-function sshkey {
-    ssh $1 "mkdir -p ~/.ssh && cat >> ~/.ssh/authorized_keys" < ~/.ssh/id_?sa.pub  # '?sa' is a glob, not a typo!
-    echo "sshkey done."
-}
-
 # Create a data URI from a file and copy it to the pasteboard
 datauri() {
     local mimeType=$(file -b --mime-type "$1")
@@ -216,48 +206,6 @@ function big() {
 # ------------------------------------------------------------
 # Define useful commands
 # ------------------------------------------------------------
-
-# {{ @see http://samray.xyz/%E5%A6%82%E4%BD%95%E5%9C%A8-Linux%20%E4%B8%8B%E6%8F%90%E9%AB%98%E5%B7%A5%E4%BD%9C%E6%95%88%E7%8E%87
-# SSH 免密码代理
-function config_ssh_login_key() {
-    if [ $# -lt 3 ];then
-    echo "Usage: $(basename $0) -u user -h hostname -p port"
-    kill -INT $$
-    fi
-    #if public/private key doesn't exist ,generate public/private key 
-    if [ -f ~/.ssh/id_rsa ];then
-    echo "public/private key exists"
-    else
-    ssh-keygen -t rsa
-    fi
-    while getopts :u:h:p: option
-    do
-    case "$option" in
-            u) user=$OPTARG;;
-            h) hostname=$OPTARG;;
-            p) port=$OPTARG;;
-            *) echo "Unknown option:$option";;
-    esac
-    done
-
-    if [ -z "$port" ];then
-    port=22
-    fi
-    #check whether it is the first time to run this script and whether authorized_keys exists
-    # ssh_host_and_user="$1@$2"
-    authorized_keys="$HOME/.ssh/authorized_keys"
-    printf "$user@$hostname's password:";read -r -s password
-    if sshpass -pv $password ssh -p "$port" "$user@$hostname" test -e "$authorized_keys";then
-    echo "authorized key exists"
-    kill -INT $$
-    else
-    sshpass -p $password ssh  $user@$hostname -p $port "mkdir -p ~/.ssh;chmod 0700 .ssh"
-    sshpass -p $password scp -P $port  ~/.ssh/id_rsa.pub $user@$hostname:~/.ssh/authorized_keys
-    # ssh-copy-id "$user@$hostname -p $port"
-    fi
-}
-# 脚本用法
-# config_ssh_login_key -u samray -h 192.168.199.127 -p 666
 
 # 生成若干位的密钥
 # generate key
