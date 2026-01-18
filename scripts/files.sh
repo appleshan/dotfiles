@@ -178,13 +178,6 @@ TARGETS=(
     urxvt/.urxvt/ext/clipboard
     urxvt/.urxvt/ext/config-print
     urxvt/.urxvt/ext/config-reload
-    #vifm/.config/vifm/vifmrc
-    #vifm/.config/vifm/vifminfo
-    #vifm/.config/vifm/vifm-help.txt
-    #vifm/.config/vifm/colors/darkdesert.vifm
-    #vifm/.config/vifm/colors/Default.vifm
-    #vifm/.config/vifm/scripts/vifmrun
-    #vifm/.config/vifm/scripts/vifmimg
     vscode/.config/Code/User/settings.json
     #wget/.wgetrc
     xorg/.profile

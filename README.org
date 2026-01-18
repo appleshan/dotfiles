@@ -153,7 +153,6 @@ $ tree -a -L 2
   - ~termite/~ - 终端配置
 - *文件管理*：
   - ~ranger/~ - 终端文件管理器
-  - ~vifm/~ - 类 VIM 文件管理器
 - *命令行工具*：
   ~ripgrep/~, ~bat/~, ~sift/~, ~peco/~ - 增强的命令行工具
 - *通信*：
