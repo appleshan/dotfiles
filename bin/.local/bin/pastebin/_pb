@@ -1,0 +1,22 @@
+#compdef pb
+_pb() {
+	local -a commands
+	commands=(
+		'temp.sh'
+		'ix.io'
+		'0x0.st'
+		'p.iotek.org'
+		'clbin.com'
+		'uguu.se'
+		'catbox.moe'
+		'lewd.se'
+		'pastebin.com'
+	)
+	if ((CURRENT == 2)); then
+		_describe -t commands 'commands' commands
+	else
+		_files
+	fi
+	return 0
+}
+_pb
