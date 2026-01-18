@@ -1,5 +1,12 @@
 echo "generate key for apple.shan"
-ssh-keygen -t rsa -b 4096 -C "apple.shan@gmail.com"
+ssh-keygen -t rsa -b 4096 -f id_rsa -C "apple.shan@gmail.com"
+
+# 示例：
+# 我在 GitHub
+# ssh-keygen -t rsa -b 4096 -f id_rsa_github -C "me@github"
+# ssh-keygen -t ed25519 -f id_ed25519_github  -C "me@github"
+# 我在企业
+# ssh-keygen -t ed25519 -f id_ed25519_company -C "email@example.com"
 
 # Generating public/private rsa key pair.
 # Enter file in which to save the key (/home/apple/.ssh/id_rsa):
