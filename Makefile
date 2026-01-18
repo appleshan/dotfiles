@@ -52,8 +52,20 @@ arch-clean-cache: ## Clean package cache (keeps 3 versions)
 
 omz-init: ## Install oh-my-zsh
 	sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" #install oh-my-zsh
-	git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt.git "$ZSH_CUSTOM/themes/spaceship-prompt"
+	git clone --depth=1 https://github.com/spaceship-prompt/spaceship-prompt "$ZSH_CUSTOM/themes/spaceship-prompt"
 	ln -s "$ZSH_CUSTOM/themes/spaceship-prompt/spaceship.zsh-theme" "$ZSH_CUSTOM/themes/spaceship.zsh-theme"
+
+omz-plugins: ## Install oh-my-zsh plugins
+	cd ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/
+	git clone --depth 1 https://github.com/djui/alias-tips
+	git clone --depth 1 https://github.com/wfxr/forgit
+	git clone --depth 1 https://github.com/Pilaton/OhMyZsh-full-autoupdate ohmyzsh-full-autoupdate
+	git clone --depth 1 https://github.com/amyreese/zsh-opt-path opt-path
+	git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions
+	git clone --recursive https://github.com/joel-porquet/zsh-dircolors-solarized
+	git clone --recursive --depth 1 https://github.com/mattmc3/zsh-safe-rm
+	git clone --depth 1 https://github.com/trystan2k/zsh-tab-title
+	cargo install --git https://github.com/bnprks/mcfly-fzf
 
 tmux-init: ## Install tmux
 	rm -rf ~/.config/tmux/plugins
@@ -68,6 +80,7 @@ post-archlinux-install:
 	cp ./stow/.stowrc ~/.stowrc
 	linux
 	omz-init
+	omz-plugins
 	tmux-init
 
 help: ## Show all Makefile targets
