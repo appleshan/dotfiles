@@ -101,6 +101,8 @@ plugins=(aliases \
          safe-paste \
          # https://github.com/mattmc3/zsh-safe-rm
          zsh-safe-rm \
+         # https://github.com/obolientsev/ssh-host
+         ssh-host \
          sudo systemadmin systemd \
          timer tmux \
          ufw urltools uv \
