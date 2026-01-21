@@ -30,7 +30,7 @@ man)
 	append_new_term
   mantoread=$(echo "$input" | cut -c 4- | xargs)
   # export $1 && i3-sensible-terminal -e "man $mantoread"
-  export $1 && termite -e "man $mantoread"
+  export $1 && alacritty -e "man $mantoread"
   ;;
 d)
 	# Search on DuckDuckGo

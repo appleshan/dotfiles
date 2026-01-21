@@ -45,7 +45,7 @@ i3 提供 10 个独立工作区（编号 1-10），每个工作区可运行不�
 
 | 快捷键 | 功能 | 说明 |
 |--------|------|------|
-| `Mod + Enter` | 打开终端 | 启动 Termite 终端 |
+| `Mod + Enter` | 打开终端 | 启动 alacritty 终端 |
 | `Mod + F3` | 打开浏览器 | 启动 Google Chrome |
 | `Mod + F5` | 打开文件管理器 | 启动 Thunar |
 | `Print` | 截图 | Flameshot 延迟 200ms 截图 |
@@ -108,11 +108,12 @@ i3 提供 10 个独立工作区（编号 1-10），每个工作区可运行不�
 #### 切换工作区
 | 快捷键 | 功能 | 智能启动 |
 |--------|------|----------|
-| `Mod + 1` | 工作区 1 | Termite 终端 |
-| `Mod + 2` | 工作区 2 | Ghostty 终端 |
+| `Mod + 1` | 工作区 1 | wezterm 终端 |
+| `Mod + 2` | 工作区 2 | alacritty 终端 |
 | `Mod + 3` | 工作区 3 | Google Chrome |
-| `Mod + 4-9` | 工作区 4-9 | 无 |
-| `Mod + 0` | 工作区 10 | V2RayN |
+| `Mod + 4-8` | 工作区 4-8 | 无 |
+| `Mod + 9` | 工作区 9 | cc-switch |
+| `Mod + 0` | 工作区 10 | anydesk |
 
 #### 工作区导航
 | 快捷键 | 功能 |
@@ -154,8 +155,8 @@ i3 提供 10 个独立工作区（编号 1-10），每个工作区可运行不�
 
 | 工作区 | 应用 | 布局 |
 |--------|------|------|
-| **1** | Termite 终端 | Tabbed |
-| **2** | 微信、Ghostty | Tabbed |
+| **1** | Wezterm 终端 | Tabbed |
+| **2** | Telegram、Alacritty | Tabbed |
 | **3** | Google Chrome、Thunderbird、uGet | Tabbed |
 | **4** | VLC 播放器 | Tabbed |
 | **5** | （未分配） | - |
@@ -221,7 +222,7 @@ clipcat 守护进程随 i3 自动启动。
 - **i3-gaps**: i3wm 间距增强版
 - **polybar**: 状态栏（替代 i3bar）
 - **rofi**: 应用/窗口启动器
-- **termite** / **ghostty**: 终端模拟器
+- **alacritty** / **wezterm**: 终端模拟器
 - **clipcat**: 剪贴板管理器
 
 ### 推荐
@@ -282,7 +283,7 @@ bindsym $mod+F1 workspace "工作区名称"
 ```
 
 ### 修改默认终端
-替换 `exec termite` 为你喜欢的终端（如 `alacritty`, `kitty`）。
+替换 `exec wezterm` 为你喜欢的终端（如 `alacritty`, `kitty`）。
 
 ---
 

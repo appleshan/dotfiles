@@ -160,7 +160,6 @@ TARGETS=(
     #terminator/.config/terminator/config
     #terminator/.config/terminator/plugins/logger.py
     #terminator/.config/terminator/plugins/searchplugin.py
-    termite/.config/termite/config
     tmux/.config/tmux/tmux.conf
     tmux/.config/tmux/settings.tmux
     tmux/.config/tmux/plugins.tmux

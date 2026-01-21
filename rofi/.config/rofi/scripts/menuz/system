@@ -19,7 +19,7 @@ ITEMS=(
   [" Restart Desktop"]="i3-msg restart"
 
   # tools menu
-  [" Open terminal"]="termite"
+  [" Open terminal"]="alacritty"
   [" Start file manager"]="pcmanfm"
   [" Open web browser"]="google-chrome-stable"
   [" soundcard mixer"]="urxvt -e 'alsamixer'"

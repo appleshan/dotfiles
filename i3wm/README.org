@@ -9,7 +9,7 @@
 - WM: i3-gaps
 - Bar: polybar
 - Launcher: rofi
-- Terminal: termite
+- Terminal: alacritty
 - File Manager: Ranger
 - Editor: emacs
 - Browser: google-chrome
@@ -61,7 +61,7 @@ then move the .config file in your home reload i3 it should works :)
  - mod+d 启动 rofi 启动应用的模式，mod+Tab 启动 rofi 切换窗口的模式
  - mod+f 切换当前聚焦窗口的全屏模式
  - mod+shift+space 切换当前聚焦窗口漂浮或者平铺
- - mod+return 打开 termite
+ - mod+return 打开 alacritty
  - 定义启动不同应用的快捷键
  - mod+shift+c 重载配置，mod+shift+r 重启 i3，mod+shift+escape 退出 i3
  - mod+r 进入调节窗口大小的模式

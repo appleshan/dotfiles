@@ -62,7 +62,7 @@
 
 rofi.modi:                           ssh,window,drun,run
 rofi.sidebar-mode:                   true
-rofi.terminal:                       termite
+rofi.terminal:                       alacritty
 rofi.ssh-client:                     ssh
 rofi.ssh-command:                    {terminal} -e "{ssh-client} {host}"
 rofi.opacity:                        100

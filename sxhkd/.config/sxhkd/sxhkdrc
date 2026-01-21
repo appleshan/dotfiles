@@ -4,9 +4,9 @@
 #  Application openners  
 ###############################################################################
 
-# description: Open terminal (i3-sensible-terminal or termite)
+# description: Open terminal (i3-sensible-terminal or alacritty)
 super + Return
-    termite
+    alacritty
 
 # description: Start file manager (ranger、pcmanfm or thunar)
 super + F3

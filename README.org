@@ -149,8 +149,8 @@ $ tree -a -L 2
 *** 6. 生产力与实用工具
 - *终端模拟器*：
   - ~urxvt/~ - RXVT 终端配置
-  - ~terminator/~ - 终端模拟器
-  - ~termite/~ - 终端配置
+  - ~alacritty/~ - 终端模拟器
+  - ~wezterm/~ - 终端
 - *文件管理*：
   - ~ranger/~ - 终端文件管理器
 - *命令行工具*：
@@ -283,7 +283,7 @@ numix-icon-theme-git        -> Numix图标(AUR)
 dunst                       -> 通知管理器
 
 *生产工具
-termite                     -> 终端管理器
+alacritty                   -> 终端管理器
 visual-studio-code          -> IDE编辑器(AUR)
 gvim                        -> 编辑器
 zsh                         -> 使用 zsh + oh-my-zsh + power10k
@@ -324,7 +324,7 @@ networkmanager              -> 网络管理
 
 | Shell      | WM / DE | Editor     | Terminal        | Multiplexer | Compositor | Audio      | Monitor | Mail | IRC |
 |------------|---------|------------|-----------------|-------------|------------|------------|---------|------|-----|
-| bash / zsh | i3wm    | Emacs      | termite / urxvt | tmux        | picom      | pulseaudio | custom  |      |     |
+| bash / zsh | i3wm    | Emacs      | alacritty       | tmux        | picom      | pulseaudio | custom  |      |     |
 
 * reference
 

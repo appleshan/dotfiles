@@ -22,7 +22,7 @@ if (("$EFFECTIVE_SIZE" > "LIMIT_Cache" )); then
     rm -rf $HOME/.cache/*
 elif (("$CHECKPKG" > "$LIMIT_PKG" )); then
     echo "%{F#c654ff}Cache ﬘ %{F#77f2f2f2}"$CHECK"B  %{F#FF8B42} %{F#77f2f2f2}$CHECKPKGSIZE"B"%{F#FF8B42} ";
-    exec termite -- /bin/sh -c "echo cleaning pkg $CHECKPKGSIZE pacman cache; sudo rm -rf /var/cache/pacman/pkg/* ; echo Done - Press enter to exit; read";
+    exec alacritty -e /bin/sh -c "echo cleaning pkg $CHECKPKGSIZE pacman cache; sudo rm -rf /var/cache/pacman/pkg/* ; echo Done - Press enter to exit; read";
 else
     echo "%{F#c654ff}Cache ﬘ %{F#77f2f2f2}"$CHECK"B  %{F#FF8B42} %{F#77f2f2f2}$CHECKPKGSIZE"B""
 fi
