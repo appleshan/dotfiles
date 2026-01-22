@@ -116,13 +116,6 @@ TARGETS=(
     ripgrep/.config/ripgrep/.ripgreprc
     rofi/.config/rofi/config
     rofi/.config/rofi/config.rasi
-    rofi/.config/rofi/scripts/menuz/menuz
-    rofi/.config/rofi/scripts/menuz/session
-    rofi/.config/rofi/scripts/menuz/system
-    rofi/.config/rofi/scripts/menuz/tools
-    rofi/.config/rofi/scripts/menuz/show-session-menu.sh
-    rofi/.config/rofi/scripts/menuz/show-system-menu.sh
-    rofi/.config/rofi/scripts/menuz/show-tools-menu.sh
     #rofi/.config/rofi/scripts/monitor-settings/monitor_layout.sh
     #rofi/.config/rofi/scripts/monitor-settings/rofi-randr.sh
     #rofi/.config/rofi/scripts/monitor-settings/xrandrmenu.sh
