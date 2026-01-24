@@ -318,21 +318,21 @@ smart_borders on
 # Press one of + / - (in-/decrement for current workspace)
 # or 0 (remove gaps for current workspace).
 # If you also press Shift with these keys, the change will be global for all workspaces.
-set $mode-gaps Gaps: (o) outer, (i) inner
-set $mode-gaps-outer Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)
-set $mode-gaps-inner Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)
+set $mode-gaps "Gaps: (o) outer, (i) inner"
+set $mode-gaps-outer "Outer Gaps: +|-|0 (local), Shift + +|-|0 (global)"
+set $mode-gaps-inner "Inner Gaps: +|-|0 (local), Shift + +|-|0 (global)"
 
-mode "$mode-gaps" {
-    bindsym o      mode "$mode-gaps-outer"
-    bindsym i      mode "$mode-gaps-inner"
+mode $mode-gaps {
+    bindsym o      mode $mode-gaps-outer
+    bindsym i      mode $mode-gaps-inner
 
     bindsym 0      mode "default", exec --no-startup-id i3-msg "gaps inner current set 0" && i3-msg "gaps outer current set 0"
     bindsym d      mode "default", exec --no-startup-id i3-msg "gaps inner current set $default-gaps-inner" && i3-msg "gaps outer current set $default-gaps-outer"
 
-    bindsym Escape mode "default"
+    bindsym Escape mode default
 }
 
-mode "$mode-gaps-inner" {
+mode $mode-gaps-inner {
     bindsym plus  gaps inner current plus 1
     bindsym minus gaps inner current minus 1
     bindsym 0     mode "default", gaps inner current set 0
@@ -343,10 +343,10 @@ mode "$mode-gaps-inner" {
     bindsym Shift+0     mode "default", gaps inner all set 0
     bindsym Shift+d     mode "default", gaps inner all set $default-gaps-inner
 
-    bindsym Escape mode "default"
+    bindsym Escape mode default
 }
 
-mode "$mode-gaps-outer" {
+mode $mode-gaps-outer {
     bindsym plus  gaps outer current plus 1
     bindsym minus gaps outer current minus 1
     bindsym 0     mode "default", gaps outer current set 0
@@ -357,7 +357,7 @@ mode "$mode-gaps-outer" {
     bindsym Shift+0     mode "default", gaps outer all set 0
     bindsym Shift+d     mode "default", gaps outer all set $default-gaps-outer
 
-    bindsym Escape mode "default"
+    bindsym Escape mode default
 }
 
 # => kill focused window
@@ -390,24 +390,24 @@ mode $resize {
     bindsym l      resize grow width 5 px or 5 ppt
     bindsym h      resize shrink width 5 px or 5 ppt
 
-    bindsym 0 resize set 50 ppt 50 ppt
+    bindsym 7 resize set 50 ppt 50 ppt
     bindsym 8 resize set 53 ppt 47 ppt
     bindsym 9 resize set 62 ppt 38 ppt
 
     # back to normal: Escape
-    bindsym Escape mode "default"
+    bindsym Escape mode default
 }
 
 # => 交换窗口 (swap window with shift hjkl)
-set $swap-window "swap H=left J=down K=up L=right"
+set $swap-window "swap h=left j=down k=up l=right"
 mode $swap-window {
-    bindsym Shift+h move left
-    bindsym Shift+j move down
-    bindsym Shift+k move up
-    bindsym Shift+l move right
+    bindsym h move left
+    bindsym j move down
+    bindsym k move up
+    bindsym l move right
 
     # back to normal: Escape
-    bindsym Escape mode "default"
+    bindsym Escape mode default
 }
 
 # => 修改工作区布局的子菜单
@@ -439,7 +439,7 @@ mode $monitorMode {
     bindsym d  exec "~/.config/i3/screenlayout/dual-screen"
 
     # back to normal: Escape
-    bindsym Escape  mode "default"
+    bindsym Escape  mode default
 }
 
 set $volume-mode "Volume: Mute(F1), Volume-(F2), Volume+(F3), MicMute(F4)"
@@ -466,7 +466,7 @@ mode $keymap-switch-mode {
     bindsym Escape mode default
 }
 
-set $main-mode "Menu swap/resize[[S]-hjkl,8,9] gaps[g] keymaps[k] layout[l] monitor[m] volume[v]"
+set $main-mode "Menu swap/resize[hjkl,7,8,9] gaps[g] keymaps[k] layout[l] monitor[m] volume[v]"
 mode $main-mode {
     bindsym g  mode $mode-gaps
     bindsym k  mode $keymap-switch-mode
