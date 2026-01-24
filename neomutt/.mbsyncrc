@@ -1,0 +1,35 @@
+####################################################
+# Define your email accounts you want to sync here #
+####################################################
+
+# Google IMAP profile ##################################################
+
+IMAPAccount gmail
+Host imap.gmail.com
+Port 993
+User apple.shan@gmail.com
+PassCmd "pass apple.shan@gmail.com"
+TLSType IMAPS
+CertificateFile /etc/ssl/certs/ca-certificates.crt
+
+IMAPStore gmail-remote
+Account gmail
+
+MaildirStore gmail-local
+Subfolders Verbatim
+Path ~/.local/share/mail/apple.shan@gmail.com/
+Inbox ~/.local/share/mail/apple.shan@gmail.com/INBOX
+
+Channel gmail
+Far :gmail-remote:
+Near :gmail-local:
+#Patterns * ![Gmail]* "[Gmail]/Sent Mail" "[Gmail]/Starred" "[Gmail]/All Mail"
+# Automatically create missing mailboxes, both locally and on the server
+Create Both
+# Sync the movement of messages between folders and deletions, add after making sure the sync works
+Expunge Both
+# Save the synchronization state files in the relevant directory
+SyncState *
+MaxMessages 0
+ExpireUnread no
+# End profile

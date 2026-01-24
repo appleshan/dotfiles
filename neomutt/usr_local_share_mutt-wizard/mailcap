@@ -1,0 +1,21 @@
+text/plain; $EDITOR %s ;
+
+# open html emails in browser (or whatever GUI program is used to render HTML)
+text/html; /usr/local/lib/mutt-wizard/openfile %s ; nametemplate=%s.html
+
+# render html emails inline using magic (uncomment the line below to use lynx instead)
+#text/html; lynx -assume_charset=%{charset} -display_charset=utf-8 -dump -width=1024 %s; nametemplate=%s.html; copiousoutput
+text/html; beautiful_html_render %s; nametemplate=%s.html; copiousoutput;
+
+# open images externally
+image/*; /usr/local/lib/mutt-wizard/openfile %s ;
+
+# open videos in mpv
+video/*; setsid mpv --quiet %s &; copiousoutput
+audio/*; mpv %s ;
+
+# open anything else externally
+application/pdf; /usr/local/lib/mutt-wizard/openfile %s ;
+application/pgp-encrypted; gpg -d '%s'; copiousoutput;
+application/pgp-keys; gpg --import '%s'; copiousoutput;
+application/x-subrip; $EDITOR %s ;

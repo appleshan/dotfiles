@@ -1,0 +1,39 @@
+# vim: filetype=neomuttrc
+# muttrc file for account apple.shan@gmail.com
+
+# User
+set realname ="Alan Shan"
+set from = "apple.shan@gmail.com"
+
+# Gmail
+set imap_user = "apple.shan@gmail.com"
+set imap_pass = "`pass apple.shan@gmail.com`"
+alias me Alan <apple.shan@gmail.com>
+set hostname = "gmail.com"
+set sendmail = "msmtp -a apple.shan@gmail.com"
+
+# Ensure TLS is enforced
+set ssl_starttls = yes
+set ssl_force_tls = yes
+
+# Where to put the stuff
+set header_cache = "$HOME/.cache/mutt-wizard/apple.shan_gmail.com/headers"
+set message_cachedir = "$HOME/.cache/mutt-wizard/apple.shan_gmail.com/bodies"
+source /usr/local/share/mutt-wizard/switch.muttrc
+
+# My mailboxes
+set mbox_type = Maildir
+set folder = "$HOME/.local/share/mail/apple.shan@gmail.com"
+#set spool_file = "+INBOX"
+#set postponed = "+Drafts"
+#set trash = "+Trash"
+#set record = "+Sent"
+set spoolfile = "+INBOX"
+set postponed = "+[Gmail].Drafts"
+set record = "+[Gmail].Sent Mail"
+set trash = "+[Gmail].Trash"
+
+macro index o "<shell-escape>mailsync gmail<enter>" "run mbsync to sync apple.shan@gmail.com"
+
+mailboxes =INBOX "=[Gmail]/Starred" "=[Gmail]/Important" "=[Gmail]/Sent\ Mail" "=[Gmail]/Drafts" "=[Gmail]/Spam" "=[Gmail]/Trash" \
+=Alanpally =Google =Job-Order =ME =Payments "=Payments/Alipay" "=Payments/Bank-of-Communications" "=Payments/China-Merchants-Bank" "=Payments/PayPal"

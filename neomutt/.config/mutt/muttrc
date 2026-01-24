@@ -1,0 +1,15 @@
+# vim: filetype=neomuttrc
+# @See https://seniormars.com/posts/neomutt/
+
+#### General Key Bindings
+source ~/.config/mutt/keys/unbinds.muttrc
+source ~/.config/mutt/keys/binds.muttrc
+
+#### General Settings
+source /usr/local/share/mutt-wizard/mutt-wizard.muttrc
+
+#### Accounts
+source ~/.config/mutt/accounts/apple.shan@gmail.com.muttrc
+
+#### Colors, Symbols and Formatting
+source ~/.config/mutt/styles.muttrc
