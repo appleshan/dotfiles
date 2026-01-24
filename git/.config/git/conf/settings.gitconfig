@@ -1,10 +1,4 @@
 #基础设置 {{{
-# 专为github设置的代理
-[https "https://github.com"]
-    proxy = socks5h://127.0.0.1:20170
-[https "https://android.googlesource.com"]
-    proxy = socks5h://127.0.0.1:20170
-
 [init]
     defaultBranch = main
 
