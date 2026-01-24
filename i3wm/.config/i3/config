@@ -502,7 +502,7 @@ bindsym $super+semicolon  mode $main-mode
 # configuration in ~/.config/polybar/config.ini
 exec_always --no-startup-id ~/.config/polybar/launch.sh
 
-# super-c/v: 拷贝粘贴的统一
+# => Copy/Paste 的统一
 bindsym F8 --release exec ~/.config/metaesc/paste.sh c
 bindsym F9 --release exec ~/.config/metaesc/paste.sh v
 
