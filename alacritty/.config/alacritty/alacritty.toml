@@ -1,0 +1,28 @@
+[window]
+opacity = 1
+
+[font]
+size = 12
+
+  [font.normal]
+  family = "DejaVu Sans Mono"
+  style = "Regular"
+
+  [font.bold]
+  family = "DejaVu Sans Mono"
+  style = "Bold"
+
+  [font.italic]
+  family = "DejaVu Sans Mono"
+  style = "Italic"
+
+  [font.bold_italic]
+  family = "DejaVu Sans Mono"
+  style = "BoldItalic"
+
+[cursor.style]
+shape = "Block"
+blinking = "On"
+
+[general]
+import = [ "~/.config/alacritty/themes/themes/gruvbox_light.toml" ]
