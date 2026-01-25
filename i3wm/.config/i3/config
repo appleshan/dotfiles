@@ -411,7 +411,7 @@ mode $swap-window {
 }
 
 # => 修改工作区布局的子菜单
-set $layout-mode "layout stack[s] tabbed[t] split[x] other toggle[o]"
+set $layout-mode "layout stack[s] tabbed[w] split[e] other toggle[o]"
 mode $layout-mode {
     # change container layout (stacked, tabbed, toggle split)
     bindsym s layout stacking
