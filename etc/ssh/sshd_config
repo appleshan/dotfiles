@@ -1,3 +1,18 @@
+# /etc/ssh/sshd_config
+#SSH 基本加固
+
+#SSH 服务监听的默认端口
+Port 22122
+
+#禁止 Root 用户直接登录，使用普通用户登录，使用 sudo 提权
+PermitRootLogin no
+
+#禁用 DNS 反查
+UseDNS no
+
+#禁用 X11 转发
+X11Forwarding no
+
 # {{ ssh密钥登录
 #RSA认证
 RSAAuthentication yes
