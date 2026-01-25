@@ -506,11 +506,6 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 bindsym F8 --release exec ~/.config/metaesc/paste.sh c
 bindsym F9 --release exec ~/.config/metaesc/paste.sh v
 
-# => clipcat integrating with i3 Window Manager
-bindsym $super+c        exec clipcat-menu      # Open clipboard menu
-bindsym $super+Shift+c  exec clipcatctl clear  # Clear clipboard history
-# end clipcat
-
 # => piper-speak
 # https://github.com/appleshan/piper-speak
 bindsym $super+Shift+s  exec --no-startup-id  speak-selection
