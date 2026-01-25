@@ -129,7 +129,7 @@
     "github.copilot.advanced": {
 
     },
-    "sonarlint.pathToNodeExecutable": "~/.nvm/versions/node/v22.20.0/bin/node",
+    "sonarlint.pathToNodeExecutable": "~/.nvm/versions/node/v24.12.0/bin/node",
     "[java]": {
         "editor.defaultFormatter": "redhat.java"
     }
