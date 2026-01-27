@@ -25,4 +25,4 @@ shape = "Block"
 blinking = "On"
 
 [general]
-import = [ "~/.config/alacritty/themes/themes/low_contrast.toml" ]
+import = [ "~/.config/alacritty/themes/themes/gruvbox_light.toml" ]
