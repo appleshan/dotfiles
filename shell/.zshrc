@@ -66,6 +66,29 @@ fi
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
 
+# alias-finder plugin
+zstyle ':omz:plugins:alias-finder' autoload yes # disabled by default
+zstyle ':omz:plugins:alias-finder' longer yes # disabled by default
+zstyle ':omz:plugins:alias-finder' exact yes # disabled by default
+zstyle ':omz:plugins:alias-finder' cheaper yes # disabled by default
+
+# colorize plugin
+ZSH_COLORIZE_TOOL=chroma
+ZSH_COLORIZE_STYLE="colorful"
+ZSH_COLORIZE_CHROMA_FORMATTER=terminal256
+
+# eza plugin
+zstyle ':omz:plugins:eza' 'dirs-first' yes
+zstyle ':omz:plugins:eza' 'git-status' yes
+zstyle ':omz:plugins:eza' 'header' yes
+zstyle ':omz:plugins:eza' 'show-group' no
+zstyle ':omz:plugins:eza' 'icons' yes
+zstyle ':omz:plugins:eza' 'color-scale' all
+zstyle ':omz:plugins:eza' 'color-scale-mode' gradient
+zstyle ':omz:plugins:eza' 'size-prefix' binary
+zstyle ':omz:plugins:eza' 'time-style' long-iso
+# zstyle ':omz:plugins:eza' 'hyperlink' yes|no
+
 #  ┌─┐┬  ┬ ┬┌─┐┬┌┐┌┌─┐
 #  ├─┘│  │ ││ ┬││││└─┐
 #  ┴  ┴─┘└─┘└─┘┴┘└┘└─┘
@@ -74,7 +97,7 @@ fi
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(aliases \
+plugins=(aliases alias-finder \
          # https://github.com/djui/alias-tips
          alias-tips \
          archlinux \
@@ -82,33 +105,34 @@ plugins=(aliases \
          zsh-autosuggestions \
          # https://github.com/Pilaton/OhMyZsh-full-autoupdate
          ohmyzsh-full-autoupdate \
-         colored-man-pages colorize command-not-found common-aliases \
+         bgnotify \
+         colored-man-pages colorize command-not-found \
          copybuffer copyfile copypath cp \
          # https://github.com/joel-porquet/zsh-dircolors-solarized
          zsh-dircolors-solarized \
-         dircycle dirpersist dotenv \
-         emoji encode64 extract \
-         fancy-ctrl-z forgit \
+         dircycle dirpersist docker docker-compose dotenv \
+         emoji encode64 extract eza \
+         fancy-ctrl-z \
+         genpass gh git-extras gitfast gitignore golang \
          # https://github.com/z-shell/H-S-MW
          #H-S-MW \
          history httpie isodate jsontools \
-         man mvn \
+         magic-enter mvn \
          nmap npm nvm \
          # https://github.com/amyreese/zsh-opt-path
          opt-path \
-         podman
+         pj podman \
          rsync \
          safe-paste \
          # https://github.com/mattmc3/zsh-safe-rm
          zsh-safe-rm \
          # https://github.com/obolientsev/ssh-host
-         ssh-host \
-         sudo systemadmin systemd \
-         timer tmux \
+         ssh ssh-host \
+         starship sudo systemadmin systemd \
+         tldr tmux toolbox \
          ufw urltools uv \
          vscode \
          web-search \
-         yarn \
          zbell zsh-interactive-cd zsh-tab-title \
          )
 

@@ -22,6 +22,15 @@ fi
 # ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/.ripgreprc
 
+PROJECT_PATHS=(~/projects/ai-coding/ ~/projects/private/ ~/projects/working/)
+
+################
+# lazyworktree #
+################
+
+eval "$(lazyworktree completion zsh --code)"
+source ~/.shell/functions/lazyworktree.zsh
+
 ###############
 # Perl5       #
 ###############
