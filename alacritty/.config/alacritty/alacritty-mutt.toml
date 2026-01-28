@@ -1,28 +1,43 @@
-[window]
-opacity = 1
+[general]
+import = ["~/.config/alacritty/themes/ef-eagle.toml"]
 
-[font]
-size = 12
+[bell.command]
+args = ["Finished Task", "Alacritty"]
+program = "notify-send"
 
-  [font.normal]
-  family = "DejaVu Sans Mono"
-  style = "Regular"
-
-  [font.bold]
-  family = "DejaVu Sans Mono"
-  style = "Bold"
-
-  [font.italic]
-  family = "DejaVu Sans Mono"
-  style = "Italic"
-
-  [font.bold_italic]
-  family = "DejaVu Sans Mono"
-  style = "BoldItalic"
+[colors]
+draw_bold_text_with_bright_colors = true
 
 [cursor.style]
 shape = "Block"
 blinking = "On"
 
-[general]
-import = [ "~/.config/alacritty/themes/themes/gruvbox_light.toml" ]
+[font]
+size = 12.0
+
+[font.normal]
+family = "DejaVu Sans Mono"
+style = "Regular"
+
+[font.bold]
+family = "DejaVu Sans Mono"
+style = "Bold"
+
+[font.italic]
+family = "DejaVu Sans Mono"
+style = "Italic"
+
+[font.bold_italic]
+family = "DejaVu Sans Mono"
+style = "Bold Italic"
+
+[font.offset]
+x = 0
+y = 1
+
+[window.padding]
+x = 10
+y = 7
+
+[window]
+opacity = 1
