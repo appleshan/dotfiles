@@ -69,7 +69,7 @@ bindsym Print  exec --no-startup-id  flameshot gui --delay 200
 bindsym $super+shift+Print  exec --no-startup-id  flameshot config
 
 # soundcard mixer
-bindsym $super+shift+Ctrl+m  exec --no-startup-id  urxvt -e 'alsamixer'
+bindsym $super+shift+Ctrl+m  exec --no-startup-id  alacritty -e 'alsamixer'
 
 
 ###############################################################################
@@ -227,7 +227,7 @@ set $ws0 "10"
 
 # => 工作区切换&智能启动（添加智能启动脚本 ~/.local/bin/st 自动且不重复打开工作区相应程序）
 ## 转到工作区 // Workspace // <Super> 1...0 ##
-bindsym $super+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st wezterm start --cwd .
+bindsym $super+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st alacritty
 bindsym $super+2  workspace $ws2, exec --no-startup-id ~/.local/bin/st Telegram
 bindsym $super+3  workspace $ws3, exec --no-startup-id ~/.local/bin/st google-chrome-stable
 bindsym $super+4  workspace $ws4
