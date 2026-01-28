@@ -24,9 +24,9 @@
 
 # 专为github设置的代理
 [https "https://github.com"]
-    proxy = socks5h://127.0.0.1:20170
+    proxy = socks5://127.0.0.1:20170
 [https "https://android.googlesource.com"]
-    proxy = socks5h://127.0.0.1:20170
+    proxy = socks5://127.0.0.1:20170
 
 [user]
 # Git用户配置（用户名和邮箱）
