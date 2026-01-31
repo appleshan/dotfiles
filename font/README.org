@@ -1,3 +1,7 @@
 #+TITLE: dotfiles - Fontconfig
 
 Fontconfig 的配置文件推荐放在 ~/.config/fontconfig/fonts.conf 里，放在别处是废弃的用法，可能导致出错。
+
+# 参考文档
+- Linux 上的字体配置与故障排除: https://blog.lilydjwg.me/2023/3/5/linux-fonts.216591.html
+- https://github.com/lilydjwg/dotconfig/tree/base/fontconfig
