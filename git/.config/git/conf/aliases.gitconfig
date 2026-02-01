@@ -1,10 +1,10 @@
-# ======== 自定义变量 ========
-# 用于 topic 工作流的自定义变量，定义主要用于向远程仓库推送的分支
+; ======== 自定义变量 ========
+; 用于 topic 工作流的自定义变量，定义主要用于向远程仓库推送的分支
 [gitalias "topic.base.branch"]
     name = main
 
 [alias]
-# 很多alias来自 https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
+; 很多alias来自 https://github.com/GitAlias/gitalias/blob/master/gitalias.txt
 ; NOTE: 不要取名alias为 sync, cp 避免和git-extras冲突
 
 ; {{{ ### work flow ###
@@ -67,7 +67,7 @@
     tnr = "!git topic-new-remote"
     tn = "!git topic-new-local"
 
-; {{{  topic-merge [base-branch] 通过merge --no-ff 方式合并topic 并且自动删除topic分支
+; {{{ topic-merge [base-branch] 通过merge --no-ff 方式合并topic 并且自动删除topic分支
 ;   merge后立刻删除分支就好，因为有merge历史记录，可以随时找回feature分支
     topic-merge = "!f() { \
         topic_branch=$(git current-branch); \
@@ -118,7 +118,8 @@
 ; }}}
     td = "!git topic-delete"
 
-    # 修改旧的commit      See https://blog.filippo.io/git-fixup-amending-an-older-commit/
+    # 修改旧的commit
+    # See https://blog.filippo.io/git-fixup-amending-an-older-commit/
     # NOTE: 1. 如果和TARGET..HEAD 之间的commit有冲突，则会提交新的提交，否则只是改变原来提交的历史位置
     # usage:  git fixup <base_branch> [files...] 文件可选
     # GIT_EDITOR=true可以在没有冲突的时候跳过编辑过程, --autosquash让fixup的commit出现在target下方
@@ -146,7 +147,7 @@
 ; }}}
     blg = "!git branch-log"
 
-    ; 三种查看log的方式: lg tree blg
+    # 三种查看log的方式: lg tree blg
     refix = checkout --conflict=diff3  # 对某个文件回到解决冲突前的状态
 
 ; {{{ edit and add unmerged file
@@ -362,7 +363,8 @@
 
     # NOTE: log 加了--graph 会让使用nvim 作为log的 pager时出bug
     # log like - we like this summarization our key performance indicators. Also aliased as `log-like`.
-    lg = "!git log -${1:-10} --all --color=always --abbrev=12 --graph --topo-order --date=format:'%Y-%m-%d %H:%M:%S' --boundary \
+    lg = "!git log -${1:-10} --all --color=always --abbrev=12 --graph --topo-order --boundary \
+                --date=format:'%Y-%m-%d %H:%M:%S' \
                 --pretty=format:'%C(yellow)%d%Creset %s %Cblue[%cn] %Cgreen%ad - %C(magenta)%h'; #"
 
     # 查看log，NOTE: 依赖 脚本ec、Emacs & magit插件.
@@ -371,7 +373,7 @@
 ; }}}
 ; {{{ ### merge ###
 
-    ; # merge but without autocommit, and with a commit even if the merge resolved as a fast-forward.
+    # merge but without autocommit, and with a commit even if the merge resolved as a fast-forward.
     ; mg = merge --no-commit --no-ff
     # merge but without autocommit, and with a commit 除非这个是同一路径上可以快进(faster-forward)的merge
     ; mg = merge --no-commit
@@ -380,11 +382,11 @@
     mgc = "!git add --update && git merge --continue"
 
     mgt = mergetool
-    ; merge并删除被merge的分支
+    # merge并删除被merge的分支
     mgd = "!git merge $1 && git branch -d $1; #"
-    ; 显示自共同父节点以来两条分支的提交
+    # 显示自共同父节点以来两条分支的提交
     merge-log = log --oneline --left-right HEAD...MERGE_HEAD
-    ; 显示出现冲突的提交
+    # 显示出现冲突的提交
     conflict-log = log --oneline --left-right --merge
 
 ; }}}
@@ -455,12 +457,16 @@
         if [ -n \"$custom_message\" ]; then \
             WIP_message=\"$WIP_message: $custom_message\"; \
         fi; \
-        git stash push -m \"$WIP_message - $(date '+%Y-%m-%d %H:%M:%S') - Base commit: $(git log -1 HEAD --pretty=format:'%h %s') \"; \
+        datetime=$(date '+%Y-%m-%d %H:%M:%S'); \
+        last_commit=$(git log -1 HEAD --pretty=format:'%h %s'); \
+        WIP_message=\"$WIP_message - $datetime - Base commit: $last_commit \"; \
+        git stash push -m \"$WIP_message\"; \
     };f"
     pop = stash pop
 ; {{{ snapshot 介绍
 
-    # Stash snapshot - from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
+    # Stash snapshot
+    # from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
     # Take a snapshot of your current working tree without removing changes.
     # This is handy for refactoring where you can't quite fit what you've done
     # into a commit but daren't stray too far from now without a backup.
@@ -483,10 +489,11 @@
     };f"
     drop = stash drop
     sl = stash list
-    ; 显示最近15次stash的哈希值 NOTE: 前提是stash注释里有WIP以便grep过滤
-    ; 找到想要的stash后可以 git stash apply $stash_hash 或者 git branch recovered $stash_hash 恢复它
+    # 显示最近15次stash的哈希值 NOTE: 前提是stash注释里有WIP以便grep过滤
+    # 找到想要的stash后可以 git stash apply $stash_hash 或者 git branch recovered $stash_hash 恢复它
     stash-history = "!f() { \
-        git fsck --unreachable | grep commit | cut -d\\  -f3 | xargs git log -15 --oneline --merges --no-walk --grep=WIP; \
+        git fsck --unreachable | grep commit | cut -d\\  -f3 \
+                | xargs git log -15 --oneline --merges --no-walk --grep=WIP; \
     };f"
     sh = "!git stash-history"
 
@@ -507,7 +514,7 @@
 ; }}}
 ; {{{ ### undo ###
 
-    ; 只撤销了git commit操作，保留了 git add 操作。
+    # 只撤销了git commit操作，保留了 git add 操作。
     uncommit = reset --soft HEAD~1
     # 撤销commit， 清空工作区和暂存区
     # 命令末尾的#不能少
@@ -554,21 +561,23 @@
     # 本仓库第一个commit的hash
     first-commit = rev-list --max-parents=0 HEAD
 
-    ; NOTE: fzf中只能选一个值 调用方式为 $(git fzf-commit)
+    # NOTE: fzf中只能选一个值 调用方式为 $(git fzf-commit)
     fzf-commit = "!f() { \
         left=${1:-$(git first-commit)}; \
         right=${2:-$(git current-branch)}; \
-        commit_hash=$(git log $left..$right --color=always --topo-order --date=format:'%Y-%m-%d %H:%M:%S' --abbrev-commit \
+        commit_hash=$(git log $left..$right --color=always --topo-order --abbrev-commit \
+                --date=format:'%Y-%m-%d %H:%M:%S' \
                 --pretty=format:'%Cgreen%ad %C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset - %Cred%H%Creset' \
                 | fzf | awk '{print $NF}'); \
         echo $commit_hash; \
         };f"
 
-    ; NOTE: fzf可以选多个值, 调用方式只能为　git fzf-commit-multi | xargs -n 1 <command>
+    # NOTE: fzf可以选多个值, 调用方式只能为　git fzf-commit-multi | xargs -n 1 <command>
     fzf-commit-multi = "!f() { \
         left=${1:-$(git first-commit)}; \
         right=${2:-$(git current-branch)}; \
-        git log --all --color=always --graph --topo-order --date=format:'%Y-%m-%d %H:%M:%S' --abbrev-commit \
+        git log --all --color=always --graph --topo-order --abbrev-commit \
+                --date=format:'%Y-%m-%d %H:%M:%S' \
                 --pretty=format:' %Cgreen%ad %C(yellow)%d%Creset %s %Cblue[%cn]%Creset %Cblue%G?%Creset - %Cred%H%Creset' \
                 | fzf | awk '{print $NF}' | xargs -n 1 echo; \
         };f"
@@ -671,13 +680,13 @@
     ahead = "!git log --oneline origin/$(git current-branch)..HEAD"
     # 最后一个commit
     last = log -1 HEAD
-    ; Get everything new:
+    # Get everything new:
     get = !git pull --rebase && git submodule update --init --recursive
     # Push to all remotes
     push-to-all-remotes = !git remote | xargs -I% -n1 git push %
     # Show who contributed, in descending order by number of commits
     whorank = shortlog --summary --numbered --no-merges
-    ; 获取hash全称，在遇到hash冲突的时候很有用
+    # 获取hash全称，在遇到hash冲突的时候很有用
     abbr = "!sh -c 'git rev-list --all | grep ^$1 | while read commit; do git --no-pager log -n1 --pretty=format:\"%H\" $commit; done' -"
 
     aliases = "!f() { \
