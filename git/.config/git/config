@@ -34,5 +34,5 @@
 # 但在特定项目需要不同身份时，再在项目内（不加 --global）覆盖设置，项目配置优先级高于全局，
 # 这样既能保证日常开发一致性，又能灵活处理特殊项目（如公司内工作、开源项目）的身份切换.
     # github.com
-    name = appleshan
+    name = Alan.Shan
     email = apple.shan@gmail.com
