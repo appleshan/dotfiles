@@ -16,6 +16,7 @@
     path = ./conf/aliases.gitconfig
     path = ./conf/colors.gitconfig
     path = ./conf/urls.gitconfig
+    path = ./config.local
 
 [http]
     postBuffer = 100000000
@@ -36,3 +37,12 @@
     # github.com
     name = Alan.Shan
     email = apple.shan@gmail.com
+
+[sendemail]
+    smtpServer = smtp.gmail.com
+    smtpServerPort = 587
+    smtpEncryption = tls
+    smtpUser = apple.shan@gmail.com
+    # (Optional: we'll leave this commented out and use a different way)
+    # smtpPass = PASSWORD
+    # smtpPass should be placed in the config.local file.
