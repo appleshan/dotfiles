@@ -147,7 +147,7 @@
 ; }}}
     blg = "!git branch-log"
 
-    # 三种查看log的方式: lg tree blg
+    # 三种查看log的方式: lg logs blg
     refix = checkout --conflict=diff3  # 对某个文件回到解决冲突前的状态
 
 ; {{{ edit and add unmerged file
@@ -199,7 +199,7 @@
 ;   git ignore 查看或添加ignore    eg: git ignore "*.o" "*.log"
     ignore-io-append = "!git ignore-io --append $(git ignore-io -l | fzf)"
     adig = "!git ignore-io-append"
-    ignore-io-replace = "!git ignore-io --replace $(git ignore-io -l | fzf)" ; 替换成另一种
+    ignore-io-replace = "!git ignore-io --replace $(git ignore-io -l | fzf)" # 替换成另一种
 ;   git delete-tag  删除本地和远程tag         eg: git delete-tag 0.0.1
 ;   git setup 初始化一个文件夹并进行第一次提交
 ;   git browse 浏览器打开
@@ -210,11 +210,6 @@
 ;   git standup 查看某个人最近的提交   eg:  git standup -a John -d 7 也可不带参数查看自己
 ;   git contrib <username> 显示一个用户最近的提交
 ;   git summary --line 每个人代码行数及占比信息
-;
-    # History tree
-    # from git-extras https://github.com/tj/git-extras/blob/master/bin/git-show-tree
-    show-tree = log --all --graph --decorate --oneline --simplify-by-decoration
-    tree = "!git show-tree"  ; 显示所有分支的详情，只显示每个分支最近一次提交
 ;
 ;   暂时用不到:
 ;   git changelog 建议查文档使用
@@ -350,6 +345,8 @@
     # diff - show changes about to be commited
     dc = diff --cached
 
+    df-staged = diff --staged --color
+
 ; }}}
 ; {{{ ### grep ###
 
@@ -370,6 +367,16 @@
     # 查看log，NOTE: 依赖 脚本ec、Emacs & magit插件.
     # Emacs 的相关脚本 ec、et、es 来自：http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
     ll = "!ec -e '(magit-log-current)'"
+
+    logs = log --oneline --decorate --graph --pretty=format:\"(%h)  %an, %ar: %s\"
+    logs-all = log --oneline --decorate --graph --all --pretty=format:\"(%h)  %an, %ar: %s\"
+
+    # See https://leahneukirchen.org/blog/archive/2013/01/a-grab-bag-of-git-tricks.html
+    # I am tracking quite a lot of open source projects by cloning them into `~/src`
+    # and running `git pull` on them occasionally.
+    # Next, I run `git news` and see only the commits (with diff) that have arrived since the last pull.
+    news = log -p HEAD@{1}..HEAD@{0}
+
 ; }}}
 ; {{{ ### merge ###
 
@@ -695,9 +702,6 @@
 
 ; }}}
 ; {{{ ### unused ###
-    logs = log --oneline --decorate --graph --pretty=format:\"(%h)  %an, %ar: %s\"
-    logs-all = log --oneline --decorate --graph --all --pretty=format:\"(%h)  %an, %ar: %s\"
-    df-staged = diff --staged --color
 
     # 依赖 forgit
     df-fzf = !git forgit diff
