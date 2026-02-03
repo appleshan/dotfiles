@@ -53,10 +53,6 @@ super + shift + p
 super + shift + k
     $HOME/.config/sxhkd/sxhkd-bindings d
 
-# description: Use rofi to search documentation on Zeal and Man
-super + g
-    $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
-
 # description: 多媒体播放
 super + control + m
     $HOME/.config/rofi/scripts/rofi-media/media.sh

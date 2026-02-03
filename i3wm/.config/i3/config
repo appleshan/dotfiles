@@ -84,9 +84,6 @@ bindsym $super+d  exec --no-startup-id  rofi -show drun -columns 3
 # No icons: https://github.com/jluttine/rofi-power-menu/issues/8#issuecomment-1440149437
 bindsym $super+shift+p  exec --no-startup-id  $HOME/.config/polybar/scripts/system-power-menu/rofi-power-menu.sh
 
-# Use rofi to search documentation on Zeal and Man
-bindsym $super+g  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
-
 # 多媒体播放
 bindsym $super+Ctrl+m  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-media/media.sh
 
@@ -276,7 +273,6 @@ assign [class="Google-chrome"] → number 3
 assign [class="mpv"] → number 4
 assign [class="Thunar"] → number 5
 assign [class="Sublime_text"] → number 6
-assign [class="Zeal"] → number 6
 assign [class="Code"] → number 7
 assign [class="Emacs"] → number 7
 assign [class="Cc-switch"] → number 9

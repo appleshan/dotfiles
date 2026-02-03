@@ -131,7 +131,6 @@ TARGETS=(
     rofi/.config/rofi/scripts/rofi-media/media.rasi
     rofi/.config/rofi/scripts/rofi-media/players.rasi
     rofi/.config/rofi/scripts/rofi-power-menu/rofi-power-menu
-    #rofi/.config/rofi/scripts/rofi-zeal/rofi-zeal.sh
     shell/.zshrc
     shell/.oh-my-zsh/custom/zsh-theme.zsh
     shell/.oh-my-zsh/custom/shell-aliases.sh

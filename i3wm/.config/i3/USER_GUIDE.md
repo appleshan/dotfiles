@@ -61,7 +61,6 @@ i3 提供 10 个独立工作区（编号 1-10），每个工作区可运行不�
 | `Mod + Shift + D` | 命令运行器 | Rofi 命令执行 |
 | `Mod + Shift + A` | 系统菜单 | 系统控制菜单 |
 | `Mod + Shift + P` | 电源菜单 | 关机/重启/注销等 |
-| `Mod + G` | 文档搜索 | Rofi-Zeal 搜索 Zeal/Man 文档 |
 | `Mod + Ctrl + M` | 媒体播放器 | Rofi 多媒体控制 |
 
 ### 窗口管理
@@ -160,7 +159,7 @@ i3 提供 10 个独立工作区（编号 1-10），每个工作区可运行不�
 | **3** | Google Chrome、Thunderbird、uGet | Tabbed |
 | **4** | VLC 播放器 | Tabbed |
 | **5** | （未分配） | - |
-| **6** | Zeal 文档查看器 | Tabbed |
+| **6** | Sublime Text | Tabbed |
 | **7** | VS Code、Emacs | Tabbed |
 | **8-9** | （未分配） | - |
 | **10** | Remmina、VirtualBox、Gnome Boxes、V2RayN | Tabbed |
@@ -232,7 +231,6 @@ clipcat 守护进程随 i3 自动启动。
 - **feh**: 壁纸设置
 - **xcompmgr** / **picom**: 合成器（阴影/透明）
 - **freetype-infinality**: 字体渲染优化
-- **zeal**: 离线文档查看器
 - **v2rayn**: 代理工具
 
 ### 字体
