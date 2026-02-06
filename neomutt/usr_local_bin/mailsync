@@ -14,6 +14,11 @@
 # Run only if not already running in other instance
 pgrep mbsync >/dev/null && { echo "mbsync is already running."; exit ;}
 
+# Checks for internet connection and set notification script.
+ping -q -c 1 1.1.1.1 > /dev/null || { echo "No internet connection detected."; exit ;}
+
+command -v notify-send >/dev/null || echo "Note that \`libnotify\` or \`libnotify-send\` should be installed for pop-up mail notifications with this script."
+
 # First, we have to get the right variables for the mbsync file, the pass
 # archive, notmuch and the GPG home.  This is done by searching common profile
 # files for variable assignments. This is ugly, but there are few options that
