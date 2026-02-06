@@ -45,7 +45,8 @@ PERL_MM_OPT="INSTALL_BASE=$HOME/bin/perl5"; export PERL_MM_OPT;
 # Emacs Setup #
 ###############
 
-export EDITOR=et
+export EDITOR=nvim
+# export EDITOR=et
 # Emacs 的相关脚本 ec、et、es 来自：
 # http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
 

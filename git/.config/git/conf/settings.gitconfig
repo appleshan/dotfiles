@@ -8,7 +8,7 @@
     safecrlf = true
     #}}
 
-    editor = emacs
+    editor = nvim
 
     # Use custom `.gitignore` and `.gitattributes`
     excludesfile = ~/.gitignore
