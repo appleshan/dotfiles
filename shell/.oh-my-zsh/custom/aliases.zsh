@@ -58,13 +58,6 @@ alias rm='echo "This is not the command you are looking for."; false'
 # 查询archlinux滚了多少次
 alias roll='echo $(head -n1 /var/log/pacman.log | cut -d " " -f 1,2) 以来一共滚动更新了 $(grep -c "full system upgrade" /var/log/pacman.log) 次'
 
-###############################################################################
-# Python
-###############################################################################
-
-alias py='python'
-alias py2='python2'
-alias py3='python3'
-alias ipy='ipython'
-alias ipy2='ipython2'
-alias ipy3='ipython3'
+# Arch 安装包时校验失败怎么办？
+# from https://young-lord.github.io/posts/arch-makepkg-integrity
+alias yass=yay --mflags "--skipchecksums --skippgpcheck"
