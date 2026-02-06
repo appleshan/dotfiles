@@ -287,7 +287,7 @@ function pwdp() {
 
 # directory LS
 dls () {
-    ls -l | grep "^d" | awk '{ print $8 }' | tr -d "/"
+    command ls -l | grep "^d" | awk '{ print $8 }' | tr -d "/"
 }
 
 function dotfiles_directory() {
