@@ -703,12 +703,5 @@
 ; }}}
 ; {{{ ### unused ###
 
-    # 依赖 forgit
-    df-fzf = !git forgit diff
-    ad-fzf = !git forgit add
-    co-rs-fzf = !git forgit checkout_file
-    log-fzf = !git forgit log
-    ig-fzf = !git forgit ignore
-
     ; edit = !nvim `git ls-files -m --other --exclude-standard` -p
 ; }}}

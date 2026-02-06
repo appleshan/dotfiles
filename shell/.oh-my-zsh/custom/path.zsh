@@ -177,22 +177,6 @@ export FZF_ALT_C_OPTS="--preview 'tree -N -C {} | head -500'"
 export FZF_TMUX_OPTS="-d 60%"
 export FZF_COMPLETION_TRIGGER='**'
 
-export FORGIT_FZF_DEFAULT_OPTS="
---exact
---border
---cycle
---reverse
---height '80%'
-"
-
-
-#################
-# forgit        #
-#################
-
-# after `forgit` was loaded
-export PATH="$PATH:$FORGIT_INSTALL_DIR/bin"
-
 
 #################
 # claude        #

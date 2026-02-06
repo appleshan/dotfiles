@@ -60,7 +60,6 @@ omz-init: ## Install oh-my-zsh
 omz-plugins: ## Install oh-my-zsh plugins
 	cd ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/plugins/
 	git clone --depth 1 https://github.com/djui/alias-tips
-	git clone --depth 1 https://github.com/wfxr/forgit
 	git clone --depth 1 https://github.com/Pilaton/OhMyZsh-full-autoupdate ohmyzsh-full-autoupdate
 	git clone --depth 1 https://github.com/amyreese/zsh-opt-path opt-path
 	git clone --depth 1 https://github.com/zsh-users/zsh-autosuggestions
