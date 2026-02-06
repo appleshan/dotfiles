@@ -3,21 +3,23 @@
 .DEFAULT_GOAL := arch
 
 # Platform-specific packages
-LINUX = bat \
+LINUX = alacritty \
+bat \
 chrome claude clipcat codex curl \
-dunst \
+docker dunst \
 fcitx5-rime feh font \
-gemini ghostty git \
+gemini git \
 i3wm \
-neofetch nitrogen npm \
-pacman PaoPaoDNS picom PipeWire podman polybar proxychains python \
+nitrogen npm \
+pacman PaoPaoDNS picom PipeWire podman polybar python \
 ranger redshift ripgrep rofi \
 shell shellcheck ssh stow sxhkd \
-termite tmux \
-urxvt \
+tmux \
+urlview urxvt \
 vscode \
 wget \
-xorg
+xorg \
+yay
 
 .PHONY: linux clean
 

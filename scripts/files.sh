@@ -57,8 +57,6 @@ TARGETS=(
 	#mimeapps/.config/mimeapps.list
 	#mutt
 	#nano/.config/nano/nanorc
-	neofetch/.config/neofetch/config.conf
-    neofetch/.config/neofetch/archlinux.png
     #nginx/etc/nginx/conf.d/log_format.conf
     #nginx/etc/nginx/sites-available/dojo-demos.conf
     #nginx/etc/nginx/sites-available/dojo-toolkit.conf
