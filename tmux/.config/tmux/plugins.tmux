@@ -27,13 +27,13 @@ set-option -g @plugin 'tmux-plugins/tmux-yank'
 
 set-option -g @plugin 'tmux-plugins/tmux-copycat'
 
-set-option -g @plugin 'tmux-plugins/tmux-resurrect'
-set-option -g @plugin 'tmux-plugins/tmux-continuum'
+#set-option -g @plugin 'tmux-plugins/tmux-resurrect'
+#set-option -g @plugin 'tmux-plugins/tmux-continuum'
 # Features:
 # continuous saving of tmux environment
 # automatic tmux start when computer/server is turned on
 # automatic restore when tmux is started
-set-option -g @continuum-restore 'on'
+#set-option -g @continuum-restore 'on'
 
 set-option -g @plugin 'nhdaly/tmux-better-mouse-mode'
 
