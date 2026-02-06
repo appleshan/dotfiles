@@ -1,3 +1,4 @@
+; ~/.config/git/config
 ; NOTE: 1. alias不区分大小写
 ;       2. 和git-extras一起使用效果更佳
 ; FIXME: 在gitconfig里写的bash注意事项
