@@ -205,7 +205,7 @@ export PATH="$PATH:$HOME/.claude/bin"
 #################
 
 # 长期启用镜像源加速 rustup 下载
-export RUSTUP_UPDATE_ROOT=https://mirrors.tuna.tsinghua.edu.cn/rustup/rustup
-export RUSTUP_DIST_SERVER=https://mirrors.tuna.tsinghua.edu.cn/rustup
+export RUSTUP_DIST_SERVER="https://rsproxy.cn"
+export RUSTUP_UPDATE_ROOT="https://rsproxy.cn/rustup"
 
 export PATH="$PATH:$HOME/.cargo/bin"
