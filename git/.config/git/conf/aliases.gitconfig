@@ -380,14 +380,13 @@
 ; }}}
 ; {{{ ### merge ###
 
-    # merge but without autocommit, and with a commit even if the merge resolved as a fast-forward.
-    ; mg = merge --no-commit --no-ff
-    # merge but without autocommit, and with a commit 除非这个是同一路径上可以快进(faster-forward)的merge
-    ; mg = merge --no-commit
-    mg = merge
-    mgnf = merge --no-ff
-    mgc = "!git add --update && git merge --continue"
+    # 安全的合并：
+    # 用于将一个分支合并到当前分支，强行禁用快进（Fast-forward）模式以保留分支合并历史，
+    # 且合并后不自动提交，允许在提交前进行调整。
+    # 这通常用于管理复杂的分支结构，保留清晰的功能开发记录，并确保合并结果受控。
+    mg = merge --no-commit --no-ff
 
+    mgc = "!git add --update && git merge --continue"
     mgt = mergetool
     # merge并删除被merge的分支
     mgd = "!git merge $1 && git branch -d $1; #"
