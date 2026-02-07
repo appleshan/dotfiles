@@ -94,11 +94,9 @@ class User {
 }
 ```
 
-## Workflows
+## 📋 Implementation Workflow
 
-### 📋 Implementation Workflow
-
-#### Step 1: Minimal Working Version
+### Step 1: Minimal Working Version
 
 ```
 1. Identify the essential behaviour
@@ -107,7 +105,7 @@ class User {
 4. Stop—do not add extras yet
 ```
 
-#### Step 2: Modularize
+### Step 2: Modularize
 
 ```
 1. Split into Model, View, Controller modules
@@ -116,30 +114,13 @@ class User {
 4. Test each module independently
 ```
 
-#### Step 3: Enhance Gradually
+### Step 3: Enhance Gradually
 
 ```
 1. Add improvements one at a time
 2. Preserve loose coupling and MVC boundaries
 3. Refactor promptly when complexity grows
 ```
-
-### Git Workflow (Follow Language & Writing Policy)
-- Create commits **only when explicitly requested** by the user.
-- Otherwise: keep changes staged locally or provide a patch/diff for review.
-- Prefer Conventional Commits style.
-- When a multi-paragraph message is needed, use multiple `-m` flags:
-  - `git commit -m "feat: add automated deploy pipeline" -m "- Add CI job for image build" -m "- Add SSH-based deploy step"`
-
-### PR Protocol (gh CLI)
-- Open PRs only when requested; merge PRs only when explicitly requested.
-- Do not use escaped `\n` in `--body` (they render literally).
-- Prefer `--body-file` to pass Markdown content.
-- Suggested structure:
-  - Summary
-  - Impact
-  - Notes
-  - References / Links
 
 ## Engineering
 

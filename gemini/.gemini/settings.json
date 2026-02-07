@@ -1,4 +1,134 @@
 {
+  "general": {
+    "debugKeystrokeLogging": true,
+    "disableAutoUpdate": true,
+    "enableAutoUpdate": false,
+    "enablePromptCompletion": true,
+    "previewFeatures": true,
+    "vimMode": false
+  },
+  "security": {
+    "auth": {
+      "selectedType": "oauth-personal"
+    }
+  },
+  "ui": {
+    "theme": "Dracula",
+    "useFullWidth": true,
+    "showCitations": true,
+    "showLineNumbers": true,
+    "showMemoryUsage": true,
+    "showModelInfoInChat": true,
+    "showStatusInTitle": true,
+    "hideBanner": true,
+    "hideTips": true,
+    "footer": {
+      "hideContextPercentage": false
+    }
+  },
+  "context": {
+    "fileName": [
+      "AGENTS.md",
+      "CONTEXT.md",
+      "GEMINI.md"
+    ],
+    "includeDirectories": [],
+    "loadMemoryFromIncludeDirectories": false,
+    "fileFiltering": {
+      "respectGitIgnore": true,
+      "respectGeminiIgnore": true,
+      "enableRecursiveFileSearch": true,
+      "disableFuzzySearch": false,
+      "enableFuzzySearch": true
+    }
+  },
+  "tools": {
+    "shell": {
+      "showColor": true
+    },
+    "allowed": [
+      "read_multiple_files"
+    ]
+  },
+  "output": {
+    "format": "text"
+  },
+  "hooks": {
+    "AfterAgent": [
+      {
+        "hooks": [
+          {
+            "command": "/usr/share/code-notify/lib/core/notifier.sh stop gemini",
+            "description": "Desktop notification when task complete",
+            "name": "code-notify-complete",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "command": "/usr/share/code-notify/lib/core/notifier.sh notification gemini",
+            "description": "Desktop notification when input needed",
+            "name": "code-notify-notification",
+            "type": "command"
+          }
+        ],
+        "matcher": ""
+      }
+    ]
+  },
+  "hooksConfig": {
+    "enabled": true
+  },
+  "mcpServers": {
+    "context7": {
+      "args": [
+        "-y",
+        "@upstash/context7-mcp",
+        "--api-key",
+        "ctx7sk-859d82d6-6ce0-46e5-8f23-cc17a4a7e742"
+      ],
+      "command": "npx",
+      "timeout": 60000
+    },
+    "desktop-commander": {
+      "args": [
+        "-y",
+        "@wonderwhy-er/desktop-commander@latest",
+        "--no-onboarding",
+        "--config",
+        "\"{}\""
+      ],
+      "command": "npx",
+      "timeout": 60000
+    },
+    "sequential-thinking": {
+      "args": [
+        "-y",
+        "@modelcontextprotocol/server-sequential-thinking"
+      ],
+      "command": "npx",
+      "env": {
+        "DISABLE_THOUGHT_LOGGING": "true"
+      },
+      "timeout": 60000
+    },
+    "serena": {
+      "args": [
+        "run",
+        "--directory",
+        "/home/alecshan/projects/ai-coding/serena",
+        "serena",
+        "start-mcp-server"
+      ],
+      "command": "uv",
+      "timeout": 60000
+    }
+  },
   "base": {
     "modelConfig": {
       "generateContentConfig": {
@@ -77,13 +207,6 @@
       "model": "gemini-2.5-flash-lite"
     }
   },
-  "context": {
-    "fileName": [
-      "AGENTS.md",
-      "CONTEXT.md",
-      "GEMINI.md"
-    ]
-  },
   "edit-corrector": {
     "extends": "base",
     "modelConfig": {
@@ -125,44 +248,6 @@
       "model": "gemini-3-pro-preview"
     }
   },
-  "general": {
-    "debugKeystrokeLogging": true,
-    "disableAutoUpdate": true,
-    "previewFeatures": true,
-    "vimMode": false,
-    "enableAutoUpdate": false
-  },
-  "hooks": {
-    "AfterAgent": [
-      {
-        "hooks": [
-          {
-            "command": "/usr/share/code-notify/lib/core/notifier.sh stop gemini",
-            "description": "Desktop notification when task complete",
-            "name": "code-notify-complete",
-            "type": "command"
-          }
-        ],
-        "matcher": ""
-      }
-    ],
-    "Notification": [
-      {
-        "hooks": [
-          {
-            "command": "/usr/share/code-notify/lib/core/notifier.sh notification gemini",
-            "description": "Desktop notification when input needed",
-            "name": "code-notify-notification",
-            "type": "command"
-          }
-        ],
-        "matcher": ""
-      }
-    ]
-  },
-  "hooksConfig": {
-    "enabled": true
-  },
   "llm-edit-fixer": {
     "extends": "gemini-2.5-flash-base",
     "modelConfig": {}
@@ -175,51 +260,6 @@
     "extends": "base",
     "modelConfig": {
       "model": "gemini-2.5-pro"
-    }
-  },
-  "mcpServers": {
-    "context7": {
-      "args": [
-        "-y",
-        "@upstash/context7-mcp",
-        "--api-key",
-        "ctx7sk-859d82d6-6ce0-46e5-8f23-cc17a4a7e742"
-      ],
-      "command": "npx",
-      "timeout": 60000
-    },
-    "desktop-commander": {
-      "args": [
-        "-y",
-        "@wonderwhy-er/desktop-commander@latest",
-        "--no-onboarding",
-        "--config",
-        "\"{}\""
-      ],
-      "command": "npx",
-      "timeout": 60000
-    },
-    "sequential-thinking": {
-      "args": [
-        "-y",
-        "@modelcontextprotocol/server-sequential-thinking"
-      ],
-      "command": "npx",
-      "env": {
-        "DISABLE_THOUGHT_LOGGING": "true"
-      },
-      "timeout": 60000
-    },
-    "serena": {
-      "args": [
-        "run",
-        "--directory",
-        "/home/alecshan/projects/ai-coding/serena",
-        "serena",
-        "start-mcp-server"
-      ],
-      "command": "uv",
-      "timeout": 60000
     }
   },
   "next-speaker-checker": {
@@ -239,11 +279,6 @@
       "model": "gemini-2.5-flash-lite"
     }
   },
-  "security": {
-    "auth": {
-      "selectedType": "oauth-personal"
-    }
-  },
   "summarizer-default": {
     "extends": "base",
     "modelConfig": {
@@ -261,13 +296,6 @@
       },
       "model": "gemini-2.5-flash-lite"
     }
-  },
-  "tools": {
-    "allowed": []
-  },
-  "ui": {
-    "hideBanner": false,
-    "theme": "Dracula"
   },
   "web-fetch": {
     "extends": "gemini-2.5-flash-base",
