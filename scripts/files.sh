@@ -4,33 +4,33 @@ DST=$HOME'/projects/private/dotfiles'
 ARCHLINUX=$HOME'/projects/private/dotfiles/scripts/archlinux'
 
 TARGETS=(
-	aspell/.aspell.conf
-	bat/.config/bat/config
-	bin/.local/bin/ec
-	bin/.local/bin/es
-	bin/.local/bin/et
+    aspell/.aspell.conf
+    bat/.config/bat/config
+    bin/.local/bin/ec
+    bin/.local/bin/es
+    bin/.local/bin/et
     bin/.local/bin/st
-	bin/.local/bin/trash
-	bin/.local/bin/trashctl
+    bin/.local/bin/trash
+    bin/.local/bin/trashctl
     bin/.local/bin/test-fonts.pl
     bin/.local/bin/serena-project-index.sh
     claude/.claude/CLAUDE.md
     claude/.claude/statusline.sh
     codex/.codex/AGENTS.md
-	curl/.curlrc
-	dunst/.config/dunst/dunstrc
-	dunst/.config/dunst/dunstrc_dark-blood
-	dunst/.config/dunst/dunstrc-sample
-	dunst/.config/dunst/dunst-test
-	editorconfig/.editorconfig
-	fcitx5-rime/.config/environment.d/fcitx5.conf
-	fcitx5-rime/.config/fcitx5/conf/classicui.conf
-	fcitx5-rime/.config/fcitx5/conf/pinyin.conf
-	fcitx5-rime/.config/fcitx5/conf/rime.conf
-	feh/.config/feh/keys
-	feh/.config/feh/wallpaper.sh
-	# flatpak/var/lib/flatpak/repo/config
-	font/.config/fontconfig/fonts.conf
+    curl/.curlrc
+    dunst/.config/dunst/dunstrc
+    dunst/.config/dunst/dunstrc_dark-blood
+    dunst/.config/dunst/dunstrc-sample
+    dunst/.config/dunst/dunst-test
+    editorconfig/.editorconfig
+    fcitx5-rime/.config/environment.d/fcitx5.conf
+    fcitx5-rime/.config/fcitx5/conf/classicui.conf
+    fcitx5-rime/.config/fcitx5/conf/pinyin.conf
+    fcitx5-rime/.config/fcitx5/conf/rime.conf
+    feh/.config/feh/keys
+    feh/.config/feh/wallpaper.sh
+    # flatpak/var/lib/flatpak/repo/config
+    font/.config/fontconfig/fonts.conf
     font/.config/fontconfig/source-han-for-noto-cjk.conf
     font/.config/fontconfig/web.conf
     font/.config/fontconfig/web-ui-fonts.conf
@@ -38,25 +38,25 @@ TARGETS=(
     gemini/.gemini/.env
     gemini/.gemini/GEMINI.md
     ghostty/.config/ghostty/config
-	git/.config/git/config
+    git/.config/git/config
     git/.config/git/ignore
-	git/.config/git/.gitmessage
-	git/.config/git/conf/aliases.gitconfig
-	git/.config/git/conf/colors.gitconfig
-	git/.config/git/conf/settings.gitconfig
-	git/.config/git/conf/urls.gitconfig
-	git/.config/git/conf/user.gitconfig
-	# gpg/.gnupg/gpg.conf
-	# gpg/.gnupg/gpg-agent.conf
-	i3wm/.config/i3/config
-	i3wm/.config/i3/startup_apps.sh
-	# i3wm/.config/i3/screenlayout/dual-screen
-	# i3wm/.config/i3/screenlayout/monitor-toggle.sh
-	# i3wm/.config/i3/screenlayout/single
-	i3wm/.config/i3lock-fancy-multimonitor/lock
-	#mimeapps/.config/mimeapps.list
-	#mutt
-	#nano/.config/nano/nanorc
+    git/.config/git/.gitmessage
+    git/.config/git/conf/aliases.gitconfig
+    git/.config/git/conf/colors.gitconfig
+    git/.config/git/conf/settings.gitconfig
+    git/.config/git/conf/urls.gitconfig
+    git/.config/git/conf/user.gitconfig
+    # gpg/.gnupg/gpg.conf
+    # gpg/.gnupg/gpg-agent.conf
+    i3wm/.config/i3/config
+    i3wm/.config/i3/startup_apps.sh
+    # i3wm/.config/i3/screenlayout/dual-screen
+    # i3wm/.config/i3/screenlayout/monitor-toggle.sh
+    # i3wm/.config/i3/screenlayout/single
+    i3wm/.config/i3lock-fancy-multimonitor/lock
+    #mimeapps/.config/mimeapps.list
+    #mutt
+    #nano/.config/nano/nanorc
     #nginx/etc/nginx/conf.d/log_format.conf
     #nginx/etc/nginx/sites-available/dojo-demos.conf
     #nginx/etc/nginx/sites-available/dojo-toolkit.conf
