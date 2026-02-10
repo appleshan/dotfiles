@@ -454,6 +454,7 @@
 ;   NOTE: 用save和snapshot替代原生stash
 
     sapply = "!git stash apply $1"
+
     # 保存对tracked文件的修改(包括未暂存和已暂存)
     # use case: 1. 切换分支前 2. 工作中突然想commit --amend 或者 fixup
     # 接受一个stash信息可选参数
@@ -468,8 +469,6 @@
         WIP_message=\"$WIP_message - $datetime - Base commit: $last_commit \"; \
         git stash push -m \"$WIP_message\"; \
     };f"
-    pop = stash pop
-; {{{ snapshot 介绍
 
     # Stash snapshot
     # from http://blog.apiaxle.com/post/handy-git-tips-to-stop-you-getting-fired/
@@ -484,7 +483,6 @@
     #    stash@{0}: On feature/handy-git-tricks: snapshot: Mon Apr 8 12:39:06 BST 2013
     #
     # And seemingly no changes to your working tree.
-; }}}
     snapshot = "!f() { \
         custom_message=$1; \
         Snapshot_message=Snapshot; \
@@ -493,8 +491,11 @@
         fi; \
         git save \"Snapshot $1\" && git stash apply 0 >/dev/null 2>&1; \
     };f"
+
+    pop = stash pop
     drop = stash drop
     sl = stash list
+
     # 显示最近15次stash的哈希值 NOTE: 前提是stash注释里有WIP以便grep过滤
     # 找到想要的stash后可以 git stash apply $stash_hash 或者 git branch recovered $stash_hash 恢复它
     stash-history = "!f() { \
@@ -536,13 +537,13 @@
 ; }}}
 ; {{{ ### Working trees ###
 
-    W ='worktree'
-    Wa ='worktree add'
-    Wls ='worktree list'
-    Wmv ='worktree move'
-    Wp ='worktree prune'
-    Wrm ='worktree remove'
-    Wrmf ='worktree remove --force'
+    wt ='worktree'
+    wta ='worktree add'
+    wtls ='worktree list'
+    wtmv ='worktree move'
+    wtp ='worktree prune'
+    wtrm ='worktree remove'
+    wtrmf ='worktree remove --force'
 
 ; }}}
 
@@ -639,7 +640,6 @@
         git config --get gitalias.topic.base.branch.name || printf '%s\n' main; \
     };f"
 
-
 ; }}}
 ; {{{ ### other commands ###
 
@@ -682,12 +682,18 @@
         git publish; \
     }; f"
 
+    # Get everything new:
+    get = !git pull --rebase && git submodule update --init --recursive
+
+    edit = !nvim `git ls-files -m --other --exclude-standard` -p
+
+; }}}
+; {{{ ### unused ###
+
     # ahead of origin, Show commits that haven't made it to remote main yet.
     ahead = "!git log --oneline origin/$(git current-branch)..HEAD"
     # 最后一个commit
     last = log -1 HEAD
-    # Get everything new:
-    get = !git pull --rebase && git submodule update --init --recursive
     # Push to all remotes
     push-to-all-remotes = !git remote | xargs -I% -n1 git push %
     # Show who contributed, in descending order by number of commits
@@ -699,8 +705,4 @@
         git config list | grep '^alias\\.' | cut -c 7-; \
     }; f"
 
-; }}}
-; {{{ ### unused ###
-
-    ; edit = !nvim `git ls-files -m --other --exclude-standard` -p
 ; }}}
