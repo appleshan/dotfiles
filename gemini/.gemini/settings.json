@@ -119,13 +119,12 @@
     },
     "serena": {
       "args": [
-        "run",
-        "--directory",
-        "/home/alecshan/projects/ai-coding/serena",
+        "--from",
+        "git+https://github.com/oraios/serena",
         "serena",
         "start-mcp-server"
       ],
-      "command": "uv",
+      "command": "/usr/bin/uvx",
       "timeout": 60000
     }
   },

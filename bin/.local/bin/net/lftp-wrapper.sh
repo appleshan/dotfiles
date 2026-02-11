@@ -24,7 +24,7 @@ fi
 
 # 仅针对 github.com 和 raw.githubusercontent.com 启用代理逻辑
 if [ -z "$PROXY" ] && ([[ "$DOMAIN" == *"github.com"* ]] || [[ "$DOMAIN" == "raw.githubusercontent.com" ]]); then
-    ~/.local/bin/github-mirror-axel.sh $OUT_PATH $URL
+    /usr/local/bin/github-mirror-axel.sh $OUT_PATH $URL
 else
     $LFTP_BIN -e \
         "set ssl:verify-certificate false;
