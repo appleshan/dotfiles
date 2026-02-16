@@ -1,10 +1,6 @@
 [general]
 import = ["~/.config/alacritty/themes/alacritty.toml"]
 
-[bell.command]
-args = ["Finished Task", "Alacritty"]
-program = "notify-send"
-
 [colors]
 draw_bold_text_with_bright_colors = true
 
