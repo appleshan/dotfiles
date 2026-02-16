@@ -447,13 +447,13 @@ mode $volume-mode {
 }
 
 # => 切换键盘布局的子菜单（binding mode）
-exec_always --no-startup-id exec ~/.config/metaesc/code01s2.sh
+exec_always --no-startup-id exec ~/.config/metaesc/code01s2.sh > /dev/null 2>&1
 
 set $keymap-switch-mode "keymap: s(2), metaesc(1), default(0)"
 mode $keymap-switch-mode {
-    bindsym 0 exec ~/.config/metaesc/code01default.sh, mode default
-    bindsym 1 exec ~/.config/metaesc/code01s1.sh, mode default
-    bindsym 2 exec ~/.config/metaesc/code01s2.sh, mode default
+    bindsym 0 exec ~/.config/metaesc/code01default.sh > /dev/null 2>&1, mode default
+    bindsym 1 exec ~/.config/metaesc/code01s1.sh > /dev/null 2>&1, mode default
+    bindsym 2 exec ~/.config/metaesc/code01s2.sh > /dev/null 2>&1, mode default
 
     # back to normal: Escape
     bindsym Escape mode default
