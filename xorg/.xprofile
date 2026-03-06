@@ -41,6 +41,9 @@ xset s noblank
 ####               Autostart applications              ####
 ###########################################################
 
+# => 更改键盘按键映射，增强 i3-wm 体验
+$HOME/.config/metaesc/code01s2.sh > /dev/null 2>&1
+
 # => To autostart picom to achieve traspanrency
 picom -b --config $HOME/.config/picom/picom.conf
 
