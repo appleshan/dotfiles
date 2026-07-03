@@ -28,8 +28,13 @@ PROJECT_PATHS=(~/projects/ai-coding/ ~/projects/private/ ~/projects/working/)
 # lazyworktree #
 ################
 
-eval "$(lazyworktree completion zsh --code)"
 source ~/.shell/functions/lazyworktree.zsh
+
+jt() { worktree_jump $(git rev-parse --show-toplevel) "$@"; }
+_jt() { _worktree_jump $(git rev-parse --show-toplevel); }
+compdef _jt jt
+
+alias pl='worktree_go_last $(git rev-parse --show-toplevel)'
 
 ###############
 # Perl5       #
