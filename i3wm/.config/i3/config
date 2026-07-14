@@ -497,6 +497,9 @@ exec_always --no-startup-id ~/.config/polybar/launch.sh
 bindsym F8 --release exec ~/.config/metaesc/paste.sh c
 bindsym F9 --release exec ~/.config/metaesc/paste.sh v
 
+# => 更改键盘按键映射，增强 i3-wm 体验
+exec_always --no-startup-id sleep 2 && $HOME/.config/metaesc/code01s2.sh
+
 # => piper-speak
 # https://github.com/appleshan/piper-speak
 bindsym $super+Shift+s  exec --no-startup-id  speak-selection
