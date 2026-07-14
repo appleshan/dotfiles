@@ -46,15 +46,6 @@ PERL_LOCAL_LIB_ROOT="$HOME/bin/perl5${PERL_LOCAL_LIB_ROOT:+:${PERL_LOCAL_LIB_ROO
 PERL_MB_OPT="--install_base \"$HOME/bin/perl5\""; export PERL_MB_OPT;
 PERL_MM_OPT="INSTALL_BASE=$HOME/bin/perl5"; export PERL_MM_OPT;
 
-###############
-# Emacs Setup #
-###############
-
-export EDITOR=nvim
-# export EDITOR=et
-# Emacs 的相关脚本 ec、et、es 来自：
-# http://mjwall.com/blog/2013/10/04/how-i-use-emacs/
-
 ##############
 # Java Setup #
 ##############
