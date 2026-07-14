@@ -82,7 +82,7 @@ bindsym $super+d  exec --no-startup-id  rofi -show drun -columns 3
 # Power Menu
 # Repo: https://github.com/jluttine/rofi-power-menu
 # No icons: https://github.com/jluttine/rofi-power-menu/issues/8#issuecomment-1440149437
-bindsym $super+shift+p  exec --no-startup-id  $HOME/.config/polybar/scripts/system-power-menu/rofi-power-menu.sh
+bindsym $super+shift+p  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-power-menu/rofi-power-menu.sh
 
 # 多媒体播放
 bindsym $super+Ctrl+m  exec --no-startup-id  $HOME/.config/rofi/scripts/rofi-media/media.sh
