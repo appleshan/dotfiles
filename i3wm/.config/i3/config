@@ -164,7 +164,7 @@ bindsym $super+Ctrl+Right  workspace next
 
 # Switch back and forth in all layouts <stacked, tabbed, toggle split>
 ## 在所有布局中轮回切换 // Window // <Super> x ##
-#bindsym $super+x  layout toggle all
+bindsym $super+x  layout toggle all
 
 # enter fullscreen mode for the focused container
 ## 窗口切换到全屏 // Window // <Super> f ##
