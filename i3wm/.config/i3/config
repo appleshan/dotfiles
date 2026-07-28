@@ -112,7 +112,7 @@ workspace_auto_back_and_forth yes
 # last activate workspace
 bindsym $super+comma  workspace back_and_forth
 
-# switch window in workspace
+# change focus(switch window in workspace)
 ## 在窗口之间导航焦点 // Window // <Super> ↑ ↓ ← → ##
 bindsym $super+Left   focus left
 bindsym $super+Down   focus down
@@ -166,6 +166,7 @@ bindsym $super+Ctrl+Right  workspace next
 ## 在所有布局中轮回切换 // Window // <Super> x ##
 bindsym $super+x  layout toggle all
 
+# => fullscreen
 # enter fullscreen mode for the focused container
 ## 窗口切换到全屏 // Window // <Super> f ##
 bindsym $super+f  fullscreen toggle
@@ -222,8 +223,9 @@ set $ws8 "8"
 set $ws9 "9"
 set $ws0 "10"
 
-# => 工作区切换&智能启动（添加智能启动脚本 ~/.local/bin/st 自动且不重复打开工作区相应程序）
+# => switch to workspace
 ## 转到工作区 // Workspace // <Super> 1...0 ##
+# 工作区切换 & 智能启动（添加智能启动脚本 ~/.local/bin/st 自动且不重复打开工作区相应程序）
 bindsym $super+1  workspace $ws1, exec --no-startup-id ~/.local/bin/st alacritty
 bindsym $super+2  workspace $ws2, exec --no-startup-id ~/.local/bin/st Telegram
 bindsym $super+3  workspace $ws3, exec --no-startup-id ~/.local/bin/st google-chrome-stable
@@ -406,7 +408,7 @@ mode $swap-window {
 # => 修改工作区布局的子菜单
 set $layout-mode "layout stack[s] tabbed[w] split[e] other toggle[o]"
 mode $layout-mode {
-    # change container layout (stacked, tabbed, toggle split)
+    # change container layout <stacked, tabbed, toggle split>
     bindsym s layout stacking
     bindsym w layout tabbed
     bindsym e layout toggle split
@@ -415,9 +417,9 @@ mode $layout-mode {
     # bindsym p focus parent
     # bindsym c focus child
 
-    # 用 \ 切换左右布局
+    # 用 \ 切换左右布局 (split in horizontal orientation)
     bindsym backslash split h; exec notify-send " | split"
-    # 用 - 切换为上下布局
+    # 用 - 切换为上下布局 (split in vertical orientation)
     bindsym minus split v; exec notify-send "-- split"
 
     # back to normal: Escape
