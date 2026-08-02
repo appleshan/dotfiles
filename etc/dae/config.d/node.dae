@@ -1,0 +1,42 @@
+# /etc/dae/config.d/node.dae
+
+# 在这里定义的节点将作为全局节点池的一部分进行合并。
+node {
+  # 在这里添加您的节点链接。
+  # 支持 socks5、http、https、ss、ssr、vmess、vless、trojan、tuic、juicity、hysteria2 等。
+  # 完整支持列表：https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md
+
+  # 'socks5://localhost:1080'
+  # mylink: 'ss://LINK'
+  # node1: 'vmess://LINK'
+  # node2: 'vless://LINK'
+  # chains: 'tuic://LINK -> vmess://LINK'
+  # hysteria2: 'hysteria2://password@server-ip:port/?sni=domain'
+
+  # hysteria2:'hysteria2://b4562d75-b603-4389-b170-edce69b7ed12@1.xinyuwang.ggff.net:30027?insecure=1&sni=www.bing.com&pinSHA256=D309034F3E1EB42A5B5D15ED06EA97B857236DBCD367815CBF4CD6702CFB6F67#%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A81%E5%8F%B7-HY2-alanshan'
+
+  # vless:'vless://b4562d75-b603-4389-b170-edce69b7ed12@1.xinyuwang.ggff.net:30027?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.tesla.com&fp=chrome&pbk=yA3gio7eymUkBjGMm1gGqRqE6UNoI2P2FWLQ8yRcRGY&sid=c0cccbf151bf2a86&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A81%E5%8F%B7-Reality-alanshan'
+}
+
+# 在此处定义的订阅将被解析为节点并作为全局节点池的一部分进行合并。
+# 支持为订阅添加标签，并在组部分中从给定订阅中过滤节点。
+subscription {
+  # 在下面填入你的订阅链接。
+  netsub: 'https://netsub.bbroot.com/sub?token=a14ed9d81bfade5af166b9a928271c17'
+}
+
+# 负责定义出站.
+group {
+  proxy {
+    # No filter. Use all nodes.
+
+    # 每次连接随机选择组中的一个节点。
+    #policy: random
+    # 每次连接选择组中的第一个节点。
+    policy: fixed(0)
+    # 从每个连接的组中选择具有最小最后延迟的节点。
+    #policy: min
+    # 从每个连接的组中选择具有最小延迟移动平均值的节点。策略：最小移动平均
+    #policy: min_moving_avg
+  }
+}

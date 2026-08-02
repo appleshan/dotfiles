@@ -1,0 +1,103 @@
+# /etc/dae/config.dae
+
+# 完整样例：https://raw.githubusercontent.com/daeuniverse/dae/refs/heads/main/example.dae
+include {
+    config.d/*.dae
+}
+
+global {
+  ##### Software options.
+
+  # Log level: error, warn, info, debug, trace.
+  log_level: warn
+
+  tproxy_port_protect: true
+  bpf_conn_state_map_size: 262144
+  so_mark_from_dae: 0
+  disable_thp: true
+
+  # 因为dns出口是dae自己,先启动起来才能连接网络，否则永远没网
+  disable_waiting_network: true
+
+  ##### Interface and kernel options.
+
+  # 要绑定的 LAN 接口。如果您想进行 LAN 代理，请使用它。
+  # 多个接口用","分隔。
+  #lan_interface: docker0
+  # 要绑定的 WAN 接口。如果您想进行 localhost 代理，请使用它。
+  # 多个接口用","分隔。使用"auto"自动检测。
+  wan_interface: auto
+
+  # 自动配置 Linux 的内核选项（如 ip_forward 和 send_redirects）。
+  # 参考https://github.com/daeuniverse/dae/blob/main/docs/en/user-guide/kernel-parameters.md
+  auto_config_kernel_parameter: true
+
+  ##### Node connectivity check.
+  # These options, as defaults, are effective when no definition is given in the group.
+
+  # 如果你本地网络为双栈，URL的主机应该同时支持 IPv4 和 IPv6。
+  # 第一个是 URL，如果在其后填写了 IP 地址，代表对 URL 中 Host 的固定解析。
+  # 考虑到流量消耗，推荐使用具有任播且响应简短的站点。
+  tcp_check_url: 'http://cp.cloudflare.com,1.1.1.1,2606:4700:4700::1111'
+  # 用于 `tcp_check_url` 的 HTTP 请求方法。 默认使用 'HEAD'，因为一些服务器实现不统计该类型流量。
+  tcp_check_http_method: HEAD
+
+  # 此 DNS 用于检测节点的 UDP 连通性。如果下方的 dns_upstream 包含 tcp，它也将用于检查节点的 TCP DNS 连通性。
+  # 第一个是 URL，如果在其后填写了 IP 地址，代表对 URL 中 Host 的固定解析。
+  # 如果你本地网络为双栈，DNS 服务器应同时支持 IPv4 和 IPv6。
+  udp_check_dns: 'dns.google:53,8.8.8.8,2001:4860:4860::8888'
+
+  # 检测间隔
+  check_interval: 30s
+  check_tolerance: 50ms
+
+  ##### Connecting options.
+
+  # dial_mode 选项为:
+  # 1. "ip"。 使用 DNS 查询得到的 IP 直接发送代理。这允许 ipv4、ipv6 分别选择最佳路径，并使应用程序请求的 IP 版本满足预期。
+  #     例如，如果使用 curl -4 ip.sb，将通过代理请求 IPv4 并获得 IPv4 响应。curl-6 ip.sb 将请求 IPv6。若节点支持IPv6，
+  #     这可能会解决一些奇怪的全锥问题。在此模式下将禁用嗅探。
+  # 2. "domain"。 使用嗅探到的域名发送代理。若 DNS 环境不纯净，这将在很大程度上缓解 DNS 污染问题。通常，这种模式会带来更快的
+  #     代理响应，因为代理会在远程重新解析域名，从而获得更好的 IP 连接结果。此策略不影响路由，也就是说，域名重写将在路由的
+  #     流量拆分后进行， dae 不会重新路由。
+  # 3. "domain+"。 基于 domain 模式但不会检查嗅探得到域名的真实性。 对于 DNS 请求不经过 dae 但想要更快的代理响应的用户有用。
+  #     但是， 若 DNS 请求不经过 dae，基于域名的流量拆分将失效。
+  # 4. "domain++"。 基于 domain+ 模式但会根据嗅探到的域名重新进行流量路由，以部分恢复基于域名的流量拆分能力。对于直连流量无效
+  #     且会占用更多的 CPU 资源。
+  dial_mode: domain
+
+  # 允许不安全的 TLS 证书。除非有必要，否则不建议开启。
+  allow_insecure: false
+
+  # 嗅探第一个数据的超时。若 dial_mode 为 ip 则该值总为 0。若局域网延迟较高，应调高它。
+  sniffing_timeout: 100ms
+
+  # TLS 实现. 设为 tls 以使用 Go's crypto/tls。设为 utls 以使用 uTLS, 可以模拟浏览器的 Client Hello.
+  tls_implementation: tls
+
+  # uTLS 模拟的 Client Hello ID。 仅在 tls_implementation 设为 utls 时生效。
+  # 参考: https://github.com/daeuniverse/dae/blob/331fa23c16/component/outbound/transport/tls/utls.go#L17
+  utls_imitate: chrome_auto
+
+  # 多路径 TCP（MPTCP）支持。如果为 true，dae 将尝试使用 MPTCP 连接所有节点，
+  # 但它只有在节点支持 MPTCP 时才会生效。它可以用于负载均衡和故障转移至多个接口和 IP。
+  mptcp: false
+
+  # Explicit DNS resolver for bootstrap-only lookups before dae DNS routing is ready, such as resolving named DNS
+  # upstream hosts and dial_mode real-domain probes. When unset, dae uses 119.29.29.29:53 and 223.5.5.5:53 in
+  # order. Setting bootstrap_resolver disables those defaults. For IPv4 DNS servers, use "ipv4:port". For IPv6
+  # DNS servers, use "[ipv6]:port".
+  # bootstrap_resolver: '9.9.9.9:53'
+
+  # 访问互联网的最大带宽。对于某些特定协议（例如 Hysteria2），提供带宽信息将有助于其性能提升。单位可以是 b、kb、mb、gb、tb 或每秒字节数。
+  # 支持的格式：https://v2.hysteria.network/docs/advanced/Full-Client-Config/#bandwidth
+  bandwidth_max_tx: '200 mbps' # 上行，或 '200 m' 或 '200 mb' 或 '200 mbps' 或 25000000（即 200/8*1000*1000）
+  bandwidth_max_rx: '1 gbps' # 下行，或 '1 g' 或 '1 gb' 或 '1 gbps' 或 125000000（即 1000/8*1000*1000）
+
+  # 使用系统 DNS 解析 DoH/DoT 域名和订阅链接。然而，系统 DNS 可能不可靠或可能损坏，因此我们指定一个备用 DNS 解析器，在 resolv.conf 使用的 DNS 解析失败时使用。这确保了即使系统默认 DNS 服务器不可用或无法正常响应，DNS 解析仍然可以继续工作。
+  # 默认值是 Google 的 DNS (8.8.8.8:53)。
+  # 对于 IPv4 DNS 服务器，格式为 "ipv4:端口"，例如 "8.8.8.8:53"。
+  # 对于 IPv6 DNS 服务器，格式为 "[ipv6]:端口"，例如 "[2001:4860:4860::8888]:53"。
+  # 备用解析器始终可用，即使您在配置文件中没有指定它。
+  # fallback_resolver: '8.8.8.8:53'
+}
