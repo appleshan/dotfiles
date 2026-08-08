@@ -1,14 +1,17 @@
 # /etc/dae/config.dae
 
-# 完整样例：https://raw.githubusercontent.com/daeuniverse/dae/refs/heads/main/example.dae
+# 完整样例：https://github.com/daeuniverse/dae/blob/main/example.dae
+# 网友的配置说明文档：
+# https://blog.hellowood.dev/posts/dae-proxy-configuration/
 include {
     config.d/*.dae
 }
 
+# 全局配置
 global {
   ##### Software options.
 
-  # Log level: error, warn, info, debug, trace.
+  # 日志等级，默认为 info，支持 error/warn/info/debug/trace.
   log_level: warn
 
   tproxy_port_protect: true
@@ -23,7 +26,7 @@ global {
 
   # 要绑定的 LAN 接口。如果您想进行 LAN 代理，请使用它。
   # 多个接口用","分隔。
-  #lan_interface: docker0
+  lan_interface: wlo1
   # 要绑定的 WAN 接口。如果您想进行 localhost 代理，请使用它。
   # 多个接口用","分隔。使用"auto"自动检测。
   wan_interface: auto
@@ -35,24 +38,26 @@ global {
   ##### Node connectivity check.
   # These options, as defaults, are effective when no definition is given in the group.
 
-  # 如果你本地网络为双栈，URL的主机应该同时支持 IPv4 和 IPv6。
+  # 用于 TCP 节点连通性检查的网址，推荐选择响应快的 anycast 地址.
   # 第一个是 URL，如果在其后填写了 IP 地址，代表对 URL 中 Host 的固定解析。
-  # 考虑到流量消耗，推荐使用具有任播且响应简短的站点。
   tcp_check_url: 'http://cp.cloudflare.com,1.1.1.1,2606:4700:4700::1111'
-  # 用于 `tcp_check_url` 的 HTTP 请求方法。 默认使用 'HEAD'，因为一些服务器实现不统计该类型流量。
+  # 用于 `tcp_check_url` 的 HTTP 请求方法。默认使用 'HEAD'，支持 GET/POST 等。
+  # 默认 HEAD 流量更节省，因为一些服务器实现不统计该类型流量。
   tcp_check_http_method: HEAD
 
-  # 此 DNS 用于检测节点的 UDP 连通性。如果下方的 dns_upstream 包含 tcp，它也将用于检查节点的 TCP DNS 连通性。
+  # 用于检查 UDP（及 TCP DNS）连通性的 DNS 服务器地址。
   # 第一个是 URL，如果在其后填写了 IP 地址，代表对 URL 中 Host 的固定解析。
   # 如果你本地网络为双栈，DNS 服务器应同时支持 IPv4 和 IPv6。
   udp_check_dns: 'dns.google:53,8.8.8.8,2001:4860:4860::8888'
 
-  # 检测间隔
+  # 节点连通性检测的时间间隔，默认为 30s
   check_interval: 30s
+  # 节点切换容差阈值；仅当新延迟 ≤ 旧延迟 - 容差时才切换节点， 默认 50ms
   check_tolerance: 50ms
 
   ##### Connecting options.
 
+  # 代理模式
   # dial_mode 选项为:
   # 1. "ip"。 使用 DNS 查询得到的 IP 直接发送代理。这允许 ipv4、ipv6 分别选择最佳路径，并使应用程序请求的 IP 版本满足预期。
   #     例如，如果使用 curl -4 ip.sb，将通过代理请求 IPv4 并获得 IPv4 响应。curl-6 ip.sb 将请求 IPv6。若节点支持IPv6，
@@ -69,18 +74,18 @@ global {
   # 允许不安全的 TLS 证书。除非有必要，否则不建议开启。
   allow_insecure: false
 
-  # 嗅探第一个数据的超时。若 dial_mode 为 ip 则该值总为 0。若局域网延迟较高，应调高它。
+  # 嗅探超时等待首个数据包的时间，dial_mode 为 ip 时该值无效，默认为 100ms。若局域网延迟较高，应调高它。
   sniffing_timeout: 100ms
 
   # TLS 实现. 设为 tls 以使用 Go's crypto/tls。设为 utls 以使用 uTLS, 可以模拟浏览器的 Client Hello.
   tls_implementation: tls
 
-  # uTLS 模拟的 Client Hello ID。 仅在 tls_implementation 设为 utls 时生效。
+  # 当 tls_implementation 为 utls 时，指定模拟的浏览器类型，值为chrome_auto。
   # 参考: https://github.com/daeuniverse/dae/blob/331fa23c16/component/outbound/transport/tls/utls.go#L17
   utls_imitate: chrome_auto
 
-  # 多路径 TCP（MPTCP）支持。如果为 true，dae 将尝试使用 MPTCP 连接所有节点，
-  # 但它只有在节点支持 MPTCP 时才会生效。它可以用于负载均衡和故障转移至多个接口和 IP。
+  # 是否启用 Multipath TCP，用于多链路负载均衡与故障转移，默认 false。
+  # 如果为 true，dae 将尝试使用 MPTCP 连接所有节点，但它只有在节点支持 MPTCP 时才会生效。
   mptcp: false
 
   # Explicit DNS resolver for bootstrap-only lookups before dae DNS routing is ready, such as resolving named DNS

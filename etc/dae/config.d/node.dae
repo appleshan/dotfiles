@@ -1,10 +1,12 @@
 # /etc/dae/config.d/node.dae
 
-# 在这里定义的节点将作为全局节点池的一部分进行合并。
+# 节点配置，包括节点的地址、端口、协议、加密方式等.
+# 在这里定义的节点将作为全局节点池的一部分进行合并.
 node {
   # 在这里添加您的节点链接。
-  # 支持 socks5、http、https、ss、ssr、vmess、vless、trojan、tuic、juicity、hysteria2 等。
-  # 完整支持列表：https://github.com/daeuniverse/dae/blob/main/docs/en/proxy-protocols.md
+  # node 分为两部分，tag 和 URI，tag 是节点的唯一标识，用于 group 分组，URI 是节点的连接信息，根据不同的协议有不同的格式，
+  # HTTPS/VMess/VLESS/Shadowsocks/Trojan/Tuic/Juicity/Hysteria2 等格式。
+  # 具体参考：https://github.com/daeuniverse/dae/blob/main/docs/zh/proxy-protocols.md
 
   # 'socks5://localhost:1080'
   # mylink: 'ss://LINK'
@@ -12,31 +14,49 @@ node {
   # node2: 'vless://LINK'
   # chains: 'tuic://LINK -> vmess://LINK'
   # hysteria2: 'hysteria2://password@server-ip:port/?sni=domain'
-
-  # hysteria2:'hysteria2://b4562d75-b603-4389-b170-edce69b7ed12@1.xinyuwang.ggff.net:30027?insecure=1&sni=www.bing.com&pinSHA256=D309034F3E1EB42A5B5D15ED06EA97B857236DBCD367815CBF4CD6702CFB6F67#%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A81%E5%8F%B7-HY2-alanshan'
-
-  # vless:'vless://b4562d75-b603-4389-b170-edce69b7ed12@1.xinyuwang.ggff.net:30027?encryption=none&flow=xtls-rprx-vision&security=reality&sni=www.tesla.com&fp=chrome&pbk=yA3gio7eymUkBjGMm1gGqRqE6UNoI2P2FWLQ8yRcRGY&sid=c0cccbf151bf2a86&type=tcp&headerType=none#%E5%85%8D%E8%B4%B9%E4%BD%BF%E7%94%A81%E5%8F%B7-Reality-alanshan'
 }
 
-# 在此处定义的订阅将被解析为节点并作为全局节点池的一部分进行合并。
+# 节点订阅配置，用于从订阅服务器获取节点信息，解析到的节点会被添加到 node 中.
 # 支持为订阅添加标签，并在组部分中从给定订阅中过滤节点。
 subscription {
   # 在下面填入你的订阅链接。
-  netsub: 'https://netsub.bbroot.com/sub?token=a14ed9d81bfade5af166b9a928271c17'
+  # 配置分为两部分，tag 和订阅地址，tag 是订阅地址的唯一标识，用于 group 分组筛选节点。
+
+  # Cloudflare
+  sub_cf_vless: 'https://netsub.bbroot.com/sub?token=a14ed9d81bfade5af166b9a928271c17'
+
+  # FreeSocks
+  #sub_freesocks_vless: 'https://freesocks.org/api/v1/sub/698397ddc4bbed7b7cf006739a4b74ec'
+
+  # proxy-socks5.com
+  #sub_ps5_vless: 'https://proxy-socks5.com/normal_sub/b4562d75-b603-4389-b170-edce69b7ed12'
 }
 
-# 负责定义出站.
+# 节点分组，根据过滤规则对节点进行分组，用于 routing 分流到不同的节点.
 group {
+
+  # 分组一，名称是 proxy，用于 routing 选择.
   proxy {
     # No filter. Use all nodes.
 
-    # 每次连接随机选择组中的一个节点。
+    # random：随机选择.
     #policy: random
-    # 每次连接选择组中的第一个节点。
-    policy: fixed(0)
-    # 从每个连接的组中选择具有最小最后延迟的节点。
+    # fixed：固定选择，以下是固定选择第一个节点.
+    #policy: fixed(0)
+    # min：最小最后延迟的节点.
     #policy: min
-    # 从每个连接的组中选择具有最小延迟移动平均值的节点。策略：最小移动平均
-    #policy: min_moving_avg
+    # 从每个连接的组中选择具有最小延迟移动平均值的节点。策略：最小移动平均延迟节点.
+    policy: min_moving_avg
   }
+
+  # AI 分组，用于 claude 等对地区有限制的服务商.
+  ai {
+    # 将会从全局节点池中过滤节点，包括订阅和手动添加的节点.
+    # 过滤名称包含 SG 的作为这个分组的可用节点.
+    filter: subtag(sub_cf_net) && name(keyword: 'SG')
+
+    # 节点选择策略使用 最小移动平均延迟节点.
+    policy: min_moving_avg
+  }
+
 }
