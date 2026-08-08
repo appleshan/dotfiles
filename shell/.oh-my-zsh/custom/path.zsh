@@ -198,3 +198,14 @@ export PATH="$PATH:$HOME/.cargo/bin"
 export PATH="$HOME/.grok/bin:$PATH"
 fpath=(~/.grok/completions/zsh $fpath)
 autoload -Uz compinit && compinit -C
+
+#################
+# bun           #
+#################
+
+# bun completions
+[ -s "/home/alecshan/.bun/_bun" ] && source "/home/alecshan/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
