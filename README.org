@@ -177,6 +177,12 @@ $ tree -a -L 2
 - 文件管理工具
 - 系统自动化脚本
 
+*** 10. AI 编程代理 (codex/ claude/ gemini/)
+- *Codex* (codex/) - ~AGENTS.md~, ~EXAMPLES.md~, ~TOOL-REFERENCE.md~ 协作指令文档
+- *Claude Code* (claude/) - ~CLAUDE.md~ 配置、~statusline.sh~ 状态栏、~hooks/~ 提供 pre-bash、check-project、notify 等安全钩子
+- *Gemini CLI* (gemini/) - ~AGENTS.md~ 与 ~settings.json~ 配置
+- 统一管理三家 AI 编程助手的工作流指令与安全钩子
+
 ** 架构特点
 
 *** 组织结构
@@ -239,6 +245,41 @@ to install my shell configs use the command:
 this will symlink files to ~ and various other places.
 
 note: stow can only create a symlink if a config file does not already exist. if a default file was created upon program installation you must delete it first before you can install a new one with stow. this does not apply to directories, only files.
+
+* 配置管理机制与自动化
+
+本仓库同时维护三套互补的配置管理工具，按日常使用频率从高到低分工:
+
+** 1. GNU Stow (主力)
+- 模块化目录，每个工具一个文件夹；~stow <module>~ 一键将配置符号链接到 =$HOME=
+- 经 ~Makefile~ 批量编排(见下文 Makefile 常用命令)，是日常部署与卸载的主入口
+- 全局忽略规则在 ~stow/.stow-global-ignore~，~stow/.stowrc~ 默认 =--target=$HOME=
+
+** 2. dots.sh (兜底备份/部署)
+- ~scripts/files.sh~ 集中维护一份目标文件清单(=$TARGETS=)
+- ~./dots.sh backup~ 以 rsync 将 =$HOME= 现有配置回写仓库(增量同步，自动跳过已是软链接者)
+- ~./dots.sh deploy~ 按 =$TARGETS= 往 =$HOME= 创建符号链接，覆盖前交互确认
+- 适用于 Stow 目录结构无法直接套用的零散文件，以及从已配置机器向仓库回收配置
+
+** 3. dotfiles.sh (heritage 工具函数)
+- 来自 Jamesits 的 Bash 函数集: ~dotfiles-init~ / ~dotfiles-rebuild~ / ~dotfiles-delete~ / ~dotfiles-count~
+- 适合从零把 =$HOME= 下散落的 =.xxx*= 文件收纳进仓库并自动链接，迁移新系统时很顺手
+
+** Makefile 常用命令
+#+BEGIN_EXAMPLE
+make linux              # 链接所有 LINUX 模块
+make clean              # 移除所有 Stow 链接
+make arch               # 导出原生/AUR 包列表到 scripts/archlinux/ (默认目标)
+make arch-install       # 按包列表在新机器上复装
+make arch-orphans       # 列出孤儿包 -> arch-orphans.txt
+make arch-cleanup       # 清理孤儿包(先 review 再执行)
+make arch-package-check # 分析已装包 -> arch-package-analysis.txt
+make omz-init           # 安装 oh-my-zsh 与主题
+make omz-plugins        # 安装 zsh 插件集
+make tmux-init          # 安装 tpm 并装 tmux 插件
+make help               # 列出全部 Makefile 目标
+make post-archlinux-install # 一键复刻全套系统(装包->Stow->oh-my-zsh->tmux，TODO 待完善)
+#+END_EXAMPLE
 
 * ~/dotfiles -> 配置文件夹
 
@@ -325,6 +366,14 @@ networkmanager              -> 网络管理
 | Shell      | WM / DE | Editor     | Terminal        | Multiplexer | Compositor | Audio      | Monitor | Mail | IRC |
 |------------|---------|------------|-----------------|-------------|------------|------------|---------|------|-----|
 | bash / zsh | i3wm    | Emacs      | alacritty       | tmux        | picom      | pulseaudio | custom  |      |     |
+
+* 价值与定位
+
+- *可复现的工程化环境*：~make post-archlinux-install~ 串联 装包->Stow 链接->oh-my-zsh->tmux，把整晚的手工折腾压缩成一条命令，可在任意 Arch 机器复刻同一套工作环境
+- *多层备份冗余*：Stow 主导 + rsync 兜底 + Git 版本控制，单一环节失控不致丢配置
+- *长期沉淀可信*：超 1000 次提交、365 个被追踪文件，文档与配置同步演进
+- *参考样本价值*：双语 README、Git Topic 工作流、polybar 自定义模块、AI 代理协作配置均有借鉴价值
+- *目标定位*：面向 Arch Linux 桌面用户，兼顾生产力、安全与可维护性的个人一体化环境
 
 * reference
 
