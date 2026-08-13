@@ -1,0 +1,11 @@
+Hook调试技巧
+
+Hooks静默失败的频率超出您的预期。以下是我用于调试的五个技巧：
+
+先独立测试脚本。 手动将示例JSON通过管道传入脚本：echo '{"tool_input":{"command":"git commit -m test"}}' | bash your-hook.sh。如果在Claude Code外部失败，在内部也会失败。
+使用stderr输出调试信息。 hook写入stderr的任何内容都会出现在Claude的上下文中。开发时写入echo "DEBUG: matched $CMD" >&2，hook稳定后再删除。
+注意jq失败。 如果您的JSON路径错误，jq会静默返回null，您的条件判断将不会匹配。请针对真实的工具输入测试您的jq表达式。
+验证退出码。 退出码2阻止操作。退出码1仅发出警告。一个意外使用exit 1的PreToolUse hook在看似正常工作的同时提供零强制力。默认使用宽容模式（exit 0），仅对特定阻止模式使用exit 2。
+保持hooks快速。 Hooks同步运行。一个耗时5秒的hook会给每次匹配的工具使用增加5秒延迟。我将所有hooks控制在2秒以内，理想情况下在500毫秒以内。
+
+https://blakecrosley.com/zh-Hans/blog/claude-code-hooks-tutorial

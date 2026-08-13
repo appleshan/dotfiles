@@ -1,0 +1,201 @@
+{
+  "env": {
+    "API_TIMEOUT_MS": "600000",
+    "CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC": "1",
+    "MAX_THINKING_TOKENS": "32000",
+    "MCP_TIMEOUT": "60000"
+  },
+  "includeCoAuthoredBy": false,
+  "permissions": {
+    "allow": [
+      "Bash",
+      "BashOutput",
+      "Edit",
+      "Glob",
+      "Grep",
+      "KillShell",
+      "NotebookEdit",
+      "Read",
+      "SlashCommand",
+      "Task",
+      "TodoWrite",
+      "WebFetch",
+      "WebSearch",
+      "Write",
+      "mcp__serena__list_dir"
+    ],
+    "deny": [
+      "Bash(rm -rf *)"
+    ]
+  },
+  "model": "sonnet",
+  "hooks": {
+    "SessionStart": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "echo \"🚀 Code is cheap, show me your talk (spec).\";"
+          },
+          {
+            "type": "command",
+            "command": "node ~/projects/ai-coding/claude-code-hooks/hook-scripts/session/session-logger.js"
+          }
+        ]
+      }
+    ],
+    "Notification": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/Long-task_notifier.sh"
+          },
+          {
+            "type": "command",
+            "command": "python ~/projects/ai-coding/claude-code-hooks/hook-scripts/utils/event-logger.py"
+          }
+        ]
+      }
+    ],
+    "PreToolUse": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python ~/projects/ai-coding/claude-code-hooks/hook-scripts/utils/event-logger.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "rtk hook claude"
+          },
+          {
+            "type": "command",
+            "command": "node ~/projects/ai-coding/claude-code-hooks/hook-scripts/pre-tool-use/block-dangerous-commands.js"
+          },
+          {
+            "type": "command",
+            "command": "node ~/projects/ai-coding/claude-code-hooks/hook-scripts/pre-tool-use/git-safety.js"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Edit|Write|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/projects/ai-coding/claude-code-hooks/hook-scripts/pre-tool-use/protect-secrets.js"
+          }
+        ]
+      },
+      {
+        "matcher": "Bash|Edit|MultiEdit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/projects/ai-coding/claude-code-hooks/hook-scripts/pre-tool-use/protect-tests.js"
+          }
+        ]
+      }
+    ],
+    "PostToolUse": [
+      {
+        "matcher": "*",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "python ~/projects/ai-coding/claude-code-hooks/hook-scripts/utils/event-logger.py"
+          }
+        ]
+      },
+      {
+        "matcher": "Read|Edit|Write|Bash",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/projects/ai-coding/claude-code-hooks/hook-scripts/session/session-logger.js",
+            "async": true
+          }
+        ]
+      },
+      {
+        "matcher": "Edit|Write",
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/Auto-add_to_TODO_file.sh"
+          },
+          {
+            "type": "command",
+            "command": "node ~/projects/ai-coding/claude-code-hooks/hook-scripts/post-tool-use/format-code.js"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/Lint-on-save.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/Auto-test_after_code_changes.sh"
+          }
+        ]
+      }
+    ],
+    "Stop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/Auto-commit_on_Stop.sh"
+          },
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/Cost-tracker.sh"
+          }
+        ]
+      }
+    ],
+    "SessionEnd": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "node ~/projects/ai-coding/claude-code-hooks/hook-scripts/session/session-logger.js"
+          }
+        ]
+      }
+    ],
+    "SubagentStop": [
+      {
+        "hooks": [
+          {
+            "type": "command",
+            "command": "~/.claude/hooks/Sub-agent_ROI_tracker.sh"
+          }
+        ]
+      }
+    ]
+  },
+  "statusLine": {
+    "type": "command",
+    "command": "bash ~/.claude/statusline.sh",
+    "padding": 0
+  },
+  "enabledPlugins": {
+    "code-documentation@claude-code-workflows": true,
+    "debugging-toolkit@claude-code-workflows": true,
+    "debugging-tools@claudekit-skills": true,
+    "platform-tools@claudekit-skills": true,
+    "problem-solving-tools@claudekit-skills": true,
+    "specialized-tools@claudekit-skills": true,
+    "superpowers-chrome@superpowers-marketplace": false
+  },
+  "outputStyle": "engineer-professional",
+  "language": "Simplified Chinese",
+  "alwaysThinkingEnabled": true,
+  "editorMode": "vim"
+}
