@@ -181,6 +181,26 @@ export FZF_COMPLETION_TRIGGER='**'
 
 export PATH="$PATH:$HOME/.claude/bin"
 
+## [ECC]
+
+# 通过环境变量
+export CLAUDE_PACKAGE_MANAGER=pnpm
+
+## [ECC] Runtime Hook Controls
+
+# 钩子严格度配置文件（默认值：standard）
+# minimal | standard | strict (default: standard)
+export ECC_HOOK_PROFILE=standard
+
+# Disable specific hook IDs (comma-separated)
+export ECC_DISABLED_HOOKS="session-start:plan-canvas-sessions,stop:plan-canvas-pending,stop:desktop-notify"
+
+# Cap SessionStart additional context (default: 8000 chars)
+export ECC_SESSION_START_MAX_CHARS=4000
+
+# Disable SessionStart additional context entirely
+export ECC_SESSION_START_CONTEXT=off
+
 #################
 # rustup        #
 #################
