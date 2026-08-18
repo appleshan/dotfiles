@@ -61,3 +61,6 @@ alias roll='echo $(head -n1 /var/log/pacman.log | cut -d " " -f 1,2) 以来一�
 # Arch 安装包时校验失败怎么办？
 # from https://young-lord.github.io/posts/arch-makepkg-integrity
 alias yass=yay --mflags "--skipchecksums --skippgpcheck"
+
+# Tmux aliases
+[ ! -f ~/.config/tmux/scripts/tmux_aliases.sh ] || source ~/.config/tmux/scripts/tmux_aliases.sh
