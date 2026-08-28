@@ -234,7 +234,7 @@ bindsym $super+5  workspace $ws5, exec --no-startup-id ~/.local/bin/st thunar
 bindsym $super+6  workspace $ws6
 bindsym $super+7  workspace $ws7
 bindsym $super+8  workspace $ws8
-bindsym $super+9  workspace $ws9, exec --no-startup-id ~/.local/bin/st cc-switch
+bindsym $super+9  workspace $ws9
 bindsym $super+0  workspace $ws0
 
 # => 移动窗口到另一个工作区
