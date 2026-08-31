@@ -23,6 +23,20 @@
 #
 ######################################################################
 
+#########################################
+###         KEY DEFINITIONS          ####
+#########################################
+##     $Mod = Super key or Mod4        ##
+##         Mod1 = ALT key              ##
+##       Control = CTRL key            ##
+##        Shift = SHIFT key            ##
+##       Escape = ESCAPE key           ##
+##    Return = ENTER or RETURN key     ##
+##        Pause = PAUSE key            ##
+##        Print = PRINT key            ##
+##          Tab = TAB key              ##
+#########################################
+
 # => 字体
 # Font for window titles.
 # This font is widely installed, provides lots of unicode glyphs, right-to-left
