@@ -3,5 +3,21 @@ st=$1
 
 # 启动命令与进程名不符的请按格式放在这里
 [ "$st" = "google-chrome-stable" ] && st=chrome
+[ "$st" = "telegram-desktop" ] && st=Telegram
+
+# Append our default paths
+appendpath () {
+    case ":$PATH:" in
+        *:"$1":*)
+            ;;
+        *)
+            PATH="${PATH:+$PATH:}$1"
+    esac
+}
+
+# set PATH so it includes user's private bin if it exists
+if [ -d "$HOME/.local/bin" ] ; then
+    appendpath "$HOME/.local/bin"
+fi
 
 ps -ef | grep -v "grep\|st $1" | grep "$st" > /dev/null || nohup $1 > /dev/null 2>&1
