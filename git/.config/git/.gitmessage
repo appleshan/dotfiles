@@ -1,7 +1,20 @@
 
 
 # head: <type>(<scope>): <subject>
-# - type: feat, fix, docs, style, refactor, test, chore
+# - type:
+#   - feat: (feature)增加新功能
+#   - fix: 修补 bug
+#   - docs: 文档（documentation）， 只改动了文档相关的内容
+#   - style: 不影响代码含义的改动，例如去掉空格、改变缩进、增删分号
+#   - build: 构造工具的或者外部依赖的改动，例如 webpack，npm
+#   - refactor: 代码重构时使用
+#   - revert：回滚到上一个版本,执行 git revert 打印的 message
+#   - test: 添加测试或者修改现有测试
+#   - pref: 提高性能的改动
+#   - chore: 不修改 src 或者 test 的其余修改，例如构建过程或辅助工具的变动
+#   - merge：代码合并
+#   - sync：同步主线或分支的 bug
+#   - ci: 与 CI 有关的改动
 # - scope: can be empty (eg. route, component, utils, build...)
 # - subject: start with verb (such as 'change'), 50-character line
 
