@@ -115,11 +115,13 @@ plugins=(aliases alias-finder \
          # https://github.com/obolientsev/ssh-host
          ssh ssh-host \
          starship sudo systemadmin systemd \
-         tldr tmux toolbox \
+         tldr toolbox \
          ufw urltools uv \
          vscode \
          web-search \
-         zbell zsh-interactive-cd zsh-tab-title \
+         zbell zsh-interactive-cd \
+         # https://github.com/trystan2k/zsh-tab-title
+         zsh-tab-title \
          )
 
 source $ZSH/oh-my-zsh.sh
