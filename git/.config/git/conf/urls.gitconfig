@@ -1,7 +1,6 @@
 # URL shorthands
-[url "git@ssh.github.com:"]
+[url "git@github.com:"]
     insteadOf = "gh:"
-    insteadOf = "git@github.com:"   # 可选：强制所有 GitHub SSH 走 443
     pushInsteadOf = "github:"
     pushInsteadOf = "git://github.com/"
 
@@ -15,6 +14,6 @@
 [url "git://gist.github.com/"]
     insteadOf = "gist:"
 
-[url "git@ssh.github.com:appleshan/"]
+[url "git@github.com:appleshan/"]
     insteadOf = "my:"
 
