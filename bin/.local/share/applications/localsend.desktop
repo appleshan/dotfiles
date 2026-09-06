@@ -1,0 +1,12 @@
+[Desktop Entry]
+Type=Application
+Name=LocalSend
+Version=1.17.0
+Comment=局域网文件互传
+GenericName=An open source cross-platform alternative to AirDrop
+Exec=/bin/bash -c "/home/alecshan/bin/AppImage/LocalSend-1.17.0-linux-x86-64.AppImage 2>/dev/null"
+Icon=/home/alecshan/bin/AppImage/localsend.jpeg
+Terminal=false
+StartupWMClass=localsend_app
+Categories=Network;FileTransfer;Utility;
+StartupNotify=true

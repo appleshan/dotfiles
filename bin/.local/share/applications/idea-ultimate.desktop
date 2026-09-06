@@ -1,0 +1,18 @@
+[Desktop Entry]
+Encoding=UTF-8
+Version=2023.3.2
+Type=Application
+Terminal=false
+
+Icon=idea
+Exec=/home/alecshan/bin/java/idea-IU-233.13135.103/bin/idea.sh
+
+Name=IDEA Ultimate
+GenericName=IntelliJ IDEA Ultimate
+
+Comment=IDEA 2020.1.1 Community Edition
+Categories=Development;IDE;
+
+StartupNotify=true
+# Use 'xprop' to get the WM_CLASS
+StartupWMClass=jetbrains-idea

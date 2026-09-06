@@ -1,0 +1,10 @@
+[Desktop Entry]
+Version=1.0
+Name=Another Redis Desktop Manager 1.6.4
+Comment=Cross-platform open source database management tool for Redis ®
+Type=Application
+Categories=Development;
+Exec=/home/alecshan/bin/AppImage/Another-Redis-Desktop-Manager-linux-1.7.1-x86_64.AppImage
+Terminal=false
+StartupNotify=true
+Icon=/home/alecshan/.local/share/icons/apps/p3x-redis-ui.webp

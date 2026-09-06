@@ -1,0 +1,9 @@
+[Desktop Entry]
+Type=Application
+Name=Cherry Studio
+GenericName[zh_CN]=多模型聚合客户端，日常AI对话主力
+Comment=🍒 Cherry Studio is a desktop client that supports for multiple LLM providers
+Exec=/usr/bin/cherry-studio
+Icon=/usr/share/icons/hicolor/256x256/apps/cherry-studio.png
+Categories=Utility;
+StartupWMClass=CherryStudio

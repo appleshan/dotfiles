@@ -1,0 +1,10 @@
+[Desktop Entry]
+Name=dbgate
+#Exec=/home/alecshan/bin/AppImage/dbgate-5.2.7-linux_x86_64.AppImage
+Exec=/home/alecshan/bin/AppImage/dbgate-5.2.8-beta.6-linux_x86_64.AppImage
+Terminal=false
+Type=Application
+Icon=/home/alecshan/.local/share/icons/apps/dbgate.png
+StartupWMClass=dbgate
+Comment=Opensource database administration tool
+Categories=Development;Utility;Database;
