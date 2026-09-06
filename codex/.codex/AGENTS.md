@@ -147,3 +147,5 @@ Core essentials:
 - Maintain states: `pending` → `in_progress` → `completed`
 - **Only 1 `in_progress` step at a time**
 - Don't repeat plan content after completion, just summarize briefly
+
+@/home/alecshan/.codex/RTK.md

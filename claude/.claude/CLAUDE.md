@@ -173,3 +173,4 @@ Strong success criteria let you loop independently. Weak criteria ("make it work
 ## Personal Context
 
 @CLAUDE.local.md
+@RTK.md
