@@ -1,7 +1,6 @@
 #!/bin/bash
 Dirt=~/persist/ebook/
-#Reader=zathura
-Reader=epdfview
+Reader=zathura
 
 if [ ! -s $Dirt/.find_new_book ]
 then
@@ -11,16 +10,10 @@ then
 	echo bookbub.com >> $Dirt/.find_new_book
 fi
 
-selection=$(ls $Dirt -a | rofi -dmenu)
+selection=$(ls $Dirt -a -I "." -I ".." | rofi -dmenu)
 
 case $selection in
 	"")
-		exit
-		;;
-	.)
-		exit
-		;;
-	..)
 		exit
 		;;
 	.find_new_book)
