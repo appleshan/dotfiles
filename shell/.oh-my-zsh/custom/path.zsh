@@ -229,3 +229,9 @@ autoload -Uz compinit && compinit -C
 # bun
 export BUN_INSTALL="$HOME/.bun"
 export PATH="$BUN_INSTALL/bin:$PATH"
+
+#################
+# starship      #
+#################
+
+export STARSHIP_CONFIG=~/.config/starship/starship.toml
