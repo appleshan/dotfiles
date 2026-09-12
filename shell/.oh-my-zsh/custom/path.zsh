@@ -22,13 +22,13 @@ fi
 # ripgrep
 export RIPGREP_CONFIG_PATH=$HOME/.config/ripgrep/.ripgreprc
 
-PROJECT_PATHS=(~/projects/ai-coding/ ~/projects/private/ ~/projects/working/)
+PROJECT_PATHS=($HOME/projects/ai-coding/ $HOME/projects/private/ $HOME/projects/working/)
 
 ################
 # lazyworktree #
 ################
 
-source ~/.shell/functions/lazyworktree.zsh
+source $HOME/.shell/functions/lazyworktree.zsh
 
 jt() { worktree_jump $(git rev-parse --show-toplevel) "$@"; }
 _jt() { _worktree_jump $(git rev-parse --show-toplevel); }
@@ -216,7 +216,7 @@ export PATH="$PATH:$HOME/.cargo/bin"
 #################
 
 export PATH="$HOME/.grok/bin:$PATH"
-fpath=(~/.grok/completions/zsh $fpath)
+fpath=($HOME/.grok/completions/zsh $fpath)
 autoload -Uz compinit && compinit -C
 
 #################
@@ -224,7 +224,7 @@ autoload -Uz compinit && compinit -C
 #################
 
 # bun completions
-[ -s "/home/alecshan/.bun/_bun" ] && source "/home/alecshan/.bun/_bun"
+[ -s "$HOME/.bun/_bun" ] && source "$HOME/.bun/_bun"
 
 # bun
 export BUN_INSTALL="$HOME/.bun"
@@ -234,4 +234,4 @@ export PATH="$BUN_INSTALL/bin:$PATH"
 # starship      #
 #################
 
-export STARSHIP_CONFIG=~/.config/starship/starship.toml
+export STARSHIP_CONFIG=$HOME/.config/starship/starship.toml
