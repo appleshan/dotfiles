@@ -42,13 +42,17 @@
 [delta]
     # colors/styles
     dark = true      # or light = true, or omit for auto-detection
-    plus-color = "#012800"
-    minus-color = "#340001"
+    plus-color = "#0e3c15"
+    minus-color = "#5a0c0f"
     syntax-theme = "TwoDark"
-    plus-emph-style = "#8c99a2 bold ul auto"
-    minus-emph-style = "#8c99a2 bold ul auto"
-    plus-style = "white #0e3c15 "
-    minus-style="white #5a0c0f"
+    # 35% green 65% base
+    plus-emph-style = bold syntax "#51655a"
+    # 35% red 65% base
+    minus-emph-style = bold syntax "#6a485a"
+    # 20% green 80% base
+    plus-style = syntax "#3e4b4c"
+    # 20% red 80% base
+    minus-style = syntax "#4c3a4c"
     inspect-raw-lines = false
     navigate = true  # use n and N to move between diff sections
     # Line numbers
@@ -66,19 +70,21 @@
 
 [delta "unobtrusive-line-numbers"]
     line-numbers = true
-    line-numbers-minus-style = "#444444"
-    line-numbers-zero-style = "#444444"
-    line-numbers-plus-style = "#444444"
+    line-numbers-minus-style = bold "#ed8796"
+    line-numbers-zero-style = "#6e738d"
+    line-numbers-plus-style = bold "#a6da95"
     line-numbers-left-format = "{nm:>4}┊"
     line-numbers-right-format = "{np:>4}│"
-    line-numbers-left-style = blue
-    line-numbers-right-style = blue
+    line-numbers-left-style = "#6e738d"
+    line-numbers-right-style = "#6e738d"
 
 [delta "decorations"]
     commit-decoration-style = bold yellow box ul
-    file-style = bold yellow ul
+    file-style = "#cad3f5"
     file-decoration-style = none
-    hunk-header-decoration-style = yellow box
+    hunk-header-decoration-style = "#6e738d" box ul
+    hunk-header-file-style = bold
+    hunk-header-line-number-style = bold "#a5adcb"
 
 # }}}
 
