@@ -11,8 +11,8 @@
     editor = nvim
 
     # Use custom `.gitignore` and `.gitattributes`
-    excludesfile = ~/.gitignore
-    attributesfile = ~/.gitattributes
+    excludesfile = ~/.config/git/ignore
+    attributesfile = ~/.config/git/gitattributes
 
     # Treat spaces before tabs and all kinds of trailing whitespace as an error
     # [default] trailing-space: looks for spaces at the end of a line
@@ -91,10 +91,6 @@
 [interactive]
     diffFilter = delta --color-only
 
-[commit]
-    # 设置 commit 模板文件路径
-    template = ~/.config/git/.gitmessage
-
 [difftool "difftastic"]
     # See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
     cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
@@ -155,6 +151,10 @@
 [push]
     # push自动带上tags
     followTags = true
+
+[commit]
+    # 设置 commit 模板文件路径
+    template = ~/.config/git/gitmessage
 
 [credential]
     # 缓存HTTP/HTTPS方式输入的用户名密码时间, 设置为
