@@ -95,37 +95,32 @@
     # 设置 commit 模板文件路径
     template = ~/.config/git/.gitmessage
 
+[difftool "difftastic"]
+    # See `man git-difftool` for a description of MERGED, LOCAL and REMOTE.
+    cmd = difft "$MERGED" "$LOCAL" "abcdef1" "100644" "$REMOTE" "abcdef2" "100644"
+[difftool]
+    # Run the difftool immediately, don't ask 'are you sure' each time.
+    prompt = false
+    trustExitCode = true
+[diff]
+    # Set difftastic as the default difftool, so we don't need to specify
+    # `-t difftastic` every time.
+    tool = difftastic
+    # 移动的行特别显示
+    colorMoved = default
+
 [pager]
-    ; # 以下命令不使用core.pager / $PAGER浏览
+    # Use a pager if the difftool output is larger than one screenful,
+    # consistent with the behaviour of `git diff`.
+    difftool = true
+    # 以下命令不使用core.pager / $PAGER浏览
     log = false
     branch = false
     tag = false
     reflog = false
     ; diff = false
-    difftool = true
     shortlog = false
     grep = false
-
-[diff]
-    tool = difftastic
-    # 移动的行特别显示
-    colorMoved = default
-[difftool]
-    prompt = false
-    trustExitCode = true
-[difftool "difftastic"]
-    cmd = difft \"$LOCAL\" \"$REMOTE\"
-
-[merge]
-    # set "nvim" as tool for merging
-    tool = nvim
-    conflictStyle = diff3
-[mergetool]
-    # automatically launch merge tool without displaying a prompt
-    prompt = false
-    trustExitCode = true
-    # 这样在解决冲突后就不会保留.orig文件了
-    keepBackup = false
 
 # define command which will be used when "nvim" is set as a merge tool
 [mergetool "nvim"]
@@ -133,6 +128,16 @@
     trustExitCode = true
     ; layout = "(LOCAL,BASE,REMOTE)/MERGED"
     cmd = nvim -f -c \"Gvdiffsplit!\" \"$MERGED\"
+[mergetool]
+    # automatically launch merge tool without displaying a prompt
+    prompt = false
+    trustExitCode = true
+    # 这样在解决冲突后就不会保留.orig文件了
+    keepBackup = false
+[merge]
+    # set "nvim" as tool for merging
+    tool = nvim
+    conflictStyle = diff3
 
 [rebase]
     # 在rebase -i 里自动将 之前commit --fixup A 产生的commit 放在 A 之后
