@@ -101,7 +101,7 @@ plugins=(aliases alias-finder \
          emoji encode64 extract eza \
          fancy-ctrl-z \
          genpass gh git-extras gitfast gitignore golang \
-         history httpie isodate jsontools \
+         httpie isodate jsontools \
          magic-enter mvn \
          nmap npm nvm \
          # https://github.com/amyreese/zsh-opt-path
