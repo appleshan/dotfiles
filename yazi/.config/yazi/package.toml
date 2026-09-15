@@ -1,0 +1,24 @@
+[[plugin.deps]]
+use = "yazi-rs/plugins:full-border"
+rev = "58c4f4e"
+hash = "f281261ff04ad7ec867c3f802a50835f"
+
+[[plugin.deps]]
+use = "yazi-rs/plugins:zoom"
+rev = "58c4f4e"
+hash = "83bb4de74060a850749189645413fcae"
+
+[[flavor.deps]]
+use = "marcosvnmelo/kanagawa-dragon"
+rev = "4905527"
+hash = "5fd7aa0bf4e7d9753ad8a4660a6eb94f"
+
+[[flavor.deps]]
+use = "dangooddd/kanagawa"
+rev = "a0b1d9d"
+hash = "abfb0b2371259b2c8adfc7b617c3d7e5"
+
+[[flavor.deps]]
+use = "yazi-rs/flavors:catppuccin-mocha"
+rev = "ffe6e3a"
+hash = "8d7799e4598ff079fa5ee5c770d9bc08"
