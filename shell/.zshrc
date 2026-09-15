@@ -93,7 +93,6 @@ plugins=(aliases alias-finder \
          zsh-autosuggestions \
          # https://github.com/Pilaton/OhMyZsh-full-autoupdate
          ohmyzsh-full-autoupdate \
-         bgnotify \
          colored-man-pages colorize command-not-found \
          copybuffer copyfile copypath cp \
          # https://github.com/joel-porquet/zsh-dircolors-solarized
