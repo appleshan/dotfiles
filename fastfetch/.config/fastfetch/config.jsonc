@@ -65,7 +65,7 @@
         "break",
         {
             "type": "custom",
-            "format": "\u001b[90m┌─────────────────────Software─────────────────────┐"
+            "format": "\u001b[90m┌─────────────────────Software──────────────────────┐"
         },
         {
             "type": "os",
@@ -89,43 +89,42 @@
         },
         {
             "type": "shell",
-            "key": "└ └",
+            "key": "│ ├",
             "keyColor": "yellow"
         },
-        "break",
         {
             "type": "de",
             "key": " DE",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "wallpaper",
             "key": "│ ├",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "lm",
             "key": "│ ├",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "wm",
             "key": "│ ├",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "wmtheme",
             "key": "│ ├󰉼",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "terminal",
             "key": "└ └",
-            "keyColor": "blue"
+            "keyColor": "yellow"
         },
         {
             "type": "custom",
-            "format": "\u001b[90m└──────────────────────────────────────────────────┘"
+            "format": "\u001b[90m└───────────────────────────────────────────────────┘"
         },
         "break",
         {
@@ -152,9 +151,9 @@
             "type": "custom",
             "format": "\u001b[90m└───────────────────────────────────────────────────┘"
         },
-//        {
-//            "type": "colors"
-//        },
+//         {
+//             "type": "colors"
+//         },
         {
             "type": "colors",
             "paddingLeft": 2,
