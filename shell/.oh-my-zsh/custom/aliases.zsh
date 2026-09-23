@@ -5,6 +5,8 @@
 
 # modified commands
 
+unalias pacfiles
+
 # Replace ls with eza for beautiful directory listings
 alias l='eza -lbF'
 alias lt='eza --tree --icons --level=2'
