@@ -5,51 +5,9 @@
 # source me in your script or .bashrc/.zshrc if wanna use cecho
 # source '/path/to/functions.sh'
 
-#  ┬  ┬┌─┐┬─┐┌─┐
-#  └┐┌┘├─┤├┬┘└─┐
-#   └┘ ┴ ┴┴└─└─┘
-
-export LESSCHARSET=utf-8
-
-# less color
-export LESS=-R+Gg
-export LESS_TERMCAP_mb=$'\E[01;31m'    # begin blink
-export LESS_TERMCAP_md=$'\E[01;33m'    # begin bold
-export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
-export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
-export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
-export LESS_TERMCAP_us=$'\E[01;04;32m' # begin underline
-export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
-# and so on
-
-# 控制 ls 显示的时间格式
-export TIME_STYLE='+%Y/%m/%d %H:%M:%S'
-
-export TIMEFORMAT=$'\nreal %3R\tuser %3U\tsys %3S\tpcpu %P\n'
-
-# The FIGNORE environment variable is nice when you want TAB completion
-# to ignore files or folders with certain suffixes, e.g.:
-export FIGNORE=~:.o:.svn:.git:.bak:.swp:.elc:.swa:.pyc:.a:.class:.la:.mo:.obj:.pyo
-
 #  ┬ ┬┬┌─┐┌┬┐┌─┐┬─┐┬ ┬
 #  ├─┤│└─┐ │ │ │├┬┘└┬┘
 #  ┴ ┴┴└─┘ ┴ └─┘┴└─ ┴ 
-
-# @see http://www.talug.org/events/20030709/cmdline_history.html
-# If you include the expression "[ \t]*" in the HISTIGNORE string,
-# you cansuppress history recording at will for any given command
-# just by starting with a space!
-# Larger bash history (allow 32³ entries; default is 500)
-export HISTFILESIZE=10000        # increase history file size (default is 500)
-export HISTSIZE=${HISTFILESIZE}  # increase history size (default is 500)
-export PROMPT_COMMAND="history -a; history -n; ${PROMPT_COMMAND}"   # mem/file sync
-
-# don't put duplicate lines or lines starting with space in the history.
-# See bash(1) for more options
-# leading space hides commands from history
-export HISTCONTROL=$HISTCONTROL:ignorespace
-# no duplicate entries
-export HISTCONTROL=$HISTCONTROL:ignoredups
 
 # @See https://blog.lilydjwg.me/2013/7/3/manually-save-read-zsh-history-entries.39852.html
 # 不保留重复的历史记录项
@@ -106,22 +64,6 @@ setopt PROMPT_SUBST
 unset MAILCHECK
 # 禁用 Zsh 的 Bracketed Paste Mode (解决粘贴出现 ^[[200~ 的问题)
 unset zle_bracketed_paste
-
-# @See https://stackoverflow.com/questions/799576/tput-unknown-terminal
-export TERMINFO=/usr/lib/terminfo
-
-# @See https://wiki.archlinuxcn.org/wiki/Sudo#%E5%BD%A9%E8%89%B2%E5%AF%86%E7%A0%81%E6%8F%90%E7%A4%BA
-export SUDO_PROMPT="$(tput setab 1 setaf 7 bold)[sudo]$(tput sgr0) $(tput setaf 6)password for$(tput sgr0) $(tput setaf 5)%p$(tput sgr0): "
-
-source $ZSH/custom/emacs-functions.sh
-
-# Automatically start tmux
-# export ZSH_TMUX_AUTOSTART=true
-
-#  加载 GitHub 镜像加速的 Shell 包装器
-if [ -f ~/.local/bin/github-wrappers.sh ]; then
-    source ~/.local/bin/github-wrappers.sh
-fi
 
 function twa() {
     echo "================================================================================"
@@ -507,3 +449,35 @@ function y() {
     [ -n "$cwd" ] && [ "$cwd" != "$PWD" ] && builtin cd -- "$cwd"
     rm -f -- "$tmp"
 }
+
+# z - jump around
+# @see https://github.com/rupa/z
+[[ -r "/usr/share/z/z.sh" ]] && source /usr/share/z/z.sh
+
+source $ZSH/custom/emacs-functions.sh
+
+# Automatically start tmux
+# export ZSH_TMUX_AUTOSTART=true
+
+#  加载 GitHub 镜像加速的 Shell 包装器
+if [ -f ~/.local/bin/github-wrappers.sh ]; then
+    source ~/.local/bin/github-wrappers.sh
+fi
+
+#################
+# Node.js       #
+#################
+
+source /usr/share/nvm/init-nvm.sh
+
+################
+# lazyworktree #
+################
+
+source $HOME/.shell/functions/lazyworktree.zsh
+
+jt() { worktree_jump $(git rev-parse --show-toplevel) "$@"; }
+_jt() { _worktree_jump $(git rev-parse --show-toplevel); }
+compdef _jt jt
+
+alias pl='worktree_go_last $(git rev-parse --show-toplevel)'
